@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+   	<string-array name="select_program">
+        <item>扫描二维码 执行脚本</item> 
+        <item>扫描二维码 下载脚本</item> 
+        <item>运行本地脚本</item> 
+        <item>如何使用</item> 
+    </string-array>     
+</resources>

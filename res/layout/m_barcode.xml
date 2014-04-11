@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ /*
+ ** Copyright (C) 2011 Cyril Mottier (http://www.cyrilmottier.com)
+ **
+ ** Licensed under the Apache License, Version 2.0 (the "License");
+ ** you may not use this file except in compliance with the License.
+ ** You may obtain a copy of the License at
+ **
+ **     http://www.apache.org/licenses/LICENSE-2.0
+ **
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ */
+ -->
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:greendroid="http://schemas.android.com/apk/res/com.hipipal.yd2"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/cwhite3"
+	android:orientation="vertical">
+	<LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="5dp"
+		android:background="@drawable/gradual2"
+		/>
+	<FrameLayout
+		android:id="@id/gd_action_bar_content_view"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		>	
+		<ScrollView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/main_content_view"
+			>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+		
+		<ImageView
+ 			android:id="@+id/barcode_img"
+ 			android:visibility="gone"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:scaleType="centerInside"
+			android:src="@null" />
+			
+			<View style="@style/p_line"
+				android:visibility="gone"
+				android:id="@+id/image_line"
+			/>
+						
+			<TextView
+				android:id="@+id/about"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_margin="5.0dip" 
+				android:scrollHorizontally="true" 
+				android:gravity="center"
+		
+				android:paddingLeft="10.0dip"
+				android:paddingRight="10.0dip"
+		
+				android:textColor="@color/topbar"
+				android:text="@string/getcode_desc" />
+		
+			<EditText 
+				android:id="@+id/barcode_content"
+        		android:layout_height="wrap_content" 
+        		android:layout_width="fill_parent"
+				android:layout_margin="10.0dip" 
+				android:paddingLeft="10.0dip"
+				android:paddingRight="10.0dip"
+
+        		android:scrollHorizontally="true" 
+        		android:autoText="false"
+       		 	android:capitalize="none" 
+        		android:gravity="fill_horizontal"
+        		android:lines="5"
+        		android:maxLines="6"
+        		android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+       		<Button
+				android:gravity="center"
+				android:id="@+id/selfcheck_btn"
+				style="@style/gridBox_Title"
+				android:text="@string/form_submit"
+				android:padding="10dp"				
+				android:background="@drawable/background_button"
+				android:layout_marginTop="10.0dip"
+				android:layout_marginBottom="20.0dip"
+				android:layout_marginLeft="50.0dip"
+				android:layout_marginRight="50.0dip"					
+				android:layout_width="fill_parent"
+				android:scaleType="centerInside"
+				android:textColor="@color/cwhite"
+				android:onClick="onNext"
+				android:layout_height="wrap_content"
+				/>  
+
+	</LinearLayout>
+	</ScrollView>
+	
+	</FrameLayout>
+	
+		<LinearLayout 
+		android:id="@+id/return_bar"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="2dp"
+		>
+	</LinearLayout>
+
+	<include layout="@layout/hi_ad_mod" /> 
+	
+	<LinearLayout
+		android:id="@+id/return_bar_box"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/cgrey6"
+		>	
+	<ImageButton
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:onClick="onReturn"
+		android:src="@drawable/ic_right_a" 
+		android:background="@null"
+		/>
+
+		
+
+		<ImageButton
+		android:paddingTop="15.0dip"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:src="@drawable/ic_social_share" 
+		android:background="@null"
+		android:onClick="onShare"
+		/>
+
+	</LinearLayout>		
+	
+</LinearLayout>

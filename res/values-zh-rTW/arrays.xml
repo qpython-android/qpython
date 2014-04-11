@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="select_program">
+<item>掃描二維碼 執行腳本</item>
+<item>掃描二維碼 下載腳本</item>
+<item>運行本地腳本</item>
+<item>如何使用</item>
+</string-array>
+</resources>

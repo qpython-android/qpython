@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:greendroid="http://schemas.android.com/apk/res/com.zuowuxuxi.yd2"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/about_box"
+    android:background="@color/cwhite3"	
+    >
+    <LinearLayout 
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="5dp"
+		android:background="@drawable/gradual2"
+		/>
+	<FrameLayout
+		android:id="@id/gd_action_bar_content_view"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:layout_weight="1"
+		>
+		<ScrollView
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/main_content_view"
+			>
+			
+			<LinearLayout
+				android:paddingLeft="8dp"
+				android:paddingRight="8dp"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="10.0dip"
+				android:orientation="vertical">
+				
+				<TextView
+				style="@style/gridBox_desc"
+				android:id="@+id/about_title"
+				android:text="@string/about_about"
+				android:textSize="17sp" />
+			
+				<View style="@style/p_line"
+					android:id="@+id/about_line"
+				
+				 />
+				<!-- app desc-->
+				
+				<TextView
+				android:id="@+id/about_log"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				style="@style/LinkText_Mid"
+				android:singleLine="false"
+				android:text="@null" 
+				android:textColor="@color/cblack"
+				android:paddingRight="10dp"
+				android:paddingLeft="10dp"
+				/>
+				
+			</LinearLayout>
+			
+		</ScrollView>
+	</FrameLayout>
+	
+	
+	<LinearLayout
+		android:id="@+id/return_bar_box"
+		android:layout_width="fill_parent"
+		android:background="@color/cgrey6"
+		android:layout_height="wrap_content"
+		>			
+		
+		<ImageButton
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:padding="5.0dip"
+		android:layout_margin="0.0dip"
+		android:src="@drawable/ic_main_a" 
+		android:background="@null"
+		android:onClick="onBack"		
+		
+		/>
+		
+		
+		<ImageButton
+		android:id="@+id/play_btn"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:src="@drawable/transparent" 
+		android:padding="5.0dip"
+		android:onClick="onPlay"				
+		android:background="@drawable/transparent"
+		/>
+		
+		<ImageButton
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:padding="5.0dip"
+		android:src="@drawable/transparent" 
+		android:background="@null"
+		/>
+		
+	</LinearLayout>	
+	
+</LinearLayout>
