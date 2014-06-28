@@ -53,6 +53,7 @@ import com.googlecode.android_scripting.rpc.RpcDeprecated;
 import com.googlecode.android_scripting.rpc.RpcOptional;
 import com.googlecode.android_scripting.rpc.RpcParameter;
 import com.hipipal.sl4alib.MNApp;
+import com.zuowuxuxi.util.NUtil;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -602,6 +603,12 @@ public class AndroidFacade extends RpcReceiver {
     mNotificationManager.notify(notificationId, notification);
   }
 
+  @Rpc(description = "Returns the status of network connection.")
+  public boolean getNetworkStatus() {
+	return NUtil.netCheckin(mService.getApplicationContext());
+  }
+
+  
   @Rpc(description = "Returns the intent that launched the script.")
   public Object getIntent() {
     return mIntent;
