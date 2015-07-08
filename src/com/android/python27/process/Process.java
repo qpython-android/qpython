@@ -1,11 +1,19 @@
 package com.android.python27.process;
+import android.os.Environment;
+import android.os.Message;
 import android.util.Log;
 
 import com.android.python27.config.GlobalConstants;
+import com.googlecode.android_scripting.Exec;
+import com.hipipal.sl4alib.CONF;
 import com.hipipal.sl4alib.PyScriptService;
+import com.hipipal.sl4alib.StreamGobbler;
 
 import java.io.File;
 import java.io.FileDescriptor;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -16,7 +24,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Process {
-  //private static final int DEFAULT_BUFFER_SIZE = 8192;
+  private static final int DEFAULT_BUFFER_SIZE = 8192;
 
   private final List<String> mArguments;
   private final Map<String, String> mEnvironment;
@@ -97,7 +105,7 @@ public class Process {
     return mIn;
   }
 
-  /*public void start(final Runnable shutdownHook) {
+  public void start(final Runnable shutdownHook) {
     if (isAlive()) {
       throw new RuntimeException("Attempted to start process that is already running.");
     }
@@ -153,16 +161,16 @@ public class Process {
 
       }
     }).start();
-  }*/
+  }
 
   @SuppressWarnings("unused")
-private String[] getEnvironmentArray() {
-    List<String> environmentVariables = new ArrayList<String>();
-    for (Entry<String, String> entry : mEnvironment.entrySet()) {
-      environmentVariables.add(entry.getKey() + "=" + entry.getValue());
-    }
-    String[] environment = environmentVariables.toArray(new String[environmentVariables.size()]);
-    return environment;
+  private String[] getEnvironmentArray() {
+	    List<String> environmentVariables = new ArrayList<String>();
+	    for (Entry<String, String> entry : mEnvironment.entrySet()) {
+	      environmentVariables.add(entry.getKey() + "=" + entry.getValue());
+	    }
+	    String[] environment = environmentVariables.toArray(new String[environmentVariables.size()]);
+	    return environment;
   }
 
 	/**/

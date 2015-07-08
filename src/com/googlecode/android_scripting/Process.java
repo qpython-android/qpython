@@ -17,7 +17,7 @@
 package com.googlecode.android_scripting;
 
 import com.googlecode.android_scripting.interpreter.InterpreterConstants;
-import com.trilead.ssh2.StreamGobbler;
+import com.hipipal.sl4alib.StreamGobbler;
 
 import java.io.File;
 import java.io.FileDescriptor;
