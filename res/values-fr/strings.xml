@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><resources> 
+    <string name="app_name">QPython</string>
+    <string name="downloaded_home">Téléchargé</string>    
+    <string name="nav_barcode">Barcode balayage</string>    
+    <string name="nav_barcode_desc">Balayage à télécharger</string>    
+    <string name="nav_enter">Utiliser Plugin</string>    
+    <string name="nav_enter_desc">Développer</string>    
+
+    <string name="info_log_of">Sortie de la course {0}</string>
+    <string name="info_src_of">Source de {0}</string>
+
+    <string name="exec_script">Exécutez ce script?</string>
+    <string name="no_log_info">Aucune information de journal</string>
+    <string name="no_src_info">Script ne existe pas</string>
+    <string name="info_run">Course</string>
+    <string name="info_edit"><![CDATA[Voir & Modifier]]></string>
+    <string name="m_title_log">Voir le terme Connexion</string>
+    <string name="m_title_src">Voir le script Détail</string>
+
+    <string name="t_log_not_found">Pas trouvé dernier journal d\'exécution</string>  
+    <string name="nav_createcode">Obtenez QRCode</string>
+    <string name="nav_createcode_desc">Créer QRCode</string>
+    <string name="not_py_file">Il ne fichier pas python</string>
+    <string name="err_when_download">Erreur lors de téléchargement</string>
+    <string name="saved_as">Enregistré comme: {0}</string>
+
+    <string name="getcode_desc">Entrée Content pour obtenir code-barres</string>
+    <string name="input_barcode_content">S\'il vous plaît entrer vos coordonnées</string>
+    <string name="nav_doc">Document</string>
+    <string name="nav_doc_desc">document manuellement</string>
+
+    <string name="about_content"><![CDATA[QPython - est le moteur de script qui fonctionne sur votre téléphone ou tablette appareil Android, qui intègre la programmation Python et de la technologie de lecteur QRCode qui peuvent vous aider à conduire plus vite et plus efficacement les appareils Android travail.]]> </string>
+    <string name="share_info"><![CDATA[QPython - est le moteur de script qui fonctionne sur votre téléphone ou tablette appareil Android, qui intègre la programmation Python et de la technologie de lecteur QRCode qui peuvent vous aider à conduire plus vite et plus efficacement les appareils Android travail.  {0}]]></string>
+
+    <string name="t_wait">chargement</string>
+    <string name="running">Courir ...</string>
+
+    <string name="py_install_ok">Installation réussie</string>
+    <string name="py_install_failed">Installez Échec. S\'il vous plaît vérifier les journaux</string>
+    <string name="need_initialization">Vous devez initialiser l\'environnement python</string>
+
+    <string name="initialization">Initialisation...</string>
+    <string name="m_local_single">Scripts locales</string>
+    <string name="k">KB</string>
+
+    <string name="t_intro">Démarrage Rapide</string>
+
+    <string name="sl4a_running">Service SL4A Courir ...</string>
+
+</resources>
