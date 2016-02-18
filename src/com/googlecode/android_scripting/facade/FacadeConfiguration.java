@@ -84,6 +84,7 @@ public class FacadeConfiguration {
     sFacadeClassList.add(ActivityResultFacade.class);
     sFacadeClassList.add(MediaPlayerFacade.class);
     sFacadeClassList.add(PreferencesFacade.class);
+    sFacadeClassList.add(QPyInterfaceFacade.class);
 
     if (sSdkLevel >= 4) {
       sFacadeClassList.add(TextToSpeechFacade.class);
