@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+//task wrapper(type: Wrapper) {
+//    ersion = '2.2.1'
+//    gradleV
+//    distributionUrl = 'https://services.gradle.org/distributions/gradle-2.2.1-all.zip'
+//}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
+        classpath "io.realm:realm-gradle-plugin:1.1.1"
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        classpath "io.realm:realm-gradle-plugin:3.0.0"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://dl.bintray.com/azeesoft/maven' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+
+subprojects {
+    def androidHome
+
+    if ((androidHome = System.env.'ANDROID_HOME')
+            && (androidHome = androidHome as File).exists()
+            && androidHome.canWrite())
+        apply plugin: 'android-sdk-manager'
+}

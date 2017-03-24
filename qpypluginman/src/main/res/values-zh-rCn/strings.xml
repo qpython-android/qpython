@@ -1,0 +1,11 @@
+<resources>
+    <string name="check_update_error">检查更新失败</string>
+    <string name="latest_version">您的应用已经是最新版本</string>
+    <string name="reminder">提示</string>
+    <string name="has_update">应用有更新</string>
+    <string name="update">更新</string>
+    <string name="show_detail">显示详情</string>
+    <string name="cancel">取消</string>
+    <string name="downloading">正在下载</string>
+    <string name="download_complete">下载完成</string>
+</resources>

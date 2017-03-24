@@ -1,0 +1,433 @@
+<resources>
+    <string name="app_name">QPython</string>
+    <string name="nav_header_name">QPython</string>
+    <string name="nav_header_link">www.qpython.org</string>
+
+    <string name="document">文档</string>
+    <string name="forum">论坛</string>
+    <string name="wiki">Wiki</string>
+    <string name="back_app">再按一次退出程序</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="setting">设置</string>
+    <string name="console">终端</string>
+    <string name="editor">编辑器</string>
+    <string name="program">程序</string>
+    <string name="community">社区</string>
+    <string name="library_manager">库管理</string>
+
+    <string name="setting_about">关于</string>
+    <string name="setting_update">检查新版本</string>
+    <string name="setting_mark">为它打分</string>
+    <string name="setting_back">反馈</string>
+    <string name="setting_about_all">相关</string>
+    <string name="more">更多</string>
+    <string name="lib_manager">库管理</string>
+    <string name="sl4a_server">SL4A服务</string>
+    <string name="normal_program">默认程序</string>
+    <string name="qpypi">QPypi</string>
+    <string name="internal_space">重置内部空间</string>
+    <string name="ftp_server">FTP服务</string>
+
+
+    <!---->
+    <string name="application_terminal">终端模拟器</string>
+    <string name="preferences">首选项</string>
+    <string name="new_window">新窗口</string>
+    <string name="close_window">关闭窗口</string>
+    <string name="window_list">窗口列表</string>
+    <string name="prev_window">前一窗口</string>
+    <string name="next_window">后一窗口</string>
+    <string name="reset">重置终端</string>
+    <string name="send_email">发送电子邮件到...</string>
+    <string name="special_keys">特殊键</string>
+    <string name="toggle_soft_keyboard">打开/关闭软键盘</string>
+
+    <string name="reset_toast_notification">当前窗口终端状态将被重置</string>
+
+    <string name="enable_wakelock">开启唤醒锁</string>
+    <string name="disable_wakelock">关闭唤醒锁</string>
+    <string name="enable_wifilock">开启 Wifi 锁</string>
+    <string name="disable_wifilock">关闭 Wifi 锁</string>
+
+    <string name="edit_text">编辑文本</string>
+    <string name="select_text">选择文本</string>
+    <string name="copy_all">全部复制</string>
+    <string name="send_control_key">发送 Ctrl 键</string>
+    <string name="send_fn_key">发送 Fn 键</string>
+
+    <string name="window_title">窗口 %1$d</string>
+
+    <string name="service_notify_text">会话正在运行</string>
+
+    <string name="process_exit_message">会话已结束</string>
+
+    <!-- Preference dialog -->
+    <string name="screen_preferences">屏幕</string>
+
+    <string name="title_statusbar_preference">状态栏</string>
+    <string name="summary_statusbar_preference">显示/隐藏状态栏。</string>
+    <string name="dialog_title_statusbar_preference">状态栏</string>
+
+    <string name="title_actionbar_preference">操作栏</string>
+    <string name="summary_actionbar_preference">选择操作栏行为 (Android 3.0 及以上)</string>
+    <string name="dialog_title_actionbar_preference">操作栏行为</string>
+
+    <string name="title_orientation_preference">屏幕方位</string>
+    <string name="summary_orientation_preference">选择屏幕方位行为</string>
+    <string name="dialog_title_orientation_preference">屏幕方位行为</string>
+
+    <string name="title_cursorstyle_preference">光标样式</string>
+    <string name="summary_cursorstyle_preference">选择光标样式</string>
+    <string name="dialog_title_cursorstyle_preference">光标样式</string>
+
+    <string name="title_cursorblink_preference">光标闪烁</string>
+    <string name="summary_cursorblink_preference">选择光标闪烁模式</string>
+    <string name="dialog_title_cursorblink_preference">光标闪烁</string>
+
+    <string name="text_preferences">文本</string>
+
+    <string name="title_utf8_by_default_preference">默认 UTF-8</string>
+    <string name="summary_utf8_by_default_preference">是否将 UTF-8 模式设为默认</string>
+
+    <string name="title_fontsize_preference">文本大小</string>
+    <string name="summary_fontsize_preference">选择文本大小</string>
+    <string name="dialog_title_fontsize_preference">文本大小</string>
+
+    <string name="title_color_preference">颜色</string>
+    <string name="summary_color_preference">选择文本颜色</string>
+    <string name="dialog_title_color_preference">文本颜色</string>
+
+    <string name="keyboard_preferences">键盘</string>
+
+    <string name="title_backaction_preference">返回键行为</string>
+    <string name="summary_backaction_preference">选择返回键行为</string>
+    <string name="dialog_title_backaction_preference">返回键行为</string>
+
+    <string name="title_controlkey_preference">Ctrl 键</string>
+    <string name="summary_controlkey_preference">设置 Ctrl 键</string>
+    <string name="dialog_title_controlkey_preference">Ctrl 键</string>
+
+    <string name="title_fnkey_preference">Fn 键</string>
+    <string name="summary_fnkey_preference">设置 Fn 键</string>
+    <string name="dialog_title_fnkey_preference">Fn 键</string>
+
+    <string name="title_ime_preference">输入方式</string>
+    <string name="summary_ime_preference">选择输入方式或软键盘</string>
+    <string name="dialog_title_ime_preference">输入方式</string>
+
+    <string name="shell_preferences">Shell</string>
+    <string name="title_shell_preference">命令行</string>
+    <string name="summary_shell_preference">指定命令行使用的 Shell</string>
+    <string name="dialog_title_shell_preference">Shell</string>
+
+    <string name="title_initialcommand_preference">初始命令</string>
+    <string name="summary_initialcommand_preference">启动 Shell 时自动执行的命令</string>
+    <string name="dialog_title_initialcommand_preference">初始命令</string>
+
+    <string name="title_termtype_preference">终端类型</string>
+    <string name="summary_termtype_preference">设置 Shell 的终端类型</string>
+    <string name="dialog_title_termtype_preference">终端类型</string>
+
+    <string name="title_close_window_on_process_exit_preference">退出时关闭窗口</string>
+    <string name="summary_close_window_on_process_exit_preference">退出 Shell 时是否关闭窗口</string>
+
+    <string name="title_verify_path_preference">验证 PATH 路径</string>
+    <string name="summary_verify_path_preference">是否将 PATH 中无效的路径清除</string>
+
+    <string name="title_do_path_extensions_preference">允许 PATH 后扩</string>
+    <string name="summary_do_path_extensions_preference">是否允许程序添加额外命令到 PATH</string>
+
+    <string name="title_allow_prepend_path_preference">允许 PATH 前置</string>
+    <string name="summary_allow_prepend_path_preference">是否允许程序覆盖 PATH 中已有命令</string>
+
+    <string name="title_home_path_preference">HOME 文件夹</string>
+    <string name="summary_home_path_preference">用作 HOME 的可写文件夹路径</string>
+
+    <string name="control_key_dialog_title">Ctrl 与 Fn 键</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_control_disabled_text">未设置 Ctrl 键</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_fn_disabled_text">未设置 Fn 键</string>
+
+    <string name="confirm_window_close_message">关闭窗口吗？</string>
+
+    <string name="perm_run_script">在终端模拟器中运行命令</string>
+    <string name="permdesc_run_script">允许程序开启新窗口并运行包括与网络、存储卡相关命令在内的所有命令</string>
+    <string name="perm_append_to_path">添加命令到终端模拟器</string>
+    <string name="permdesc_append_to_path">允许程序添加额外命令</string>
+    <string name="perm_prepend_to_path">覆盖终端模拟器中已有命令</string>
+    <string name="permdesc_prepend_to_path">允许程序覆盖终端模拟器中已有命令</string>
+
+    <string name="email_transcript_subject">终端模拟器副本</string>
+    <string name="email_transcript_chooser_title">发送副本的邮件实例：</string>
+    <string name="email_transcript_no_email_activity_found">找不到邮件实例发送副本</string>
+
+    <string name="alt_sends_esc">Alt 键发送 ESC</string>
+    <string name="alt_sends_esc_summary_on">开启 Alt 键发送 ESC</string>
+    <string name="alt_sends_esc_summary_off">关闭 Alt 键发送 ESC</string>
+
+    <string name="title_mouse_tracking_preference">发送鼠标事件</string>
+    <string name="summary_mouse_tracking_preference">触摸与滚屏事件是否被终端忽略</string>
+
+    <string name="dialog_title_menu">菜单</string>
+    <string name="dialog_item_qrcode">扫描二维码</string>
+    <string name="dialog_item_script">运行脚本</string>
+    <string name="dialog_item_project">运行项目</string>
+
+    <string name="dialog_title_script">脚本</string>
+    <string name="dialog_title_project">项目</string>
+
+
+    <string name="title_use_keyboard_shortcuts">Use Keyboard Shortcuts</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: new window, Ctrl-Shift-V: paste.</string>
+    <string name="use_keyboard_shortcuts_summary_off">Keyboard shortcuts disabled.</string>
+    <string name="help">Help</string>
+    <string name="activity_term_here_title">Term here</string>
+    <!-- BEGIN SHORTCUT RELATED STRINGS -->
+    <!-- AndroidManifest.xml -->
+    <string name="activity_shortcut_create">"Term shortcut"</string>
+    <string name="addshortcut_button_find_command">Find command</string>
+    <string name="addshortcut_command_hint">command</string>
+    <string name="addshortcut_example_hint">--example=\""a\"</string>
+    <string name="addshortcut_navigator_title">SELECT SHORTCUT TARGET</string>
+    <string name="addshortcut_command_window_instructions">Command window requires full mPath, no arguments. For other commands use Arguments window (ex: cd /sdcard).</string>
+    <string name="addshortcut_arguments_label">Arguments\:</string>
+    <string name="addshortcut_shortcut_label">Shortcut label\:</string>
+    <string name="addshortcut_button_text_icon">Text icon</string>
+    <string name="addshortcut_make_text_icon">MAKE TEXT ICON</string>
+    <string name="addshortcut_text_icon_instructions"></string>
+    <string name="addshortcut_title">Term shortcut</string>
+    <!-- FSNavigator.java -->
+    <string name="fsnavigator_title">FILE SELECTOR</string>
+    <string name="fsnavigator_no_external_storage">External storage not available</string>
+    <string name="fsnavigator_optional_enter_path">Or enter mPath here.</string>
+    <string name="fsnavigator_change_theme">Change theme</string>
+    <!-- ColorValue.java -->
+    <string name="colorvalue_letter_alpha">α</string>
+    <string name="colorvalue_letter_red">R</string>
+    <string name="colorvalue_letter_green">G</string>
+    <string name="colorvalue_letter_blue">B</string>
+    <string name="colorvalue_label_lock_button_column">LOCK</string>
+    <string name="colorvalue_icon_text_entry_hint">Enter icon text</string>
+
+    <string name="help_url" translatable="false">http://jackpal.github.com/Android-Terminal-Emulator/help/index.html</string>
+
+
+    <string name="new_file">新建</string>
+    <string name="open">打开</string>
+    <string name="save">保存</string>
+    <string name="undo">撤销</string>
+    <string name="redo">重做</string>
+    <string name="save_all">全部保存</string>
+    <string name="save_as">另存为</string>
+    <string name="recent_files">最近打开</string>
+    <string name="line_separator">换行符</string>
+    <string name="select_all">全选</string>
+    <string name="duplication_line">重复行</string>
+    <string name="find_in_files">搜索文件</string>
+    <string name="jump_to_start">跳到开始</string>
+    <string name="jump_to_end">跳到结束</string>
+    <string name="goto_line">跳到行</string>
+    <string name="back">上个位置</string>
+    <string name="forward">下个位置</string>
+    <string name="document_info">文档信息</string>
+    <string name="symbol">符号</string>
+    <string name="insert_color">插入颜色</string>
+    <string name="highlight_language">高亮语言</string>
+    <string name="encoding">编码</string>
+    <string name="read_only">只读模式</string>
+    <string name="insert_datetime">插入时间</string>
+    <string name="edit_mode">编辑模式</string>
+    <string name="run">运行</string>
+    <string name="file">文件</string>
+    <string name="other">其它</string>
+    <string name="view">查看</string>
+    <string name="edit">编辑</string>
+    <string name="new_filename">无标题 %d</string>
+    <string name="confirm_save">确认保存</string>
+    <string name="confirm_save_msg">文档 %s 尚未保存，是否保存并关闭</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="cannt_access_file">文件 %s 无法访问</string>
+    <string name="cannt_read_file">无法读取文件 %s</string>
+    <string name="ok">确定</string>
+    <string name="read_file_exception">读取文件时发生异常</string>
+    <string name="init_syntax_msg">正在初始化语法高亮…</string>
+    <string name="init_syntax_error">初始化语法文件失败，请检查是否有足够的存储空间</string>
+    <string name="init_build_index_error">建立索引失败</string>
+    <string name="close">关闭</string>
+    <string name="cancel">取消</string>
+    <string name="convert_wrap_char">转换换行符</string>
+    <string name="path_x">路径：%s</string>
+    <string name="char_x">字符数：%d</string>
+    <string name="word_x">单词数：%d</string>
+    <string name="line_number_x">行数：%d</string>
+    <string name="encoding_x">编码：%s</string>
+    <string name="tab">标签</string>
+    <string name="no_change">没有任何改变</string>
+    <string name="save_success">保存成功</string>
+    <string name="find_label">Find What:</string>
+    <string name="replace_label">Replace With:</string>
+    <string name="case_sensitive">Case sensitive</string>
+    <string name="whole_words_only">Whole words only</string>
+    <string name="regex">Regular expression</string>
+    <string name="in_path">In Path:</string>
+    <string name="recursively">Recursively</string>
+    <string name="cannot_be_empty">不能为空</string>
+    <string name="path_not_exists">路径不存在</string>
+    <string name="find_not_found">找不到结果</string>
+    <string name="previous_occurrence">向上查找</string>
+    <string name="next_occurrence">查找下一个</string>
+    <string name="replace_all">替换全部</string>
+    <string name="searching">搜索中…</string>
+    <string name="select_lang_to_highlight">Select a language to highlight</string>
+    <string name="more_menu">更多菜单</string>
+    <string name="reopen_with_encoding">使用该编码重新打开</string>
+    <string name="save_as_file_first">请先保存为文件</string>
+    <string name="document_changed">文档已经改变</string>
+    <string name="give_up_document_changed_message">文档已经改变，重新打开将放弃改变，确认要放弃？</string>
+    <string name="preview_in_browser">在浏览器预览</string>
+    <string name="use_sl4a_in_background_run_script">调用SL4A在后台运行脚本</string>
+    <string name="use_sl4a_in_terminal_run_script">调用SL4A在命令行运行脚本</string>
+    <string name="please_save_as_file_first">请先保存为文件</string>
+    <string name="run_fail_message">调用外部应用失败</string>
+    <string name="settings">设置</string>
+    <string name="font">字体</string>
+    <string name="default_value">默认值</string>
+    <string name="font_size">字体大小</string>
+    <string name="cursor_width">光标宽度</string>
+    <string name="touch_to_adjust_text_size">多点触摸缩放字体大小</string>
+    <string name="word_wrap_in_editor">自动换行</string>
+    <string name="show_linenumber">显示行号</string>
+    <string name="show_whitespace">显示空白字符</string>
+    <string name="auto_indent">自动缩进</string>
+    <string name="insert_space_for_tab">使用空格代替制表符</string>
+    <string name="indent_size">缩进大小</string>
+    <string name="highlight_and_theme">高亮和主题</string>
+    <string name="highlight_the_file_size_limit">限制高亮的文件大小</string>
+    <string name="select_theme">选择主题（待开发）</string>
+    <string name="auto_save">自动保存文档</string>
+    <string name="remember_last_opened_files">记住最后打开的文件</string>
+    <string name="remember_last_opened_files_summary">启动编辑器时自动打开上次打开的文件</string>
+    <string name="screen_orientation">屏幕方向</string>
+    <string name="keep_screen_on">保持屏幕常亮</string>
+    <string name="auto_capitalize">首字母自动大写</string>
+    <string name="feedback">意见反馈</string>
+    <string name="donate">捐赠</string>
+    <string name="help_translate">翻译本应用</string>
+    <string name="about">关于</string>
+    <string name="enable_highlight">启用语法高亮</string>
+    <string name="version_x">版本：%s</string>
+    <string name="need_to_enable_read_storage_permissions">需要打开读取存储器权限</string>
+    <string name="file_not_exists">文件不存在</string>
+    <string name="cannt_handle_intent_x">无法处理来源信息：%s</string>
+    <string name="handle_intent_x_error">处理来源：%s 时发生错误</string>
+    <string name="hex_color_char" translatable="false">#</string>
+    <string name="color_R" translatable="false">R:</string>
+    <string name="color_G" translatable="false">G:</string>
+    <string name="color_B" translatable="false">B:</string>
+    <string name="verify_sign_failure">你当前使用的是非官方发布的应用，请转到 https://github.com/jecelyin/920-text-editor-v2/releases 下载官方发布的应用。</string>
+    <string name="press_again_will_exit">再按一次返回按钮将退出程序</string>
+    <string name="find_replace">查找/替换</string>
+    <string name="find_title">\"%s\" Find Results</string>
+    <string name="zero_matches">0 matches</string>
+    <string name="chooser_browser">选择一个浏览器</string>
+    <string name="find_or_replace">查找/替换…</string>
+    <string name="other_application">其它程序…</string>
+    <string name="chooser_application">选择程序</string>
+    <string name="editor_create_unknown_exception">创建编辑器时发生未知异常</string>
+    <string name="convert_to_uppercase">转换为大写</string>
+    <string name="convert_to_lowercase">转换为小写</string>
+    <string name="duplication_text">重复选中文本</string>
+    <string name="tab_size">制表符大小</string>
+    <string name="new_version_available">发现新版本</string>
+    <string name="install">安装</string>
+    <string name="new_version_update_content">Latest Version: %1$s\n\nWhat\'s New:\n%2$s</string>
+    <string name="download_progress">正在下载：%1$d%%</string>
+    <string name="download_failure_x">下载失败：%s</string>
+    <string name="start_download">开始下载</string>
+    <string name="auto_check_updates">自动检查更新</string>
+    <string name="cannt_download">无法下载</string>
+    <string name="readonly_mode_not_support_this_action">Read-only mode does not support this action</string>
+    <string name="x_text_replaced">%d text has been replaced</string>
+    <string name="enable_root">启用Root权限</string>
+    <string name="my_name">作者：彭春瑜</string>
+    <string name="my_email" translatable="false"><![CDATA[Email：<a href="mailto:jecelyin@gmail.com">jecelyin@gmail.com</a>]]></string>
+    <string name="project_url" translatable="false"><![CDATA[URL：<a href="https://github.com/jecelyin/920-text-editor-v2/">https://github.com/jecelyin/920-text-editor-v2/</a>]]></string>
+    <string name="qq_group">QQ群：87272821</string>
+    <string name="license"><![CDATA[Copyright (C) 2016 Jecelyin Peng,\n\n920 Text Editor open source software is licensed under the Apache License 2.0]]></string>
+    <string name="open_with_external_browser">使用外部浏览器打开</string>
+    <string name="contact_email_optional">联系Email（可选）</string>
+    <string name="with_error_logs">错误日志</string>
+    <string name="content">内容</string>
+    <string name="send">发送</string>
+    <string name="feedback_content_length_must_be_greater_than_x_char">反馈内容长度必须大于%d个字</string>
+    <string name="feedback_submit_error_x">提交反馈失败：%s</string>
+    <string name="submit_success">提交成功</string>
+    <string name="agree">返回</string>
+    <string name="alert">提示</string>
+    <string name="no_find_img">没有扫描到二维码信息</string>
+    <string name="no_camera">没有发现可用的摄像头，请查看是否开启摄像头权限</string>
+    <string name="no_storage">没有文件读取权限</string>
+    <string name="list_alert">扫描到了二维码</string>
+    <plurals name="x_text_replaced">
+        <item quantity="zero">0 found</item>
+        <item quantity="other">%d text replaced</item>
+    </plurals>
+    <string-array name="insert_datetime_lang">
+        <item>英语</item>
+        <item>中文</item>
+    </string-array>
+    <string-array name="wrap_char_list">
+        <item>转换为 \\n（Linux/OSX）</item>
+        <item>转换为 \\r\\n（Windows）</item>
+    </string-array>
+    <string-array name="date_number">
+        <item>〇</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+        <item>七</item>
+        <item>八</item>
+        <item>九</item>
+        <item>十</item>
+    </string-array>
+    <string-array name="screen_orientation">
+        <item>自动</item>
+        <item>横屏</item>
+        <item>竖屏</item>
+    </string-array>
+
+    <string-array name="list_select">
+        <item>在编辑器中打开</item>
+        <item>在.....打开</item>
+        <item>重新扫描</item>
+    </string-array>
+
+
+    <string name="recent_download">已下载</string>
+    <array name="library">网络库</array>
+
+    <string name="load_failed">加载失败，点击重新加载</string>
+    <string name="download_error">加载出现了问题，点击文字，重新加载</string>
+    <string name="download">下载</string>
+
+
+    <string-array name="tab_string">
+        <item>网络库</item>
+        <item>已下载</item>
+    </string-array>
+
+
+    <string name="private_version">10000</string>
+    <string name="public_version">10000</string>
+    <string name="pref_initialcommand_default_qpython">python</string>
+    <string name="use_qpython_run_script">调用QPython运行</string>
+
+</resources>

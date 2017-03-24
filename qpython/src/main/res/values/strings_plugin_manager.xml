@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_plugin_uninstall_complete">Plugin uninstall complete</string>
+    <string name="toast_plugin_install_complete">Plugin install complete</string>
+    <string name="toast_plugin_install_failure">Plugin install fail</string>
+    <string name="dialog_plugin_detail_positive">OK</string>
+    <string name="title_select_plugin">Select plugin</string>
+    <string name="title_plugin_manage">Plugin manager</string>
+    <string name="toast_read_permission_deny">Permission deny</string>
+
+    <string name="plugin_install">Install</string>
+    <string name="plugin_uninstall">UnInstall</string>
+    <string name="plugin_update">Update</string>
+    <string name="plugin_detail">Detail</string>
+
+    <string-array name="plugin_tab">
+        <item>Local plugin</item>
+        <item>Cloud plugin</item>
+    </string-array>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The underline color and thickness for misspelled suggestion -->
+    <attr name="textAppearanceMisspelledSuggestion" format="reference" />
+    <!--  The underline color -->
+    <attr name="textUnderlineColor" format="reference|color" />
+    <!--  The underline thickness -->
+    <attr name="textUnderlineThickness" format="reference|dimension" />
+
+    <declare-styleable name="SuggestionSpan">
+        <attr name="textUnderlineColor" />
+        <attr name="textUnderlineThickness" />
+    </declare-styleable>
+
+    <!-- The underline color and thickness for easy correct suggestion -->
+    <attr name="textAppearanceEasyCorrectSuggestion" format="reference" />
+    <!-- The underline color and thickness for auto correction suggestion -->
+    <attr name="textAppearanceAutoCorrectionSuggestion" format="reference" />
+
+    <declare-styleable name="SelectionModeDrawables">
+        <attr name="actionModeSelectAllDrawable" />
+        <attr name="actionModeCutDrawable" />
+        <attr name="actionModeCopyDrawable" />
+        <attr name="actionModePasteDrawable" />
+        <attr name="actionModeFindDrawable" />
+    </declare-styleable>
+</resources>

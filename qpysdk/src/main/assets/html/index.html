@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .loading div{
+        position: relative;
+        top:40px;
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        background: #777;
+        display: inline-block;
+        margin: 4px;
+        transition: top .2s;
+        }
+    </style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>MIAndLib WebView</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/css/style.css" />
+<script type="text/javascript" src="../stylesheets/js/jquery.js"></script>
+<!--script type="text/javascript" src="../android.js"></script>
+<script type="text/javascript" src="../json2.js"></script-->
+
+</head>
+<body>
+<div id="header"></div>
+<div id="wrapper"><div id='mainEle'>
+    <div class="loading"><div></div><div></div><div></div><div></div><div></div>&emsp;&emsp;&emsp;</div>
+</div></div>
+<div id="footer"></div>
+</body>
+<script>
+function loading_animate(){
+    var num = 0
+    $('.loading div').each(function(){
+        var _this = $(this)
+        setTimeout(function(){
+            _this.css({'transition': 'top .25s ease-out', 'top': '48px'});
+        },200*num);
+        setTimeout(function(){
+            _this.css({'transition': 'top .5s ease-in-out', 'top': '32px'});
+        },250+200*num);
+        setTimeout(function(){
+            _this.css({'transition': 'top .25s ease-in', 'top': '40px'});
+        },750+200*num);
+        num++;
+    });
+    setTimeout(loading_animate, num*200 + 950)
+}
+loading_animate()
+</script>
+<script type="text/javascript" src="index.js"></script>
+</html>

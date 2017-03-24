@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="program_explorer_back">上一级</string>
+    <string name="program_item_menu_open">打开</string>
+    <string name="program_item_menu_run">运行</string>
+    <string name="program_item_menu_delete">删除</string>
+</resources>

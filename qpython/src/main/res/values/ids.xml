@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="m_new" type="id" />
+    <item name="m_open" type="id" />
+    <item name="m_save" type="id" />
+    <item name="m_save_all" type="id" />
+    <item name="m_save_as" type="id" />
+    <item name="m_history" type="id" />
+    <item name="m_cut" type="id" />
+    <item name="m_copy" type="id" />
+    <item name="m_paste" type="id" />
+    <item name="m_select_all" type="id" />
+    <item name="m_undo" type="id" />
+    <item name="m_redo" type="id" />
+    <item name="m_wrap" type="id" />
+    <item name="m_duplication" type="id" />
+    <item name="m_find_replace" type="id" />
+    <item name="m_goto_top" type="id" />
+    <item name="m_goto_end" type="id" />
+    <item name="m_goto_line" type="id" />
+    <item name="m_back" type="id" />
+    <item name="m_forward" type="id" />
+    <item name="m_info" type="id" />
+    <item name="m_symbol" type="id" />
+    <item name="m_readonly" type="id" />
+    <item name="m_highlight" type="id" />
+    <item name="m_encoding" type="id" />
+    <item name="m_color" type="id" />
+    <item name="m_datetime" type="id" />
+    <item name="m_run" type="id" />
+    <item name="m_menu" type="id" />
+    <item name="m_settings" type="id" />
+    <item name="m_convert_to_uppercase" type="id" />
+    <item name="m_convert_to_lowercase" type="id" />
+</resources>

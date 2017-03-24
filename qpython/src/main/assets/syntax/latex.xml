@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<!-- jEdit LaTeX mode
+  written by: Michael Schlotter, m.schlotter@bath.ac.uk
+  latex.xml, v1.4.2, 26 November 2009
+  
+  Suggested catalog entry:
+  <MODE NAME="latex" FILE="latex.xml"
+    FILE_NAME_GLOB="*.{tex,ltx,latex,sty,cls}" />
+-->
+
+<MODE>
+  <PROPS>
+    <!-- comments, word separators -->
+    <PROPERTY NAME="lineComment" VALUE="%" />
+    <PROPERTY NAME="wordBreakChars" VALUE="" />
+    <PROPERTY NAME="noWordSep" VALUE="\@_-:*&lt;&gt;" />
+    
+    <!-- indenting -->
+     
+    <PROPERTY NAME="deepIndent" VALUE="FALSE" />
+    <PROPERTY NAME="doubleBracketIndent" VALUE="FALSE" />
+    <PROPERTY NAME="lineUpClosingBrackets" VALUE="FALSE" />
+    <!-- Commented out due to # 3432974 
+    <PROPERTY NAME="indentOpenBrackets" VALUE="{[" />
+    <PROPERTY NAME="indentCloseBrackets" VALUE="]}" />
+    <PROPERTY NAME="indentNextLines" VALUE="^.*(\\begin\s*\{.*)$" />
+    <PROPERTY NAME="unindentThisLine" VALUE="^[ \t]*(\\item.*|\\end\s*\{.*)$" />
+    <PROPERTY NAME="unindentNextLines" VALUE="^.*(\\end\s*\{.*)$" />
+    <PROPERTY NAME="electricKeys"
+              VALUE="{abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+    -->
+    <PROPERTY NAME="unalignedOpenBrackets" VALUE="(" />
+    <PROPERTY NAME="unalignedCloseBrackets" VALUE=")" />
+    
+    
+  </PROPS>
+  
+  <!-- default rules -->
+  <RULES
+    IGNORE_CASE="FALSE"
+    NO_WORD_SEP="@_-:*"
+    HIGHLIGHT_DIGITS="FALSE">
+    
+    <!-- \verb|sometext|; any delimeter except * can be used -->
+    <SPAN_REGEXP TYPE="KEYWORD2" DELEGATE="VerbatimRules"
+        HASH_CHAR="\" NO_LINE_BREAK="TRUE">
+      <BEGIN>.verb[\*]?([\p{Punct}&amp;&amp;[^*]])</BEGIN>
+      <END>$1</END>
+    </SPAN_REGEXP>
+    
+    <!-- verbatim environments -->
+    <SPAN TYPE="KEYWORD1" DELEGATE="VerbatimRules">
+      <BEGIN>\begin{verbatim*}</BEGIN><END>\end{verbatim*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="VerbatimRules">
+      <BEGIN>\begin{verbatim}</BEGIN><END>\end{verbatim}</END>
+    </SPAN>
+    
+    <!-- mathematical environments, including AMS definitions -->
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>$$</BEGIN><END>$$</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>$</BEGIN><END>$</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\(</BEGIN><END>\)</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\[</BEGIN><END>\]</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{math}</BEGIN><END>\end{math}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{displaymath}</BEGIN><END>\end{displaymath}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{equation*}</BEGIN><END>\end{equation*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{equation}</BEGIN><END>\end{equation}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{eqnarray*}</BEGIN><END>\end{eqnarray*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{eqnarray}</BEGIN><END>\end{eqnarray}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{align*}</BEGIN><END>\end{align*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{align}</BEGIN><END>\end{align}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{alignat*}</BEGIN><END>\end{alignat*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{alignat}</BEGIN><END>\end{alignat}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{flalign*}</BEGIN><END>\end{flalign*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{flalign}</BEGIN><END>\end{flalign}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{gather*}</BEGIN><END>\end{gather*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{gather}</BEGIN><END>\end{gather}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{multline*}</BEGIN><END>\end{multline*}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD1" DELEGATE="MathRules">
+      <BEGIN>\begin{multline}</BEGIN><END>\end{multline}</END>
+    </SPAN>
+    
+    <!-- labels - includes all commands ending with `ref' and `*ref' -->
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\label{</BEGIN><END>}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\cite{</BEGIN><END>}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\hyperlink{</BEGIN><END>}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\hypertarget{</BEGIN><END>}</END>
+    </SPAN>
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\url{</BEGIN><END>}</END>
+    </SPAN>
+    <SPAN_REGEXP TYPE="KEYWORD4" DELEGATE="LabelRules"
+        HASH_CHAR="\" NO_LINE_BREAK="TRUE">
+      <BEGIN>.[\p{Alnum}]*ref[\*]?\{</BEGIN>
+      <END>}</END>
+    </SPAN_REGEXP>
+    
+    <!-- escaped characters which are treated as normal text -->
+    <SEQ TYPE="NULL">\&amp;</SEQ>
+    <SEQ TYPE="NULL">\$</SEQ>
+    <SEQ TYPE="NULL">\%</SEQ>
+    <SEQ TYPE="NULL">\#</SEQ>
+    <SEQ TYPE="NULL">\_</SEQ>
+    <SEQ TYPE="NULL">\{</SEQ>
+    <SEQ TYPE="NULL">\}</SEQ>
+    
+    <!-- tabbing tokens (or accents, depending on environment) -->
+    <SEQ TYPE="KEYWORD2">\=</SEQ>
+    <SEQ TYPE="KEYWORD2">\&gt;</SEQ>
+    <SEQ TYPE="KEYWORD2">\&lt;</SEQ>
+    <SEQ TYPE="KEYWORD2">\+</SEQ>
+    <SEQ TYPE="KEYWORD2">\-</SEQ>
+    <SEQ TYPE="KEYWORD2">\'</SEQ>
+    <SEQ TYPE="KEYWORD2">\`</SEQ>
+    
+    <!-- more accents incl. those specific to tabbing environment -->
+    <SEQ TYPE="KEYWORD2">\^</SEQ>
+    <SEQ TYPE="KEYWORD2">\"</SEQ>
+    <SEQ TYPE="KEYWORD2">\~</SEQ>
+    <SEQ TYPE="KEYWORD2">\.</SEQ>
+    <SEQ TYPE="KEYWORD2">\a'</SEQ>
+    <SEQ TYPE="KEYWORD2">\a`</SEQ>
+    <SEQ TYPE="KEYWORD2">\a=</SEQ>
+    
+    <!-- special tokens: macro parameter, linebreak, alignment tab -->
+    <SEQ_REGEXP TYPE="DIGIT">#[1-9]</SEQ_REGEXP>
+    <SEQ TYPE="KEYWORD3">\\</SEQ>
+    <SEQ TYPE="KEYWORD3">&amp;</SEQ>
+    
+    <!-- comments -->
+    <SPAN TYPE="COMMENT2">
+      <BEGIN>\iffalse</BEGIN><END>\fi</END>
+    </SPAN>
+    <EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
+    
+    <!-- quotes, including those defined by package `(n)german' -->
+    <SPAN_REGEXP TYPE="LITERAL1"><BEGIN>``</BEGIN><END REGEXP="TRUE">''|"</END></SPAN_REGEXP>
+    <SPAN TYPE="LITERAL1"><BEGIN>"`</BEGIN><END>"'</END></SPAN>
+    <SPAN TYPE="LITERAL1"><BEGIN>"&lt;</BEGIN><END>"&gt;</END></SPAN>
+    <SPAN TYPE="LITERAL1"><BEGIN>\glqq</BEGIN><END>\grqq</END></SPAN>
+    <SPAN TYPE="LITERAL1"><BEGIN>\glq</BEGIN><END>\grq</END></SPAN>
+    <SPAN TYPE="LITERAL1"><BEGIN>\flqq</BEGIN><END>\frqq</END></SPAN>
+    <SPAN TYPE="LITERAL1"><BEGIN>\flq</BEGIN><END>\frq</END></SPAN>
+    
+    <!-- environment delimeters: \begin{...} ... \end{...} -->
+    <SEQ_REGEXP HASH_CHAR="\" TYPE="KEYWORD1"
+      >(.begin\{([\p{Alnum}|@|\*]*)\})</SEQ_REGEXP>
+    <SEQ_REGEXP HASH_CHAR="\" TYPE="KEYWORD1"
+      >(.end\{([\p{Alnum}|@|\*]*)\})</SEQ_REGEXP>
+    
+    <!-- \... commands -->
+    <MARK_FOLLOWING TYPE="KEYWORD2">\</MARK_FOLLOWING>
+    
+    <!-- group delimeters -->
+    <SEQ TYPE="KEYWORD4">{</SEQ>
+    <SEQ TYPE="KEYWORD4">}</SEQ>
+    <SEQ TYPE="KEYWORD4">[</SEQ>
+    <SEQ TYPE="KEYWORD4">]</SEQ>
+  </RULES>
+  
+  <!-- math rules -->
+  <RULES
+    SET="MathRules"
+    DEFAULT="LITERAL2"
+    IGNORE_CASE="FALSE"
+    NO_WORD_SEP="@:"
+    HIGHLIGHT_DIGITS="FALSE">
+    
+    <!-- labels -->
+    <SPAN TYPE="KEYWORD4" DELEGATE="LabelRules" NO_LINE_BREAK="TRUE">
+      <BEGIN>\label{</BEGIN><END>}</END>
+    </SPAN>
+    
+    <!-- escaped characters which are treated as normal text -->
+    <SEQ TYPE="LITERAL2">\&amp;</SEQ>
+    <SEQ TYPE="LITERAL2">\$</SEQ>
+    <SEQ TYPE="LITERAL2">\%</SEQ>
+    
+    <!-- special tokens: macro parameter, linebreak, alignment tab -->
+    <SEQ_REGEXP TYPE="DIGIT">#[1-9]</SEQ_REGEXP>
+    <SEQ TYPE="KEYWORD3">\\</SEQ>
+    <SEQ TYPE="KEYWORD3">&amp;</SEQ>
+    
+    <!-- labels -->
+    <MARK_FOLLOWING TYPE="LABEL" MATCH_TYPE="KEYWORD4">\label{</MARK_FOLLOWING>
+    
+    <!-- comments -->
+    <EOL_SPAN TYPE="COMMENT1">%</EOL_SPAN>
+  </RULES>
+  
+  <!-- verbatim rules -->
+  <RULES SET="VerbatimRules" DEFAULT="LITERAL3" />
+  
+  <!-- label rules -->
+  <RULES SET="LabelRules" DEFAULT="LABEL" />
+
+</MODE>
+

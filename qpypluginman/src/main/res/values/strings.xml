@@ -1,0 +1,11 @@
+<resources>
+    <string name="check_update_error">Check update fail</string>
+    <string name="latest_version">Already update</string>
+    <string name="reminder">Hint</string>
+    <string name="has_update">New version available</string>
+    <string name="update">Update</string>
+    <string name="show_detail">Show detail</string>
+    <string name="cancel">Cancel</string>
+    <string name="downloading">Downloading</string>
+    <string name="download_complete">Downloaded</string>
+</resources>

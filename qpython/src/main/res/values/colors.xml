@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#313131</color>
+    <color name="colorPrimaryDark">#313131</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#FF707070</color>
+
+
+    <color name="ripple_normal">#CACCCB</color>
+    <color name="ripple_dark">#B0B2B1</color>
+    <color name="divider_light">#e0e0e0</color>
+    <color name="text_dark">#333333</color>
+
+    <color name="background_grey">#efeff4</color>
+    <color name="divider">#e3e3e8</color>
+
+
+    <color name="scrollbar_track">#85cccccc</color>
+    <color name="colorControlHighlight">@color/ripple_material_light</color>
+    <color name="ripple_material_light">#40000000</color>
+    <color name="tool_layout_bg">#F4F4F4</color>
+    <color name="main_menu_bg">#f0f2f5f8</color>
+
+    <color name="gary">#30ac93</color>
+    <color name="editor_accent">#009688</color>
+</resources>

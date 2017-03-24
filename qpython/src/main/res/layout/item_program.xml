@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <org.qpython.qpy.program.ItemMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_selectable_item_background"
+            android:minHeight="72dp"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <ImageView
+                android:id="@+id/iconImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="16dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:ellipsize="middle"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/dateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/nameTextView"
+                    android:layout_marginTop="5dp"
+                    android:textColor="?android:attr/textColorTertiary"
+                    android:textSize="13sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/menu_run"
+                style="@style/ItemMenuTheme"
+                android:text="@string/program_item_menu_run"
+                android:background="@color/Color_Red"/>
+
+            <TextView
+                android:id="@+id/menu_open"
+                style="@style/ItemMenuTheme"
+                android:text="@string/program_item_menu_open"
+                android:background="@color/Color_Green"/>
+
+            <TextView
+                android:background="@color/colorPrimary"
+                android:id="@+id/menu_delete"
+                style="@style/ItemMenuTheme"
+                android:text="@string/program_item_menu_delete" />
+        </LinearLayout>
+    </org.qpython.qpy.program.ItemMenuLayout>
+</layout>

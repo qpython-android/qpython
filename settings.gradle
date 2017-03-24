@@ -1,0 +1,1 @@
+include ':qpython', ':termemulator', ':termexec', ':qpypluginman', ':qpysl4a', ':qpysdk'

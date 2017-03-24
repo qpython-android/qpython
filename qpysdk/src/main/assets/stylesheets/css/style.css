@@ -1,0 +1,141 @@
+body,ul,li {
+    padding:0;
+    margin:0;
+    border:0;
+}
+body {
+    font-size:12px;
+    -webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+    font-family:helvetica;
+}
+#header { }
+#header a {
+    color:#f3f3f3;
+    text-decoration:none;
+    font-weight:bold;
+    text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+}
+#footer { }
+#wrapper {
+    /*position:absolute; z-index:1;*/
+    top:45px; bottom:48px;
+    text-align:center;
+    width:100%;
+    min-height:100px;
+    overflow:auto;
+}
+/* ============================================================================= */
+
+#scroller {
+    position:absolute; z-index:1;
+/*  -webkit-touch-callout:none;*/
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    width:100%;
+    padding:0;
+}
+
+#scroller ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+
+#scroller li {
+    padding:0 10px;
+    height:40px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+    background-color:#fafafa;
+    font-size:14px;
+}
+
+#myFrame {
+    position:absolute;
+    top:0; left:0;
+}
+.w30p { width:30% }
+/* ============================================================================= */
+
+#outer {
+    width:100%;
+    margin:auto;
+    text-align:center;
+}
+.inner {
+    display: table-cell;
+    vertical-align:middle;
+    text-align:center;
+    
+    width:90px;
+    height:136px;
+    margin:5px; 
+    border:1px solid #1f1f1f;
+}
+.inner_img {
+    vertical-align:middle;
+    max-width:90px;
+    max-height:90px;
+}
+.inner_title {
+    position:relative;
+    float:left;
+    width:90px;
+    overflow:hidden;
+    background:#1f1f1f;
+    color:#fff;
+    height:40px;
+    padding:3px 0px;
+}
+* html .inner {display:inline}                      /* for ie*/
+html>body #outer {display:table}                    /*for mozilla */
+html>body .inner {display:table;float:left}         /*for mozilla */
+@media all and (min-width: 0px) {                   /* opera 7 styles */
+    html>body .inner {display:inline-block;float:none;}
+}
+/* ============================================================================= */
+
+.table { width:100% }
+.nowrap { overflow:hidden;white-space:nowrap }
+.tbl_title { font-size:16px;color:white;text-align:center;background:#1f1f1f; }
+.tpl_title_pre { height:38px;width:20px; background:#D70377;float:left;margin:-10px; }
+.title,a.title { font-size:16px;clolor:black }
+.desc { font-size:14px;color:grey }
+.pl15 { padding-left:15px }
+
+a {
+}
+
+a:link {
+color: black;
+text-decoration: none;
+}
+a:visited {
+color: black;
+text-decoration: none;
+}
+a:hover {
+color: black;
+text-decoration: none;
+}
+a:active {
+color: black;
+text-decoration: none;
+}
+
+/* ============================================================================= */
+
+.fl_left { float:left }
+.fl_right { float:right }
+.pl10 {padding-left:10px}
+.pl20 {padding-left:20px}
+.pt20 {padding-top:10px}
+.clear { clear:both }
+.act { font-size:20px;text-align:center }
+.btn_act { padding:10px 20px;width:120px;background-color:#1f1f1f;color:white;border:1px solid }
+#loading { margin:0 auto;padding:50px 10px 10px;font-size:16px;text-align:center;color:grey }
+.load_img { height:30px }
+.more_div { background:white;color:grey }
