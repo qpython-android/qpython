@@ -1,1 +1,0 @@
-Search.setIndex({envversion:48,filenames:["index"],objects:{},objnames:{},objtypes:{},terms:{android:0,consol:0,contain:0,content:0,devic:0,editor:0,engin:0,index:0,interpret:0,let:0,librari:0,modul:0,page:0,python:0,run:0,script:0,search:0,sl4a:0,your:0},titles:["QPython Project&#8217;s documentation!"],titleterms:{document:0,indice:0,project:0,qpython:0,tabl:0}})

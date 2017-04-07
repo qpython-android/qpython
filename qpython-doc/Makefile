@@ -50,9 +50,9 @@ clean:
 
 .PHONY: html
 html:
-	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) ../docs
+	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
-	@echo "Build finished. The HTML pages are in ../docs"
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html"
 
 .PHONY: dirhtml
 dirhtml:
