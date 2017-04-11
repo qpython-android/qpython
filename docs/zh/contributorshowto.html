@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>快速开始 &mdash; QPython 0.9 documentation</title>
+  <title>QPython文档体系说明 &mdash; QPython 0.9 documentation</title>
   
 
   
@@ -33,8 +33,8 @@
 
   
     <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-        <link rel="next" title="QPython文档体系说明" href="contributorshowto.html"/>
-        <link rel="prev" title="How to submit the documentation" href="../en/contributorshowto.html"/> 
+        <link rel="up" title="快速开始" href="howtostart.html"/>
+        <link rel="prev" title="快速开始" href="howtostart.html"/> 
 
   
   <script src="../static/js/modernizr.min.js"></script>
@@ -94,13 +94,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../en/howtostart.html#contributors-guide">Contributors&#8217; Guide</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">快速开始</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id4">编程指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id5">QPython黑客指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#id8">贡献者指南</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="contributorshowto.html">QPython文档体系说明</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributorshowto.html#id1">如何提交文档</a></li>
-<li class="toctree-l2"><a class="reference internal" href="contributorshowto.html#id2">如何提交翻译</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">快速开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html#id4">编程指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html#id5">QPython黑客指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="howtostart.html#id8">贡献者指南</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QPython文档体系说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">如何提交文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">如何提交翻译</a></li>
 </ul>
 </li>
 </ul>
@@ -147,13 +147,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>快速开始</li>
+          <li><a href="howtostart.html">快速开始</a> &raquo;</li>
+        
+      <li>QPython文档体系说明</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/zh/howtostart.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/zh/contributorshowto.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,38 +168,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>快速开始<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="qpython">
+<h1>QPython文档体系说明<a class="headerlink" href="#qpython" title="Permalink to this headline">¶</a></h1>
+<p>QPython 文档体系分为 英文／中文 两部分，其中又分为</p>
 <ul class="simple">
-<li><a class="reference external" href="http://wiki.qpython.org/zh/doc/how-to-start">QPython － 使用说明</a></li>
-<li><a class="reference external" href="http://wiki.qpython.org/zh/quick-start">QPython － 快速开始</a></li>
-<li><a class="reference external" href="http://wiki.qpython.org/zh/doc/hello-world">“你好，世界！”</a></li>
+<li>快速开始 （使用上的帮助）</li>
+<li>编程指南 （主要是用QPython来进行编程和开发的指南）</li>
+<li>QPython黑客指南 （深入折腾的指导）</li>
+<li>贡献者指南 （QPython贡献者指南，分为在QPython team内的，和以外的）</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h1>编程指南<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h1>如何提交文档<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>文档非常重要，我们用sphinx来组织文档，并且文档会通过github page功能直接推到qpython.org网站中
+在想要贡献QPython文档之前仔细阅读我们的指南</p>
 <ul class="simple">
-<li><a class="reference external" href="http://wiki.qpython.org/zh/webapp/sample">QPython － 开发 WEB APP</a></li>
-<li><a class="reference external" href="http://wiki.qpython.org/zh/webapp/bottle">QPython － Bottle 快速了解</a></li>
+<li>git clone <a class="reference external" href="http://github.com/qpython-android/qpython">http://github.com/qpython-android/qpython</a></li>
+<li>进入到 项目的qpython-docs目录中</li>
+<li>按照sphinx规则编辑source中的文件即可</li>
+<li>最后cd到qpython-docs中并运行build.sh</li>
+<li>打开浏览器打开本地文件检查，</li>
+<li>如果检查无问题则可以提交，然后浏览qpython.org即可看到最新的更新</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h1>QPython黑客指南<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference external" href="http://wiki.qpython.org/zh/doc/program_guide/">QPython － 编程向导</a></li>
-<li><a class="reference external" href="http://wiki.qpython.org/zh/diveinto/">QPython 黑客</a></li>
-</ul>
-</div>
-<div class="section" id="id8">
-<h1>贡献者指南<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
-<p>欢迎加入 QPython 团队</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="contributorshowto.html">QPython文档体系说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributorshowto.html#id1">如何提交文档</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributorshowto.html#id2">如何提交翻译</a></li>
-</ul>
-</div>
+<div class="section" id="id2">
+<h1>如何提交翻译<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>QPython是一个支持多语言的应用，你可以通过以下方式来提交对应国家的翻译</p>
 </div>
 
 
@@ -210,10 +206,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="contributorshowto.html" class="btn btn-neutral float-right" title="QPython文档体系说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../en/contributorshowto.html" class="btn btn-neutral" title="How to submit the documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="howtostart.html" class="btn btn-neutral" title="快速开始" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

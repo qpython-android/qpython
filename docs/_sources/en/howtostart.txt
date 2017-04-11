@@ -1,22 +1,9 @@
-How to start
+Getting Start
 =============
 
 * `QPython: How To Start <http://wiki.qpython.org/doc/how-to-start>`_
 * `QPython － Quick Start <http://wiki.qpython.org/doc/quick-start>`_
 * `Writing "Hello World" <http://wiki.qpython.org/doc/hello-world>`_
-
-
-Kivy program
-------------
-
-Console program
----------------
-
-Web program
------------
-
-* `QPython Web App <http://wiki.qpython.org/en/webapp/>`_
-* `Develop a WEB APP with QPython <http://wiki.qpython.org/en/webapp/sample>`_
 
 
 Programming Guide
@@ -29,6 +16,23 @@ Programming Guide
 .. toctree::
    :maxdepth: 2
 
+   qpyprograms
    qeditor4web
    sl4aapis
    callqpyapiinapp
+
+
+QPython Hackers' Guide
+=======================
+
+
+
+Contributors' Guide
+===================
+
+Welcome to join QPython contributors team
+
+.. toctree::
+   :maxdepth: 2
+
+   contributorshowto
