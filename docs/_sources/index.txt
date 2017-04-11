@@ -7,8 +7,13 @@
 
 It's the official QPython Developer / User guide
 
+
 Welcome to read the QPython guide!
 =============================================
+
+Thanks these guys who are contributing
+------------------------
+
 
 New version information
 ------------------------
@@ -77,3 +82,4 @@ QPython 用户开发组
 如何贡献
 ---------
 想成为 QPython 的贡献者么？请 `给我们发邮件 <mailto:support@qpython.org>`_
+
