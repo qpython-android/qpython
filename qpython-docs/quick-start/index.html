@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Quick Start | QPyPI</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://qpython.com/qrcode/wp-content/themes/twentyeleven/style.css" />
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.3.min.js'></script>
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}
+button {
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.33;
+border-radius: 6px;
+color: #ffffff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 1.428571429;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+}
+</style>
+</head>
+
+<body class="page page-id-472 page-template-default single-author singular one-column content" style='background:white'>
+<div id="page" class="hfeed">
+    <header id="branding" role="banner" style='border-top:0px'>
+            <nav id="access" role="navigation">
+                <div class="menu"></div>
+            </nav><!-- #access -->
+    </header><!-- #branding -->
+
+    <div id="main" style='padding-top:0px'>
+        <div id="primary">
+            <div id="content" role="main">
+
+                <article id="post-472" class="post-472 page type-page status-publish hentry">
+                    <header class="entry-header"><h1 class="entry-title">Quick Start</h1></header><!-- .entry-header -->
+                    <div class="entry-content" style='padding:0px'>
+                    <div>
+<h2>A hands-on introduction to Python for beginning programmers</h2>
+<p>If you are a new guy to QPython, you should watch the tutorial video and just follow the steps to learn how to run script with QPython
+</p>
+<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step5-btn">Watch Tutorial</button></div>
+</div>
+<div style="padding-top:30px">
+<h2>Running with Console</h2>
+<p>Running QPython&#8217;s simple script with console model</p>
+<pre style="box-shadow:inset 0 1px 1px rgba(0,0,0,0.1);border:1px solid #ddd" id="step1-code">#qpy:2
+#qpy:console
+#qpy:http://qpython.com/s/qpy-sample.py
+
+class Calculator(object):
+    #define class to simulate a simple calculator
+    def __init__ (self):
+        #start with zero
+        self.current = 0
+    def add(self, amount):
+        #add number to current
+        self.current += amount
+    def getCurrent(self):
+        return self.current
+
+myBuddy = Calculator() # make myBuddy into a Calculator object
+myBuddy.add(2) #use myBuddy's new add method derived from the Calculator class
+print(myBuddy.getCurrent()) #print myBuddy's current instance variable
+
+</pre>
+<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step1-btn">Copy to editor to run</button></div>
+</div>
+<div style="padding-top:30px">
+<h2>Running with Kivy</h2>
+<p>Running QPython&#8217;s script with GUI model ( Kivy library )</p>
+<pre style="box-shadow:inset 0 1px 1px rgba(0,0,0,0.1);border:1px solid #ddd" id="step2-code">#qpy:2
+#qpy:kivy
+#qpy:http://qpython.com/s/qpy-guisample.py
+
+from kivy.app import App
+from kivy.uix.button import Button
+
+class TestApp(App):
+    def build(self):
+        # display a button with the text : Hello QPython 
+        return Button(text='Hello QPython')
+
+TestApp().run()
+</pre>
+<div style='text-align:center'><button style="display:inline" type="submit" value="Copy to editor to run" class="btn_c" id="step2-btn">Copy to editor to run</button></div>
+</div>
+<div style="padding-top:30px">
+<h2>Running as Web App ( QPython needs >= 0.9.7.x )</h2>
+<p>Running Web App with QPython</p>
+<pre style="box-shadow:inset 0 1px 1px rgba(0,0,0,0.1);border:1px solid #ddd" id="step6-code">#qpy:2
+#qpy:webapp:Hello Qpython
+#qpy://localhost:8080/hello
+"""
+This is a sample for qpython webapp
+"""
+from bottle import route, run
+
+@route('/hello')
+def hello():
+    return "Hello World!"
+
+run(host='localhost', port=8080)</pre>
+<div style='text-align:center'><button style="display:inline" type="submit" value="Copy to editor to run" class="btn_c" id="step6-btn">Copy to editor to run</button></div>
+</div>
+
+<div style='padding:20px'></div>
+<script>
+var milib;
+if (milib==undefined) {
+var milib = function(){
+};
+milib.qeditor = function(str){
+alert('please open it with QPython browser')
+};
+milib.a8playVideoFromGW= function(url){
+window.open(url)
+};
+milib.qpylibinstall = function(cat,url,target){
+window.open(url)
+};
+milib.gotoIfPay = function(url, packageId, packageUrl){
+window.open(url)
+};
+} else {
+}
+$(document).ready(function() {
+$('#step1-btn').click(function(e){
+milib.qeditor($('#step1-code').html())
+});
+$('#step2-btn').click(function(e){
+milib.qeditor($('#step2-code').html())
+});
+$('#step6-btn').click(function(e){
+milib.qeditor($('#step6-code').html())
+});
+$('#step3-btn').click(function(e){
+location.href='http://packages.qpython.org'
+});
+$('#step4-btn').click(function(e){
+location.href='http://wiki.qpython.org'
+});
+$('#step5-btn').click(function(e){
+milib.openUrl("https://m.youtube.com/results?q=python+programming&#038;sm=3");
+//milib.a8playVideoFromGW('http://www.youtube.com/watch?v=72RKMMyLxS8')
+//milib.a8playVideoFromGW('http://www.youtube.com/watch?v=N-ae8Q_7iCA')
+});
+});
+</script></p>
+                    </div><!-- .entry-content -->
+                    <footer class="entry-meta"></footer><!-- .entry-meta -->
+                </article><!-- #post-472 -->
+                <div id="comments"></div><!-- #comments -->
+            </div><!-- #content -->
+        </div><!-- #primary -->
+    </div><!-- #main -->
+</div><!-- #page -->
+</body>
+</html>

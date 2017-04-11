@@ -53,7 +53,7 @@ Do you want to contribute to QPython ? Please `email us <mailto:support@qpython.
 QPython/QPython3 的最新版本1.3.2(QPython), 1.0.2(QPython3) 已经发布，它包含了许多惊艳的特性，请从应用市场安装
 
 
-QPython 起步 
+QPython 起步
 ------------------------
 .. toctree::
    :maxdepth: 2

@@ -20,3 +20,10 @@ Programming Guide
 * `Programming Guide <http://wiki.qpython.org/doc/program_guide/>`_
 * `QPython Hackers Howto <http://wiki.qpython.org/en/diveinto/>`_
 * `QEditor <http://wiki.qpython.org/en/QEdit/>`_
+
+.. toctree::
+   :maxdepth: 2
+
+   qeditor4web
+   sl4aapis
+
