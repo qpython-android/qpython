@@ -75,5 +75,5 @@ QPython 用户开发组
 * 加入QPython QQ组（Q群：540717901）来和中国活跃的QPython 用户一起玩转 QPython
 
 如何贡献
-__________
+---------
 想成为 QPython 的贡献者么？请 `给我们发邮件 <mailto:support@qpython.org>`_

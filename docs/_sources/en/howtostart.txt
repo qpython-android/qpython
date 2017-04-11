@@ -1,4 +1,3 @@
-
 How to start
 =============
 
@@ -7,15 +6,21 @@ How to start
 * `Writing "Hello World" <http://wiki.qpython.org/doc/hello-world>`_
 
 
-Web App
-============
+Kivy program
+------------
+
+Console program
+---------------
+
+Web program
+-----------
 
 * `QPython Web App <http://wiki.qpython.org/en/webapp/>`_
 * `Develop a WEB APP with QPython <http://wiki.qpython.org/en/webapp/sample>`_
 
 
 Programming Guide
-==================
+===================
 
 * `Programming Guide <http://wiki.qpython.org/doc/program_guide/>`_
 * `QPython Hackers Howto <http://wiki.qpython.org/en/diveinto/>`_
@@ -26,4 +31,3 @@ Programming Guide
 
    qeditor4web
    sl4aapis
-
