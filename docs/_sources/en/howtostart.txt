@@ -31,3 +31,4 @@ Programming Guide
 
    qeditor4web
    sl4aapis
+   callqpyapiinapp
