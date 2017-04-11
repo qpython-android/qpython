@@ -1,5 +1,5 @@
 How to run QPython script in your application ?
-===========================================
+=====================================================
 You could call QPython to run some script or python code in your app
 
 ::
@@ -9,7 +9,7 @@ You could call QPython to run some script or python code in your app
     intent.setClassName(extPlgPlusName, "org.qpython.qpylib.MPyApi");
     intent.setAction(extPlgPlusName + ".action.MPyApi");
 
-    Bundle mBundle = new Bundle(); 
+    Bundle mBundle = new Bundle();
     mBundle.putString("app", "myappid");
     mBundle.putString("act", "onPyApi");
     mBundle.putString("flag", "onQPyExec");             // any String flag you may use in your context
@@ -57,5 +57,10 @@ You could call QPython to run some script or python code in your app
 
 
 
+Sample of running QPython script in other application
+-------------------------------------------------------
+* `You can see this sample project in github <https://github.com/qpython-android/app-call-qpython-api>`_
 
-`You can see this sample project <https://github.com/qpython-android/app-call-qpython-api>`_
+* `Another Application which have published in google play - QPython Plugin for Tasker <https://play.google.com/store/apps/details?id=com.qpython.tasker2>`_
+
+.. image:: ../_static/taskerplugin-for-qpython.png
