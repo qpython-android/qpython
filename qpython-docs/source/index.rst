@@ -5,81 +5,83 @@
 
 .. image:: _static/bestpython.png
 
-It's the official QPython Developer / User guide
-
 
 Welcome to read the QPython guide!
 =============================================
 
+QPython is a script engine that runs Python on android devices. It lets your android device run Python scripts and projects. It contains the Python interpreter, console, editor, and the SL4A Library for Android. It’s Python on Android!
+
+
+QPython has several millions users in the world already, it's a great project for programming users, welcome to join us for contributing to this project NOW.
+
+
+What's NEW
+------------------------
+QPython project include the QPython(Python 2) and QPython3(Python 3) applications.
+
+QPython's newest version is 1.3.0 (Released on 2017/3/20) , QPython3's newest version is 1.0.2 (Released on 2017/3/29), New versions include many amazing features, please upgrade to the newest version as soon from google play, amazon appstore etc.
+
+
 Thanks these guys who are contributing
-------------------------
+----------------------------------------
+They are pushing on the QPython project moving forward.
+
+.. image:: https://avatars0.githubusercontent.com/u/3059527?v=3&s=60
+   :target: https://github.com/riverfor
+   :alt: River is the project's organizer and the current online QPython's author.
+
+.. image:: https://avatars0.githubusercontent.com/u/10812534?v=3&s=60
+   :target: https://github.com/pollyfat
+   :alt: Mae is a beautiful and talented girl developer who is good at python & android programming.
+
+.. image:: https://avatars0.githubusercontent.com/u/22494?v=3&s=60
+   :target: https://github.com/ZoomQuiet
+   :alt: Zoom.Quiet is a knowledgeable guy who is famous in many opensource communities.
+
+.. image:: https://avatars3.githubusercontent.com/u/5159173?v=3&s=60
+   :target: https://github.com/kylelk
+   :alt: Kyle kersey is a US geek.
+
+.. image:: https://avatars2.githubusercontent.com/u/25975283?v=3&s=60
+   :target: https://github.com/liyuanrui
+   :alt: liyuanrui is a Chinese geek
 
 
-New version information
-------------------------
-QPython's newest version is 1.3.0 (2017-3-20) , QPython3's newest version is 1.0.2 (2017/3/29), New versions include many amazing features, please upgrade to the newest version as soon.
+Do you want to join the great QPython team ? You could `Ask qustions on twitter <https://twitter.com/qpython>`_ or `email us <mailto:support@qpython.org>`_.
+And you could `fork us on github <https://github.com/qpython-android/qpython>`_ and send pull request.
 
-QPython Getting started
-------------------------
+
+QPython Communities
+------------------
+**There are many active QPython communities where you could meet the QPython users like you**
+
+* `Join Facebook community <https://www.facebook.com/groups/qpython>`_
+* `Join Google group <https://groups.google.com/forum/#!forum/qpython>`_
+* `Join G+ community <https://plus.google.com/communities/111759148772865961493>`_
+* `QPython on Stackoverflow <http://stackoverflow.com/questions/tagged/qpython>`_
+
+**And you could talk to us through social network**
+
+* `Like us on facebook <https://www.facebook.com/QPython>`_
+* `Follow us on twitter <https://twitter.com/qpython>`_
+
+* `Report issue <https://github.com/qpython-android/qpython/issues>`_
+* `Email us <mailto:support@qpython.org>`_
+
+
+**It's the official QPython Users & Contributors' Guide, please follow these steps for using and contributing.**
+
+Now, let's GO
+---------------
 .. toctree::
    :maxdepth: 2
 
    en/howtostart
 
-More Resources
-------------------
-* `FAQ <http://wiki.qpython.org/en/faq>`_
-* `Like us on facebook <https://www.facebook.com/QPython>`_
-* `Follow us on twitter <https://twitter.com/qpython>`_
-* `Ask qustions on twitter <https://twitter.com/qpython>`_
-* `Ask qustions on Stackoverflow <http://stackoverflow.com/questions/tagged/qpython>`_
-* `Email us <mailto:support@qpython.org>`_
-* `Report issue <https://github.com/qpython-android/qpython/issues>`_
-* `Fork us on github <https://github.com/qpython-android>`_
-
-Join the QPython Users Group
-----------------------------
-Please join the Global QPython Users Groups:
-
-* `Join Facebook community <https://www.facebook.com/groups/qpython>`_
-* `Join G+ community <https://plus.google.com/communities/111759148772865961493>`_
-* `Join Google maillist <https://groups.google.com/forum/#!forum/qpython>`_
-
-How to contribute
-----------------------------
-Do you want to contribute to QPython ? Please `email us <mailto:support@qpython.org>`_
-
-
-中文用户向导
-=============================================
-
-欢迎 ！
-------------------------------
-QPython/QPython3 的最新版本1.3.2(QPython), 1.0.2(QPython3) 已经发布，它包含了许多惊艳的特性，请从应用市场安装
-
-
-QPython 起步
-------------------------
+For Chinese users
+---------------
 .. toctree::
    :maxdepth: 2
 
-   zh/howtostart
-
-
-更多链接
-------------------------------
-* `常见问题 <http://wiki.qpython.org/zh/faq/>`_
-* `在百度贴吧里讨论 <http://tieba.baidu.com/f?ie=utf-8&kw=qpython>`_
-* `在微博问我们问题 <http://weibo.com/qpython>`_
-* `给我们发邮件 <mailto:support@qpython.org>`_
-* `报告问题 <https://github.com/qpython-android/qpython/issues>`_
-
-QPython 用户开发组
-------------------------------
-* 请加入 `QPython 用户开发者组 <https://groups.google.com/forum/?hl=en#!forum/qpython>`_ 来和全世界的 QPython 用户一块来玩转QPython。
-* 加入QPython QQ组（Q群：540717901）来和中国活跃的QPython 用户一起玩转 QPython
-
-如何贡献
----------
-想成为 QPython 的贡献者么？请 `给我们发邮件 <mailto:support@qpython.org>`_
+   zhindex
 

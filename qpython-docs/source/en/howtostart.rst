@@ -1,5 +1,6 @@
-Getting Start
+QPython Getting started
 =============
+How to start quickly ? Just follow the following steps:
 
 * `QPython: How To Start <http://wiki.qpython.org/doc/how-to-start>`_
 * `QPython － Quick Start <http://wiki.qpython.org/doc/quick-start>`_
@@ -9,9 +10,8 @@ Getting Start
 Programming Guide
 ===================
 
-* `Programming Guide <http://wiki.qpython.org/doc/program_guide/>`_
-* `QPython Hackers Howto <http://wiki.qpython.org/en/diveinto/>`_
-* `QEditor <http://wiki.qpython.org/en/QEdit/>`_
+If you are able to program, you want to know more about how to complex programming through qpython, just follow these steps:
+
 
 .. toctree::
    :maxdepth: 2
@@ -25,6 +25,7 @@ Programming Guide
 QPython Hackers' Guide
 =======================
 
+* `QPython Hackers Howto <http://wiki.qpython.org/en/diveinto/>`_
 
 
 Contributors' Guide

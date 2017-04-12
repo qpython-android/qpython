@@ -1,4 +1,4 @@
-How to run QPython script in your application ?
+How to call QPython script in your application?
 =====================================================
 You could call QPython to run some script or python code in your app
 
@@ -64,3 +64,8 @@ Sample of running QPython script in other application
 * `Another Application which have published in google play - QPython Plugin for Tasker <https://play.google.com/store/apps/details?id=com.qpython.tasker2>`_
 
 .. image:: ../_static/taskerplugin-for-qpython.png
+
+How to build an independt APK from QPython scripts?
+=====================================================
+http://qpy.io
+

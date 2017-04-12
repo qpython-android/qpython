@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>How to run QPython script in your application ? &mdash; QPython 0.9 documentation</title>
+  <title>How to call QPython script in your application? &mdash; QPython 0.9 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-        <link rel="up" title="Getting Start" href="howtostart.html"/>
+        <link rel="up" title="QPython Getting started" href="howtostart.html"/>
         <link rel="next" title="How to submit the documentation" href="contributorshowto.html"/>
-        <link rel="prev" title="SL4A APIs" href="sl4aapis.html"/> 
+        <link rel="prev" title="Python builtin Libraries" href="sl4aapis.html"/> 
 
   
   <script src="../static/js/modernizr.min.js"></script>
@@ -89,28 +89,26 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="howtostart.html">Getting Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="howtostart.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html">Kivy program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html#console-program">Console program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html#web-program">Web program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html">Programming from phone/tablet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html#how-to-programming-from-browser">How to programming from browser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sl4aapis.html">SL4A APIs</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to run QPython script in your application ?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html">What unique work can QPython do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html">Are there more efficient way for developing?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sl4aapis.html">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sl4aapis.html#python-3rd-libraries">Python 3rd Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sl4aapis.html#android-apis">Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sl4aapis.html#sl4a-apis">SL4A APIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to call QPython script in your application?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sample-of-running-qpython-script-in-other-application">Sample of running QPython script in other application</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html#contributors-guide">Contributors&#8217; Guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html">快速开始</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id4">编程指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id5">QPython黑客指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id8">贡献者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
 </ul>
 
             
@@ -155,9 +153,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="howtostart.html">Getting Start</a> &raquo;</li>
+          <li><a href="howtostart.html">QPython Getting started</a> &raquo;</li>
         
-      <li>How to run QPython script in your application ?</li>
+      <li>How to call QPython script in your application?</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,8 +174,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="how-to-run-qpython-script-in-your-application">
-<h1>How to run QPython script in your application ?<a class="headerlink" href="#how-to-run-qpython-script-in-your-application" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="how-to-call-qpython-script-in-your-application">
+<h1>How to call QPython script in your application?<a class="headerlink" href="#how-to-call-qpython-script-in-your-application" title="Permalink to this headline">¶</a></h1>
 <p>You could call QPython to run some script or python code in your app</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">extPlgPlusName</span> <span class="o">=</span> <span class="s2">&quot;org.qpython.qpy&quot;</span><span class="p">;</span>          <span class="o">//</span> <span class="n">QPython</span> <span class="n">package</span> <span class="n">name</span>
 <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Intent</span><span class="p">();</span>
@@ -240,6 +238,10 @@
 <img alt="../images/taskerplugin-for-qpython.png" src="../images/taskerplugin-for-qpython.png" />
 </div>
 </div>
+<div class="section" id="how-to-build-an-independt-apk-from-qpython-scripts">
+<h1>How to build an independt APK from QPython scripts?<a class="headerlink" href="#how-to-build-an-independt-apk-from-qpython-scripts" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://qpy.io">http://qpy.io</a></p>
+</div>
 
 
            </div>
@@ -254,7 +256,7 @@
         <a href="contributorshowto.html" class="btn btn-neutral float-right" title="How to submit the documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sl4aapis.html" class="btn btn-neutral" title="SL4A APIs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sl4aapis.html" class="btn btn-neutral" title="Python builtin Libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

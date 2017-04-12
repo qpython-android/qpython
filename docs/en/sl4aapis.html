@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>SL4A APIs &mdash; QPython 0.9 documentation</title>
+  <title>Python builtin Libraries &mdash; QPython 0.9 documentation</title>
   
 
   
@@ -33,9 +33,9 @@
 
   
     <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-        <link rel="up" title="Getting Start" href="howtostart.html"/>
-        <link rel="next" title="How to run QPython script in your application ?" href="callqpyapiinapp.html"/>
-        <link rel="prev" title="Programming from phone/tablet" href="qeditor4web.html"/> 
+        <link rel="up" title="QPython Getting started" href="howtostart.html"/>
+        <link rel="next" title="How to call QPython script in your application?" href="callqpyapiinapp.html"/>
+        <link rel="prev" title="Are there more efficient way for developing?" href="qeditor4web.html"/> 
 
   
   <script src="../static/js/modernizr.min.js"></script>
@@ -89,14 +89,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="howtostart.html">Getting Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="howtostart.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html">Kivy program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html#console-program">Console program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html#web-program">Web program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html">Programming from phone/tablet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html#how-to-programming-from-browser">How to programming from browser</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">SL4A APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="qpyprograms.html">What unique work can QPython do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qeditor4web.html">Are there more efficient way for developing?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-3rd-libraries">Python 3rd Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#android-apis">Android APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sl4a-apis">SL4A APIs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#qpy-apis">QPy APIs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nfc-apis">NFC APIs</a></li>
@@ -105,17 +105,15 @@
 <li class="toctree-l3"><a class="reference internal" href="#other-sl4a-apis">Other SL4A APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="callqpyapiinapp.html">How to run QPython script in your application ?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="callqpyapiinapp.html">How to call QPython script in your application?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="callqpyapiinapp.html#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html#contributors-guide">Contributors&#8217; Guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html">快速开始</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id4">编程指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id5">QPython黑客指南</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../zh/howtostart.html#id8">贡献者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
 </ul>
 
             
@@ -160,9 +158,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="howtostart.html">Getting Start</a> &raquo;</li>
+          <li><a href="howtostart.html">QPython Getting started</a> &raquo;</li>
         
-      <li>SL4A APIs</li>
+      <li>Python builtin Libraries</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -181,7 +179,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sl4a-apis">
+  <div class="section" id="python-builtin-libraries">
+<h1>Python builtin Libraries<a class="headerlink" href="#python-builtin-libraries" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="python-3rd-libraries">
+<h1>Python 3rd Libraries<a class="headerlink" href="#python-3rd-libraries" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="android-apis">
+<h1>Android APIs<a class="headerlink" href="#android-apis" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="sl4a-apis">
 <h1>SL4A APIs<a class="headerlink" href="#sl4a-apis" title="Permalink to this headline">¶</a></h1>
 <img alt="../images/sl4a.jpg" src="../images/sl4a.jpg" />
 <p>To simplify QPython SL4A development in IDEs with a
@@ -329,10 +336,10 @@ SL4A facade functions &amp; API documentation</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="callqpyapiinapp.html" class="btn btn-neutral float-right" title="How to run QPython script in your application ?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="callqpyapiinapp.html" class="btn btn-neutral float-right" title="How to call QPython script in your application?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="qeditor4web.html" class="btn btn-neutral" title="Programming from phone/tablet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="qeditor4web.html" class="btn btn-neutral" title="Are there more efficient way for developing?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
