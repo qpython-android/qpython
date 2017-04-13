@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing “Hello World” &mdash; QPython 0.9 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
+        <link rel="up" title="QPython Getting started" href="guide.html"/>
+        <link rel="next" title="What unique work can QPython do?" href="qpyprograms.html"/>
+        <link rel="prev" title="QPython: How To Start" href="guide_howtostart.html"/> 
+
+  
+  <script src="../static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> QPython
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="guide.html">QPython Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="guide_howtostart.html">QPython: How To Start</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing &#8220;Hello World&#8221;</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hello-world">Hello world</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sl4a-library">SL4A library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-samples">More samples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors&#8217; Guide</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">QPython</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="guide.html">QPython Getting started</a> &raquo;</li>
+        
+      <li>Writing &#8220;Hello World&#8221;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/en/guide_helloworld.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-hello-world">
+<h1>Writing &#8220;Hello World&#8221;<a class="headerlink" href="#writing-hello-world" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hello-world">
+<h2>Hello world<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
+<img alt="hello world" src="../images/guide_helloworld_pic1.png" />
+<p>Well, after you became a bit more familiar with QPython, let&#8217;s create our first program in QPython. Obviously, it will be <cite>helloworld.py</cite>. ;)</p>
+<p>Start QPython, open editor and enter the following code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="s1">&#39;Hello, Username!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>No wonder, it&#8217;s just similar to any other hello-world program. When executed, it just shows pop-up message on the screen (see screenshot on the top). Anyway, it&#8217;s a good example of QPython program.</p>
+</div>
+<div class="section" id="sl4a-library">
+<h2>SL4A library<a class="headerlink" href="#sl4a-library" title="Permalink to this headline">¶</a></h2>
+<p>It begins with <em>import androidhelper</em> — the most useful module in QPython, which encapsulates almost all interface with Android, available in Python. Any script developed in QPython starts with this statement (at least if it claims to communicate with user). Read more about Python library <a class="reference external" href="http://docs.python.org/2.7/library/intro.html">here</a> and import statement <a class="reference external" href="http://docs.python.org/2.7/reference/simple_stmts.html#import">here</a></p>
+<p>By the way, if you&#8217;re going to make your script compatible with SL4A, you should replace the first line with the following code (and use <cite>android</cite> instead <cite>androidhelper</cite> further in the program):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">androidhelper</span> <span class="k">as</span> <span class="nn">android</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">android</span>
+</pre></div>
+</div>
+<p>Ok, next we&#8217;re creating an object <cite>droid</cite> (actually a class), it is necessary to call RPC functions in order to communicate with Android.</p>
+<p>And the last line of our code calls such function, <cite>droid.makeToast()</cite>, which shows a small pop-up message (a &#8220;toast&#8221;) on the screen.</p>
+<p>Well, let&#8217;s add some more functionality. Let it ask the user name and greet them.</p>
+</div>
+<div class="section" id="more-samples">
+<h2>More samples<a class="headerlink" href="#more-samples" title="Permalink to this headline">¶</a></h2>
+<p>We can display a simple dialog box with the title, prompt, edit field and buttons <strong>Ok</strong> and <strong>Cancel</strong> using <cite>dialogGetInput</cite> call. Replace the last line of your code and save it as <cite>hello1.py</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Well, I think it should return any respond, any user reaction. That&#8217;s why I wrote <cite>respond = ...</cite>. But what the call actually returns? Let&#8217;s check. Just add <cite>print</cite> statement after the last line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">respond</span>
+</pre></div>
+</div>
+<p>Then save and run it...</p>
+<p>Oops! Nothing printed? Don&#8217;t worry. Just pull notification bar and you will see &#8220;QPython Program Output: hello1.py&#8221; — tap it!</p>
+<p>As you can see, <cite>droid.dialogGetInput()</cite> returns a JSON object with three fields. We need only one — <cite>result</cite> which contains an actual input from user.</p>
+<p>Let&#8217;s add script&#8217;s reaction:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">respond</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">respond</span><span class="o">.</span><span class="n">result</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Last two lines (1) format the message and (2) show the message to the user in the toast. See <a class="reference external" href="http://docs.python.org/2.7/tutorial/inputoutput.html?highlight=format%20operator#old-string-formatting">Python docs</a> if you still don&#8217;t know what <cite>%</cite> means.</p>
+<p>Wow! It works! ;)</p>
+<p>Now I&#8217;m going to add a bit of logic there. Think: what happen if the user clicks <strong>Cancel</strong> button, or clicks <strong>Ok</strong> leaving the input field blank?</p>
+<p>You can play with the program checking what contains <cite>respond</cite> variable in every case.</p>
+<p>First of all, I want to put text entered by user to a separate variable: <cite>name = respond.result</cite>. Then I&#8217;m going to check it, and if it contains any real text, it will be considered as a name and will be used in greeting. Otherwise another message will be shown. Replace fifth line <cite>message = &#8216;Hello, %s!&#8217; % respond.result</cite> with the following code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">respond</span><span class="o">.</span><span class="n">result</span>
+<span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hey! And you&#39;re not very polite, %Username%!&quot;</span>
+</pre></div>
+</div>
+<p>Use <strong>&lt;</strong> and <strong>&gt;</strong> buttons on the toolbar to indent/unindent lines in if-statement (or just use space/backspace keys). You can read more about indentation in Python <a class="reference external" href="http://docs.python.org/2.7/tutorial/introduction.html?highlight=indent#first-steps-towards-programming">here</a>; if-statement described <a class="reference external" href="http://docs.python.org/2.7/tutorial/controlflow.html#if-statements">here</a>.</p>
+<p>First of all, we put user input to the variable <cite>name</cite>. Then we check does <cite>name</cite> contain anything? In case the user left the line blank and clicked <strong>Ok</strong>, the return value is empty string <cite>&#8216;&#8217;</cite>. In case of <strong>Cancel</strong> button pressed, the return value is <cite>None</cite>. Both are treated as false in if-statement. So, only if <cite>name</cite> contans anything meaninful, then-statement is executed and greeting &#8220;Hello, ...!&#8221; shown. In case of empty input the user will see &#8220;Hey! And you&#8217;re not very polite, %Username%!&#8221; message.</p>
+<p>Ok, here is the whole program:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">respond</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">respond</span><span class="o">.</span><span class="n">result</span>
+<span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hey! And you&#39;re not very polite, %Username%!&quot;</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://onetimeblog.logdown.com/posts/2014/01/23/first-program-in-qpython">Thanks dmych offer the first draft in his blog</a></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="qpyprograms.html" class="btn btn-neutral float-right" title="What unique work can QPython do?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="guide_howtostart.html" class="btn btn-neutral" title="QPython: How To Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, River.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.9',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../static/jquery.js"></script>
+      <script type="text/javascript" src="../static/underscore.js"></script>
+      <script type="text/javascript" src="../static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

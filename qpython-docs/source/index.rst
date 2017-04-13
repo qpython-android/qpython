@@ -76,7 +76,7 @@ Now, let's GO
 .. toctree::
    :maxdepth: 2
 
-   en/howtostart
+   en/guide
 
 For Chinese users
 ---------------
