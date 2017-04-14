@@ -14,6 +14,9 @@ QPython is a script engine that runs Python on android devices. It lets your and
 
 QPython has several millions users in the world already, it's a great project for programming users, welcome to join us for contributing to this project NOW.
 
+QPython project include the `QPython <https://play.google.com/store/apps/details?id=org.qpython.qpy>`_ and `QPython3 <https://play.google.com/store/apps/details?id=org.qpython.qpy3>`_ applications.
+
+QPython application is using the **Python 2.7.2** , and QPython application is using the  **Python 3.2.2** .
 
 What's NEW
 ------------------------
