@@ -18,10 +18,10 @@ If you you want to know more about how to program through qpython, just follow t
 .. toctree::
    :maxdepth: 2
 
-   qpyprograms
-   qeditor4web
-   sl4aapis
-   callqpyapiinapp
+   guide_program
+   guide_ide
+   guide_libraries
+   guide_extend
 
 
 QPython Hackers' Guide
@@ -38,4 +38,4 @@ Welcome to join QPython contributors team
 .. toctree::
    :maxdepth: 2
 
-   contributorshowto
+   guide_contributors
