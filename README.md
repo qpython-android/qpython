@@ -1,5 +1,7 @@
 # QPython v2
 
+[![Join the chat at https://gitter.im/qpython-android/qpython](https://badges.gitter.im/qpython-android/qpython.svg)](https://gitter.im/qpython-android/qpython?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Welcome to join QPython project. It's a great project. QPython has got several millions users in the world.
 
 ## background
