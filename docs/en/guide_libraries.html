@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python builtin Libraries &mdash; QPython 0.9 documentation</title>
+  <title>QPython built-in Libraries &mdash; QPython 0.9 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
     <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
         <link rel="up" title="QPython Getting started" href="guide.html"/>
         <link rel="next" title="How to call QPython script in your application?" href="guide_extend.html"/>
-        <link rel="prev" title="Are there more efficient way for developing?" href="guide_ide.html"/> 
+        <link rel="prev" title="Use the best way for developing" href="guide_ide.html"/> 
 
   
   <script src="../static/js/modernizr.min.js"></script>
@@ -92,8 +92,12 @@
 <li class="toctree-l1"><a class="reference internal" href="guide.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="guide_program.html">What can QPython do?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Are there more efficient way for developing?</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QPython built-in Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qpython-dynload-libraries-python-built-in-so-libraries">QPython dynload libraries (python built-in .so libraries)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qpython-stardard-libraries">QPython stardard libraries</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#python-3rd-libraries">Python 3rd Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#android-apis">Android APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sl4a-apis">SL4A APIs</a><ul>
@@ -160,7 +164,7 @@
         
           <li><a href="guide.html">QPython Getting started</a> &raquo;</li>
         
-      <li>Python builtin Libraries</li>
+      <li>QPython built-in Libraries</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -179,11 +183,284 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python-builtin-libraries">
-<h1>Python builtin Libraries<a class="headerlink" href="#python-builtin-libraries" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="qpython-built-in-libraries">
+<h1>QPython built-in Libraries<a class="headerlink" href="#qpython-built-in-libraries" title="Permalink to this headline">¶</a></h1>
+<p>QPython is using the Python 2.7.2 and it support most Python stardard libraries. And you could see their documentation through Python documentation.</p>
+<div class="section" id="qpython-dynload-libraries-python-built-in-so-libraries">
+<h2>QPython dynload libraries (python built-in .so libraries)<a class="headerlink" href="#qpython-dynload-libraries-python-built-in-so-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Usually, you don&#8217;t need to  import them manually, they were used in stardard libraries, and could be imported automatically.</p>
+<ul class="simple">
+<li>_codecs_cn.so</li>
+<li>_codecs_hk.so</li>
+<li>_codecs_iso2022.so</li>
+<li>_codecs_jp.so</li>
+<li>_codecs_kr.so</li>
+<li>_codecs_tw.so</li>
+<li>_csv.so</li>
+<li>_ctypes.so</li>
+<li>_ctypes_test.so</li>
+<li>_hashlib.so</li>
+<li>_heapq.so</li>
+<li>_hotshot.so</li>
+<li>_io.so</li>
+<li>_json.so</li>
+<li>_lsprof.so</li>
+<li>_multibytecodec.so</li>
+<li>_sqlite3.so</li>
+<li>_ssl.so</li>
+<li>_testcapi.so</li>
+<li>audioop.so</li>
+<li>future_builtins.so</li>
+<li>grp.so</li>
+<li>mmap.so</li>
+<li>resource.so</li>
+<li>syslog.so</li>
+<li>termios.so</li>
+<li>unicodedata.so</li>
+</ul>
+</div>
+<div class="section" id="qpython-stardard-libraries">
+<h2>QPython stardard libraries<a class="headerlink" href="#qpython-stardard-libraries" title="Permalink to this headline">¶</a></h2>
+<p>The following libraries are the stardard QPython libraries which are the same as Python:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/2/library/basehttpserver.html">BaseHTTPServer.py</a></li>
+<li><a class="reference external" href="https://docs.python.org/2/library/binhex.html">binhex.py</a></li>
+<li><a class="reference external" href="https://docs.python.org/2/library/fnmatch.html">fnmatch.py</a></li>
+<li>mhlib.py</li>
+<li>quopri.py</li>
+<li>sysconfig.py</li>
+<li>Bastion.py</li>
+<li>bisect.py</li>
+<li>formatter.py</li>
+<li>mimetools.py</li>
+<li>random.py</li>
+<li>tabnanny.py</li>
+<li>CGIHTTPServer.py</li>
+<li>bsddb</li>
+<li>fpformat.py</li>
+<li>mimetypes.py</li>
+<li>re.py</li>
+<li>tarfile.py</li>
+<li>ConfigParser.py</li>
+<li>cProfile.py</li>
+<li>fractions.py</li>
+<li>mimify.py</li>
+<li>repr.py</li>
+<li>telnetlib.py</li>
+<li>Cookie.py</li>
+<li>calendar.py</li>
+<li>ftplib.py</li>
+<li>modulefinder.py</li>
+<li>rexec.py</li>
+<li>tempfile.py</li>
+<li>DocXMLRPCServer.py</li>
+<li>cgi.py</li>
+<li>functools.py</li>
+<li>multifile.py</li>
+<li>rfc822.py</li>
+<li>textwrap.py</li>
+<li>HTMLParser.py</li>
+<li>cgitb.py</li>
+<li>genericpath.py</li>
+<li>mutex.py</li>
+<li>rlcompleter.py</li>
+<li>this.py</li>
+<li>chunk.py</li>
+<li>getopt.py</li>
+<li>netrc.py</li>
+<li>robotparser.py</li>
+<li>threading.py</li>
+<li>MimeWriter.py</li>
+<li>cmd.py</li>
+<li>getpass.py</li>
+<li>new.py</li>
+<li>runpy.py</li>
+<li>timeit.py</li>
+<li>Queue.py</li>
+<li>code.py</li>
+<li>gettext.py</li>
+<li>nntplib.py</li>
+<li>sched.py</li>
+<li>toaiff.py</li>
+<li>SimpleHTTPServer.py</li>
+<li>codecs.py</li>
+<li>glob.py</li>
+<li>ntpath.py</li>
+<li>sets.py</li>
+<li>token.py</li>
+<li>SimpleXMLRPCServer.py</li>
+<li>codeop.py</li>
+<li>gzip.py</li>
+<li>nturl2path.py</li>
+<li>sgmllib.py</li>
+<li>tokenize.py</li>
+<li>SocketServer.py</li>
+<li>collections.py</li>
+<li>hashlib.py</li>
+<li>numbers.py</li>
+<li>sha.py</li>
+<li>trace.py</li>
+<li>StringIO.py</li>
+<li>colorsys.py</li>
+<li>heapq.py</li>
+<li>opcode.py</li>
+<li>shelve.py</li>
+<li>traceback.py</li>
+<li>UserDict.py</li>
+<li>commands.py</li>
+<li>hmac.py</li>
+<li>optparse.py</li>
+<li>shlex.py</li>
+<li>tty.py</li>
+<li>UserList.py</li>
+<li>compileall.py</li>
+<li>hotshot</li>
+<li>os.py</li>
+<li>shutil.py</li>
+<li>types.py</li>
+<li>UserString.py</li>
+<li>compiler</li>
+<li>htmlentitydefs.py</li>
+<li>os2emxpath.py</li>
+<li>site.py</li>
+<li>unittest</li>
+<li>_LWPCookieJar.py</li>
+<li>config</li>
+<li>htmllib.py</li>
+<li>smtpd.py</li>
+<li>urllib.py</li>
+<li>_MozillaCookieJar.py</li>
+<li>contextlib.py</li>
+<li>httplib.py</li>
+<li>pdb.py</li>
+<li>smtplib.py</li>
+<li>urllib2.py</li>
+<li>__future__.py</li>
+<li>cookielib.py</li>
+<li>ihooks.py</li>
+<li>pickle.py</li>
+<li>sndhdr.py</li>
+<li>urlparse.py</li>
+<li>__phello__.foo.py</li>
+<li>copy.py</li>
+<li>imaplib.py</li>
+<li>pickletools.py</li>
+<li>socket.py</li>
+<li>user.py</li>
+<li>_abcoll.py</li>
+<li>copy_reg.py</li>
+<li>imghdr.py</li>
+<li>pipes.py</li>
+<li>sqlite3</li>
+<li>uu.py</li>
+<li>_pyio.py</li>
+<li>csv.py</li>
+<li>importlib</li>
+<li>pkgutil.py</li>
+<li>sre.py</li>
+<li>uuid.py</li>
+<li>_strptime.py</li>
+<li>ctypes</li>
+<li>imputil.py</li>
+<li>plat-linux4</li>
+<li>sre_compile.py</li>
+<li>warnings.py</li>
+<li>_threading_local.py</li>
+<li>dbhash.py</li>
+<li>inspect.py</li>
+<li>platform.py</li>
+<li>sre_constants.py</li>
+<li>wave.py</li>
+<li>_weakrefset.py</li>
+<li>decimal.py</li>
+<li>io.py</li>
+<li>plistlib.py</li>
+<li>sre_parse.py</li>
+<li>weakref.py</li>
+<li>abc.py</li>
+<li>difflib.py</li>
+<li>json</li>
+<li>popen2.py</li>
+<li>ssl.py</li>
+<li>webbrowser.py</li>
+<li>aifc.py</li>
+<li>dircache.py</li>
+<li>keyword.py</li>
+<li>poplib.py</li>
+<li>stat.py</li>
+<li>whichdb.py</li>
+<li>antigravity.py</li>
+<li>dis.py</li>
+<li>lib-tk</li>
+<li>posixfile.py</li>
+<li>statvfs.py</li>
+<li>wsgiref</li>
+<li>anydbm.py</li>
+<li>distutils</li>
+<li>linecache.py</li>
+<li>posixpath.py</li>
+<li>string.py</li>
+<li>argparse.py</li>
+<li>doctest.py</li>
+<li>locale.py</li>
+<li>pprint.py</li>
+<li>stringold.py</li>
+<li>xdrlib.py</li>
+<li>ast.py</li>
+<li>dumbdbm.py</li>
+<li>logging</li>
+<li>profile.py</li>
+<li>stringprep.py</li>
+<li>xml</li>
+<li>asynchat.py</li>
+<li>dummy_thread.py</li>
+<li>macpath.py</li>
+<li>pstats.py</li>
+<li>struct.py</li>
+<li>xmllib.py</li>
+<li>asyncore.py</li>
+<li>dummy_threading.py</li>
+<li>macurl2path.py</li>
+<li>pty.py</li>
+<li>subprocess.py</li>
+<li>xmlrpclib.py</li>
+<li>atexit.py</li>
+<li>email</li>
+<li>mailbox.py</li>
+<li>py_compile.py</li>
+<li>sunau.py</li>
+<li>zipfile.py</li>
+<li>audiodev.py</li>
+<li>encodings</li>
+<li>mailcap.py</li>
+<li>pyclbr.py</li>
+<li>sunaudio.py</li>
+<li>base64.py</li>
+<li>filecmp.py</li>
+<li>markupbase.py</li>
+<li>pydoc.py</li>
+<li>symbol.py</li>
+<li>bdb.py</li>
+<li>fileinput.py</li>
+<li>md5.py</li>
+<li>pydoc_data</li>
+<li>symtable.py</li>
+</ul>
+</div>
 </div>
 <div class="section" id="python-3rd-libraries">
 <h1>Python 3rd Libraries<a class="headerlink" href="#python-3rd-libraries" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>BeautifulSoup.py</li>
+<li>pkg_resources.py</li>
+<li>androidhelper</li>
+<li>plyer</li>
+<li>bottle.py</li>
+<li>qpy.py</li>
+<li>qpythoninit.py</li>
+<li>setuptools</li>
+<li>pip</li>
+</ul>
 </div>
 <div class="section" id="android-apis">
 <h1>Android APIs<a class="headerlink" href="#android-apis" title="Permalink to this headline">¶</a></h1>
@@ -339,33 +616,12 @@ SL4A facade functions &amp; API documentation</p>
         <a href="guide_extend.html" class="btn btn-neutral float-right" title="How to call QPython script in your application?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="guide_ide.html" class="btn btn-neutral" title="Are there more efficient way for developing?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="guide_ide.html" class="btn btn-neutral" title="Use the best way for developing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
 
   <hr/>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<div class="fb-comments" data-href="http://qpython.org/en/guide_libraries" data-numposts="10"></div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36070037-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<hr />
 
   <div role="contentinfo">
     <p>

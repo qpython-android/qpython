@@ -34,7 +34,7 @@
   
     <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
         <link rel="up" title="QPython Getting started" href="guide.html"/>
-        <link rel="next" title="Are there more efficient way for developing?" href="guide_ide.html"/>
+        <link rel="next" title="Use the best way for developing" href="guide_ide.html"/>
         <link rel="prev" title="Writing “Hello World”" href="guide_helloworld.html"/> 
 
   
@@ -96,8 +96,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#qpython-s-main-features">QPython&#8217;s main features</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Are there more efficient way for developing?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">QPython built-in Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#python-3rd-libraries">Python 3rd Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#android-apis">Android APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#sl4a-apis">SL4A APIs</a></li>
@@ -179,8 +179,8 @@
 <h1>What can QPython do?<a class="headerlink" href="#what-can-qpython-do" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="why-should-i-choose-qpython">
 <h2>Why should I choose QPython<a class="headerlink" href="#why-should-i-choose-qpython" title="Permalink to this headline">¶</a></h2>
-<p>QPython offer <strong>an amazing developing experience</strong>, Now you could write &amp; test &amp; run your programs from your anroid, not the PC, Laptop.</p>
-<p>We think QPython&#8217;s programming style may become popular in the future.</p>
+<p>The smartphone is becomming people&#8217;s essential information &amp; technical assitant, so an flexiable script engine could help people complete most jobs efficiently without complex development.</p>
+<p>QPython offer <strong>an amazing developing experience</strong>, with it&#8217;s help, you could implement the program easily without complex installing IDE, compiling, package progress etc.</p>
 </div>
 <div class="section" id="qpython-s-main-features">
 <h2>QPython&#8217;s main features<a class="headerlink" href="#qpython-s-main-features" title="Permalink to this headline">¶</a></h2>
@@ -210,8 +210,20 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#qpy:kivy</span>
 </pre></div>
 </div>
+<p><em>An kivy program in QPython sample</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#qpy:kivy</span>
+<span class="kn">from</span> <span class="nn">kivy.app</span> <span class="k">import</span> <span class="n">App</span>
+<span class="kn">from</span> <span class="nn">kivy.uix.button</span> <span class="k">import</span> <span class="n">Button</span>
+
+<span class="k">class</span> <span class="nc">TestApp</span><span class="p">(</span><span class="n">App</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Button</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+
+<span class="n">TestApp</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>If your library require the opengl driver, you shoule declare the kivy mode header in your script, like the jnius.</p>
-<p><em>NOTE: QPython3 didn&#8217;t support this mode yet</em></p>
+<p><em>NOTE: QPython3 didn&#8217;t support kivy mode yet, we have plan to support it in the future</em></p>
 <p><strong>WebApp mode</strong></p>
 <p>We recommend you implement WebApp with QPython for it offer the easy to accomplish UI and Take advantage of Python&#8217;s fast programming strong point.</p>
 <p>WebApp will start a webview in front, and run a python web service background.
@@ -267,11 +279,6 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
     <span class="k">global</span> <span class="n">server</span>
     <span class="n">server</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
-<span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/__ping&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">__ping</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s2">&quot;ok&quot;</span>
-
-
 <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/assets/&lt;filepath:path&gt;&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">serverstatic</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">static_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="s1">&#39;/sdcard&#39;</span><span class="p">)</span>
@@ -280,14 +287,14 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
 <span class="c1">######### WEBAPP ROUTERS ###############</span>
 <span class="nd">@route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">home</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;Hello {{name}} !&lt;/h1&gt;&lt;a href=&quot;/assets/qpython/projects/WebApp Sample/main.py&quot;&gt;View source&lt;/a&gt;&lt;br /&gt;&lt;br /&gt; &lt;a href=&quot;http://wiki.qpython.org/doc/program_guide/web_app/&quot;&gt;&gt;&gt; About QPython Web App&lt;/a&gt;&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;QPython&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">template</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;Hello {{name}} !&lt;/h1&gt;&#39;</span><span class="o">+</span> \
+    <span class="s1">&#39;&lt;a href=&quot;/assets/qpython/projects/WebApp Sample/main.py&quot;&gt;View source&lt;/a&gt;&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;QPython&#39;</span><span class="p">)</span>
 
 
 <span class="c1">######### WEBAPP ROUTERS ###############</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">Bottle</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;GET&#39;</span><span class="p">)(</span><span class="n">home</span><span class="p">)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/__exit&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="s1">&#39;HEAD&#39;</span><span class="p">])(</span><span class="n">__exit</span><span class="p">)</span>
-<span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/__ping&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span><span class="s1">&#39;HEAD&#39;</span><span class="p">])(</span><span class="n">__ping</span><span class="p">)</span>
 <span class="n">app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/assets/&lt;filepath:path&gt;&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;GET&#39;</span><span class="p">)(</span><span class="n">serverstatic</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -297,7 +304,9 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
     <span class="nb">print</span> <span class="s2">&quot;Exception: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>If you want the webapp could be close when you exit the webview, you have to define the <em>&#64;route(&#8216;/__exit&#8217;, method=[&#8216;GET&#8217;,&#8217;HEAD&#8217;])</em> method , for the qpython will request the <em>http://localhost:8080/__exit</em> when you exit the webview. So you can release other resource in this function.</p>
 <img alt="QPython WebApp Sample" src="../images/guide_program_pic1.png" />
+<p><em>Running screenshot</em></p>
 <p>In the other part of the code, you could implement a webserver whish serve on localhost:8080 and make the URL /hello implement as your webapp&#8217;s homepage.</p>
 <p><strong>Q mode</strong></p>
 <p>If you don&#8217;t want the QPython display some UI, pelase try to use the QScript mode, it could run a script background, just insert the following header into your script:</p>
@@ -317,7 +326,7 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="guide_ide.html" class="btn btn-neutral float-right" title="Are there more efficient way for developing?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="guide_ide.html" class="btn btn-neutral float-right" title="Use the best way for developing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="guide_helloworld.html" class="btn btn-neutral" title="Writing “Hello World”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -326,28 +335,6 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
   
 
   <hr/>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<div class="fb-comments" data-href="http://qpython.org/en/guide_program" data-numposts="10"></div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36070037-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<hr />
-
 
   <div role="contentinfo">
     <p>

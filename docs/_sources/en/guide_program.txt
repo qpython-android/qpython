@@ -4,9 +4,9 @@ What can QPython do?
 
 Why should I choose QPython
 ------------------------
-QPython offer **an amazing developing experience**, Now you could write & test & run your programs from your anroid, not the PC, Laptop.
+The smartphone is becomming people's essential information & technical assitant, so an flexiable script engine could help people complete most jobs efficiently without complex development.
 
-We think QPython's programming style may become popular in the future.
+QPython offer **an amazing developing experience**, with it's help, you could implement the program easily without complex installing IDE, compiling, package progress etc.
 
 QPython's main features
 -------------------------
@@ -57,9 +57,24 @@ By insert into the following header in your script, you can let your script run 
     #qpy:kivy
 
 
+*An kivy program in QPython sample*
+
+::
+
+    #qpy:kivy
+    from kivy.app import App
+    from kivy.uix.button import Button
+
+    class TestApp(App):
+        def build(self):
+            return Button(text='Hello World')
+
+    TestApp().run()
+
+
 If your library require the opengl driver, you shoule declare the kivy mode header in your script, like the jnius.
 
-*NOTE: QPython3 didn't support this mode yet*
+*NOTE: QPython3 didn't support kivy mode yet, we have plan to support it in the future*
 
 **WebApp mode**
 
@@ -129,11 +144,6 @@ The previous should start a webview which should load the *http://localhost:8080
         global server
         server.stop()
 
-    @route('/__ping')
-    def __ping():
-        return "ok"
-
-
     @route('/assets/<filepath:path>')
     def server_static(filepath):
         return static_file(filepath, root='/sdcard')
@@ -142,14 +152,14 @@ The previous should start a webview which should load the *http://localhost:8080
     ######### WEBAPP ROUTERS ###############
     @route('/')
     def home():
-        return template('<h1>Hello {{name}} !</h1><a href="/assets/qpython/projects/WebApp Sample/main.py">View source</a><br /><br /> <a href="http://wiki.qpython.org/doc/program_guide/web_app/">>> About QPython Web App</a>',name='QPython')
+        return template('<h1>Hello {{name}} !</h1>'+ \
+        '<a href="/assets/qpython/projects/WebApp Sample/main.py">View source</a>',name='QPython')
 
 
     ######### WEBAPP ROUTERS ###############
     app = Bottle()
     app.route('/', method='GET')(home)
     app.route('/__exit', method=['GET','HEAD'])(__exit)
-    app.route('/__ping', method=['GET','HEAD'])(__ping)
     app.route('/assets/<filepath:path>', method='GET')(server_static)
 
     try:
@@ -159,9 +169,13 @@ The previous should start a webview which should load the *http://localhost:8080
         print "Exception: %s" % repr(ex)
 
 
+If you want the webapp could be close when you exit the webview, you have to define the *@route('/__exit', method=['GET','HEAD'])* method , for the qpython will request the *http://localhost:8080/__exit* when you exit the webview. So you can release other resource in this function.
 
 .. image:: ../_static/guide_program_pic1.png
    :alt: QPython WebApp Sample 
+
+*Running screenshot*
+
 
 In the other part of the code, you could implement a webserver whish serve on localhost:8080 and make the URL /hello implement as your webapp's homepage.
 
