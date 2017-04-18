@@ -266,23 +266,19 @@ The following libraries are the stardard QPython libraries which are the same as
 Python 3rd Libraries
 ==========================
 
-- BeautifulSoup.py
+- `BeautifulSoup.py(3) <https://www.crummy.com/software/BeautifulSoup/bs3/documentation.html>`_
 - pkg_resources.py
 - androidhelper
 - plyer
-- bottle.py
+- `bottle.py <http://bottlepy.org/docs/dev/>`_
 - qpy.py
 - qpythoninit.py
 - setuptools
-- pip
+- `pip <https://pypi.python.org/pypi/pip/>`_
 
 
-Android APIs
-==========================
-
-
-SL4A APIs
-=============
+Androidhelper APIs
+========================
 
 .. image:: ../_static/sl4a.jpg
 
