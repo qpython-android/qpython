@@ -5,8 +5,7 @@ with open(sys.argv[1], 'r') as f, open('/tmp/qpydoc.tmp', 'wb') as g, open(os.pa
     content = '\n'.join(
         filter(lambda s: len(s),
                map(lambda s:
-                       s+('',extra+"<hr/>")[s=='<hr/>'],
+                       ('',extra+"<hr/>")[s=='<div role="contentinfo">']+s,
                    map(str.strip, f.readlines()))))
     g.write(content)
-
 os.rename('/tmp/qpydoc.tmp', sys.argv[1])
