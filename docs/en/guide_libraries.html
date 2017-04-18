@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
 <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
 <link rel="up" title="QPython Getting started" href="guide.html"/>
-<link rel="next" title="How to call QPython script in your application?" href="guide_extend.html"/>
+<link rel="next" title="AndroidFacade" href="guide_androidhelpers.html"/>
 <link rel="prev" title="Use the best way for developing" href="guide_ide.html"/>
 <script src="../static/js/modernizr.min.js"></script>
 </head>
@@ -43,12 +43,33 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#python-3rd-libraries">Python 3rd Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#androidhelper-apis">Androidhelper APIs</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qpy-apis">QPy APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#nfc-apis">NFC APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#location-api">Location API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sensor-api">Sensor API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#other-sl4a-apis">Other SL4A APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html">AndroidFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#applicationmanagerfacade">ApplicationManagerFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#camerafacade">CameraFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#commonintentsfacade">CommonIntentsFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#contactsfacade">ContactsFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#eventfacade">EventFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#locationfacade">LocationFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#phonefacade">PhoneFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#mediarecorderfacade">MediaRecorderFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#sensormanagerfacade">SensorManagerFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#settingsfacade">SettingsFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#smsfacade">SmsFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#tonegeneratorfacade">ToneGeneratorFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#wakelockfacade">WakeLockFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#wififacade">WifiFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#batterymanagerfacade">BatteryManagerFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#activityresultfacade">ActivityResultFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#mediaplayerfacade">MediaPlayerFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#preferencesfacade">PreferencesFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#qpyinterfacefacade">QPyInterfaceFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#texttospeechfacade">TextToSpeechFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#eyesfreefacade">EyesFreeFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#bluetoothfacade">BluetoothFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#signalstrengthfacade">SignalStrengthFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#webcamfacade">WebCamFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#uifacade">UiFacade</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guide_extend.html">How to call QPython script in your application?</a></li>
@@ -365,131 +386,49 @@
 </div>
 <div class="section" id="androidhelper-apis">
 <h1>Androidhelper APIs<a class="headerlink" href="#androidhelper-apis" title="Permalink to this headline">¶</a></h1>
-<img alt="../images/sl4a.jpg" src="../images/sl4a.jpg" />
 <p>To simplify QPython SL4A development in IDEs with a
 &#8220;hepler&#8221; class derived from the default Android class containing
 SL4A facade functions &amp; API documentation</p>
-<div class="section" id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
-<p>QPython NFC json result</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">role</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1"># could be self/master/slave</span>
-<span class="s2">&quot;stat&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">stat</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1"># could be ok / fail / cancl</span>
-<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">message</span> <span class="n">get</span><span class="o">&gt;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="qpy-apis">
-<h2>QPy APIs<a class="headerlink" href="#qpy-apis" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="AndroidHelper.executeQPy">
-<code class="descclassname">AndroidHelper.</code><code class="descname">executeQPy</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.executeQPy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Execute a qpython script by absolute path</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<em>str</em>) &#8211; The absolute path of the qpython script</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-</div>
-<div class="section" id="nfc-apis">
-<h2>NFC APIs<a class="headerlink" href="#nfc-apis" title="Permalink to this headline">¶</a></h2>
-<p>NFC Message Beam APIs</p>
-<dl class="function">
-<dt id="AndroidHelper.dialogCreateNFCBeamMaster">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateNFCBeamMaster</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateNFCBeamMaster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a dialog which can send the message to NFC Beam Slave</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.NFCBeamMessage">
-<code class="descclassname">AndroidHelper.</code><code class="descname">NFCBeamMessage</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.NFCBeamMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sendthe message to NFC Beam Slave without dialog</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.dialogCreateNFCBeamSlave">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateNFCBeamSlave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateNFCBeamSlave" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a NFC Beam Slave to wait for the master&#8217;s beam message</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-</div>
-<div class="section" id="location-api">
-<h2>Location API<a class="headerlink" href="#location-api" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="androidhelper.getLastKnownLocation">
-<code class="descclassname">androidhelper.</code><code class="descname">getLastKnownLocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#androidhelper.getLastKnownLocation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">getLastKnownLocation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gps&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="sensor-api">
-<h2>Sensor API<a class="headerlink" href="#sensor-api" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="androidhelper.sensorsReadOrientation">
-<code class="descclassname">androidhelper.</code><code class="descname">sensorsReadOrientation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#androidhelper.sensorsReadOrientation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
-<span class="n">Droid</span><span class="o">.</span><span class="n">startSensingTimed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
-<span class="n">sensor</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">sensorsReadOrientation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
-<span class="n">Droid</span><span class="o">.</span><span class="n">stopSensing</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="other-sl4a-apis">
-<h2>Other SL4A APIs<a class="headerlink" href="#other-sl4a-apis" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="AndroidHelper.dialogCreateSpinnerProgress">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateSpinnerProgress</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>maximum progress</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateSpinnerProgress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a spinner progress dialog</p>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.webViewShow">
-<code class="descclassname">AndroidHelper.</code><code class="descname">webViewShow</code><span class="sig-paren">(</span><em>url</em>, <em>wait</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.webViewShow" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display a WebView with the given URL.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>url</strong> (<em>str</em>) &#8211; URL</li>
-<li><strong>wait(Optional)</strong> (<em>boolean</em>) &#8211; block until the user exits the WebView</li>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html">AndroidFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#applicationmanagerfacade">ApplicationManagerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#camerafacade">CameraFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#commonintentsfacade">CommonIntentsFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#contactsfacade">ContactsFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#eventfacade">EventFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#locationfacade">LocationFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#phonefacade">PhoneFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#mediarecorderfacade">MediaRecorderFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#sensormanagerfacade">SensorManagerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#settingsfacade">SettingsFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#smsfacade">SmsFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#tonegeneratorfacade">ToneGeneratorFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#wakelockfacade">WakeLockFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#wififacade">WifiFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#batterymanagerfacade">BatteryManagerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#activityresultfacade">ActivityResultFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#mediaplayerfacade">MediaPlayerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#preferencesfacade">PreferencesFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#qpyinterfacefacade">QPyInterfaceFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#execute-a-qpython-script">Execute a qpython script</a></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#texttospeechfacade">TextToSpeechFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#eyesfreefacade">EyesFreeFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#bluetoothfacade">BluetoothFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#signalstrengthfacade">SignalStrengthFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#webcamfacade">WebCamFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#uifacade">UiFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#nfc-apis">NFC APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#id1">NFC APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#location-api">Location API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#sensor-api">Sensor API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#other-sl4a-apis">Other SL4A APIs</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -498,7 +437,7 @@ SL4A facade functions &amp; API documentation</p>
 </div>
 <footer>
 <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-<a href="guide_extend.html" class="btn btn-neutral float-right" title="How to call QPython script in your application?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+<a href="guide_androidhelpers.html" class="btn btn-neutral float-right" title="AndroidFacade" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
 <a href="guide_ide.html" class="btn btn-neutral" title="Use the best way for developing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
 </div>
 <hr/>
