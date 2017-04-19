@@ -2,8 +2,10 @@ QPython built-in Libraries
 ==========================
 QPython is using the Python 2.7.2 and it support most Python stardard libraries. And you could see their documentation through Python documentation.
 
-QPython dynload libraries (python built-in .so libraries)
+QPython dynload libraries 
 --------------------------------------------------------------
+Just like Python, QPython contains python built-in .so libraries.
+
 Usually, you don't need to  import them manually, they were used in stardard libraries, and could be imported automatically.
 
 * _codecs_cn.so

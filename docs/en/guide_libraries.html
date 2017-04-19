@@ -34,10 +34,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="guide_program.html">What can QPython do?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_program.html">QPython&#8217;s main features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">QPython built-in Libraries</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#qpython-dynload-libraries-python-built-in-so-libraries">QPython dynload libraries (python built-in .so libraries)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qpython-dynload-libraries">QPython dynload libraries</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#qpython-stardard-libraries">QPython stardard libraries</a></li>
 </ul>
 </li>
@@ -72,8 +72,8 @@
 <li class="toctree-l3"><a class="reference internal" href="guide_androidhelpers.html#uifacade">UiFacade</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="guide_extend.html">How to call QPython script in your application?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html">QPython Open API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#qpython-online-service">QPython Online Service</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
@@ -108,8 +108,9 @@
 <div class="section" id="qpython-built-in-libraries">
 <h1>QPython built-in Libraries<a class="headerlink" href="#qpython-built-in-libraries" title="Permalink to this headline">¶</a></h1>
 <p>QPython is using the Python 2.7.2 and it support most Python stardard libraries. And you could see their documentation through Python documentation.</p>
-<div class="section" id="qpython-dynload-libraries-python-built-in-so-libraries">
-<h2>QPython dynload libraries (python built-in .so libraries)<a class="headerlink" href="#qpython-dynload-libraries-python-built-in-so-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="qpython-dynload-libraries">
+<h2>QPython dynload libraries<a class="headerlink" href="#qpython-dynload-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Just like Python, QPython contains python built-in .so libraries.</p>
 <p>Usually, you don&#8217;t need to  import them manually, they were used in stardard libraries, and could be imported automatically.</p>
 <ul class="simple">
 <li>_codecs_cn.so</li>
@@ -391,16 +392,53 @@
 SL4A facade functions &amp; API documentation</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html">AndroidFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#applicationmanagerfacade">ApplicationManagerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html">AndroidFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#clipboard-apis">Clipboard APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#intent-startactivity-apis">Intent &amp; startActivity APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#sendbroadcast-apis">SendBroadcast APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#vibrate">Vibrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#networkstatus">NetworkStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#packageversion-apis">PackageVersion APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#system-apis">System APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#sendemail">SendEmail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#toast-getinput-getpassword-notify-apis">Toast, getInput, getPassword, notify APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#applicationmanagerfacade">ApplicationManagerFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#manager-apis">Manager APIs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#camerafacade">CameraFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#commonintentsfacade">CommonIntentsFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#commonintentsfacade">CommonIntentsFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#barcode">Barcode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#view-apis">View APIs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#contactsfacade">ContactsFacade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#eventfacade">EventFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#locationfacade">LocationFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#phonefacade">PhoneFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#mediarecorderfacade">MediaRecorderFacade</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#sensormanagerfacade">SensorManagerFacade</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#locationfacade">LocationFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#providers-apis">Providers APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#location-apis">Location APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#geo">GEO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#phonefacade">PhoneFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#phonestat-apis">PhoneStat APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#call-dia-apis">Call &amp; Dia APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#get-information-apis">Get information APIs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#mediarecorderfacade">MediaRecorderFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#video-apis">Video APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#stop">Stop</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#sensormanagerfacade">SensorManagerFacade</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#start-stop">Start &amp; Stop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#read-data-apis">Read data APIs</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#settingsfacade">SettingsFacade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#smsfacade">SmsFacade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guide_androidhelpers.html#speechrecognitionfacade">SpeechRecognitionFacade</a></li>

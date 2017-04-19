@@ -1,5 +1,7 @@
-What can QPython do?
+QPython's main features
 ====================================
+
+**With QPython, you could build android applications with android application and script language now.**
 
 
 Why should I choose QPython

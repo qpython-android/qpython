@@ -22,7 +22,7 @@ QEditor is the QPython's built-in editor, which supports Python / HTML syntax hi
 You could run the QPython script directly when you develop from QEditor, so when you are moving it's the most convient way for QPython develop.
 
 
-Develop from your PC/Laptop's browser
+Develop from browser
 --------------------------------------
 QPython has a built-in script which is **qedit4web.py**, you could see it when you click the start button and choose  "Run local script".
 After run it, you could see the result.
@@ -44,3 +44,6 @@ Then, you could access the url from your PC/Laptop's browser for developing, jus
 With it's help, you could write from browser and run from your android phone. It is very convenient.
 
 
+Develop from your computer
+--------------------------
+Besides the above ways, you could develop the script with your way, then upload to your phone and run with QPython also.
