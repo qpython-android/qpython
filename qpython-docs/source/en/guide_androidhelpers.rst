@@ -33,7 +33,7 @@ Intent & startActivity APIs
    :param str uri(Optional): uri
    :param str type(Optional): MIME type/subtype of the URI
    :param jsonobject extras(Optional): a Map of extras to add to the Intent
-   :param jsonarray categories(Optional): a List of categories to add to the Intent
+   :param array categories(Optional): a List of categories to add to the Intent
    :param str packagename(Optional): name of package. If used, requires classname to be useful
    :param str classname(Optional): name of class. If used, requires packagename to be useful
    :param int flags(Optional): Intent flags
@@ -79,7 +79,6 @@ Intent & startActivity APIs
    Starts an activity and returns the result
 
    :param Intent intent: Intent in the format as returned from makeIntent
-
 
    :return: A Map representation of the result Intent
 
@@ -330,7 +329,7 @@ Manager APIs
 
    Returns a list of packages running activities or services
 
-   :return: list
+   :return: List of packages running activities
 
 ::
 
@@ -354,6 +353,8 @@ CameraFacade
 
    Take a picture and save it to the specified path
 
+   :return: A map of Booleans autoFocus and takePicture where True indicates success
+
 .. py:function:: cameraInteractiveCapturePicture(targetPath)
 
    Starts the image capture application to take a picture and saves it to the specified path
@@ -367,11 +368,15 @@ Barcode
 
    Starts the barcode scanner
 
+   :return: A Map representation of the result Intent
+
 View APIs
 ----------
 .. py:function:: pick(uri)
 
    Display content to be picked by URI (e.g. contacts)
+
+   :return: A map of result values
 
 .. py:function:: view(uri, type, extras)
 
@@ -400,13 +405,19 @@ ContactsFacade
 
    Displays a list of contacts to pick from
 
+   :return: A map of result values
+
 .. py:function:: pickPhone()
 
    Displays a list of phone numbers to pick from
 
+   :return: The selected phone number
+
 .. py:function:: contactsGetAttributes()
 
    Returns a List of all possible attributes for contacts
+
+   :return: a List of contacts as Maps
 
 .. py:function:: contactsGetIds()
 
@@ -428,9 +439,13 @@ ContactsFacade
 
    Content Resolver Query
 
+   :return: result of query as Maps
+
 .. py:function:: queryAttributes(uri)
 
    Content Resolver Query Attributes
+
+   :return: a list of available columns for a given content uri
 
 EventFacade
 =========================
@@ -455,13 +470,19 @@ EventFacade
 
    Returns and removes the oldest n events (i.e. location or sensor update, etc.) from the event buffer
 
+   :return: A List of Maps of event properties
+
 .. py:function:: eventWaitFor(eventName, timeout)
 
    Blocks until an event with the supplied name occurs. The returned event is not removed from the buffer
 
+   :return: Map of event properties
+
 .. py:function:: eventWait(timeout)
 
    Blocks until an event occurs. The returned event is removed from the buffer
+
+   :return: Map of event properties
 
 .. py:function:: eventPost(name, data, enqueue)
 
@@ -475,9 +496,13 @@ EventFacade
 
    Returns and removes the oldest event (i.e. location or sensor update, etc.) from the event buffer
 
+   :return: Map of event properties
+
 .. py:function:: waitForEvent(eventName, timeout)
 
    Blocks until an event with the supplied name occurs. The returned event is not removed from the buffer
+
+   :return: Map of event properties
 
 .. py:function:: startEventDispatcher(port)
 
@@ -511,6 +536,8 @@ Location APIs
 
    Returns the current location as indicated by all available providers
 
+   :return: A map of location information by provider
+
 .. py:function:: stopLocating()
 
    Stops collecting location data
@@ -519,11 +546,23 @@ Location APIs
 
    Returns the last known location of the device
 
+   :return: A map of location information by provider
+
+*sample code*
+::
+
+    Droid = androidhelper.Android()
+    location = Droid.getLastKnownLocation().result
+    location = location.get('network', location.get('gps'))
+
+
 GEO
 -----------
 .. py:function:: geocode(latitude, longitude, maxResults)
 
    Returns a list of addresses for the given latitude and longitude
+
+   :return: A list of addresses
 
 PhoneFacade
 =========================
@@ -538,6 +577,8 @@ PhoneStat APIs
 .. py:function:: readPhoneState()
 
    Returns the current phone state and incoming number
+
+   :return: A Map of "state" and "incomingNumber"
 
 .. py:function:: stopTrackingPhoneState()
 
@@ -722,77 +763,874 @@ Read data APIs
 
    Returns the most recently received accelerometer values
 
+   :return: a List of Floats [(acceleration on the) X axis, Y axis, Z axis]
+
 .. py:function:: sensorsReadMagnetometer()
 
    Returns the most recently received magnetic field values
+
+   :return: a List of Floats [(magnetic field value for) X axis, Y axis, Z axis]
 
 .. py:function:: sensorsReadOrientation()
 
    Returns the most recently received orientation values
 
+   :return: a List of Doubles [azimuth, pitch, roll]
 
+*sample code*
+::
 
+    Droid = androidhelper.Android()
+    Droid.startSensingTimed(1, 250)
+    sensor = Droid.sensorsReadOrientation().result
+    Droid.stopSensing()
 
 
 SettingsFacade
 =========================
 
+Screen
+----------
+
+.. py:function:: setScreenTimeout(value)
+
+   Sets the screen timeout to this number of seconds
+
+   :return: The original screen timeout
+
+.. py:function:: getScreenTimeout()
+
+   Gets the screen timeout
+
+   :return: the current screen timeout in seconds
+
+AirplanerMode
+---------------------
+
+.. py:function:: checkAirplaneMode()
+
+   Checks the airplane mode setting
+
+   :return: True if airplane mode is enabled
+
+.. py:function:: toggleAirplaneMode(enabled)
+
+   Toggles airplane mode on and off
+
+   :return: True if airplane mode is enabled
+
+Ringer Silent Mode
+---------------------
+
+.. py:function:: checkRingerSilentMode()
+
+   Checks the ringer silent mode setting
+
+   :return: True if ringer silent mode is enabled
+
+.. py:function:: toggleRingerSilentMode(enabled)
+
+   Toggles ringer silent mode on and off
+
+   :return: True if ringer silent mode is enabled
+
+Vibrate Mode
+---------------------
+
+.. py:function:: toggleVibrateMode(enabled)
+
+   Toggles vibrate mode on and off. If ringer=true then set Ringer setting, else set Notification setting
+
+   :return: True if vibrate mode is enabled
+
+.. py:function:: getVibrateMode(ringer)
+
+   Checks Vibration setting. If ringer=true then query Ringer setting, else query Notification setting
+
+   :return: True if vibrate mode is enabled
+
+Ringer & Media Volume
+---------------------
+
+.. py:function:: getMaxRingerVolume()
+
+   Returns the maximum ringer volume
+
+.. py:function:: getRingerVolume()
+
+   Returns the current ringer volume
+
+.. py:function:: setRingerVolume(volume)
+
+   Sets the ringer volume
+
+.. py:function:: getMaxMediaVolume()
+
+   Returns the maximum media volume
+
+.. py:function:: getMediaVolume()
+
+   Returns the current media volume
+
+.. py:function:: setMediaVolume(volume)
+
+   Sets the media volume
+
+Screen Brightness
+---------------------
+
+.. py:function:: getScreenBrightness()
+
+   Returns the screen backlight brightness
+
+   :return: the current screen brightness between 0 and 255
+
+.. py:function:: setScreenBrightness(value)
+
+   Sets the the screen backlight brightness
+
+   :return: the original screen brightness
+
+.. py:function:: checkScreenOn()
+
+   Checks if the screen is on or off (requires API level 7)
+
+   :return: True if the screen is currently on
+
+
 SmsFacade
 =========================
+
+.. py:function:: smsSend(destinationAddress, text)
+
+   Sends an SMS
+
+   :param str destinationAddress: typically a phone number
+   :param str text:
+
+.. py:function:: smsGetMessageCount(unreadOnly, folder)
+
+   Returns the number of messages
+
+   :param boolean unreadOnly: typically a phone number
+   :param str folder(optional): default "inbox"
+
+.. py:function:: smsGetMessageIds(unreadOnly, folder)
+
+   Returns a List of all message IDs
+
+   :param boolean unreadOnly: typically a phone number
+   :param str folder(optional): default "inbox"
+
+.. py:function:: smsGetMessages(unreadOnly, folder, attributes)
+
+   Returns a List of all messages
+
+   :param boolean unreadOnly: typically a phone number
+   :param str folder: default "inbox"
+   :param array attributes(optional): attributes
+
+   :return: a List of messages as Maps
+
+.. py:function:: smsGetMessageById(id, attributes)
+
+   Returns message attributes
+
+   :param int id: message ID
+   :param array attributes(optional): attributes
+
+   :return: a List of messages as Maps
+
+.. py:function:: smsGetAttributes()
+
+   Returns a List of all possible message attributes
+
+.. py:function:: smsDeleteMessage(id)
+
+   Deletes a message
+
+   :param int id: message ID
+
+   :return: True if the message was deleted
+
+.. py:function:: smsMarkMessageRead(ids, read)
+
+   Marks messages as read
+
+   :param array ids: List of message IDs to mark as read
+   :param boolean read:  true or false
+
+   :return: number of messages marked read
 
 SpeechRecognitionFacade
 =========================
 
+.. py:function:: recognizeSpeech(prompt, language, languageModel)
+
+   Recognizes user's speech and returns the most likely result
+
+   :param str prompt(optional): text prompt to show to the user when asking them to speak
+   :param str language(optional): language override to inform the recognizer that it should expect speech in a language different than the one set in the java.util.Locale.getDefault()
+   :param str languageModel(optional): informs the recognizer which speech model to prefer (see android.speech.RecognizeIntent)
+
+   :return: An empty string in case the speech cannot be recongnized
+
+
 ToneGeneratorFacade
 =========================
+
+.. py:function:: generateDtmfTones(phoneNumber, toneDuration)
+
+   Generate DTMF tones for the given phone number
+
+   :param str phoneNumber: phone number
+   :param int toneDuration(optional): default 100, duration of each tone in milliseconds
+
 
 WakeLockFacade
 =========================
 
+.. py:function:: wakeLockAcquireFull()
+
+   Acquires a full wake lock (CPU on, screen bright, keyboard bright)
+
+.. py:function:: wakeLockAcquirePartial()
+
+   Acquires a partial wake lock (CPU on)
+
+.. py:function:: wakeLockAcquireBright()
+
+   Acquires a bright wake lock (CPU on, screen bright)
+
+.. py:function:: wakeLockAcquireDim()
+
+   Acquires a dim wake lock (CPU on, screen dim)
+
+.. py:function:: wakeLockRelease()
+
+   Releases the wake lock
+
 WifiFacade
 =========================
+
+.. py:function:: wifiGetScanResults()
+
+   Returns the list of access points found during the most recent Wifi scan
+
+.. py:function:: wifiLockAcquireFull()
+
+   Acquires a full Wifi lock
+
+.. py:function:: wifiLockAcquireScanOnly()
+
+   Acquires a scan only Wifi lock
+
+.. py:function:: wifiLockRelease()
+
+   Releases a previously acquired Wifi lock
+
+.. py:function:: wifiStartScan()
+
+   Starts a scan for Wifi access points
+
+   :return: True if the scan was initiated successfully
+
+.. py:function:: checkWifiState()
+
+   Checks Wifi state
+
+   :return: True if Wifi is enabled
+
+.. py:function:: toggleWifiState(enabled)
+
+   Toggle Wifi on and off
+
+   :param boolean enabled(optional): enabled
+
+   :return: True if Wifi is enabled
+
+.. py:function:: wifiDisconnect()
+
+   Disconnects from the currently active access point
+
+   :return: True if the operation succeeded
+
+.. py:function:: wifiGetConnectionInfo()
+
+   Returns information about the currently active access point
+
+.. py:function:: wifiReassociate()
+
+   Returns information about the currently active access point
+
+   :return: True if the operation succeeded
+
+.. py:function:: wifiReconnect()
+
+   Reconnects to the currently active access point
+
+   :return: True if the operation succeeded
 
 
 BatteryManagerFacade
 =========================
 
+.. py:function:: readBatteryData()
+
+   Returns the most recently recorded battery data
+
+.. py:function:: batteryStartMonitoring()
+
+   Starts tracking battery state
+
+.. py:function:: batteryStopMonitoring()
+
+   Stops tracking battery state
+
+.. py:function:: batteryGetStatus()
+
+   Returns  the most recently received battery status data:
+   1 - unknown;
+   2 - charging;
+   3 - discharging;
+   4 - not charging;
+   5 - full
+
+.. py:function:: batteryGetHealth()
+
+   Returns the most recently received battery health data:
+   1 - unknown;
+   2 - good;
+   3 - overheat;
+   4 - dead;
+   5 - over voltage;
+   6 - unspecified failure
+
+.. py:function:: batteryGetPlugType()
+
+   Returns the most recently received plug type data:
+   -1 - unknown
+   0 - unplugged
+   1 - power source is an AC charger
+   2 - power source is a USB port
+
+
+.. py:function:: batteryCheckPresent()
+
+   Returns the most recently received battery presence data
+
+.. py:function:: batteryGetLevel()
+
+   Returns the most recently received battery level (percentage)
+
+.. py:function:: batteryGetVoltage()
+
+   Returns the most recently received battery voltage
+
+.. py:function:: batteryGetTemperature()
+
+   Returns the most recently received battery temperature
+
+.. py:function:: batteryGetTechnology()
+
+   Returns the most recently received battery technology data
+
+
 ActivityResultFacade
 =========================
+
+.. py:function:: setResultBoolean(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+
+.. py:function:: setResultByte(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultShort(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultChar(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+
+.. py:function:: setResultInteger(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultLong(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultFloat(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultDouble(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultString(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultBooleanArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultByteArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultShortArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultCharArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultIntegerArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultLongArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultFloatArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultDoubleArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultStringArray(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
+.. py:function:: setResultSerializable(resultCode, resultValue)
+
+   Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+   the resulting intent will contain SCRIPT_RESULT extra with the given value
+
+   :param int resultCode:
+   :param byte resultValue:
+
 
 MediaPlayerFacade
 =========================
 
+Control
+-----------------
+.. py:function:: mediaPlay(url, tag, play)
+
+   Open a media file
+
+   :param str url: url of media resource
+   :param str tag(optional): string identifying resource (default=default)
+   :param boolean play(optional): start playing immediately
+
+   :return: true if play successful
+
+.. py:function:: mediaPlayPause(tag)
+
+   pause playing media file
+
+   :param str tag: string identifying resource (default=default)
+
+   :return: true if successful
+
+.. py:function:: mediaPlayStart(tag)
+
+   start playing media file
+
+   :param str tag: string identifying resource (default=default)
+
+   :return: true if successful
+
+.. py:function:: mediaPlayClose(tag)
+
+   Close media file
+
+   :param str tag: string identifying resource (default=default)
+
+   :return: true if successful
+
+.. py:function:: mediaIsPlaying(tag)
+
+   Checks if media file is playing
+
+   :param str tag: string identifying resource (default=default)
+
+   :return: true if successful
+
+
+.. py:function:: mediaPlaySetLooping(enabled, tag)
+
+   Set Looping
+
+   :param boolean enabled: default true
+   :param str tag: string identifying resource (default=default)
+
+   :return: True if successful
+
+.. py:function:: mediaPlaySeek(msec, tag)
+
+   Seek To Position
+
+   :param int msec: default true
+   :param str tag: string identifying resource (default=default)
+
+   :return: New Position (in ms)
+
+Get Information
+-----------------
+.. py:function:: mediaPlayInfo(tag)
+
+   Information on current media
+
+   :param str tag: string identifying resource (default=default)
+
+   :return: Media Information
+
+.. py:function:: mediaPlayList()
+
+   Lists currently loaded media
+
+   :return: List of Media Tags
+
+
 PreferencesFacade
 =========================
+
+.. py:function:: prefGetValue(key, filename)
+
+   Read a value from shared preferences
+
+   :param str key: key
+   :param str filename(optional): Desired preferences file. If not defined, uses the default Shared Preferences.
+
+
+.. py:function:: prefPutValue(key, value, filename)
+
+   Write a value to shared preferences
+
+   :param str key: key
+   :param str value: value
+   :param str filename(optional): Desired preferences file. If not defined, uses the default Shared Preferences.
+
+.. py:function:: prefGetAll(filename)
+
+   Get list of Shared Preference Values
+
+   :param str filename(optional): Desired preferences file. If not defined, uses the default Shared Preferences.
+
 
 QPyInterfaceFacade
 =========================
 
-Execute a qpython script
-------------------------------
-
-.. py:function:: AndroidHelper.executeQPy(script)
+.. py:function:: executeQPy(script)
 
    Execute a qpython script by absolute path
 
    :param str script: The absolute path of the qpython script
+
    :return: boolean
 
 
 TextToSpeechFacade
 =========================
 
+.. py:function:: ttsSpeak(message)
+
+   Speaks the provided message via TTS
+
+   :param str message: message
+
+.. py:function:: ttsIsSpeaking()
+
+   Returns True if speech is currently in progress
+
 EyesFreeFacade
 =========================
+
+.. py:function:: ttsSpeak(message)
+
+   Speaks the provided message via TTS
+
+   :param str message: message
+
 
 BluetoothFacade
 =========================
 
+.. py:function:: bluetoothActiveConnections()
+
+   Returns active Bluetooth connections
+
+
+.. py:function:: bluetoothWriteBinary(base64, connID)
+
+   Send bytes over the currently open Bluetooth connection
+
+   :param str base64: A base64 encoded String of the bytes to be sent
+   :param str connID(optional): Connection id
+
+.. py:function:: bluetoothReadBinary(bufferSize, connID)
+
+   Read up to bufferSize bytes and return a chunked, base64 encoded string
+
+   :param int bufferSize: default 4096
+   :param str connID(optional): Connection id
+
+.. py:function:: bluetoothConnect(uuid, address)
+
+   Connect to a device over Bluetooth. Blocks until the connection is established or fails
+
+   :param str uuid: The UUID passed here must match the UUID used by the server device
+   :param str address(optional): The user will be presented with a list of discovered devices to choose from if an address is not provided
+
+   :return: True if the connection was established successfully
+
+.. py:function:: bluetoothAccept(uuid, timeout)
+
+   Listens for and accepts a Bluetooth connection. Blocks until the connection is established or fails
+
+   :param str uuid: The UUID passed here must match the UUID used by the server device
+   :param int timeout: How long to wait for a new connection, 0 is wait for ever (default=0)
+
+.. py:function:: bluetoothMakeDiscoverable(duration)
+
+   Requests that the device be discoverable for Bluetooth connections
+
+   :param int duration: period of time, in seconds, during which the device should be discoverable (default=300)
+
+.. py:function:: bluetoothWrite(ascii, connID)
+
+   Sends ASCII characters over the currently open Bluetooth connection
+
+   :param str ascii: text
+   :param str connID: Connection id
+
+.. py:function:: bluetoothReadReady(connID)
+
+   Sends ASCII characters over the currently open Bluetooth connection
+
+   :param str ascii: text
+   :param str connID: Connection id
+
+.. py:function:: bluetoothRead(bufferSize, connID)
+
+   Read up to bufferSize ASCII characters
+
+   :param int bufferSize: default=4096
+   :param str connID(optional): Connection id
+
+.. py:function:: bluetoothReadLine(connID)
+
+   Read the next line
+
+   :param str connID(optional): Connection id
+
+.. py:function:: bluetoothGetRemoteDeviceName(address)
+
+   Queries a remote device for it's name or null if it can't be resolved
+
+   :param str address: Bluetooth Address For Target Device
+
+.. py:function:: bluetoothGetLocalName()
+
+   Gets the Bluetooth Visible device name
+
+.. py:function:: bluetoothSetLocalName(name)
+
+   Sets the Bluetooth Visible device name, returns True on success
+
+   :param str name: New local name
+
+.. py:function:: bluetoothGetScanMode()
+
+   Gets the scan mode for the local dongle.
+   Return values:
+   -1 when Bluetooth is disabled.
+   0 if non discoverable and non connectable.
+   1 connectable non discoverable.
+   3 connectable and discoverable.
+
+.. py:function:: bluetoothGetConnectedDeviceName(connID)
+
+   Returns the name of the connected device
+
+   :param str connID: Connection id
+
+.. py:function:: checkBluetoothState()
+
+   Checks Bluetooth state
+
+   :return: True if Bluetooth is enabled
+
+.. py:function:: toggleBluetoothState(enabled, prompt)
+
+   Toggle Bluetooth on and off
+
+   :param boolean enabled:
+   :param str prompt: Prompt the user to confirm changing the Bluetooth state, default=true
+
+   :return: True if Bluetooth is enabled
+
+.. py:function:: bluetoothStop(connID)
+
+   Stops Bluetooth connection
+
+   :param str connID: Connection id
+
+.. py:function:: bluetoothGetLocalAddress()
+
+   Returns the hardware address of the local Bluetooth adapter
+
+.. py:function:: bluetoothDiscoveryStart()
+
+   Start the remote device discovery process
+
+   :return: true on success, false on error
+
+.. py:function:: bluetoothDiscoveryCancel()
+
+   Cancel the current device discovery process
+
+   :return: true on success, false on error
+
+.. py:function:: bluetoothIsDiscovering()
+
+   Return true if the local Bluetooth adapter is currently in the device discovery process
+
+
 SignalStrengthFacade
 =========================
+.. py:function:: startTrackingSignalStrengths()
+
+   Starts tracking signal strengths
+
+.. py:function:: readSignalStrengths()
+
+   Returns the current signal strengths
+
+   :return: A map of gsm_signal_strength
+
+.. py:function:: stopTrackingSignalStrengths()
+
+   Stops tracking signal strength
+
 
 WebCamFacade
 =========================
+
+.. py:function:: webcamStart(resolutionLevel, jpegQuality, port)
+
+   Starts an MJPEG stream and returns a Tuple of address and port for the stream
+
+   :param int resolutionLevel: increasing this number provides higher resolution (default=0)
+   :param int jpegQuality: a number from 0-10 (default=20)
+   :param int port: If port is specified, the webcam service will bind to port, otherwise it will pick any available port (default=0)
+
+.. py:function:: webcamAdjustQuality(resolutionLevel, jpegQuality)
+
+   Adjusts the quality of the webcam stream while it is running
+
+   :param int resolutionLevel: increasing this number provides higher resolution (default=0)
+   :param int jpegQuality: a number from 0-10 (default=20)
+
+.. py:function:: cameraStartPreview(resolutionLevel, jpegQuality, filepath)
+
+   Start Preview Mode. Throws 'preview' events
+
+   :param int resolutionLevel: increasing this number provides higher resolution (default=0)
+   :param int jpegQuality: a number from 0-10 (default=20)
+   :param str filepath: Path to store jpeg files
+
+   :return: True if successful
+
+.. py:function:: cameraStopPreview()
+
+   Stop the preview mode
+
 
 UiFacade
 =========================
@@ -834,30 +1672,6 @@ NFC Message Beam APIs
 
     :return: QPython NFC json result
 
-
-Location API
-------------
-
-.. py:function:: androidhelper.getLastKnownLocation
-
-
-::
-
-    Droid = androidhelper.Android()
-    location = Droid.getLastKnownLocation().result
-    location = location.get('network', location.get('gps'))
-
-Sensor API
-------------
-
-.. py:function:: androidhelper.sensorsReadOrientation()
-
-::
-
-    Droid = androidhelper.Android()
-    Droid.startSensingTimed(1, 250)
-    sensor = Droid.sensorsReadOrientation().result
-    Droid.stopSensing()
 
 
 Other SL4A APIs

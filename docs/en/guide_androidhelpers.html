@@ -86,7 +86,15 @@
 <li class="toctree-l4"><a class="reference internal" href="#read-data-apis">Read data APIs</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#settingsfacade">SettingsFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#settingsfacade">SettingsFacade</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#screen">Screen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#airplanermode">AirplanerMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ringer-silent-mode">Ringer Silent Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vibrate-mode">Vibrate Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ringer-media-volume">Ringer &amp; Media Volume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#screen-brightness">Screen Brightness</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#smsfacade">SmsFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tonegeneratorfacade">ToneGeneratorFacade</a></li>
@@ -94,12 +102,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#wififacade">WifiFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#batterymanagerfacade">BatteryManagerFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#activityresultfacade">ActivityResultFacade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mediaplayerfacade">MediaPlayerFacade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#preferencesfacade">PreferencesFacade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qpyinterfacefacade">QPyInterfaceFacade</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#execute-a-qpython-script">Execute a qpython script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mediaplayerfacade">MediaPlayerFacade</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#control">Control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-information">Get Information</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#preferencesfacade">PreferencesFacade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qpyinterfacefacade">QPyInterfaceFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#texttospeechfacade">TextToSpeechFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#eyesfreefacade">EyesFreeFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bluetoothfacade">BluetoothFacade</a></li>
@@ -108,8 +117,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#uifacade">UiFacade</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nfc-apis">NFC APIs</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id1">NFC APIs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#location-api">Location API</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sensor-api">Sensor API</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#other-sl4a-apis">Other SL4A APIs</a></li>
 </ul>
 </li>
@@ -199,7 +206,7 @@
 <li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
 <li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
 <li><strong>extras(Optional)</strong> (<em>jsonobject</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>categories(Optional)</strong> (<em>jsonarray</em>) &#8211; a List of categories to add to the Intent</li>
+<li><strong>categories(Optional)</strong> (<em>array</em>) &#8211; a List of categories to add to the Intent</li>
 <li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
 <li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 <li><strong>flags(Optional)</strong> (<em>int</em>) &#8211; Intent flags</li>
@@ -640,7 +647,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of packages running activities</td>
 </tr>
 </tbody>
 </table>
@@ -672,6 +679,14 @@
 <dt id="cameraCapturePicture">
 <code class="descname">cameraCapturePicture</code><span class="sig-paren">(</span><em>targetPath</em><span class="sig-paren">)</span><a class="headerlink" href="#cameraCapturePicture" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take a picture and save it to the specified path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of Booleans autoFocus and takePicture where True indicates success</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="cameraInteractiveCapturePicture">
@@ -687,6 +702,14 @@
 <dt id="scanBarcode">
 <code class="descname">scanBarcode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scanBarcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts the barcode scanner</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A Map representation of the result Intent</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 </div>
 <div class="section" id="view-apis">
@@ -695,6 +718,14 @@
 <dt id="pick">
 <code class="descname">pick</code><span class="sig-paren">(</span><em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#pick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display content to be picked by URI (e.g. contacts)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of result values</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="view">
@@ -729,16 +760,40 @@
 <dt id="pickContact">
 <code class="descname">pickContact</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickContact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Displays a list of contacts to pick from</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of result values</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="pickPhone">
 <code class="descname">pickPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickPhone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Displays a list of phone numbers to pick from</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The selected phone number</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="contactsGetAttributes">
 <code class="descname">contactsGetAttributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#contactsGetAttributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a List of all possible attributes for contacts</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a List of contacts as Maps</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="contactsGetIds">
@@ -764,11 +819,27 @@
 <dt id="queryContent">
 <code class="descname">queryContent</code><span class="sig-paren">(</span><em>uri</em>, <em>attributes</em>, <em>selection</em>, <em>selectionArgs</em>, <em>order</em><span class="sig-paren">)</span><a class="headerlink" href="#queryContent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Content Resolver Query</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">result of query as Maps</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="queryAttributes">
 <code class="descname">queryAttributes</code><span class="sig-paren">(</span><em>uri</em><span class="sig-paren">)</span><a class="headerlink" href="#queryAttributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Content Resolver Query Attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of available columns for a given content uri</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 </div>
 <div class="section" id="eventfacade">
@@ -797,16 +868,40 @@
 <dt id="eventPoll">
 <code class="descname">eventPoll</code><span class="sig-paren">(</span><em>number_of_events</em><span class="sig-paren">)</span><a class="headerlink" href="#eventPoll" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns and removes the oldest n events (i.e. location or sensor update, etc.) from the event buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A List of Maps of event properties</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="eventWaitFor">
 <code class="descname">eventWaitFor</code><span class="sig-paren">(</span><em>eventName</em>, <em>timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#eventWaitFor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Blocks until an event with the supplied name occurs. The returned event is not removed from the buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Map of event properties</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="eventWait">
 <code class="descname">eventWait</code><span class="sig-paren">(</span><em>timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#eventWait" title="Permalink to this definition">¶</a></dt>
 <dd><p>Blocks until an event occurs. The returned event is removed from the buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Map of event properties</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="eventPost">
@@ -822,11 +917,27 @@
 <dt id="receiveEvent">
 <code class="descname">receiveEvent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#receiveEvent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns and removes the oldest event (i.e. location or sensor update, etc.) from the event buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Map of event properties</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="waitForEvent">
 <code class="descname">waitForEvent</code><span class="sig-paren">(</span><em>eventName</em>, <em>timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#waitForEvent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Blocks until an event with the supplied name occurs. The returned event is not removed from the buffer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Map of event properties</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="startEventDispatcher">
@@ -865,6 +976,14 @@
 <dt id="readLocation">
 <code class="descname">readLocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readLocation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current location as indicated by all available providers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of location information by provider</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="stopLocating">
@@ -875,7 +994,21 @@
 <dt id="getLastKnownLocation">
 <code class="descname">getLastKnownLocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getLastKnownLocation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the last known location of the device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of location information by provider</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
+<p><em>sample code</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">getLastKnownLocation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gps&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="geo">
 <h2>GEO<a class="headerlink" href="#geo" title="Permalink to this headline">¶</a></h2>
@@ -883,6 +1016,14 @@
 <dt id="geocode">
 <code class="descname">geocode</code><span class="sig-paren">(</span><em>latitude</em>, <em>longitude</em>, <em>maxResults</em><span class="sig-paren">)</span><a class="headerlink" href="#geocode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of addresses for the given latitude and longitude</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of addresses</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 </div>
 </div>
@@ -899,6 +1040,14 @@
 <dt id="readPhoneState">
 <code class="descname">readPhoneState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readPhoneState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the current phone state and incoming number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A Map of &#8220;state&#8221; and &#8220;incomingNumber&#8221;</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="stopTrackingPhoneState">
@@ -1115,56 +1264,1191 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <dt id="sensorsReadAccelerometer">
 <code class="descname">sensorsReadAccelerometer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensorsReadAccelerometer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the most recently received accelerometer values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a List of Floats [(acceleration on the) X axis, Y axis, Z axis]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="sensorsReadMagnetometer">
 <code class="descname">sensorsReadMagnetometer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensorsReadMagnetometer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the most recently received magnetic field values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a List of Floats [(magnetic field value for) X axis, Y axis, Z axis]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 <dl class="function">
 <dt id="sensorsReadOrientation">
 <code class="descname">sensorsReadOrientation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensorsReadOrientation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the most recently received orientation values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a List of Doubles [azimuth, pitch, roll]</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
+<p><em>sample code</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
+<span class="n">Droid</span><span class="o">.</span><span class="n">startSensingTimed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">sensorsReadOrientation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
+<span class="n">Droid</span><span class="o">.</span><span class="n">stopSensing</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="settingsfacade">
 <h1>SettingsFacade<a class="headerlink" href="#settingsfacade" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="screen">
+<h2>Screen<a class="headerlink" href="#screen" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="setScreenTimeout">
+<code class="descname">setScreenTimeout</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#setScreenTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the screen timeout to this number of seconds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The original screen timeout</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="getScreenTimeout">
+<code class="descname">getScreenTimeout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getScreenTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the screen timeout</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the current screen timeout in seconds</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="airplanermode">
+<h2>AirplanerMode<a class="headerlink" href="#airplanermode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="checkAirplaneMode">
+<code class="descname">checkAirplaneMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checkAirplaneMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the airplane mode setting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if airplane mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="toggleAirplaneMode">
+<code class="descname">toggleAirplaneMode</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#toggleAirplaneMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles airplane mode on and off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if airplane mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="ringer-silent-mode">
+<h2>Ringer Silent Mode<a class="headerlink" href="#ringer-silent-mode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="checkRingerSilentMode">
+<code class="descname">checkRingerSilentMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checkRingerSilentMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks the ringer silent mode setting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if ringer silent mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="toggleRingerSilentMode">
+<code class="descname">toggleRingerSilentMode</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#toggleRingerSilentMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles ringer silent mode on and off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if ringer silent mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="vibrate-mode">
+<h2>Vibrate Mode<a class="headerlink" href="#vibrate-mode" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="toggleVibrateMode">
+<code class="descname">toggleVibrateMode</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#toggleVibrateMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggles vibrate mode on and off. If ringer=true then set Ringer setting, else set Notification setting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if vibrate mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="getVibrateMode">
+<code class="descname">getVibrateMode</code><span class="sig-paren">(</span><em>ringer</em><span class="sig-paren">)</span><a class="headerlink" href="#getVibrateMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks Vibration setting. If ringer=true then query Ringer setting, else query Notification setting</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if vibrate mode is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="ringer-media-volume">
+<h2>Ringer &amp; Media Volume<a class="headerlink" href="#ringer-media-volume" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="getMaxRingerVolume">
+<code class="descname">getMaxRingerVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getMaxRingerVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maximum ringer volume</p>
+</dd></dl>
+<dl class="function">
+<dt id="getRingerVolume">
+<code class="descname">getRingerVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getRingerVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current ringer volume</p>
+</dd></dl>
+<dl class="function">
+<dt id="setRingerVolume">
+<code class="descname">setRingerVolume</code><span class="sig-paren">(</span><em>volume</em><span class="sig-paren">)</span><a class="headerlink" href="#setRingerVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the ringer volume</p>
+</dd></dl>
+<dl class="function">
+<dt id="getMaxMediaVolume">
+<code class="descname">getMaxMediaVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getMaxMediaVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maximum media volume</p>
+</dd></dl>
+<dl class="function">
+<dt id="getMediaVolume">
+<code class="descname">getMediaVolume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getMediaVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current media volume</p>
+</dd></dl>
+<dl class="function">
+<dt id="setMediaVolume">
+<code class="descname">setMediaVolume</code><span class="sig-paren">(</span><em>volume</em><span class="sig-paren">)</span><a class="headerlink" href="#setMediaVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the media volume</p>
+</dd></dl>
+</div>
+<div class="section" id="screen-brightness">
+<h2>Screen Brightness<a class="headerlink" href="#screen-brightness" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="getScreenBrightness">
+<code class="descname">getScreenBrightness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#getScreenBrightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the screen backlight brightness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the current screen brightness between 0 and 255</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setScreenBrightness">
+<code class="descname">setScreenBrightness</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#setScreenBrightness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the the screen backlight brightness</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the original screen brightness</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="checkScreenOn">
+<code class="descname">checkScreenOn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checkScreenOn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the screen is on or off (requires API level 7)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the screen is currently on</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
 </div>
 <div class="section" id="smsfacade">
 <h1>SmsFacade<a class="headerlink" href="#smsfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="smsSend">
+<code class="descname">smsSend</code><span class="sig-paren">(</span><em>destinationAddress</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#smsSend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends an SMS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>destinationAddress</strong> (<em>str</em>) &#8211; typically a phone number</li>
+<li><strong>text</strong> (<em>str</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsGetMessageCount">
+<code class="descname">smsGetMessageCount</code><span class="sig-paren">(</span><em>unreadOnly</em>, <em>folder</em><span class="sig-paren">)</span><a class="headerlink" href="#smsGetMessageCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of messages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsGetMessageIds">
+<code class="descname">smsGetMessageIds</code><span class="sig-paren">(</span><em>unreadOnly</em>, <em>folder</em><span class="sig-paren">)</span><a class="headerlink" href="#smsGetMessageIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a List of all message IDs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsGetMessages">
+<code class="descname">smsGetMessages</code><span class="sig-paren">(</span><em>unreadOnly</em>, <em>folder</em>, <em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#smsGetMessages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a List of all messages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>folder</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
+<li><strong>attributes(optional)</strong> (<em>array</em>) &#8211; attributes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a List of messages as Maps</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsGetMessageById">
+<code class="descname">smsGetMessageById</code><span class="sig-paren">(</span><em>id</em>, <em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#smsGetMessageById" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns message attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> (<em>int</em>) &#8211; message ID</li>
+<li><strong>attributes(optional)</strong> (<em>array</em>) &#8211; attributes</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">a List of messages as Maps</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsGetAttributes">
+<code class="descname">smsGetAttributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smsGetAttributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a List of all possible message attributes</p>
+</dd></dl>
+<dl class="function">
+<dt id="smsDeleteMessage">
+<code class="descname">smsDeleteMessage</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#smsDeleteMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes a message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<em>int</em>) &#8211; message ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the message was deleted</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="smsMarkMessageRead">
+<code class="descname">smsMarkMessageRead</code><span class="sig-paren">(</span><em>ids</em>, <em>read</em><span class="sig-paren">)</span><a class="headerlink" href="#smsMarkMessageRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Marks messages as read</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ids</strong> (<em>array</em>) &#8211; List of message IDs to mark as read</li>
+<li><strong>read</strong> (<em>boolean</em>) &#8211; true or false</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">number of messages marked read</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="speechrecognitionfacade">
 <h1>SpeechRecognitionFacade<a class="headerlink" href="#speechrecognitionfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="recognizeSpeech">
+<code class="descname">recognizeSpeech</code><span class="sig-paren">(</span><em>prompt</em>, <em>language</em>, <em>languageModel</em><span class="sig-paren">)</span><a class="headerlink" href="#recognizeSpeech" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recognizes user&#8217;s speech and returns the most likely result</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>prompt(optional)</strong> (<em>str</em>) &#8211; text prompt to show to the user when asking them to speak</li>
+<li><strong>language(optional)</strong> (<em>str</em>) &#8211; language override to inform the recognizer that it should expect speech in a language different than the one set in the java.util.Locale.getDefault()</li>
+<li><strong>languageModel(optional)</strong> (<em>str</em>) &#8211; informs the recognizer which speech model to prefer (see android.speech.RecognizeIntent)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">An empty string in case the speech cannot be recongnized</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="tonegeneratorfacade">
 <h1>ToneGeneratorFacade<a class="headerlink" href="#tonegeneratorfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="generateDtmfTones">
+<code class="descname">generateDtmfTones</code><span class="sig-paren">(</span><em>phoneNumber</em>, <em>toneDuration</em><span class="sig-paren">)</span><a class="headerlink" href="#generateDtmfTones" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate DTMF tones for the given phone number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>phoneNumber</strong> (<em>str</em>) &#8211; phone number</li>
+<li><strong>toneDuration(optional)</strong> (<em>int</em>) &#8211; default 100, duration of each tone in milliseconds</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="wakelockfacade">
 <h1>WakeLockFacade<a class="headerlink" href="#wakelockfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="wakeLockAcquireFull">
+<code class="descname">wakeLockAcquireFull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wakeLockAcquireFull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a full wake lock (CPU on, screen bright, keyboard bright)</p>
+</dd></dl>
+<dl class="function">
+<dt id="wakeLockAcquirePartial">
+<code class="descname">wakeLockAcquirePartial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wakeLockAcquirePartial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a partial wake lock (CPU on)</p>
+</dd></dl>
+<dl class="function">
+<dt id="wakeLockAcquireBright">
+<code class="descname">wakeLockAcquireBright</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wakeLockAcquireBright" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a bright wake lock (CPU on, screen bright)</p>
+</dd></dl>
+<dl class="function">
+<dt id="wakeLockAcquireDim">
+<code class="descname">wakeLockAcquireDim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wakeLockAcquireDim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a dim wake lock (CPU on, screen dim)</p>
+</dd></dl>
+<dl class="function">
+<dt id="wakeLockRelease">
+<code class="descname">wakeLockRelease</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wakeLockRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases the wake lock</p>
+</dd></dl>
 </div>
 <div class="section" id="wififacade">
 <h1>WifiFacade<a class="headerlink" href="#wififacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="wifiGetScanResults">
+<code class="descname">wifiGetScanResults</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiGetScanResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the list of access points found during the most recent Wifi scan</p>
+</dd></dl>
+<dl class="function">
+<dt id="wifiLockAcquireFull">
+<code class="descname">wifiLockAcquireFull</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiLockAcquireFull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a full Wifi lock</p>
+</dd></dl>
+<dl class="function">
+<dt id="wifiLockAcquireScanOnly">
+<code class="descname">wifiLockAcquireScanOnly</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiLockAcquireScanOnly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acquires a scan only Wifi lock</p>
+</dd></dl>
+<dl class="function">
+<dt id="wifiLockRelease">
+<code class="descname">wifiLockRelease</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiLockRelease" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases a previously acquired Wifi lock</p>
+</dd></dl>
+<dl class="function">
+<dt id="wifiStartScan">
+<code class="descname">wifiStartScan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiStartScan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts a scan for Wifi access points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the scan was initiated successfully</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="checkWifiState">
+<code class="descname">checkWifiState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checkWifiState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks Wifi state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if Wifi is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="toggleWifiState">
+<code class="descname">toggleWifiState</code><span class="sig-paren">(</span><em>enabled</em><span class="sig-paren">)</span><a class="headerlink" href="#toggleWifiState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle Wifi on and off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled(optional)</strong> (<em>boolean</em>) &#8211; enabled</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if Wifi is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="wifiDisconnect">
+<code class="descname">wifiDisconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiDisconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnects from the currently active access point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the operation succeeded</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="wifiGetConnectionInfo">
+<code class="descname">wifiGetConnectionInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiGetConnectionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information about the currently active access point</p>
+</dd></dl>
+<dl class="function">
+<dt id="wifiReassociate">
+<code class="descname">wifiReassociate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiReassociate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information about the currently active access point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the operation succeeded</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="wifiReconnect">
+<code class="descname">wifiReconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wifiReconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconnects to the currently active access point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the operation succeeded</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="batterymanagerfacade">
 <h1>BatteryManagerFacade<a class="headerlink" href="#batterymanagerfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="readBatteryData">
+<code class="descname">readBatteryData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readBatteryData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently recorded battery data</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryStartMonitoring">
+<code class="descname">batteryStartMonitoring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryStartMonitoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts tracking battery state</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryStopMonitoring">
+<code class="descname">batteryStopMonitoring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryStopMonitoring" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops tracking battery state</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetStatus">
+<code class="descname">batteryGetStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns  the most recently received battery status data:
+1 - unknown;
+2 - charging;
+3 - discharging;
+4 - not charging;
+5 - full</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetHealth">
+<code class="descname">batteryGetHealth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetHealth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery health data:
+1 - unknown;
+2 - good;
+3 - overheat;
+4 - dead;
+5 - over voltage;
+6 - unspecified failure</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetPlugType">
+<code class="descname">batteryGetPlugType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetPlugType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received plug type data:
+-1 - unknown
+0 - unplugged
+1 - power source is an AC charger
+2 - power source is a USB port</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryCheckPresent">
+<code class="descname">batteryCheckPresent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryCheckPresent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery presence data</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetLevel">
+<code class="descname">batteryGetLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery level (percentage)</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetVoltage">
+<code class="descname">batteryGetVoltage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery voltage</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetTemperature">
+<code class="descname">batteryGetTemperature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery temperature</p>
+</dd></dl>
+<dl class="function">
+<dt id="batteryGetTechnology">
+<code class="descname">batteryGetTechnology</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#batteryGetTechnology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the most recently received battery technology data</p>
+</dd></dl>
 </div>
 <div class="section" id="activityresultfacade">
 <h1>ActivityResultFacade<a class="headerlink" href="#activityresultfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="setResultBoolean">
+<code class="descname">setResultBoolean</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultByte">
+<code class="descname">setResultByte</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultByte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultShort">
+<code class="descname">setResultShort</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultShort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultChar">
+<code class="descname">setResultChar</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultChar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultInteger">
+<code class="descname">setResultInteger</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultInteger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultLong">
+<code class="descname">setResultLong</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultLong" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultFloat">
+<code class="descname">setResultFloat</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultDouble">
+<code class="descname">setResultDouble</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultDouble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultString">
+<code class="descname">setResultString</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultBooleanArray">
+<code class="descname">setResultBooleanArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultBooleanArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultByteArray">
+<code class="descname">setResultByteArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultByteArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultShortArray">
+<code class="descname">setResultShortArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultShortArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultCharArray">
+<code class="descname">setResultCharArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultCharArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultIntegerArray">
+<code class="descname">setResultIntegerArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultIntegerArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultLongArray">
+<code class="descname">setResultLongArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultLongArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultFloatArray">
+<code class="descname">setResultFloatArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultFloatArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultDoubleArray">
+<code class="descname">setResultDoubleArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultDoubleArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultStringArray">
+<code class="descname">setResultStringArray</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultStringArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="setResultSerializable">
+<code class="descname">setResultSerializable</code><span class="sig-paren">(</span><em>resultCode</em>, <em>resultValue</em><span class="sig-paren">)</span><a class="headerlink" href="#setResultSerializable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the result of a script execution. Whenever the script APK is called via startActivityForResult(),
+the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resultCode</strong> (<em>int</em>) &#8211; </li>
+<li><strong>resultValue</strong> (<em>byte</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="mediaplayerfacade">
 <h1>MediaPlayerFacade<a class="headerlink" href="#mediaplayerfacade" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="control">
+<h2>Control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mediaPlay">
+<code class="descname">mediaPlay</code><span class="sig-paren">(</span><em>url</em>, <em>tag</em>, <em>play</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a media file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; url of media resource</li>
+<li><strong>tag(optional)</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
+<li><strong>play(optional)</strong> (<em>boolean</em>) &#8211; start playing immediately</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">true if play successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlayPause">
+<code class="descname">mediaPlayPause</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlayPause" title="Permalink to this definition">¶</a></dt>
+<dd><p>pause playing media file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlayStart">
+<code class="descname">mediaPlayStart</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlayStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>start playing media file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlayClose">
+<code class="descname">mediaPlayClose</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlayClose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close media file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaIsPlaying">
+<code class="descname">mediaIsPlaying</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaIsPlaying" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if media file is playing</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if successful</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlaySetLooping">
+<code class="descname">mediaPlaySetLooping</code><span class="sig-paren">(</span><em>enabled</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlaySetLooping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Looping</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>enabled</strong> (<em>boolean</em>) &#8211; default true</li>
+<li><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlaySeek">
+<code class="descname">mediaPlaySeek</code><span class="sig-paren">(</span><em>msec</em>, <em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlaySeek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek To Position</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>msec</strong> (<em>int</em>) &#8211; default true</li>
+<li><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">New Position (in ms)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="get-information">
+<h2>Get Information<a class="headerlink" href="#get-information" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="mediaPlayInfo">
+<code class="descname">mediaPlayInfo</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlayInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information on current media</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Media Information</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="mediaPlayList">
+<code class="descname">mediaPlayList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mediaPlayList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists currently loaded media</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of Media Tags</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
 </div>
 <div class="section" id="preferencesfacade">
 <h1>PreferencesFacade<a class="headerlink" href="#preferencesfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="prefGetValue">
+<code class="descname">prefGetValue</code><span class="sig-paren">(</span><em>key</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#prefGetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read a value from shared preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) &#8211; key</li>
+<li><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="prefPutValue">
+<code class="descname">prefPutValue</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#prefPutValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a value to shared preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) &#8211; key</li>
+<li><strong>value</strong> (<em>str</em>) &#8211; value</li>
+<li><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="prefGetAll">
+<code class="descname">prefGetAll</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#prefGetAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of Shared Preference Values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="qpyinterfacefacade">
 <h1>QPyInterfaceFacade<a class="headerlink" href="#qpyinterfacefacade" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="execute-a-qpython-script">
-<h2>Execute a qpython script<a class="headerlink" href="#execute-a-qpython-script" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="AndroidHelper.executeQPy">
-<code class="descclassname">AndroidHelper.</code><code class="descname">executeQPy</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.executeQPy" title="Permalink to this definition">¶</a></dt>
+<dt id="executeQPy">
+<code class="descname">executeQPy</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#executeQPy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Execute a qpython script by absolute path</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1178,21 +2462,424 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 </table>
 </dd></dl>
 </div>
-</div>
 <div class="section" id="texttospeechfacade">
 <h1>TextToSpeechFacade<a class="headerlink" href="#texttospeechfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ttsSpeak">
+<code class="descname">ttsSpeak</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#ttsSpeak" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speaks the provided message via TTS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str</em>) &#8211; message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="ttsIsSpeaking">
+<code class="descname">ttsIsSpeaking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ttsIsSpeaking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if speech is currently in progress</p>
+</dd></dl>
 </div>
 <div class="section" id="eyesfreefacade">
 <h1>EyesFreeFacade<a class="headerlink" href="#eyesfreefacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt>
+<code class="descname">ttsSpeak</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span></dt>
+<dd><p>Speaks the provided message via TTS</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>str</em>) &#8211; message</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 </div>
 <div class="section" id="bluetoothfacade">
 <h1>BluetoothFacade<a class="headerlink" href="#bluetoothfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="bluetoothActiveConnections">
+<code class="descname">bluetoothActiveConnections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothActiveConnections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns active Bluetooth connections</p>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothWriteBinary">
+<code class="descname">bluetoothWriteBinary</code><span class="sig-paren">(</span><em>base64</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothWriteBinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send bytes over the currently open Bluetooth connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>base64</strong> (<em>str</em>) &#8211; A base64 encoded String of the bytes to be sent</li>
+<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothReadBinary">
+<code class="descname">bluetoothReadBinary</code><span class="sig-paren">(</span><em>bufferSize</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothReadBinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read up to bufferSize bytes and return a chunked, base64 encoded string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bufferSize</strong> (<em>int</em>) &#8211; default 4096</li>
+<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothConnect">
+<code class="descname">bluetoothConnect</code><span class="sig-paren">(</span><em>uuid</em>, <em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothConnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to a device over Bluetooth. Blocks until the connection is established or fails</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>uuid</strong> (<em>str</em>) &#8211; The UUID passed here must match the UUID used by the server device</li>
+<li><strong>address(optional)</strong> (<em>str</em>) &#8211; The user will be presented with a list of discovered devices to choose from if an address is not provided</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if the connection was established successfully</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothAccept">
+<code class="descname">bluetoothAccept</code><span class="sig-paren">(</span><em>uuid</em>, <em>timeout</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothAccept" title="Permalink to this definition">¶</a></dt>
+<dd><p>Listens for and accepts a Bluetooth connection. Blocks until the connection is established or fails</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>uuid</strong> (<em>str</em>) &#8211; The UUID passed here must match the UUID used by the server device</li>
+<li><strong>timeout</strong> (<em>int</em>) &#8211; How long to wait for a new connection, 0 is wait for ever (default=0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothMakeDiscoverable">
+<code class="descname">bluetoothMakeDiscoverable</code><span class="sig-paren">(</span><em>duration</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothMakeDiscoverable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests that the device be discoverable for Bluetooth connections</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>duration</strong> (<em>int</em>) &#8211; period of time, in seconds, during which the device should be discoverable (default=300)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothWrite">
+<code class="descname">bluetoothWrite</code><span class="sig-paren">(</span><em>ascii</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends ASCII characters over the currently open Bluetooth connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ascii</strong> (<em>str</em>) &#8211; text</li>
+<li><strong>connID</strong> (<em>str</em>) &#8211; Connection id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothReadReady">
+<code class="descname">bluetoothReadReady</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothReadReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends ASCII characters over the currently open Bluetooth connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ascii</strong> (<em>str</em>) &#8211; text</li>
+<li><strong>connID</strong> (<em>str</em>) &#8211; Connection id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothRead">
+<code class="descname">bluetoothRead</code><span class="sig-paren">(</span><em>bufferSize</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read up to bufferSize ASCII characters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bufferSize</strong> (<em>int</em>) &#8211; default=4096</li>
+<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothReadLine">
+<code class="descname">bluetoothReadLine</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothReadLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the next line</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothGetRemoteDeviceName">
+<code class="descname">bluetoothGetRemoteDeviceName</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothGetRemoteDeviceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries a remote device for it&#8217;s name or null if it can&#8217;t be resolved</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> (<em>str</em>) &#8211; Bluetooth Address For Target Device</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothGetLocalName">
+<code class="descname">bluetoothGetLocalName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothGetLocalName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the Bluetooth Visible device name</p>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothSetLocalName">
+<code class="descname">bluetoothSetLocalName</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothSetLocalName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the Bluetooth Visible device name, returns True on success</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) &#8211; New local name</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothGetScanMode">
+<code class="descname">bluetoothGetScanMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothGetScanMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the scan mode for the local dongle.
+Return values:
+-1 when Bluetooth is disabled.
+0 if non discoverable and non connectable.
+1 connectable non discoverable.
+3 connectable and discoverable.</p>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothGetConnectedDeviceName">
+<code class="descname">bluetoothGetConnectedDeviceName</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothGetConnectedDeviceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the name of the connected device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong> (<em>str</em>) &#8211; Connection id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="checkBluetoothState">
+<code class="descname">checkBluetoothState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checkBluetoothState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks Bluetooth state</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if Bluetooth is enabled</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="toggleBluetoothState">
+<code class="descname">toggleBluetoothState</code><span class="sig-paren">(</span><em>enabled</em>, <em>prompt</em><span class="sig-paren">)</span><a class="headerlink" href="#toggleBluetoothState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Toggle Bluetooth on and off</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>enabled</strong> (<em>boolean</em>) &#8211; </li>
+<li><strong>prompt</strong> (<em>str</em>) &#8211; Prompt the user to confirm changing the Bluetooth state, default=true</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if Bluetooth is enabled</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothStop">
+<code class="descname">bluetoothStop</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothStop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops Bluetooth connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong> (<em>str</em>) &#8211; Connection id</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothGetLocalAddress">
+<code class="descname">bluetoothGetLocalAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothGetLocalAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the hardware address of the local Bluetooth adapter</p>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothDiscoveryStart">
+<code class="descname">bluetoothDiscoveryStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothDiscoveryStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the remote device discovery process</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true on success, false on error</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothDiscoveryCancel">
+<code class="descname">bluetoothDiscoveryCancel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothDiscoveryCancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel the current device discovery process</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true on success, false on error</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="bluetoothIsDiscovering">
+<code class="descname">bluetoothIsDiscovering</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bluetoothIsDiscovering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the local Bluetooth adapter is currently in the device discovery process</p>
+</dd></dl>
 </div>
 <div class="section" id="signalstrengthfacade">
 <h1>SignalStrengthFacade<a class="headerlink" href="#signalstrengthfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="startTrackingSignalStrengths">
+<code class="descname">startTrackingSignalStrengths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#startTrackingSignalStrengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts tracking signal strengths</p>
+</dd></dl>
+<dl class="function">
+<dt id="readSignalStrengths">
+<code class="descname">readSignalStrengths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readSignalStrengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current signal strengths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A map of gsm_signal_strength</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="stopTrackingSignalStrengths">
+<code class="descname">stopTrackingSignalStrengths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stopTrackingSignalStrengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops tracking signal strength</p>
+</dd></dl>
 </div>
 <div class="section" id="webcamfacade">
 <h1>WebCamFacade<a class="headerlink" href="#webcamfacade" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="webcamStart">
+<code class="descname">webcamStart</code><span class="sig-paren">(</span><em>resolutionLevel</em>, <em>jpegQuality</em>, <em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#webcamStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts an MJPEG stream and returns a Tuple of address and port for the stream</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resolutionLevel</strong> (<em>int</em>) &#8211; increasing this number provides higher resolution (default=0)</li>
+<li><strong>jpegQuality</strong> (<em>int</em>) &#8211; a number from 0-10 (default=20)</li>
+<li><strong>port</strong> (<em>int</em>) &#8211; If port is specified, the webcam service will bind to port, otherwise it will pick any available port (default=0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="webcamAdjustQuality">
+<code class="descname">webcamAdjustQuality</code><span class="sig-paren">(</span><em>resolutionLevel</em>, <em>jpegQuality</em><span class="sig-paren">)</span><a class="headerlink" href="#webcamAdjustQuality" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjusts the quality of the webcam stream while it is running</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>resolutionLevel</strong> (<em>int</em>) &#8211; increasing this number provides higher resolution (default=0)</li>
+<li><strong>jpegQuality</strong> (<em>int</em>) &#8211; a number from 0-10 (default=20)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="cameraStartPreview">
+<code class="descname">cameraStartPreview</code><span class="sig-paren">(</span><em>resolutionLevel</em>, <em>jpegQuality</em>, <em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#cameraStartPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Preview Mode. Throws &#8216;preview&#8217; events</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>resolutionLevel</strong> (<em>int</em>) &#8211; increasing this number provides higher resolution (default=0)</li>
+<li><strong>jpegQuality</strong> (<em>int</em>) &#8211; a number from 0-10 (default=20)</li>
+<li><strong>filepath</strong> (<em>str</em>) &#8211; Path to store jpeg files</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">True if successful</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="cameraStopPreview">
+<code class="descname">cameraStopPreview</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cameraStopPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the preview mode</p>
+</dd></dl>
 </div>
 <div class="section" id="uifacade">
 <h1>UiFacade<a class="headerlink" href="#uifacade" title="Permalink to this headline">¶</a></h1>
@@ -1249,31 +2936,6 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 </tbody>
 </table>
 </dd></dl>
-</div>
-<div class="section" id="location-api">
-<h2>Location API<a class="headerlink" href="#location-api" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="androidhelper.getLastKnownLocation">
-<code class="descclassname">androidhelper.</code><code class="descname">getLastKnownLocation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#androidhelper.getLastKnownLocation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">getLastKnownLocation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;network&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gps&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="sensor-api">
-<h2>Sensor API<a class="headerlink" href="#sensor-api" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="androidhelper.sensorsReadOrientation">
-<code class="descclassname">androidhelper.</code><code class="descname">sensorsReadOrientation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#androidhelper.sensorsReadOrientation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
-<span class="n">Droid</span><span class="o">.</span><span class="n">startSensingTimed</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
-<span class="n">sensor</span> <span class="o">=</span> <span class="n">Droid</span><span class="o">.</span><span class="n">sensorsReadOrientation</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
-<span class="n">Droid</span><span class="o">.</span><span class="n">stopSensing</span><span class="p">()</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="other-sl4a-apis">
 <h2>Other SL4A APIs<a class="headerlink" href="#other-sl4a-apis" title="Permalink to this headline">¶</a></h2>
