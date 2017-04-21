@@ -1,4 +1,9 @@
+The Scripting Layer for Android (abridged as SL4A, and previously named Android Scripting Environment or ASE) is a library that allows the creation and running of scripts written in various scripting languages directly on Android devices. QPython start to extend the SL4A project and integrate it.
+
+
 .. image:: ../_static/sl4a.jpg
+
+There are many SL4A APIs, if you found any issue, please `report an issue <https://github.com/qpython-android/qpython/issues>`_.
 
 AndroidFacade
 ===============
@@ -32,8 +37,8 @@ Intent & startActivity APIs
    :param str action: action
    :param str uri(Optional): uri
    :param str type(Optional): MIME type/subtype of the URI
-   :param jsonobject extras(Optional): a Map of extras to add to the Intent
-   :param array categories(Optional): a List of categories to add to the Intent
+   :param object extras(Optional): a Map of extras to add to the Intent
+   :param list categories(Optional): a List of categories to add to the Intent
    :param str packagename(Optional): name of package. If used, requires classname to be useful
    :param str classname(Optional): name of class. If used, requires packagename to be useful
    :param int flags(Optional): Intent flags
@@ -62,7 +67,7 @@ Intent & startActivity APIs
    :param str action: action
    :param str uri(Optional): uri
    :param str type(Optional): MIME type/subtype of the URI
-   :param jsonobject extras(Optional): a Map of extras to add to the Intent
+   :param object extras(Optional): a Map of extras to add to the Intent
    :param str packagename(Optional): name of package. If used, requires classname to be useful
    :param str classname(Optional): name of class. If used, requires packagename to be useful
 
@@ -92,7 +97,7 @@ Intent & startActivity APIs
    Starts an activity
 
    :param Intent intent: Intent in the format as returned from makeIntent
-   :param boolean wait(Optional): block until the user exits the started activity
+   :param bool wait(Optional): block until the user exits the started activity
 
 ::
 
@@ -106,8 +111,8 @@ Intent & startActivity APIs
    :param str action: action
    :param str uri(Optional): uri
    :param str type(Optional): MIME type/subtype of the URI
-   :param jsonobject extras(Optional): a Map of extras to add to the Intent
-   :param boolean wait(Optional): block until the user exits the started activity
+   :param object extras(Optional): a Map of extras to add to the Intent
+   :param bool wait(Optional): block until the user exits the started activity
    :param str packagename(Optional): name of package. If used, requires classname to be useful
    :param str classname(Optional): name of class. If used, requires packagename to be useful
 
@@ -125,7 +130,7 @@ SendBroadcast APIs
    :param str action: action
    :param str uri(Optional): uri
    :param str type(Optional): MIME type/subtype of the URI
-   :param jsonobject extras(Optional): a Map of extras to add to the Intent
+   :param object extras(Optional): a Map of extras to add to the Intent
    :param str packagename(Optional): name of package. If used, requires classname to be useful
    :param str classname(Optional): name of class. If used, requires packagename to be useful
 
@@ -912,23 +917,23 @@ SmsFacade
 
    Returns the number of messages
 
-   :param boolean unreadOnly: typically a phone number
+   :param bool unreadOnly: typically a phone number
    :param str folder(optional): default "inbox"
 
 .. py:function:: smsGetMessageIds(unreadOnly, folder)
 
    Returns a List of all message IDs
 
-   :param boolean unreadOnly: typically a phone number
+   :param bool unreadOnly: typically a phone number
    :param str folder(optional): default "inbox"
 
 .. py:function:: smsGetMessages(unreadOnly, folder, attributes)
 
    Returns a List of all messages
 
-   :param boolean unreadOnly: typically a phone number
+   :param bool unreadOnly: typically a phone number
    :param str folder: default "inbox"
-   :param array attributes(optional): attributes
+   :param list attributes(optional): attributes
 
    :return: a List of messages as Maps
 
@@ -937,7 +942,7 @@ SmsFacade
    Returns message attributes
 
    :param int id: message ID
-   :param array attributes(optional): attributes
+   :param list attributes(optional): attributes
 
    :return: a List of messages as Maps
 
@@ -957,8 +962,8 @@ SmsFacade
 
    Marks messages as read
 
-   :param array ids: List of message IDs to mark as read
-   :param boolean read:  true or false
+   :param list ids: List of message IDs to mark as read
+   :param bool read:  true or false
 
    :return: number of messages marked read
 
@@ -1045,7 +1050,7 @@ WifiFacade
 
    Toggle Wifi on and off
 
-   :param boolean enabled(optional): enabled
+   :param bool enabled(optional): enabled
 
    :return: True if Wifi is enabled
 
@@ -1305,7 +1310,7 @@ Control
 
    :param str url: url of media resource
    :param str tag(optional): string identifying resource (default=default)
-   :param boolean play(optional): start playing immediately
+   :param bool play(optional): start playing immediately
 
    :return: true if play successful
 
@@ -1346,7 +1351,7 @@ Control
 
    Set Looping
 
-   :param boolean enabled: default true
+   :param bool enabled: default true
    :param str tag: string identifying resource (default=default)
 
    :return: True if successful
@@ -1412,7 +1417,7 @@ QPyInterfaceFacade
 
    :param str script: The absolute path of the qpython script
 
-   :return: boolean
+   :return: bool
 
 
 TextToSpeechFacade
@@ -1550,7 +1555,7 @@ BluetoothFacade
 
    Toggle Bluetooth on and off
 
-   :param boolean enabled:
+   :param bool enabled:
    :param str prompt: Prompt the user to confirm changing the Bluetooth state, default=true
 
    :return: True if Bluetooth is enabled
@@ -1635,11 +1640,68 @@ WebCamFacade
 UiFacade
 =========================
 
+Dialog
+--------
+.. py:function:: dialogCreateInput(title, message, defaultText, inputType)
 
-NFC APIs
-------------
+   Create a text input dialog
 
-**QPython NFC json result**
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+   :param str defaultText(optional): text to insert into the input box
+   :param str inputType(optional): type of input data, ie number or text
+
+.. py:function:: dialogCreatePassword(title, message)
+
+   Create a password input dialog
+
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+
+.. py:function:: dialogGetInput(title, message, defaultText)
+
+   Create a password input dialog
+
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+   :param str defaultText(optional): text to insert into the input box
+
+.. py:function:: dialogGetPassword(title, message)
+
+   Queries the user for a password
+
+   :param str title: title of the password box
+   :param str message: message to display above the input box
+
+.. py:function:: dialogCreateSeekBar(start, maximum, title)
+
+   Create seek bar dialog
+
+   :param int start: default=50
+   :param int maximum: default=100
+   :param int title: title
+
+.. py:function:: dialogCreateTimePicker(hour, minute, is24hour)
+
+   Create time picker dialog
+
+   :param int hour: default=0
+   :param int miute: default=0
+   :param bool is24hour: default=false
+
+.. py:function:: dialogCreateDatePicker(year, month, day)
+
+   Create date picker dialog
+
+   :param int year: default=1970
+   :param int month: default=1
+   :param int day: default=1
+
+
+NFC
+-------------
+**Data structs**
+*QPython NFC json result*
 ::
 
     {
@@ -1648,42 +1710,199 @@ NFC APIs
     "message": <message get> 
     }
 
+**APIs**
 
-NFC APIs
-------------
-NFC Message Beam APIs
+.. py:function:: dialogCreateNFCBeamMaster(title, message, inputType)
 
-.. py:function:: AndroidHelper.dialogCreateNFCBeamMaster()
+   Create a dialog where you could create a qpython beam master
 
-    Create a dialog which can send the message to NFC Beam Slave
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+   :param str inputType(optional): type of input data, ie number or text
 
-    :return: QPython NFC json result
+.. py:function:: NFCBeamMessage(content, title, message)
 
-.. py:function:: AndroidHelper.NFCBeamMessage(message)
+   Create a dialog where you could create a qpython beam master
 
-    Sendthe message to NFC Beam Slave without dialog
+   :param str content: message you want to sent
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+   :param str inputType(optional): type of input data, ie number or text
 
-    :return: QPython NFC json result
+.. py:function:: dialogCreateNFCBeamSlave(title, message)
+
+   Create a qpython beam slave
+
+   :param str title: title of the input box
+   :param str message: message to display above the input box
+
+Progress
+--------------
+.. py:function:: dialogCreateSpinnerProgress(message, maximumProgress)
+
+   Create a spinner progress dialog
+
+   :param str message(optional): message
+   :param int maximunProgress(optional): dfault=100
+
+.. py:function:: dialogSetCurrentProgress(current)
+
+   Set progress dialog current value
+
+   :param int current: current
+
+.. py:function:: dialogSetMaxProgress(max)
+
+   Set progress dialog maximum value
+
+   :param int max: max
 
 
-.. py:function:: AndroidHelper.dialogCreateNFCBeamSlave()
+.. py:function:: dialogCreateHorizontalProgress(title, message, maximumProgress)
 
-    Create a NFC Beam Slave to wait for the master's beam message
+   Create a horizontal progress dialog
 
-    :return: QPython NFC json result
+   :param str title(optional): title
+   :param str message(optional): message
+   :param int maximunProgress(optional): dfault=100
+
+
+Alert
+----------
+.. py:function:: dialogCreateAlert(title, message)
+
+   Create alert dialog
+
+   :param str title(optional): title
+   :param str message(optional): message
+   :param int maximunProgress(optional): dfault=100
+
+
+Dialog Control
+---------------
+.. py:function:: dialogSetPositiveButtonText(text)
+
+   Set alert dialog positive button text
+
+   :param str text: text
+
+.. py:function:: dialogSetNegativeButtonText(text)
+
+   Set alert dialog negative button text
+
+   :param str text: text
+
+.. py:function:: dialogSetNeutralButtonText(text)
+
+   Set alert dialog button text
+
+   :param str text: text
+
+.. py:function:: dialogSetItems(items)
+
+   Set alert dialog list items
+
+   :param list items: items
+
+.. py:function:: dialogSetSingleChoiceItems(items, selected)
+
+   Set alert dialog list items
+
+   :param list items: items
+   :param int selected: selected item index (default=0)
+
+.. py:function:: dialogSetMultiChoiceItems(items, selected)
+
+   Set dialog multiple choice items and selection
+
+   :param list items: items
+   :param int selected: selected item index (default=0)
+
+.. py:function:: addContextMenuItem(label, event, eventData)
+
+   Adds a new item to context menu
+
+   :param str label: label for this menu item
+   :param str event: event that will be generated on menu item click
+   :param object eventData: event object
+
+.. py:function:: addOptionsMenuItem(label, event, eventData, iconName)
+
+   Adds a new item to context menu
+
+   :param str label: label for this menu item
+   :param str event: event that will be generated on menu item click
+   :param object eventData: event object
+   :param str iconName: Android system menu icon, see http://developer.android.com/reference/android/R.drawable.html
+
+.. py:function:: dialogGetResponse()
+
+   Returns dialog response
+
+.. py:function:: dialogGetSelectedItems()
+
+   This method provides list of items user selected
+
+.. py:function:: dialogDismiss()
+
+   Dismiss dialog
+
+.. py:function:: dialogShow()
+
+   Show dialog
+
+
+Layout
+---------
+.. py:function:: fullShow(layout)
+
+   Show Full Screen
+
+   :param string layout: String containing View layout
+
+.. py:function:: fullDismiss()
+
+   Dismiss Full Screen
+
+.. py:function:: fullQuery()
+
+   Get Fullscreen Properties
+
+.. py:function:: fullQueryDetail(id)
+
+   Get fullscreen properties for a specific widget
+
+   :param str id: id of layout widget
+
+.. py:function:: fullSetProperty(id)
+
+   Set fullscreen widget property
+
+   :param str id: id of layout widget
+   :param str property: name of property to set
+   :param str value: value to set property to
+
+.. py:function:: fullSetList(id, list)
+
+   Attach a list to a fullscreen widget
+
+   :param str id: id of layout widget
+   :param list list: List to set
+
+.. py:function:: fullKeyOverride(keycodes, enable)
+
+   Override default key actions
+
+   :param str keycodes: id of layout widget
+   :param bool enable: List to set (default=true)
 
 
 
-Other SL4A APIs
-----------------
+WebView
+-----------
+.. py:function:: webViewShow()
 
-.. py:function:: AndroidHelper.dialogCreateSpinnerProgress(title,message,maximum progress)
+   Display a WebView with the given URL
 
-    Create a spinner progress dialog
-
-.. py:function:: AndroidHelper.webViewShow(url,wait)
-
-    Display a WebView with the given URL.
-
-    :param str url: URL
-    :param boolean wait(Optional): block until the user exits the WebView
+   :param str url: url
+   :param bool wait(optional): block until the user exits the WebView

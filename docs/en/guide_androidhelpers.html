@@ -115,9 +115,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#signalstrengthfacade">SignalStrengthFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#webcamfacade">WebCamFacade</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uifacade">UiFacade</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nfc-apis">NFC APIs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id1">NFC APIs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#other-sl4a-apis">Other SL4A APIs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dialog">Dialog</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nfc">NFC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#progress">Progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alert">Alert</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dialog-control">Dialog Control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#layout">Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webview">WebView</a></li>
 </ul>
 </li>
 </ul>
@@ -156,7 +160,9 @@
 </div>
 <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
 <div itemprop="articleBody">
+<p>The Scripting Layer for Android (abridged as SL4A, and previously named Android Scripting Environment or ASE) is a library that allows the creation and running of scripts written in various scripting languages directly on Android devices. QPython start to extend the SL4A project and integrate it.</p>
 <img alt="../images/sl4a.jpg" src="../images/sl4a.jpg" />
+<p>There are many SL4A APIs, if you found any issue, please <a class="reference external" href="https://github.com/qpython-android/qpython/issues">report an issue</a>.</p>
 <div class="section" id="androidfacade">
 <h1>AndroidFacade<a class="headerlink" href="#androidfacade" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="clipboard-apis">
@@ -205,8 +211,8 @@
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
 <li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
 <li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>jsonobject</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>categories(Optional)</strong> (<em>array</em>) &#8211; a List of categories to add to the Intent</li>
+<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>categories(Optional)</strong> (<em>list</em>) &#8211; a List of categories to add to the Intent</li>
 <li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
 <li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 <li><strong>flags(Optional)</strong> (<em>int</em>) &#8211; Intent flags</li>
@@ -242,7 +248,7 @@
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
 <li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
 <li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>jsonobject</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
 <li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
 <li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
@@ -285,7 +291,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>intent</strong> (<em>Intent</em>) &#8211; Intent in the format as returned from makeIntent</li>
-<li><strong>wait(Optional)</strong> (<em>boolean</em>) &#8211; block until the user exits the started activity</li>
+<li><strong>wait(Optional)</strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
 </ul>
 </td>
 </tr>
@@ -307,8 +313,8 @@
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
 <li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
 <li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>jsonobject</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>wait(Optional)</strong> (<em>boolean</em>) &#8211; block until the user exits the started activity</li>
+<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>wait(Optional)</strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
 <li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
 <li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
@@ -335,7 +341,7 @@
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
 <li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
 <li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>jsonobject</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
 <li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
 <li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
@@ -1530,7 +1536,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
 <li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
 </ul>
 </td>
@@ -1547,7 +1553,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
 <li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
 </ul>
 </td>
@@ -1564,9 +1570,9 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>unreadOnly</strong> (<em>boolean</em>) &#8211; typically a phone number</li>
+<li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
 <li><strong>folder</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
-<li><strong>attributes(optional)</strong> (<em>array</em>) &#8211; attributes</li>
+<li><strong>attributes(optional)</strong> (<em>list</em>) &#8211; attributes</li>
 </ul>
 </td>
 </tr>
@@ -1586,7 +1592,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>id</strong> (<em>int</em>) &#8211; message ID</li>
-<li><strong>attributes(optional)</strong> (<em>array</em>) &#8211; attributes</li>
+<li><strong>attributes(optional)</strong> (<em>list</em>) &#8211; attributes</li>
 </ul>
 </td>
 </tr>
@@ -1625,8 +1631,8 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ids</strong> (<em>array</em>) &#8211; List of message IDs to mark as read</li>
-<li><strong>read</strong> (<em>boolean</em>) &#8211; true or false</li>
+<li><strong>ids</strong> (<em>list</em>) &#8211; List of message IDs to mark as read</li>
+<li><strong>read</strong> (<em>bool</em>) &#8211; true or false</li>
 </ul>
 </td>
 </tr>
@@ -1765,7 +1771,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled(optional)</strong> (<em>boolean</em>) &#8211; enabled</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled(optional)</strong> (<em>bool</em>) &#8211; enabled</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if Wifi is enabled</td>
 </tr>
@@ -2250,7 +2256,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>url</strong> (<em>str</em>) &#8211; url of media resource</li>
 <li><strong>tag(optional)</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
-<li><strong>play(optional)</strong> (<em>boolean</em>) &#8211; start playing immediately</li>
+<li><strong>play(optional)</strong> (<em>bool</em>) &#8211; start playing immediately</li>
 </ul>
 </td>
 </tr>
@@ -2329,7 +2335,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>enabled</strong> (<em>boolean</em>) &#8211; default true</li>
+<li><strong>enabled</strong> (<em>bool</em>) &#8211; default true</li>
 <li><strong>tag</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
 </ul>
 </td>
@@ -2456,7 +2462,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> (<em>str</em>) &#8211; The absolute path of the qpython script</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">boolean</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
 </tr>
 </tbody>
 </table>
@@ -2730,7 +2736,7 @@ Return values:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>enabled</strong> (<em>boolean</em>) &#8211; </li>
+<li><strong>enabled</strong> (<em>bool</em>) &#8211; </li>
 <li><strong>prompt</strong> (<em>str</em>) &#8211; Prompt the user to confirm changing the Bluetooth state, default=true</li>
 </ul>
 </td>
@@ -2883,9 +2889,138 @@ Return values:
 </div>
 <div class="section" id="uifacade">
 <h1>UiFacade<a class="headerlink" href="#uifacade" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="nfc-apis">
-<h2>NFC APIs<a class="headerlink" href="#nfc-apis" title="Permalink to this headline">¶</a></h2>
-<p><strong>QPython NFC json result</strong></p>
+<div class="section" id="dialog">
+<h2>Dialog<a class="headerlink" href="#dialog" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dialogCreateInput">
+<code class="descname">dialogCreateInput</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>defaultText</em>, <em>inputType</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a text input dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+<li><strong>defaultText(optional)</strong> (<em>str</em>) &#8211; text to insert into the input box</li>
+<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreatePassword">
+<code class="descname">dialogCreatePassword</code><span class="sig-paren">(</span><em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreatePassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a password input dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogGetInput">
+<code class="descname">dialogGetInput</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>defaultText</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogGetInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a password input dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+<li><strong>defaultText(optional)</strong> (<em>str</em>) &#8211; text to insert into the input box</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogGetPassword">
+<code class="descname">dialogGetPassword</code><span class="sig-paren">(</span><em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogGetPassword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries the user for a password</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the password box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreateSeekBar">
+<code class="descname">dialogCreateSeekBar</code><span class="sig-paren">(</span><em>start</em>, <em>maximum</em>, <em>title</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateSeekBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create seek bar dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>start</strong> (<em>int</em>) &#8211; default=50</li>
+<li><strong>maximum</strong> (<em>int</em>) &#8211; default=100</li>
+<li><strong>title</strong> (<em>int</em>) &#8211; title</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreateTimePicker">
+<code class="descname">dialogCreateTimePicker</code><span class="sig-paren">(</span><em>hour</em>, <em>minute</em>, <em>is24hour</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateTimePicker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create time picker dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hour</strong> (<em>int</em>) &#8211; default=0</li>
+<li><strong>miute</strong> (<em>int</em>) &#8211; default=0</li>
+<li><strong>is24hour</strong> (<em>bool</em>) &#8211; default=false</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreateDatePicker">
+<code class="descname">dialogCreateDatePicker</code><span class="sig-paren">(</span><em>year</em>, <em>month</em>, <em>day</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateDatePicker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create date picker dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>year</strong> (<em>int</em>) &#8211; default=1970</li>
+<li><strong>month</strong> (<em>int</em>) &#8211; default=1</li>
+<li><strong>day</strong> (<em>int</em>) &#8211; default=1</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="nfc">
+<h2>NFC<a class="headerlink" href="#nfc" title="Permalink to this headline">¶</a></h2>
+<p><strong>Data structs</strong>
+<em>QPython NFC json result</em></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">role</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1"># could be self/master/slave</span>
 <span class="s2">&quot;stat&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">stat</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1"># could be ok / fail / cancl</span>
@@ -2893,68 +3028,397 @@ Return values:
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id1">
-<h2>NFC APIs<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>NFC Message Beam APIs</p>
+<p><strong>APIs</strong></p>
 <dl class="function">
-<dt id="AndroidHelper.dialogCreateNFCBeamMaster">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateNFCBeamMaster</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateNFCBeamMaster" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a dialog which can send the message to NFC Beam Slave</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.NFCBeamMessage">
-<code class="descclassname">AndroidHelper.</code><code class="descname">NFCBeamMessage</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.NFCBeamMessage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sendthe message to NFC Beam Slave without dialog</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.dialogCreateNFCBeamSlave">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateNFCBeamSlave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateNFCBeamSlave" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a NFC Beam Slave to wait for the master&#8217;s beam message</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">QPython NFC json result</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-</div>
-<div class="section" id="other-sl4a-apis">
-<h2>Other SL4A APIs<a class="headerlink" href="#other-sl4a-apis" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="AndroidHelper.dialogCreateSpinnerProgress">
-<code class="descclassname">AndroidHelper.</code><code class="descname">dialogCreateSpinnerProgress</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>maximum progress</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.dialogCreateSpinnerProgress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a spinner progress dialog</p>
-</dd></dl>
-<dl class="function">
-<dt id="AndroidHelper.webViewShow">
-<code class="descclassname">AndroidHelper.</code><code class="descname">webViewShow</code><span class="sig-paren">(</span><em>url</em>, <em>wait</em><span class="sig-paren">)</span><a class="headerlink" href="#AndroidHelper.webViewShow" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display a WebView with the given URL.</p>
+<dt id="dialogCreateNFCBeamMaster">
+<code class="descname">dialogCreateNFCBeamMaster</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>inputType</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateNFCBeamMaster" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a dialog where you could create a qpython beam master</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>url</strong> (<em>str</em>) &#8211; URL</li>
-<li><strong>wait(Optional)</strong> (<em>boolean</em>) &#8211; block until the user exits the WebView</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="NFCBeamMessage">
+<code class="descname">NFCBeamMessage</code><span class="sig-paren">(</span><em>content</em>, <em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#NFCBeamMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a dialog where you could create a qpython beam master</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>content</strong> (<em>str</em>) &#8211; message you want to sent</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreateNFCBeamSlave">
+<code class="descname">dialogCreateNFCBeamSlave</code><span class="sig-paren">(</span><em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateNFCBeamSlave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a qpython beam slave</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
+<li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="progress">
+<h2>Progress<a class="headerlink" href="#progress" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dialogCreateSpinnerProgress">
+<code class="descname">dialogCreateSpinnerProgress</code><span class="sig-paren">(</span><em>message</em>, <em>maximumProgress</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateSpinnerProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a spinner progress dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetCurrentProgress">
+<code class="descname">dialogSetCurrentProgress</code><span class="sig-paren">(</span><em>current</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetCurrentProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set progress dialog current value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>current</strong> (<em>int</em>) &#8211; current</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetMaxProgress">
+<code class="descname">dialogSetMaxProgress</code><span class="sig-paren">(</span><em>max</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetMaxProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set progress dialog maximum value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max</strong> (<em>int</em>) &#8211; max</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogCreateHorizontalProgress">
+<code class="descname">dialogCreateHorizontalProgress</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>maximumProgress</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateHorizontalProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a horizontal progress dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title(optional)</strong> (<em>str</em>) &#8211; title</li>
+<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="alert">
+<h2>Alert<a class="headerlink" href="#alert" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dialogCreateAlert">
+<code class="descname">dialogCreateAlert</code><span class="sig-paren">(</span><em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogCreateAlert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create alert dialog</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title(optional)</strong> (<em>str</em>) &#8211; title</li>
+<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="dialog-control">
+<h2>Dialog Control<a class="headerlink" href="#dialog-control" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="dialogSetPositiveButtonText">
+<code class="descname">dialogSetPositiveButtonText</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetPositiveButtonText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set alert dialog positive button text</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) &#8211; text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetNegativeButtonText">
+<code class="descname">dialogSetNegativeButtonText</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetNegativeButtonText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set alert dialog negative button text</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) &#8211; text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetNeutralButtonText">
+<code class="descname">dialogSetNeutralButtonText</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetNeutralButtonText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set alert dialog button text</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text</strong> (<em>str</em>) &#8211; text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetItems">
+<code class="descname">dialogSetItems</code><span class="sig-paren">(</span><em>items</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set alert dialog list items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>items</strong> (<em>list</em>) &#8211; items</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetSingleChoiceItems">
+<code class="descname">dialogSetSingleChoiceItems</code><span class="sig-paren">(</span><em>items</em>, <em>selected</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetSingleChoiceItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set alert dialog list items</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>items</strong> (<em>list</em>) &#8211; items</li>
+<li><strong>selected</strong> (<em>int</em>) &#8211; selected item index (default=0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogSetMultiChoiceItems">
+<code class="descname">dialogSetMultiChoiceItems</code><span class="sig-paren">(</span><em>items</em>, <em>selected</em><span class="sig-paren">)</span><a class="headerlink" href="#dialogSetMultiChoiceItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set dialog multiple choice items and selection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>items</strong> (<em>list</em>) &#8211; items</li>
+<li><strong>selected</strong> (<em>int</em>) &#8211; selected item index (default=0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="addContextMenuItem">
+<code class="descname">addContextMenuItem</code><span class="sig-paren">(</span><em>label</em>, <em>event</em>, <em>eventData</em><span class="sig-paren">)</span><a class="headerlink" href="#addContextMenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new item to context menu</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>label</strong> (<em>str</em>) &#8211; label for this menu item</li>
+<li><strong>event</strong> (<em>str</em>) &#8211; event that will be generated on menu item click</li>
+<li><strong>eventData</strong> (<em>object</em>) &#8211; event object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="addOptionsMenuItem">
+<code class="descname">addOptionsMenuItem</code><span class="sig-paren">(</span><em>label</em>, <em>event</em>, <em>eventData</em>, <em>iconName</em><span class="sig-paren">)</span><a class="headerlink" href="#addOptionsMenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new item to context menu</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>label</strong> (<em>str</em>) &#8211; label for this menu item</li>
+<li><strong>event</strong> (<em>str</em>) &#8211; event that will be generated on menu item click</li>
+<li><strong>eventData</strong> (<em>object</em>) &#8211; event object</li>
+<li><strong>iconName</strong> (<em>str</em>) &#8211; Android system menu icon, see <a class="reference external" href="http://developer.android.com/reference/android/R.drawable.html">http://developer.android.com/reference/android/R.drawable.html</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="dialogGetResponse">
+<code class="descname">dialogGetResponse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogGetResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dialog response</p>
+</dd></dl>
+<dl class="function">
+<dt id="dialogGetSelectedItems">
+<code class="descname">dialogGetSelectedItems</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogGetSelectedItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method provides list of items user selected</p>
+</dd></dl>
+<dl class="function">
+<dt id="dialogDismiss">
+<code class="descname">dialogDismiss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogDismiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dismiss dialog</p>
+</dd></dl>
+<dl class="function">
+<dt id="dialogShow">
+<code class="descname">dialogShow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dialogShow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show dialog</p>
+</dd></dl>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="fullShow">
+<code class="descname">fullShow</code><span class="sig-paren">(</span><em>layout</em><span class="sig-paren">)</span><a class="headerlink" href="#fullShow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show Full Screen</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>layout</strong> (<em>string</em>) &#8211; String containing View layout</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="fullDismiss">
+<code class="descname">fullDismiss</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fullDismiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dismiss Full Screen</p>
+</dd></dl>
+<dl class="function">
+<dt id="fullQuery">
+<code class="descname">fullQuery</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fullQuery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Fullscreen Properties</p>
+</dd></dl>
+<dl class="function">
+<dt id="fullQueryDetail">
+<code class="descname">fullQueryDetail</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#fullQueryDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fullscreen properties for a specific widget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<em>str</em>) &#8211; id of layout widget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="fullSetProperty">
+<code class="descname">fullSetProperty</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#fullSetProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set fullscreen widget property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> (<em>str</em>) &#8211; id of layout widget</li>
+<li><strong>property</strong> (<em>str</em>) &#8211; name of property to set</li>
+<li><strong>value</strong> (<em>str</em>) &#8211; value to set property to</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="fullSetList">
+<code class="descname">fullSetList</code><span class="sig-paren">(</span><em>id</em>, <em>list</em><span class="sig-paren">)</span><a class="headerlink" href="#fullSetList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attach a list to a fullscreen widget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> (<em>str</em>) &#8211; id of layout widget</li>
+<li><strong>list</strong> (<em>list</em>) &#8211; List to set</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="fullKeyOverride">
+<code class="descname">fullKeyOverride</code><span class="sig-paren">(</span><em>keycodes</em>, <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#fullKeyOverride" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override default key actions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>keycodes</strong> (<em>str</em>) &#8211; id of layout widget</li>
+<li><strong>enable</strong> (<em>bool</em>) &#8211; List to set (default=true)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+<div class="section" id="webview">
+<h2>WebView<a class="headerlink" href="#webview" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="webViewShow">
+<code class="descname">webViewShow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#webViewShow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a WebView with the given URL</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>url</strong> (<em>str</em>) &#8211; url</li>
+<li><strong>wait(optional)</strong> (<em>bool</em>) &#8211; block until the user exits the WebView</li>
 </ul>
 </td>
 </tr>
