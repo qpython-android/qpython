@@ -1,4 +1,4 @@
-# QPython v2
+# QPython Project
 <p align="center"><a href="http://www.qpython.org" target="_blank"><img src="http://www.qpython.org/images/bestpython.png"></a></p>
 
 Welcome to read the QPython guide!
@@ -24,29 +24,7 @@ Thanks these guys who are contributing
 ----------------------------------------
 They are pushing on the QPython project moving forward.
 
-.. image:: https://avatars0.githubusercontent.com/u/3059527?v=3&s=60
-   :target: https://github.com/riverfor
-   :alt: River is the project's organizer and the current online QPython's author.
-
-.. image:: https://avatars0.githubusercontent.com/u/10812534?v=3&s=60
-   :target: https://github.com/pollyfat
-   :alt: Mae is a beautiful and talented girl developer who is good at python & android programming.
-
-.. image:: https://avatars0.githubusercontent.com/u/22494?v=3&s=60
-   :target: https://github.com/ZoomQuiet
-   :alt: Zoom.Quiet is a knowledgeable guy who is famous in many opensource communities.
-
-.. image:: https://avatars3.githubusercontent.com/u/10219741?v=3&s=60
-   :target: https://github.com/mathiasluo
-   :alt: MathiasLuo is a android geek developer
-
-.. image:: https://avatars2.githubusercontent.com/u/25975283?v=3&s=60
-   :target: https://github.com/liyuanrui
-   :alt: liyuanrui is a Chinese geek
-
-.. image:: https://avatars3.githubusercontent.com/u/5159173?v=3&s=60
-   :target: https://github.com/kylelk
-   :alt: Kyle kersey is a US geek
+River, Mae, Zoom.Quiet, MathiasLuo, liyuanrui, Kyle kersey ...
 
 
 Do you want to join the great QPython team ? You could `Ask qustions on twitter <https://twitter.com/qpython>`_ or `email us <mailto:support@qpython.org>`_.
@@ -57,19 +35,19 @@ QPython Communities
 ----------------------
 **There are many active QPython communities where you could meet the QPython users like you**
 
-* `Join Facebook community <https://www.facebook.com/groups/qpython>`_
-* `Join Google group <https://groups.google.com/forum/#!forum/qpython>`_
-* `Join Gitter chat <https://gitter.com/qpython-android/qpython>`_
-* `Join G+ community <https://plus.google.com/communities/111759148772865961493>`_
-* `QPython on Stackoverflow <http://stackoverflow.com/questions/tagged/qpython>`_
+* `Join Facebook community https://www.facebook.com/groups/qpython`
+* `Join Google group https://groups.google.com/forum/#!forum/qpython`
+* `Join Gitter chat https://gitter.com/qpython-android/qpython`
+* `Join G+ community https://plus.google.com/communities/111759148772865961493`
+* `QPython on Stackoverflow http://stackoverflow.com/questions/tagged/qpython`
 
 **And you could talk to us through social network**
 
-* `Like us on facebook <https://www.facebook.com/QPython>`_
-* `Follow us on twitter <https://twitter.com/qpython>`_
+* `Like us on facebook https://www.facebook.com/QPython`
+* `Follow us on twitter https://twitter.com/qpython`
 
-* `Report issue <https://github.com/qpython-android/qpython/issues>`_
-* `Email us <mailto:support@qpython.org>`_
+* `Report issue https://github.com/qpython-android/qpython/issues`
+* `Email us mailto:support@qpython.org`
 
 
 **It's the official QPython Users & Contributors' Guide, please follow http://www.qpython.org for more information.**
