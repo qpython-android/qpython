@@ -12,7 +12,7 @@ QPython has several millions users in the world already, it's a great project fo
 
 What's NEW
 ------------------------
-QPython project include the `QPython <https://play.google.com/store/apps/details?id=org.qpython.qpy>`_ and `QPython3 <https://play.google.com/store/apps/details?id=org.qpython.qpy3>`_ applications.
+QPython project include the QPython https://play.google.com/store/apps/details?id=org.qpython.qpy and QPython3 https://play.google.com/store/apps/details?id=org.qpython.qpy3 applications.
 
 QPython application is using the **Python 2.7.2** , and QPython application is using the  **Python 3.2.2** .
 
@@ -27,27 +27,27 @@ They are pushing on the QPython project moving forward.
 River, Mae, Zoom.Quiet, MathiasLuo, liyuanrui, Kyle kersey ...
 
 
-Do you want to join the great QPython team ? You could `Ask qustions on twitter <https://twitter.com/qpython>`_ or `email us <mailto:support@qpython.org>`_.
-And you could `fork us on github <https://github.com/qpython-android/qpython>`_ and send pull request.
+Do you want to join the great QPython team ? You could Ask qustions on twitter https://twitter.com/qpython or email us mailto:support@qpython.org.
+And you could fork us on github https://github.com/qpython-android/qpython and send pull request.
 
 
 QPython Communities
 ----------------------
 **There are many active QPython communities where you could meet the QPython users like you**
 
-* `Join Facebook community https://www.facebook.com/groups/qpython`
-* `Join Google group https://groups.google.com/forum/#!forum/qpython`
-* `Join Gitter chat https://gitter.com/qpython-android/qpython`
-* `Join G+ community https://plus.google.com/communities/111759148772865961493`
-* `QPython on Stackoverflow http://stackoverflow.com/questions/tagged/qpython`
+* Join Facebook community https://www.facebook.com/groups/qpython
+* Join Google group https://groups.google.com/forum/#!forum/qpython
+* Join Gitter chat https://gitter.com/qpython-android/qpython
+* Join G+ community https://plus.google.com/communities/111759148772865961493
+* QPython on Stackoverflow http://stackoverflow.com/questions/tagged/qpython
 
 **And you could talk to us through social network**
 
-* `Like us on facebook https://www.facebook.com/QPython`
-* `Follow us on twitter https://twitter.com/qpython`
+* Like us on facebook https://www.facebook.com/QPython
+* Follow us on twitter https://twitter.com/qpython
 
-* `Report issue https://github.com/qpython-android/qpython/issues`
-* `Email us mailto:support@qpython.org`
+* Report issue https://github.com/qpython-android/qpython/issues
+* Email us mailto:support@qpython.org
 
 
 **It's the official QPython Users & Contributors' Guide, please follow http://www.qpython.org for more information.**
