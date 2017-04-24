@@ -124,6 +124,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#webview">WebView</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#usb-host-serial-facade">USB Host Serial Facade</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#status">Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#author">Author</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#apis">APIs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guide_extend.html">QPython Open API</a></li>
@@ -3421,6 +3428,221 @@ Return values:
 <li><strong>wait(optional)</strong> (<em>bool</em>) &#8211; block until the user exits the WebView</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+</div>
+</div>
+<div class="section" id="usb-host-serial-facade">
+<h1>USB Host Serial Facade<a class="headerlink" href="#usb-host-serial-facade" title="Permalink to this headline">¶</a></h1>
+<p><em>QPython 1.3.1+ and QPython3 1.0.3+ contains this feature</em></p>
+<p>SL4A Facade for USB Serial devices by Android USB Host API.</p>
+<p>It control the USB-Serial like devices
+from Andoroid which has USB Host Controller .</p>
+<p>The sample
+<a class="reference external" href="http://www.youtube.com/watch?v=EJ7qiGXaI74">demonstration is also available at youtube video</a></p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Android device which has USB Host controller (and enabled in that firmware).</p>
+</li>
+<li><p class="first">Android 4.0 (API14) or later.</p>
+</li>
+<li><p class="first">USB Serial devices (see [Status](#Status)).</p>
+</li>
+<li><p class="first">USB Serial devices were not handled by Android kernel.</p>
+<p>&gt; I heard some android phone handle USB Serial devices
+&gt; make /dev/ttyUSB0 in kernel level.
+&gt; In this case, Android does not be able to handle the device
+&gt; from OS level.</p>
+<p>please check Android Applications be able to grab the target USB Devices,
+such as <a class="reference external" href="https://play.google.com/store/apps/details?id=aws.apps.usbDeviceEnumerator">USB Device Info</a>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="status">
+<h2>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">probably work with USB CDC, like FTDI, Arduino or else.</p>
+</li>
+<li><p class="first">2012/09/10: work with 78K0F0730 device (new RL78) with Tragi BIOS board.</p>
+<p><a class="reference external" href="http://www.marutsu.co.jp/shohin_55296/">M78K0F0730</a></p>
+</li>
+<li><p class="first">2012/09/24: work with some pl2303 devcies.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
+<p>This facade developped by <a class="reference external" href="https://bitbucket.org/kuri65536/usbhostserialfacade">Kuri65536</a>
+you can see the commit log in it.</p>
+</div>
+<div class="section" id="apis">
+<h2>APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="usbserialGetDeviceList">
+<code class="descname">usbserialGetDeviceList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#usbserialGetDeviceList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns USB devices reported by USB Host API.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns &#8220;Map of id and string information Map&lt;String, String&gt;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialDisconnect">
+<code class="descname">usbserialDisconnect</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialDisconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect all USB-device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong> (<em>str</em>) &#8211; connection ID</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialActiveConnections">
+<code class="descname">usbserialActiveConnections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#usbserialActiveConnections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns active USB-device connections.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Returns &#8220;Active USB-device connections by Map UUID vs device-name.&#8221;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialWriteBinary">
+<code class="descname">usbserialWriteBinary</code><span class="sig-paren">(</span><em>base64</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialWriteBinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send bytes over the currently open USB Serial connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>base64</strong> (<em>str</em>) &#8211; </li>
+<li><strong>connId</strong> (<em>str</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialReadBinary">
+<code class="descname">usbserialReadBinary</code><span class="sig-paren">(</span><em>bufferSize</em>, <em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialReadBinary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read up to bufferSize bytes and return a chunked, base64 encoded string</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bufferSize</strong> (<em>int</em>) &#8211; </li>
+<li><strong>connId</strong> (<em>str</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialConnect">
+<code class="descname">usbserialConnect</code><span class="sig-paren">(</span><em>hash</em>, <em>options</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialConnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connect to a device with USB-Host. request the connection and exit</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>hash</strong> (<em>str</em>) &#8211; </li>
+<li><strong>options</strong> (<em>str</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Returns messages the request status</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialHostEnable">
+<code class="descname">usbserialHostEnable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#usbserialHostEnable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests that the host be enable for USB Serial connections.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the USB Device is accesible</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialWrite">
+<code class="descname">usbserialWrite</code><span class="sig-paren">(</span><em>String ascii</em>, <em>String connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialWrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends ASCII characters over the currently open USB Serial connection</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ascii</strong> (<em>str</em>) &#8211; </li>
+<li><strong>connID</strong> (<em>str</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialReadReady">
+<code class="descname">usbserialReadReady</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialReadReady" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong> (<em>str</em>) &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the next read is guaranteed not to block</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialRead">
+<code class="descname">usbserialRead</code><span class="sig-paren">(</span><em>connID</em>, <em>bufferSize</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read up to bufferSize ASCII characters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connID</strong> (<em>str</em>) &#8211; </li>
+<li><strong>bufferSize</strong> (<em>int</em>) &#8211; </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+<dl class="function">
+<dt id="usbserialGetDeviceName">
+<code class="descname">usbserialGetDeviceName</code><span class="sig-paren">(</span><em>connID</em><span class="sig-paren">)</span><a class="headerlink" href="#usbserialGetDeviceName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries a remote device for it&#8217;s name or null if it can&#8217;t be resolved</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong> (<em>str</em>) &#8211; </td>
 </tr>
 </tbody>
 </table>

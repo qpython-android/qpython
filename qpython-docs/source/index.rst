@@ -65,7 +65,7 @@ QPython Communities
 * `Join Facebook community <https://www.facebook.com/groups/qpython>`_
 * `Join Google group <https://groups.google.com/forum/#!forum/qpython>`_
 * `Join Gitter chat <https://gitter.com/qpython-android/qpython>`_
-* `Join G+ community <https://plus.google.com/communities/111759148772865961493>`_
+* `Join G+ community(For QPython testers) <https://plus.google.com/communities/111759148772865961493>`_
 * `QPython on Stackoverflow <http://stackoverflow.com/questions/tagged/qpython>`_
 
 **And you could talk to us through social network**

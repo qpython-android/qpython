@@ -1906,3 +1906,127 @@ WebView
 
    :param str url: url
    :param bool wait(optional): block until the user exits the WebView
+
+USB Host Serial Facade
+======================
+
+*QPython 1.3.1+ and QPython3 1.0.3+ contains this feature*
+
+SL4A Facade for USB Serial devices by Android USB Host API.
+
+
+It control the USB-Serial like devices
+from Andoroid which has USB Host Controller .
+
+The sample
+`demonstration is also available at youtube video <http://www.youtube.com/watch?v=EJ7qiGXaI74>`_
+
+
+Requirements
+-------------
+* Android device which has USB Host controller (and enabled in that firmware).
+* Android 4.0 (API14) or later.
+* USB Serial devices (see [Status](#Status)).
+* USB Serial devices were not handled by Android kernel.
+
+  > I heard some android phone handle USB Serial devices
+  > make /dev/ttyUSB0 in kernel level.
+  > In this case, Android does not be able to handle the device
+  > from OS level.
+
+  please check Android Applications be able to grab the target USB Devices,
+  such as `USB Device Info <https://play.google.com/store/apps/details?id=aws.apps.usbDeviceEnumerator>`_.
+
+Status
+---------------
+* probably work with USB CDC, like FTDI, Arduino or else.
+
+* 2012/09/10: work with 78K0F0730 device (new RL78) with Tragi BIOS board.
+
+  `M78K0F0730 <http://www.marutsu.co.jp/shohin_55296/>`_
+
+* 2012/09/24: work with some pl2303 devcies.
+
+Author
+-------
+This facade developped by `Kuri65536 <https://bitbucket.org/kuri65536/usbhostserialfacade>`_
+you can see the commit log in it.
+
+
+APIs
+--------
+.. py:function:: usbserialGetDeviceList()
+
+   Returns USB devices reported by USB Host API.
+
+   :return: Returns "Map of id and string information Map<String, String>
+
+
+.. py:function:: usbserialDisconnect(connID)
+
+   Disconnect all USB-device
+
+   :param str connID: connection ID
+
+.. py:function:: usbserialActiveConnections()
+
+   Returns active USB-device connections.
+
+   :return: Returns "Active USB-device connections by Map UUID vs device-name."
+
+
+.. py:function:: usbserialWriteBinary(base64, connID)
+
+   Send bytes over the currently open USB Serial connection.
+
+   :param str base64:
+   :param str connId:
+
+.. py:function:: usbserialReadBinary(bufferSize, connID)
+
+   Read up to bufferSize bytes and return a chunked, base64 encoded string
+
+   :param int bufferSize:
+   :param str connId:
+
+.. py:function:: usbserialConnect(hash, options)
+
+   Connect to a device with USB-Host. request the connection and exit
+
+   :param str hash:
+   :param str options:
+
+   :return: Returns messages the request status
+
+.. py:function:: usbserialHostEnable()
+
+   Requests that the host be enable for USB Serial connections.
+
+   :return: True if the USB Device is accesible
+
+.. py:function:: usbserialWrite(String ascii, String connID)
+
+   Sends ASCII characters over the currently open USB Serial connection
+
+   :param str ascii:
+   :param str connID:
+
+.. py:function:: usbserialReadReady(connID)
+
+   :param str connID:
+
+   :return: True if the next read is guaranteed not to block
+
+
+.. py:function:: usbserialRead(connID, bufferSize)
+
+   Read up to bufferSize ASCII characters.
+
+   :param str connID:
+   :param int bufferSize:
+
+.. py:function:: usbserialGetDeviceName(connID)
+
+   Queries a remote device for it's name or null if it can't be resolved
+
+   :param str connID:
