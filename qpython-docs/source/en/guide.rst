@@ -24,16 +24,22 @@ If you you want to know more about how to program through qpython, just follow t
    guide_extend
 
 
-QPython Hackers' Guide
+**QPython project is not only a powerful Python engine for android, but is a active technology community also.**
+
+QPython Developers' Guide
 =======================
+QPython developers' goal is pushing out a great Python for android.
 
-* `QPython Hackers Howto <http://wiki.qpython.org/en/diveinto/>`_
+.. toctree::
+   :maxdepth: 2
+
+   guide_developers
 
 
-Contributors' Guide
+Community Contributors' Guide
 ===================
 
-Welcome to join QPython contributors team
+Welcome to join QPython contributors team, you are not just a user, but a creator of QPython.
 
 .. toctree::
    :maxdepth: 2
