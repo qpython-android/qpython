@@ -79,6 +79,14 @@ QPython Communities
 
 **It's the official QPython Users & Contributors' Guide, please follow these steps for using and contributing.**
 
+Support
+-------------
+We are happy to hear feedback from you,  but sometimes some bugs or features demand may not be implemented soon for we lack resources.
+
+So if you have any issue need the core developer team to solve with higher priority, you could try the `bountysource service <https://www.bountysource.com/>`_.
+
+
+
 Now, let's GO
 ---------------
 .. toctree::

@@ -50,4 +50,10 @@ QPython Communities
 * Email us mailto:support@qpython.org
 
 
+Support
+-------------
+We are happy to hear feedback from you,  but sometimes some bugs or features demand may not be implemented soon for we lack resources.
+
+So if you have any issue need the core developer team to solve with higher priority, you could try the https://www.bountysource.com .
+
 **It's the official QPython Users & Contributors' Guide, please follow http://www.qpython.org for more information.**
