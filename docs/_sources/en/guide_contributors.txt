@@ -1,35 +1,40 @@
-How to contribute
+Welcome contribute
 ===============================
-As a young group, we need your help.
+Thanks for supporting this project, QPython is a greate project, and we hope you join us to help with make it more greater.  
 
-Please send email to us(support at qpython.org) to introduce youself, which part do you want to contribute.
+Please send email to us(support at qpython.org) to introduce youself briefly, and which part do you want to contribute.
 
 Then we will consider to invite you to join the qpython-collaborator group.
 
-Thanks for supporting this project, let us push on this greate project moving on altogether!
+How to help with test
+========================
 
+.. toctree::
+   :maxdepth: 2
 
-How to write documentation
-----------------------------------------
+   guide_contributors_test
+
+How to contribute documentation
+================================
 
 How to translate
-----------------------------------------
+================================
 
-How to organise a local qpython user sharing event
-----------------------------------------------------
 
 How to launch a local QPython users community
----------------------------------------------
+================================================================
+
+How to organise a local qpython user sharing event
+----------------------------------------
+
+How to became the developer member
+====================================
 
 How to develop qpython built-in programs
 ----------------------------------------
 
-How to became QPython core dev team member
-----------------------------------------
-
 How to sponsor QPython project
-----------------------------------------
-
+====================================
 
 
 More detail coming soon...

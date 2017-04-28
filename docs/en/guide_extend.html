@@ -1,267 +1,200 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>How to call QPython script in your application? &mdash; QPython 0.9 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-    <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-        <link rel="up" title="QPython Getting started" href="guide.html"/>
-        <link rel="next" title="How to contribute" href="guide_contributors.html"/>
-        <link rel="prev" title="Python builtin Libraries" href="guide_libraries.html"/> 
-
-  
-  <script src="../static/js/modernizr.min.js"></script>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QPython Open API &mdash; QPython 0.9 documentation</title>
+<link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+<link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
+<link rel="up" title="QPython Getting started" href="guide.html"/>
+<link rel="next" title="Android" href="guide_developers.html"/>
+<link rel="prev" title="AndroidFacade" href="guide_androidhelpers.html"/>
+<script src="../static/js/modernizr.min.js"></script>
 </head>
-
 <body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> QPython
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.9
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav data-toggle="wy-nav-shift" class="wy-nav-side">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a href="../index.html" class="icon icon-home"> QPython
+</a>
+<div class="version">
+0.9
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
+<div role="search">
+<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+<input type="text" name="q" placeholder="Search docs" />
+<input type="hidden" name="check_keywords" value="yes" />
+<input type="hidden" name="area" value="default" />
+</form>
+</div>
+</div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="guide_program.html">What can QPython do?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Are there more efficient way for developing?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_program.html">QPython&#8217;s main features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">QPython built-in Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#python-3rd-libraries">Python 3rd Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#android-apis">Android APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#sl4a-apis">SL4A APIs</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to call QPython script in your application?</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sample-of-running-qpython-script-in-other-application">Sample of running QPython script in other application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#androidhelper-apis">Androidhelper APIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QPython Open API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#share-some-content-to-qpython-s-scripts">Share some content to QPython&#8217;s scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-qpython-s-script-from-your-own-application">Run QPython&#8217;s script from your own application</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qpython-online-service">QPython Online Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#qpypi">QPypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qpy-io">QPY.IO</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors&#8217; Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-developers-guide">QPython Developers&#8217; Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#community-contributors-guide">Community Contributors&#8217; Guide</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
 </ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">QPython</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="guide.html">QPython Getting started</a> &raquo;</li>
-        
-      <li>How to call QPython script in your application?</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/en/guide_extend.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="how-to-call-qpython-script-in-your-application">
-<h1>How to call QPython script in your application?<a class="headerlink" href="#how-to-call-qpython-script-in-your-application" title="Permalink to this headline">¶</a></h1>
-<p>You could call QPython to run some script or python code in your app</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">extPlgPlusName</span> <span class="o">=</span> <span class="s2">&quot;org.qpython.qpy&quot;</span><span class="p">;</span>          <span class="o">//</span> <span class="n">QPython</span> <span class="n">package</span> <span class="n">name</span>
+</div>
+</nav>
+<section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+<nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+<i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+<a href="../index.html">QPython</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../index.html">Docs</a> &raquo;</li>
+<li><a href="guide.html">QPython Getting started</a> &raquo;</li>
+<li>QPython Open API</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/en/guide_extend.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div itemprop="articleBody">
+<div class="section" id="qpython-open-api">
+<h1>QPython Open API<a class="headerlink" href="#qpython-open-api" title="Permalink to this headline">¶</a></h1>
+<p>QPython has an open activity which allow you run qpython from outside.</p>
+<p>The MPyAPI&#8217;s definition seems like the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">activity</span>
+<span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;org.qpython.qpylib.MPyApi&quot;</span>
+<span class="n">android</span><span class="p">:</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;@string/qpy_run_with_share&quot;</span>
+<span class="n">android</span><span class="p">:</span><span class="n">screenOrientation</span><span class="o">=</span><span class="s2">&quot;user&quot;</span>
+<span class="n">android</span><span class="p">:</span><span class="n">configChanges</span><span class="o">=</span><span class="s2">&quot;orientation|keyboardHidden&quot;</span>
+<span class="n">android</span><span class="p">:</span><span class="n">exported</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">action</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;org.qpython.qpylib.action.MPyApi&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.DEFAULT&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.LAUNCHER&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">action</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.action.VIEW&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.DEFAULT&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">data</span> <span class="n">android</span><span class="p">:</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;http&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">data</span> <span class="n">android</span><span class="p">:</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;https&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">action</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.action.SEND&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.DEFAULT&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">data</span> <span class="n">android</span><span class="p">:</span><span class="n">mimeType</span><span class="o">=</span><span class="s2">&quot;text/plain&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">action</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.action.SEND&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">category</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.intent.category.DEFAULT&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">data</span> <span class="n">android</span><span class="p">:</span><span class="n">mimeType</span><span class="o">=</span><span class="s2">&quot;image/*&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">intent</span><span class="o">-</span><span class="nb">filter</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">activity</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>So, with it&#8217;s help, you could:</strong></p>
+<div class="section" id="share-some-content-to-qpython-s-scripts">
+<h2>Share some content to QPython&#8217;s scripts<a class="headerlink" href="#share-some-content-to-qpython-s-scripts" title="Permalink to this headline">¶</a></h2>
+<p>You could choose some content in some app, and share to qpython&#8217;s script, then you could handle the content with the <strong>sys.argv[2]</strong></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=2Y50Yir8TWg">Watch the demo video on YouTube</a></p>
+</div>
+<div class="section" id="run-qpython-s-script-from-your-own-application">
+<h2>Run QPython&#8217;s script from your own application<a class="headerlink" href="#run-qpython-s-script-from-your-own-application" title="Permalink to this headline">¶</a></h2>
+<p>You can call QPython to run some script or python code in your application by call this activity, like the following sample:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">code</span> <span class="n">sample</span> <span class="n">shows</span> <span class="n">how</span> <span class="n">to</span> <span class="n">call</span> <span class="n">qpython</span> <span class="n">API</span>
+<span class="n">String</span> <span class="n">extPlgPlusName</span> <span class="o">=</span> <span class="s2">&quot;org.qpython.qpy&quot;</span><span class="p">;</span>          <span class="o">//</span> <span class="n">QPython</span> <span class="n">package</span> <span class="n">name</span>
 <span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Intent</span><span class="p">();</span>
 <span class="n">intent</span><span class="o">.</span><span class="n">setClassName</span><span class="p">(</span><span class="n">extPlgPlusName</span><span class="p">,</span> <span class="s2">&quot;org.qpython.qpylib.MPyApi&quot;</span><span class="p">);</span>
 <span class="n">intent</span><span class="o">.</span><span class="n">setAction</span><span class="p">(</span><span class="n">extPlgPlusName</span> <span class="o">+</span> <span class="s2">&quot;.action.MPyApi&quot;</span><span class="p">);</span>
-
 <span class="n">Bundle</span> <span class="n">mBundle</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Bundle</span><span class="p">();</span>
 <span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="s2">&quot;myappid&quot;</span><span class="p">);</span>
 <span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;act&quot;</span><span class="p">,</span> <span class="s2">&quot;onPyApi&quot;</span><span class="p">);</span>
-<span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">,</span> <span class="s2">&quot;onQPyExec&quot;</span><span class="p">);</span>             <span class="o">//</span> <span class="nb">any</span> <span class="n">String</span> <span class="n">flag</span> <span class="n">you</span> <span class="n">may</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">context</span>
-<span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;param&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>                     <span class="o">//</span> <span class="n">param</span> <span class="n">String</span> <span class="n">param</span> <span class="n">you</span> <span class="n">may</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">context</span>
-
+<span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">,</span> <span class="s2">&quot;onQPyExec&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="nb">any</span> <span class="n">String</span> <span class="n">flag</span> <span class="n">you</span> <span class="n">may</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">context</span>
+<span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;param&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>         <span class="o">//</span> <span class="n">param</span> <span class="n">String</span> <span class="n">param</span> <span class="n">you</span> <span class="n">may</span> <span class="n">use</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">context</span>
 <span class="o">/*</span>
-<span class="o">*</span> <span class="n">The</span> <span class="n">String</span> <span class="n">Python</span> <span class="n">code</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">put</span> <span class="n">your</span> <span class="n">py</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">res</span> <span class="ow">or</span> <span class="n">raw</span> <span class="ow">or</span> <span class="n">intenet</span><span class="p">,</span> <span class="n">so</span> <span class="n">that</span> <span class="n">you</span> <span class="n">can</span> <span class="n">get</span> <span class="n">it</span> <span class="n">the</span> <span class="n">same</span> <span class="n">way</span><span class="p">,</span> <span class="n">which</span> <span class="n">can</span> <span class="n">make</span> <span class="n">it</span> <span class="n">scalable</span>
+<span class="o">*</span> <span class="n">The</span> <span class="n">Python</span> <span class="n">code</span> <span class="n">we</span> <span class="n">will</span> <span class="n">run</span>
 <span class="o">*/</span>
-<span class="n">String</span> <span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;#qpy:console</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;try:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    import androidhelper</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    droid = androidhelper.Android()</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    line = droid.dialogGetInput()</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    s = &#39;Hello </span><span class="si">%s</span><span class="s2">&#39; </span><span class="si">% li</span><span class="s2">ne.result</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    droid.makeToast(s)</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;except:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-            <span class="s2">&quot;    print(</span><span class="se">\&quot;</span><span class="s2">Hello, Please update to newest QPython version from (http://play.qpython.com/qrcode-python.html) to use this feature</span><span class="se">\&quot;</span><span class="s2">)</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-
-
+<span class="n">String</span> <span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;import androidhelper</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+<span class="s2">&quot;droid = androidhelper.Android()</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+<span class="s2">&quot;line = droid.dialogGetInput()</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+<span class="s2">&quot;s = &#39;Hello </span><span class="si">%s</span><span class="s2">&#39; </span><span class="si">% li</span><span class="s2">ne.result</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
+<span class="s2">&quot;droid.makeToast(s)</span><span class="se">\n</span><span class="s2">&quot;</span>
 <span class="n">mBundle</span><span class="o">.</span><span class="n">putString</span><span class="p">(</span><span class="s2">&quot;pycode&quot;</span><span class="p">,</span> <span class="n">code</span><span class="p">);</span>
 <span class="n">intent</span><span class="o">.</span><span class="n">putExtras</span><span class="p">(</span><span class="n">mBundle</span><span class="p">);</span>
-
 <span class="n">startActivityForResult</span><span class="p">(</span><span class="n">intent</span><span class="p">,</span> <span class="n">SCRIPT_EXEC_PY</span><span class="p">);</span>
-
 <span class="o">...</span>
-
-
-<span class="o">//</span> <span class="n">Deal</span> <span class="k">with</span> <span class="n">the</span> <span class="n">result</span> <span class="n">callback</span> <span class="n">by</span> <span class="n">qpython</span>
+<span class="o">//</span> <span class="n">And</span> <span class="n">you</span> <span class="n">can</span> <span class="n">handle</span> <span class="n">the</span> <span class="n">qpython</span> <span class="n">callabck</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">onActivityResult</span>
 <span class="nd">@Override</span>
 <span class="n">protected</span> <span class="n">void</span> <span class="n">onActivityResult</span><span class="p">(</span><span class="nb">int</span> <span class="n">requestCode</span><span class="p">,</span> <span class="nb">int</span> <span class="n">resultCode</span><span class="p">,</span> <span class="n">Intent</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">requestCode</span> <span class="o">==</span> <span class="n">SCRIPT_EXEC_PY</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="o">!=</span><span class="n">null</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">getExtras</span><span class="p">();</span>
-            <span class="n">String</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">);</span>
-            <span class="n">String</span> <span class="n">param</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;param&quot;</span><span class="p">);</span>
-            <span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;result&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="n">Result</span> <span class="n">your</span> <span class="n">Pycode</span> <span class="n">generate</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="s2">&quot;onQPyExec: return (&quot;</span><span class="o">+</span><span class="n">result</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="n">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="s2">&quot;onQPyExec: data is null&quot;</span><span class="p">,</span> <span class="n">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
-
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">requestCode</span> <span class="o">==</span> <span class="n">SCRIPT_EXEC_PY</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">data</span><span class="o">!=</span><span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+<span class="n">Bundle</span> <span class="n">bundle</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">getExtras</span><span class="p">();</span>
+<span class="n">String</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;flag&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">param</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;param&quot;</span><span class="p">);</span>
+<span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="n">bundle</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s2">&quot;result&quot;</span><span class="p">);</span> <span class="o">//</span> <span class="n">Result</span> <span class="n">your</span> <span class="n">Pycode</span> <span class="n">generate</span>
+<span class="n">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="s2">&quot;onQPyExec: return (&quot;</span><span class="o">+</span><span class="n">result</span><span class="o">+</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="n">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+<span class="n">Toast</span><span class="o">.</span><span class="n">makeText</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="s2">&quot;onQPyExec: data is null&quot;</span><span class="p">,</span> <span class="n">Toast</span><span class="o">.</span><span class="n">LENGTH_SHORT</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="section" id="sample-of-running-qpython-script-in-other-application">
-<h2>Sample of running QPython script in other application<a class="headerlink" href="#sample-of-running-qpython-script-in-other-application" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/qpython-android/app-call-qpython-api">You can see this sample project in github</a></li>
-<li><a class="reference external" href="https://play.google.com/store/apps/details?id=com.qpython.tasker2">Another Application which have published in google play - QPython Plugin for Tasker</a></li>
-</ul>
-<img alt="../images/taskerplugin-for-qpython.png" src="../images/taskerplugin-for-qpython.png" />
+<p><a class="reference external" href="https://github.com/qpython-android/app-call-qpython-api">Checkout the full project from github</a></p>
+<p>And there is <a class="reference external" href="https://play.google.com/store/apps/details?id=com.qpython.tasker2">a production application - QPython Plugin for Tasker</a></p>
 </div>
 </div>
-<div class="section" id="how-to-build-an-independt-apk-from-qpython-scripts">
-<h1>How to build an independt APK from QPython scripts?<a class="headerlink" href="#how-to-build-an-independt-apk-from-qpython-scripts" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://qpy.io">http://qpy.io</a></p>
+<div class="section" id="qpython-online-service">
+<h1>QPython Online Service<a class="headerlink" href="#qpython-online-service" title="Permalink to this headline">¶</a></h1>
+<p>Now the QPython online service only open for QPython, not QPython3.</p>
+<div class="section" id="qpypi">
+<h2>QPypi<a class="headerlink" href="#qpypi" title="Permalink to this headline">¶</a></h2>
+<p>Can I install some packages which required pre-compiled ?
+Sure, you could install some pre-compiled packages from QPypi, you could find it through &#8220;Libraries&#8221; on dashboard.</p>
+<img alt="../images/guide_extend_pic2.png" src="../images/guide_extend_pic2.png" />
+<p>If you couldn&#8217;t found the package here, you could send email to <a class="reference external" href="mailto:river&#37;&#52;&#48;qpython&#46;org">river<span>&#64;</span>qpython<span>&#46;</span>org</a> .</p>
 </div>
-
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="guide_contributors.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="guide_libraries.html" class="btn btn-neutral" title="Python builtin Libraries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
+<div class="section" id="qpy-io">
+<h2>QPY.IO<a class="headerlink" href="#qpy-io" title="Permalink to this headline">¶</a></h2>
+<p>Can I build an independent APK from QPython script?</p>
+<p>Sure you can. now the service is <strong>in BETA</strong>, it&#8217;s a challenging thing. We will publish it as a online service, for we want to let the development process is simple, you don&#8217;t need to own the development environment set up when you want to build a application.</p>
+<img alt="../images/guide_extend_pic1.png" src="../images/guide_extend_pic1.png" />
+<p>If you want to try it out or have some business proposal, please contact with us by sending email to <a class="reference external" href="mailto:river&#37;&#52;&#48;qpython&#46;org">river<span>&#64;</span>qpython<span>&#46;</span>org</a> .</p>
+</div>
+</div>
+</div>
+<div class="articleComments">
+</div>
+</div>
+<footer>
+<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+<a href="guide_developers.html" class="btn btn-neutral float-right" title="Android" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+<a href="guide_androidhelpers.html" class="btn btn-neutral" title="AndroidFacade" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+</div>
+<hr/>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -270,7 +203,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-comments" data-href="http://qpython.org/en/guide_extend" data-numposts="10"></div>
+<div class="fb-comments" data-href="http://qpython.org/en/guide_extend.html" data-numposts="10"></div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -282,59 +215,35 @@
   ga('send', 'pageview');
 
 </script>
-
-<hr />
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, River.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<hr/><div role="contentinfo">
+<p>
+&copy; Copyright 2017, River.
+</p>
+</div>
+Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.9',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
-        };
-    </script>
-      <script type="text/javascript" src="../static/jquery.js"></script>
-      <script type="text/javascript" src="../static/underscore.js"></script>
-      <script type="text/javascript" src="../static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
+</div>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+var DOCUMENTATION_OPTIONS = {
+URL_ROOT:'../',
+VERSION:'0.9',
+COLLAPSE_INDEX:false,
+FILE_SUFFIX:'.html',
+HAS_SOURCE:  true,
+SOURCELINK_SUFFIX: ''
+};
+</script>
+<script type="text/javascript" src="../static/jquery.js"></script>
+<script type="text/javascript" src="../static/underscore.js"></script>
+<script type="text/javascript" src="../static/doctools.js"></script>
+<script type="text/javascript" src="../static/js/theme.js"></script>
+<script type="text/javascript">
+jQuery(function () {
+SphinxRtdTheme.StickyNav.enable();
+});
+</script>
 </body>
 </html>

@@ -1,181 +1,97 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>QPython Getting started &mdash; QPython 0.9 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  
-  
-    <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-    <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-        <link rel="next" title="QPython: How To Start" href="guide_howtostart.html"/>
-        <link rel="prev" title="Welcome to read the QPython guide!" href="../index.html"/> 
-
-  
-  <script src="../static/js/modernizr.min.js"></script>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QPython Getting started &mdash; QPython 0.9 documentation</title>
+<link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+<link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
+<link rel="next" title="QPython: How To Start" href="guide_howtostart.html"/>
+<link rel="prev" title="Welcome to read the QPython guide!" href="../index.html"/>
+<script src="../static/js/modernizr.min.js"></script>
 </head>
-
 <body class="wy-body-for-nav" role="document">
-
-   
-  <div class="wy-grid-for-nav">
-
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> QPython
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.9
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+<div class="wy-grid-for-nav">
+<nav data-toggle="wy-nav-shift" class="wy-nav-side">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a href="../index.html" class="icon icon-home"> QPython
+</a>
+<div class="version">
+0.9
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
+<div role="search">
+<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+<input type="text" name="q" placeholder="Search docs" />
+<input type="hidden" name="check_keywords" value="yes" />
+<input type="hidden" name="area" value="default" />
+</form>
+</div>
+</div>
+<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">QPython Getting started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide_howtostart.html">QPython: How To Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_helloworld.html">Writing &#8220;Hello World&#8221;</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#programming-guide">Programming Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_program.html">What can QPython do?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Are there more efficient way for developing?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">Python builtin Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_program.html">QPython&#8217;s main features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">QPython built-in Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#python-3rd-libraries">Python 3rd Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#android-apis">Android APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#sl4a-apis">SL4A APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_extend.html">How to call QPython script in your application?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#androidhelper-apis">Androidhelper APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html">QPython Open API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#qpython-online-service">QPython Online Service</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#qpython-hackers-guide">QPython Hackers&#8217; Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#contributors-guide">Contributors&#8217; Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#qpython-developers-guide">QPython Developers&#8217; Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html">Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#qsl4a">QSL4A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#qpython-core">QPython Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#pip-and-libraries">Pip and libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#quick-tools">Quick tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#qpy-io-enterprise-service">QPY.IO (Enterprise service)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#community-contributors-guide">Community Contributors&#8217; Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html">Welcome contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-help-with-test">How to help with test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-contribute-documentation">How to contribute documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-translate">How to translate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-launch-a-local-qpython-users-community">How to launch a local QPython users community</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-became-the-developer-member">How to became the developer member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-sponsor-qpython-project">How to sponsor QPython project</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
 </ul>
-
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">QPython</a>
-        
-      </nav>
-
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
-      <li>QPython Getting started</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="../_sources/en/guide.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <div class="section" id="qpython-getting-started">
+</div>
+</nav>
+<section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+<nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+<i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+<a href="../index.html">QPython</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content">
+<div role="navigation" aria-label="breadcrumbs navigation">
+<ul class="wy-breadcrumbs">
+<li><a href="../index.html">Docs</a> &raquo;</li>
+<li>QPython Getting started</li>
+<li class="wy-breadcrumbs-aside">
+<a href="../_sources/en/guide.txt" rel="nofollow"> View page source</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+<div itemprop="articleBody">
+<div class="section" id="qpython-getting-started">
 <h1>QPython Getting started<a class="headerlink" href="#qpython-getting-started" title="Permalink to this headline">¶</a></h1>
 <p>How to start quickly ? Just follow the following steps:</p>
 <div class="toctree-wrapper compound">
@@ -202,80 +118,138 @@
 <p>If you you want to know more about how to program through qpython, just follow these steps:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guide_program.html">What can QPython do?</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_program.html">QPython&#8217;s main features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="guide_program.html#why-should-i-choose-qpython">Why should I choose QPython</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_program.html#qpython-s-main-features">QPython&#8217;s main features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_program.html#id1">QPython&#8217;s main features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide_ide.html">Are there more efficient way for developing?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html#how-to-program-from-my-cellphone">How to program from my cellphone</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_ide.html#how-to-program-from-my-pc">How to program from my pc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html#develop-from-qeditor">Develop from QEditor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html#develop-from-browser">Develop from browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_ide.html#develop-from-your-computer">Develop from your computer</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide_libraries.html">Python builtin Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_libraries.html">QPython built-in Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#qpython-dynload-libraries">QPython dynload libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#qpython-stardard-libraries">QPython stardard libraries</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="guide_libraries.html#python-3rd-libraries">Python 3rd Libraries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_libraries.html#android-apis">Android APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide_libraries.html#sl4a-apis">SL4A APIs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#structure">Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#qpy-apis">QPy APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#nfc-apis">NFC APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#location-api">Location API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#sensor-api">Sensor API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#other-sl4a-apis">Other SL4A APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_libraries.html#androidhelper-apis">Androidhelper APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html">AndroidFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#applicationmanagerfacade">ApplicationManagerFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#camerafacade">CameraFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#commonintentsfacade">CommonIntentsFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#contactsfacade">ContactsFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#eventfacade">EventFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#locationfacade">LocationFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#phonefacade">PhoneFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#mediarecorderfacade">MediaRecorderFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#sensormanagerfacade">SensorManagerFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#settingsfacade">SettingsFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#smsfacade">SmsFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#tonegeneratorfacade">ToneGeneratorFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#wakelockfacade">WakeLockFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#wififacade">WifiFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#batterymanagerfacade">BatteryManagerFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#activityresultfacade">ActivityResultFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#mediaplayerfacade">MediaPlayerFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#preferencesfacade">PreferencesFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#qpyinterfacefacade">QPyInterfaceFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#texttospeechfacade">TextToSpeechFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#eyesfreefacade">EyesFreeFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#bluetoothfacade">BluetoothFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#signalstrengthfacade">SignalStrengthFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#webcamfacade">WebCamFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#uifacade">UiFacade</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_androidhelpers.html#usb-host-serial-facade">USB Host Serial Facade</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide_extend.html">How to call QPython script in your application?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#sample-of-running-qpython-script-in-other-application">Sample of running QPython script in other application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_extend.html">QPython Open API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#share-some-content-to-qpython-s-scripts">Share some content to QPython&#8217;s scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#run-qpython-s-script-from-your-own-application">Run QPython&#8217;s script from your own application</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide_extend.html#how-to-build-an-independt-apk-from-qpython-scripts">How to build an independt APK from QPython scripts?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_extend.html#qpython-online-service">QPython Online Service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#qpypi">QPypi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_extend.html#qpy-io">QPY.IO</a></li>
+</ul>
+</li>
 </ul>
 </div>
+<p><strong>QPython project is not only a powerful Python engine for android, but is a active technology community also.</strong></p>
 </div>
-<div class="section" id="qpython-hackers-guide">
-<h1>QPython Hackers&#8217; Guide<a class="headerlink" href="#qpython-hackers-guide" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference external" href="http://wiki.qpython.org/en/diveinto/">QPython Hackers Howto</a></li>
-</ul>
-</div>
-<div class="section" id="contributors-guide">
-<h1>Contributors&#8217; Guide<a class="headerlink" href="#contributors-guide" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to join QPython contributors team</p>
+<div class="section" id="qpython-developers-guide">
+<h1>QPython Developers&#8217; Guide<a class="headerlink" href="#qpython-developers-guide" title="Permalink to this headline">¶</a></h1>
+<p>QPython developers&#8217; goal is pushing out a great Python for android.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html">How to contribute</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-write-documentation">How to write documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-translate">How to translate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-organise-a-local-qpython-user-sharing-event">How to organise a local qpython user sharing event</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-launch-a-local-qpython-users-community">How to launch a local QPython users community</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-develop-qpython-built-in-programs">How to develop qpython built-in programs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-became-qpython-core-dev-team-member">How to became QPython core dev team member</a></li>
-<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-sponsor-qpython-project">How to sponsor QPython project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html">Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#console">Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#editor">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#file-browsing">File browsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#qrcode-reader">QRCode reader</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html#qsl4a">QSL4A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html#qpython-core">QPython Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#python-2-x">Python 2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#python-3-x">Python 3.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#console-program">Console program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#kivy-program">Kivy program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#webapp-program">WebApp program</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html#pip-and-libraries">Pip and libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#pip">Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#libraries">Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html#quick-tools">Quick tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#qpython-api">QPython API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_developers.html#ftp">FTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_developers.html#qpy-io-enterprise-service">QPY.IO (Enterprise service)</a></li>
 </ul>
 </div>
 </div>
-
-
-           </div>
-           <div class="articleComments">
-            
-           </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="guide_howtostart.html" class="btn btn-neutral float-right" title="QPython: How To Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral" title="Welcome to read the QPython guide!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
+<div class="section" id="community-contributors-guide">
+<h1>Community Contributors&#8217; Guide<a class="headerlink" href="#community-contributors-guide" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to join QPython contributors team, you are not just a user, but a creator of QPython.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html">Welcome contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-help-with-test">How to help with test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors_test.html">Join the tester community</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors_test.html#feedback">Feedback</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-contribute-documentation">How to contribute documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-translate">How to translate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-launch-a-local-qpython-users-community">How to launch a local QPython users community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-organise-a-local-qpython-user-sharing-event">How to organise a local qpython user sharing event</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-became-the-developer-member">How to became the developer member</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide_contributors.html#how-to-develop-qpython-built-in-programs">How to develop qpython built-in programs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide_contributors.html#how-to-sponsor-qpython-project">How to sponsor QPython project</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="articleComments">
+</div>
+</div>
+<footer>
+<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+<a href="guide_howtostart.html" class="btn btn-neutral float-right" title="QPython: How To Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+<a href="../index.html" class="btn btn-neutral" title="Welcome to read the QPython guide!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+</div>
+<hr/>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -284,7 +258,7 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div class="fb-comments" data-href="http://qpython.org/en/guide/" data-numposts="10"></div>
+<div class="fb-comments" data-href="http://qpython.org/en/guide.html" data-numposts="10"></div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -296,57 +270,35 @@
   ga('send', 'pageview');
 
 </script>
-<hr />
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017, River.
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
+<hr/><div role="contentinfo">
+<p>
+&copy; Copyright 2017, River.
+</p>
+</div>
+Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.9',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
-        };
-    </script>
-      <script type="text/javascript" src="../static/jquery.js"></script>
-      <script type="text/javascript" src="../static/underscore.js"></script>
-      <script type="text/javascript" src="../static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../static/js/theme.js"></script>
-  
-
-  
-  
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
-      });
-  </script>
-   
-
+</div>
+</div>
+</section>
+</div>
+<script type="text/javascript">
+var DOCUMENTATION_OPTIONS = {
+URL_ROOT:'../',
+VERSION:'0.9',
+COLLAPSE_INDEX:false,
+FILE_SUFFIX:'.html',
+HAS_SOURCE:  true,
+SOURCELINK_SUFFIX: ''
+};
+</script>
+<script type="text/javascript" src="../static/jquery.js"></script>
+<script type="text/javascript" src="../static/underscore.js"></script>
+<script type="text/javascript" src="../static/doctools.js"></script>
+<script type="text/javascript" src="../static/js/theme.js"></script>
+<script type="text/javascript">
+jQuery(function () {
+SphinxRtdTheme.StickyNav.enable();
+});
+</script>
 </body>
 </html>
