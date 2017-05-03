@@ -2,7 +2,6 @@
 <p align="center"><a href="http://www.qpython.org" target="_blank"><img src="http://www.qpython.org/images/bestpython.png"></a></p>
 
 Welcome to read the QPython guide!
-=============================================
 
 QPython is a script engine that runs Python on android devices. It lets your android device run Python scripts and projects. It contains the Python interpreter, console, editor, and the SL4A Library for Android. It’s Python on Android!
 
