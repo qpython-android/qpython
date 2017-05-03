@@ -6,6 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AndroidFacade &mdash; QPython 0.9 documentation</title>
 <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+<link rel="index" title="Index"
+href="../genindex.html"/>
+<link rel="search" title="Search" href="../search.html"/>
 <link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
 <link rel="up" title="QPython built-in Libraries" href="guide_libraries.html"/>
 <link rel="next" title="QPython Open API" href="guide_extend.html"/>
@@ -160,7 +163,7 @@
 <li><a href="guide_libraries.html">QPython built-in Libraries</a> &raquo;</li>
 <li>AndroidFacade</li>
 <li class="wy-breadcrumbs-aside">
-<a href="../_sources/en/guide_androidhelpers.txt" rel="nofollow"> View page source</a>
+<a href="../_sources/en/guide_androidhelpers.rst.txt" rel="nofollow"> View page source</a>
 </li>
 </ul>
 <hr/>
@@ -216,13 +219,13 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
-<li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
-<li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>categories(Optional)</strong> (<em>list</em>) &#8211; a List of categories to add to the Intent</li>
-<li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
-<li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
-<li><strong>flags(Optional)</strong> (<em>int</em>) &#8211; Intent flags</li>
+<li><strong>uri</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; uri</li>
+<li><strong>type</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
+<li><strong>extras</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>categories</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>list</em>) &#8211; a List of categories to add to the Intent</li>
+<li><strong>packagename</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
+<li><strong>classname</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
+<li><strong>flags</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>int</em>) &#8211; Intent flags</li>
 </ul>
 </td>
 </tr>
@@ -253,11 +256,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
-<li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
-<li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
-<li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
+<li><strong>uri</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; uri</li>
+<li><strong>type</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
+<li><strong>extras</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>packagename</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
+<li><strong>classname</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
 </td>
 </tr>
@@ -298,7 +301,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>intent</strong> (<em>Intent</em>) &#8211; Intent in the format as returned from makeIntent</li>
-<li><strong>wait(Optional)</strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
+<li><strong>wait</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
 </ul>
 </td>
 </tr>
@@ -318,12 +321,12 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
-<li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
-<li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>wait(Optional)</strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
-<li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
-<li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
+<li><strong>uri</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; uri</li>
+<li><strong>type</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
+<li><strong>extras</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>wait</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>bool</em>) &#8211; block until the user exits the started activity</li>
+<li><strong>packagename</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
+<li><strong>classname</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
 </td>
 </tr>
@@ -346,11 +349,11 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>action</strong> (<em>str</em>) &#8211; action</li>
-<li><strong>uri(Optional)</strong> (<em>str</em>) &#8211; uri</li>
-<li><strong>type(Optional)</strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
-<li><strong>extras(Optional)</strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
-<li><strong>packagename(Optional)</strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
-<li><strong>classname(Optional)</strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
+<li><strong>uri</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; uri</li>
+<li><strong>type</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; MIME type/subtype of the URI</li>
+<li><strong>extras</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>object</em>) &#8211; a Map of extras to add to the Intent</li>
+<li><strong>packagename</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of package. If used, requires classname to be useful</li>
+<li><strong>classname</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; name of class. If used, requires packagename to be useful</li>
 </ul>
 </td>
 </tr>
@@ -525,7 +528,7 @@
 <li><strong>to</strong> (<em>str</em>) &#8211; A comma separated list of recipients</li>
 <li><strong>subject</strong> (<em>str</em>) &#8211; subject</li>
 <li><strong>body</strong> (<em>str</em>) &#8211; mail body</li>
-<li><strong>attachmentUri(Optional)</strong> (<em>str</em>) &#8211; message</li>
+<li><strong>attachmentUri</strong><strong>(</strong><strong>Optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; message</li>
 </ul>
 </td>
 </tr>
@@ -1544,7 +1547,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
-<li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
+<li><strong>folder</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
 </ul>
 </td>
 </tr>
@@ -1561,7 +1564,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
-<li><strong>folder(optional)</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
+<li><strong>folder</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
 </ul>
 </td>
 </tr>
@@ -1579,7 +1582,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>unreadOnly</strong> (<em>bool</em>) &#8211; typically a phone number</li>
 <li><strong>folder</strong> (<em>str</em>) &#8211; default &#8220;inbox&#8221;</li>
-<li><strong>attributes(optional)</strong> (<em>list</em>) &#8211; attributes</li>
+<li><strong>attributes</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>list</em>) &#8211; attributes</li>
 </ul>
 </td>
 </tr>
@@ -1599,7 +1602,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>id</strong> (<em>int</em>) &#8211; message ID</li>
-<li><strong>attributes(optional)</strong> (<em>list</em>) &#8211; attributes</li>
+<li><strong>attributes</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>list</em>) &#8211; attributes</li>
 </ul>
 </td>
 </tr>
@@ -1661,9 +1664,9 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>prompt(optional)</strong> (<em>str</em>) &#8211; text prompt to show to the user when asking them to speak</li>
-<li><strong>language(optional)</strong> (<em>str</em>) &#8211; language override to inform the recognizer that it should expect speech in a language different than the one set in the java.util.Locale.getDefault()</li>
-<li><strong>languageModel(optional)</strong> (<em>str</em>) &#8211; informs the recognizer which speech model to prefer (see android.speech.RecognizeIntent)</li>
+<li><strong>prompt</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; text prompt to show to the user when asking them to speak</li>
+<li><strong>language</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; language override to inform the recognizer that it should expect speech in a language different than the one set in the java.util.Locale.getDefault()</li>
+<li><strong>languageModel</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; informs the recognizer which speech model to prefer (see android.speech.RecognizeIntent)</li>
 </ul>
 </td>
 </tr>
@@ -1686,7 +1689,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>phoneNumber</strong> (<em>str</em>) &#8211; phone number</li>
-<li><strong>toneDuration(optional)</strong> (<em>int</em>) &#8211; default 100, duration of each tone in milliseconds</li>
+<li><strong>toneDuration</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>int</em>) &#8211; default 100, duration of each tone in milliseconds</li>
 </ul>
 </td>
 </tr>
@@ -1778,7 +1781,7 @@ Otherwise it will block for the time period equal to the duration argument.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled(optional)</strong> (<em>bool</em>) &#8211; enabled</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>enabled</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>bool</em>) &#8211; enabled</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if Wifi is enabled</td>
 </tr>
@@ -2262,8 +2265,8 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>url</strong> (<em>str</em>) &#8211; url of media resource</li>
-<li><strong>tag(optional)</strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
-<li><strong>play(optional)</strong> (<em>bool</em>) &#8211; start playing immediately</li>
+<li><strong>tag</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; string identifying resource (default=default)</li>
+<li><strong>play</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>bool</em>) &#8211; start playing immediately</li>
 </ul>
 </td>
 </tr>
@@ -2418,7 +2421,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>key</strong> (<em>str</em>) &#8211; key</li>
-<li><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
+<li><strong>filename</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
 </ul>
 </td>
 </tr>
@@ -2436,7 +2439,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>key</strong> (<em>str</em>) &#8211; key</li>
 <li><strong>value</strong> (<em>str</em>) &#8211; value</li>
-<li><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
+<li><strong>filename</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</li>
 </ul>
 </td>
 </tr>
@@ -2451,7 +2454,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename(optional)</strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Desired preferences file. If not defined, uses the default Shared Preferences.</td>
 </tr>
 </tbody>
 </table>
@@ -2529,7 +2532,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>base64</strong> (<em>str</em>) &#8211; A base64 encoded String of the bytes to be sent</li>
-<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+<li><strong>connID</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Connection id</li>
 </ul>
 </td>
 </tr>
@@ -2546,7 +2549,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>bufferSize</strong> (<em>int</em>) &#8211; default 4096</li>
-<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+<li><strong>connID</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Connection id</li>
 </ul>
 </td>
 </tr>
@@ -2563,7 +2566,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>uuid</strong> (<em>str</em>) &#8211; The UUID passed here must match the UUID used by the server device</li>
-<li><strong>address(optional)</strong> (<em>str</em>) &#8211; The user will be presented with a list of discovered devices to choose from if an address is not provided</li>
+<li><strong>address</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; The user will be presented with a list of discovered devices to choose from if an address is not provided</li>
 </ul>
 </td>
 </tr>
@@ -2647,7 +2650,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>bufferSize</strong> (<em>int</em>) &#8211; default=4096</li>
-<li><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</li>
+<li><strong>connID</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Connection id</li>
 </ul>
 </td>
 </tr>
@@ -2662,7 +2665,7 @@ the resulting intent will contain SCRIPT_RESULT extra with the given value</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID(optional)</strong> (<em>str</em>) &#8211; Connection id</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connID</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; Connection id</td>
 </tr>
 </tbody>
 </table>
@@ -2909,8 +2912,8 @@ Return values:
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
 <li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
-<li><strong>defaultText(optional)</strong> (<em>str</em>) &#8211; text to insert into the input box</li>
-<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+<li><strong>defaultText</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; text to insert into the input box</li>
+<li><strong>inputType</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
 </ul>
 </td>
 </tr>
@@ -2945,7 +2948,7 @@ Return values:
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
 <li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
-<li><strong>defaultText(optional)</strong> (<em>str</em>) &#8211; text to insert into the input box</li>
+<li><strong>defaultText</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; text to insert into the input box</li>
 </ul>
 </td>
 </tr>
@@ -3047,7 +3050,7 @@ Return values:
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
 <li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
-<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+<li><strong>inputType</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
 </ul>
 </td>
 </tr>
@@ -3066,7 +3069,7 @@ Return values:
 <li><strong>content</strong> (<em>str</em>) &#8211; message you want to sent</li>
 <li><strong>title</strong> (<em>str</em>) &#8211; title of the input box</li>
 <li><strong>message</strong> (<em>str</em>) &#8211; message to display above the input box</li>
-<li><strong>inputType(optional)</strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
+<li><strong>inputType</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; type of input data, ie number or text</li>
 </ul>
 </td>
 </tr>
@@ -3102,8 +3105,8 @@ Return values:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
-<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+<li><strong>message</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>int</em>) &#8211; dfault=100</li>
 </ul>
 </td>
 </tr>
@@ -3145,9 +3148,9 @@ Return values:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>title(optional)</strong> (<em>str</em>) &#8211; title</li>
-<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
-<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+<li><strong>title</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; title</li>
+<li><strong>message</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>int</em>) &#8211; dfault=100</li>
 </ul>
 </td>
 </tr>
@@ -3166,9 +3169,9 @@ Return values:
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>title(optional)</strong> (<em>str</em>) &#8211; title</li>
-<li><strong>message(optional)</strong> (<em>str</em>) &#8211; message</li>
-<li><strong>maximunProgress(optional)</strong> (<em>int</em>) &#8211; dfault=100</li>
+<li><strong>title</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; title</li>
+<li><strong>message</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>str</em>) &#8211; message</li>
+<li><strong>maximunProgress</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>int</em>) &#8211; dfault=100</li>
 </ul>
 </td>
 </tr>
@@ -3425,7 +3428,7 @@ Return values:
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>url</strong> (<em>str</em>) &#8211; url</li>
-<li><strong>wait(optional)</strong> (<em>bool</em>) &#8211; block until the user exits the WebView</li>
+<li><strong>wait</strong><strong>(</strong><strong>optional</strong><strong>)</strong><strong></strong> (<em>bool</em>) &#8211; block until the user exits the WebView</li>
 </ul>
 </td>
 </tr>
@@ -3697,7 +3700,7 @@ VERSION:'0.9',
 COLLAPSE_INDEX:false,
 FILE_SUFFIX:'.html',
 HAS_SOURCE:  true,
-SOURCELINK_SUFFIX: ''
+SOURCELINK_SUFFIX: '.txt'
 };
 </script>
 <script type="text/javascript" src="../static/jquery.js"></script>
