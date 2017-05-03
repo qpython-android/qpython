@@ -5,9 +5,12 @@ If you are interested about what we are doing and want to make some contribution
 Join the tester community
 --------------------------
 We create a G+ community where you could report bugs or offer suggestions -> `QPython tester G+ community(For QPython testers) <https://plus.google.com/communities/111759148772865961493>`_
+
 Join us now!
 
 .. image:: ../_static/1.png
+   :scale: 50 %
+
 
 Become a tester
 ----------------
