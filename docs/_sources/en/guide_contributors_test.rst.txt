@@ -25,9 +25,3 @@ If you find out any bugs or have any cool idea about QPython, please let us know
 You could write down your suggestion or bug report on the community.
 
 .. image:: ../_static/3.png
-
-
-
-Feedback
----------
-Send your feedback to QPython using the contact information: support@qptyhon.org
