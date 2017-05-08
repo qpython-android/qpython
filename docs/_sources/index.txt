@@ -94,6 +94,14 @@ Now, let's GO
 
    en/guide
 
+FAQ
+---------------
+.. toctree::
+   :maxdepth: 2
+
+   en/faq
+
+
 For Chinese users
 -------------------
 .. toctree::

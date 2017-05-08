@@ -291,16 +291,19 @@ Toast, getInput, getPassword, notify APIs
 
     sample code to show getPassword
 
-.. py:function:: notify(title, message)
+.. py:function:: notify(title, message, url)
 
    Displays a notification that will be canceled when the user clicks on it
 
    :param str title: title
    :param str message: message 
+   :param str url(optional): url 
 
 ::
+    import androidhelper
+    droid = androidhelper.Android()
+    droid.notify('Hello','QPython','http://qpython.org') # you could set the 3rd parameter None also
 
-    sample code to show notify
 
 
 ApplicationManagerFacade
