@@ -22,7 +22,7 @@ QPython project include the `QPython <https://play.google.com/store/apps/details
 QPython application is using the **Python 2.7.2** , and QPython application is using the  **Python 3.2.2** .
 
 
-QPython's newest version is 1.3.0 (Released on 2017/3/20) , QPython3's newest version is 1.0.2 (Released on 2017/3/29), New versions include many amazing features, please upgrade to the newest version as soon from google play, amazon appstore etc.
+QPython's newest version is 1.3.2 (Released on 2017/5/12) , QPython3's newest version is 1.0.2 (Released on 2017/3/29), New versions include many amazing features, please upgrade to the newest version as soon from google play, amazon appstore etc.
 
 
 Thanks these guys who are contributing
@@ -94,7 +94,7 @@ Now, let's GO
 
    en/guide
 
-FAQ
+Others
 ---------------
 .. toctree::
    :maxdepth: 2
