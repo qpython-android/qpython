@@ -283,8 +283,8 @@ data-target="#example-navbar-collapse">
 </div>
 </div>
 }
-<div class="fb-comments" data-href="http://qpython.org" data-numposts="10"></div>
 </div>
+<div class="fb-comments" data-href="http://qpython.org" data-numposts="10"></div>
 </div>
 </div>
 <div class="col-sm-2"></div>
@@ -305,11 +305,9 @@ data-target="#example-navbar-collapse">
 <script type="text/javascript">
 (function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
-console.log(fjs)
 if (d.getElementById(id)) return;
 js = d.createElement(s); js.id = id;
-js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
-console.log(js)
+js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
 fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 $(function(){
