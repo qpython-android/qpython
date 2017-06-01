@@ -3628,7 +3628,6 @@ you can see the commit log in it.</p>
 </div>
 </div>
 </div>
-}
 </div>
 <div class="fb-comments" data-href="http://qpython.org" data-numposts="10"></div>
 </div>
@@ -3649,6 +3648,7 @@ you can see the commit log in it.</p>
 </div>
 </footer>
 <script type="text/javascript">
+$('.fb-comments').attr('data-href', window.location.href.split('?')[0])
 (function(d, s, id) {
 var js, fjs = d.getElementsByTagName(s)[0];
 if (d.getElementById(id)) return;
