@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Writing “Hello World” &mdash; QPython 0.9 documentation</title>
+<title>Writing “Hello World” &#8212; QPython 0.9 documentation</title>
 <link rel="stylesheet" href="../static/qpython_theme.css" type="text/css" />
 <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
 <script type="text/javascript">
@@ -12,14 +12,15 @@ URL_ROOT:    '../',
 VERSION:     '0.9',
 COLLAPSE_INDEX: false,
 FILE_SUFFIX: '.html',
-HAS_SOURCE:  true
+HAS_SOURCE:  true,
+SOURCELINK_SUFFIX: '.txt'
 };
 </script>
 <script type="text/javascript" src="../static/jquery.js"></script>
 <script type="text/javascript" src="../static/underscore.js"></script>
 <script type="text/javascript" src="../static/doctools.js"></script>
-<link rel="top" title="QPython 0.9 documentation" href="../document.html" />
-<link rel="up" title="Getting started" href="guide.html" />
+<link rel="index" title="Index" href="../genindex.html" />
+<link rel="search" title="Search" href="../search.html" />
 <link rel="next" title="QPython’s main features" href="guide_program.html" />
 <link rel="prev" title="QPython: How To Start" href="guide_howtostart.html" />
 <meta charset="UTF-8">
@@ -27,7 +28,7 @@ HAS_SOURCE:  true
 <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 </head>
-<body role="document">
+<body>
 <div class="header doc-header">
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8  index-header">
 <div class="navbar-header">
@@ -68,7 +69,7 @@ data-target="#example-navbar-collapse">
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html">Getting started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="guide_howtostart.html">QPython: How To Start</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing &#8220;Hello World&#8221;</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing “Hello World”</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#hello-world">Hello world</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sl4a-library">SL4A library</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#more-samples">More samples</a></li>
@@ -77,8 +78,8 @@ data-target="#example-navbar-collapse">
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#developers-guide">Developers&#8217; Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors&#8217; Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#developers-guide">Developers’ Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors’ Guide</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -102,38 +103,38 @@ data-target="#example-navbar-collapse">
 <ul class="crumbs">
 <li><a href="../document.html">Guide</a> &raquo;</li>
 <li><a href="guide.html">Getting started</a> &raquo;</li>
-<li>Writing &#8220;Hello World&#8221;</li>
+<li>Writing “Hello World”</li>
 </ul>
 <div class="documentwrapper">
 <div class="bodywrapper">
 <div class="body" role="main">
 <div class="section" id="writing-hello-world">
-<h1>Writing &#8220;Hello World&#8221;<a class="headerlink" href="#writing-hello-world" title="Permalink to this headline">¶</a></h1>
+<h1>Writing “Hello World”<a class="headerlink" href="#writing-hello-world" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="hello-world">
 <h2>Hello world<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
 <img alt="hello world" src="../images/guide_helloworld_pic1.png" />
-<p>Well, after you became a bit more familiar with QPython, let&#8217;s create our first program in QPython. Obviously, it will be <cite>helloworld.py</cite>. ;)</p>
+<p>Well, after you became a bit more familiar with QPython, let’s create our first program in QPython. Obviously, it will be <cite>helloworld.py</cite>. ;)</p>
 <p>Start QPython, open editor and enter the following code:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
 <span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
 <span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="s1">&#39;Hello, Username!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>No wonder, it&#8217;s just similar to any other hello-world program. When executed, it just shows pop-up message on the screen (see screenshot on the top). Anyway, it&#8217;s a good example of QPython program.</p>
+<p>No wonder, it’s just similar to any other hello-world program. When executed, it just shows pop-up message on the screen (see screenshot on the top). Anyway, it’s a good example of QPython program.</p>
 </div>
 <div class="section" id="sl4a-library">
 <h2>SL4A library<a class="headerlink" href="#sl4a-library" title="Permalink to this headline">¶</a></h2>
 <p>It begins with <em>import androidhelper</em> — the most useful module in QPython, which encapsulates almost all interface with Android, available in Python. Any script developed in QPython starts with this statement (at least if it claims to communicate with user). Read more about Python library <a class="reference external" href="http://docs.python.org/2.7/library/intro.html">here</a> and import statement <a class="reference external" href="http://docs.python.org/2.7/reference/simple_stmts.html#import">here</a></p>
-<p>By the way, if you&#8217;re going to make your script compatible with SL4A, you should replace the first line with the following code (and use <cite>android</cite> instead <cite>androidhelper</cite> further in the program):</p>
+<p>By the way, if you’re going to make your script compatible with SL4A, you should replace the first line with the following code (and use <cite>android</cite> instead <cite>androidhelper</cite> further in the program):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
 <span class="kn">import</span> <span class="nn">androidhelper</span> <span class="k">as</span> <span class="nn">android</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span class="kn">import</span> <span class="nn">android</span>
 </pre></div>
 </div>
-<p>Ok, next we&#8217;re creating an object <cite>droid</cite> (actually a class), it is necessary to call RPC functions in order to communicate with Android.</p>
-<p>And the last line of our code calls such function, <cite>droid.makeToast()</cite>, which shows a small pop-up message (a &#8220;toast&#8221;) on the screen.</p>
-<p>Well, let&#8217;s add some more functionality. Let it ask the user name and greet them.</p>
+<p>Ok, next we’re creating an object <cite>droid</cite> (actually a class), it is necessary to call RPC functions in order to communicate with Android.</p>
+<p>And the last line of our code calls such function, <cite>droid.makeToast()</cite>, which shows a small pop-up message (a “toast”) on the screen.</p>
+<p>Well, let’s add some more functionality. Let it ask the user name and greet them.</p>
 </div>
 <div class="section" id="more-samples">
 <h2>More samples<a class="headerlink" href="#more-samples" title="Permalink to this headline">¶</a></h2>
@@ -143,17 +144,17 @@ data-target="#example-navbar-collapse">
 <span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Well, I think it should return any respond, any user reaction. That&#8217;s why I wrote <cite>respond = ...</cite>. But what the call actually returns? Let&#8217;s check. Just add <cite>print</cite> statement after the last line:</p>
+<p>Well, I think it should return any respond, any user reaction. That’s why I wrote <cite>respond = …</cite>. But what the call actually returns? Let’s check. Just add <cite>print</cite> statement after the last line:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
 <span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
 <span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="n">respond</span>
 </pre></div>
 </div>
-<p>Then save and run it...</p>
-<p>Oops! Nothing printed? Don&#8217;t worry. Just pull notification bar and you will see &#8220;QPython Program Output: hello1.py&#8221; — tap it!</p>
+<p>Then save and run it…</p>
+<p>Oops! Nothing printed? Don’t worry. Just pull notification bar and you will see “QPython Program Output: hello1.py” — tap it!</p>
 <p>As you can see, <cite>droid.dialogGetInput()</cite> returns a JSON object with three fields. We need only one — <cite>result</cite> which contains an actual input from user.</p>
-<p>Let&#8217;s add script&#8217;s reaction:</p>
+<p>Let’s add script’s reaction:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
 <span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
 <span class="n">respond</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">dialogGetInput</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="s2">&quot;What is your name?&quot;</span><span class="p">)</span>
@@ -162,11 +163,11 @@ data-target="#example-navbar-collapse">
 <span class="n">droid</span><span class="o">.</span><span class="n">makeToast</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Last two lines (1) format the message and (2) show the message to the user in the toast. See <a class="reference external" href="http://docs.python.org/2.7/tutorial/inputoutput.html?highlight=format%20operator#old-string-formatting">Python docs</a> if you still don&#8217;t know what <cite>%</cite> means.</p>
+<p>Last two lines (1) format the message and (2) show the message to the user in the toast. See <a class="reference external" href="http://docs.python.org/2.7/tutorial/inputoutput.html?highlight=format%20operator#old-string-formatting">Python docs</a> if you still don’t know what <cite>%</cite> means.</p>
 <p>Wow! It works! ;)</p>
-<p>Now I&#8217;m going to add a bit of logic there. Think: what happen if the user clicks <strong>Cancel</strong> button, or clicks <strong>Ok</strong> leaving the input field blank?</p>
+<p>Now I’m going to add a bit of logic there. Think: what happen if the user clicks <strong>Cancel</strong> button, or clicks <strong>Ok</strong> leaving the input field blank?</p>
 <p>You can play with the program checking what contains <cite>respond</cite> variable in every case.</p>
-<p>First of all, I want to put text entered by user to a separate variable: <cite>name = respond.result</cite>. Then I&#8217;m going to check it, and if it contains any real text, it will be considered as a name and will be used in greeting. Otherwise another message will be shown. Replace fifth line <cite>message = &#8216;Hello, %s!&#8217; % respond.result</cite> with the following code:</p>
+<p>First of all, I want to put text entered by user to a separate variable: <cite>name = respond.result</cite>. Then I’m going to check it, and if it contains any real text, it will be considered as a name and will be used in greeting. Otherwise another message will be shown. Replace fifth line <cite>message = ‘Hello, %s!’ % respond.result</cite> with the following code:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">respond</span><span class="o">.</span><span class="n">result</span>
 <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
 <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">!&#39;</span> <span class="o">%</span> <span class="n">name</span>
@@ -175,7 +176,7 @@ data-target="#example-navbar-collapse">
 </pre></div>
 </div>
 <p>Use <strong>&lt;</strong> and <strong>&gt;</strong> buttons on the toolbar to indent/unindent lines in if-statement (or just use space/backspace keys). You can read more about indentation in Python <a class="reference external" href="http://docs.python.org/2.7/tutorial/introduction.html?highlight=indent#first-steps-towards-programming">here</a>; if-statement described <a class="reference external" href="http://docs.python.org/2.7/tutorial/controlflow.html#if-statements">here</a>.</p>
-<p>First of all, we put user input to the variable <cite>name</cite>. Then we check does <cite>name</cite> contain anything? In case the user left the line blank and clicked <strong>Ok</strong>, the return value is empty string <cite>&#8216;&#8217;</cite>. In case of <strong>Cancel</strong> button pressed, the return value is <cite>None</cite>. Both are treated as false in if-statement. So, only if <cite>name</cite> contans anything meaninful, then-statement is executed and greeting &#8220;Hello, ...!&#8221; shown. In case of empty input the user will see &#8220;Hey! And you&#8217;re not very polite, %Username%!&#8221; message.</p>
+<p>First of all, we put user input to the variable <cite>name</cite>. Then we check does <cite>name</cite> contain anything? In case the user left the line blank and clicked <strong>Ok</strong>, the return value is empty string <cite>”</cite>. In case of <strong>Cancel</strong> button pressed, the return value is <cite>None</cite>. Both are treated as false in if-statement. So, only if <cite>name</cite> contans anything meaninful, then-statement is executed and greeting “Hello, …!” shown. In case of empty input the user will see “Hey! And you’re not very polite, %Username%!” message.</p>
 <p>Ok, here is the whole program:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">androidhelper</span>
 <span class="n">droid</span> <span class="o">=</span> <span class="n">androidhelper</span><span class="o">.</span><span class="n">Android</span><span class="p">()</span>
@@ -196,6 +197,7 @@ data-target="#example-navbar-collapse">
 </div>
 </div>
 }
+<div class="fb-comments" data-href="http://qpython.org" data-numposts="10"></div>
 </div>
 </div>
 </div>
@@ -215,6 +217,15 @@ data-target="#example-navbar-collapse">
 </div>
 </footer>
 <script type="text/javascript">
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+console.log(fjs)
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
+console.log(js)
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 $(function(){
 if ($('#footer')[0].offsetTop < $(window).height()){
 $('#footer').addClass('to-bottom')
