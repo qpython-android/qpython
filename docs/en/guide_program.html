@@ -1,42 +1,77 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QPython’s main features &mdash; QPython 0.9 documentation</title>
-<link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
-<link rel="top" title="QPython 0.9 documentation" href="../index.html"/>
-<link rel="up" title="QPython Getting started" href="guide.html"/>
-<link rel="next" title="Use the best way for developing" href="guide_ide.html"/>
-<link rel="prev" title="Writing “Hello World”" href="guide_helloworld.html"/>
-<script src="../static/js/modernizr.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>QPython’s main features &#8212; QPython 0.9 documentation</title>
+<link rel="stylesheet" href="../static/qpython_theme.css" type="text/css" />
+<link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+<script type="text/javascript">
+var DOCUMENTATION_OPTIONS = {
+URL_ROOT:    '../',
+VERSION:     '0.9',
+COLLAPSE_INDEX: false,
+FILE_SUFFIX: '.html',
+HAS_SOURCE:  true,
+SOURCELINK_SUFFIX: '.txt'
+};
+</script>
+<script type="text/javascript" src="../static/jquery.js"></script>
+<script type="text/javascript" src="../static/underscore.js"></script>
+<script type="text/javascript" src="../static/doctools.js"></script>
+<link rel="index" title="Index" href="../genindex.html" />
+<link rel="search" title="Search" href="../search.html" />
+<link rel="next" title="Use the best way for developing" href="guide_ide.html" />
+<link rel="prev" title="Writing “Hello World”" href="guide_helloworld.html" />
+<meta charset="UTF-8">
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 </head>
-<body class="wy-body-for-nav" role="document">
-<div class="wy-grid-for-nav">
-<nav data-toggle="wy-nav-shift" class="wy-nav-side">
-<div class="wy-side-scroll">
-<div class="wy-side-nav-search">
-<a href="../index.html" class="icon icon-home"> QPython
-</a>
-<div class="version">
-0.9
+<body>
+<div class="header doc-header">
+<div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8  index-header">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse"
+data-target="#example-navbar-collapse">
+<span class="sr-only">切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="/index.html" class="logo"><img src="../static/img_logo.png"></a>
 </div>
-<div role="search">
-<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-<input type="text" name="q" placeholder="Search docs" />
+<ul class="header-title hidden-xs">
+<li class="header-phone-selected">
+<a href="/index.html">Home</a>
+</li>
+<li>
+<a href="/document.html" class="header-selected">Guide</a>
+<span class="header-title-selected"></span>
+</li>
+</ul>
+<div class="search-box hidden-xs">
+<form action="../search.html">
+<input type="search" name="q" placeholder="keyword">
 <input type="hidden" name="check_keywords" value="yes" />
 <input type="hidden" name="area" value="default" />
+<button><img src="../static/ic_search.png"></button>
 </form>
 </div>
 </div>
-<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+</div>
+<div class="row doc-content">
+<div class="content-main col-sm-offset-2 col-sm-8">
+<div class="content-wrapper col-sm-4">
+<div class="left-menu">
+<div class="doc-title hidden-xs">QPthon</div>
+<div class="sidebar  collapse navbar-collapse"  id="example-navbar-collapse">
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">QPython Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">QPython&#8217;s main features</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">QPython’s main features</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#why-should-i-choose-qpython">Why should I choose QPython</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">QPython&#8217;s main features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">QPython’s main features</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
@@ -47,8 +82,8 @@
 <li class="toctree-l2"><a class="reference internal" href="guide_extend.html#qpython-online-service">QPython Online Service</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-developers-guide">QPython Developers&#8217; Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#community-contributors-guide">Community Contributors&#8217; Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#qpython-developers-guide">QPython Developers’ Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#community-contributors-guide">Community Contributors’ Guide</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -56,39 +91,37 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../zhindex.html">中文用户向导</a></li>
 </ul>
+<div class="search-phone visible-xs">
+<form action="../search.html">
+<input type="search" name="q" placeholder="keyword">
+<input type="hidden" name="check_keywords" value="yes" />
+<input type="hidden" name="area" value="default" />
+<button><img src="../static/ic_search.png"></button>
+</form>
 </div>
 </div>
-</nav>
-<section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-<nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-<i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-<a href="../index.html">QPython</a>
-</nav>
-<div class="wy-nav-content">
-<div class="rst-content">
-<div role="navigation" aria-label="breadcrumbs navigation">
-<ul class="wy-breadcrumbs">
-<li><a href="../index.html">Docs</a> &raquo;</li>
+</div>
+</div>
+<div class="content col-sm-8">
+<div class="document">
+<ul class="crumbs">
+<li><a href="../document.html">Guide</a> &raquo;</li>
 <li><a href="guide.html">QPython Getting started</a> &raquo;</li>
-<li>QPython&#8217;s main features</li>
-<li class="wy-breadcrumbs-aside">
-<a href="../_sources/en/guide_program.txt" rel="nofollow"> View page source</a>
-</li>
+<li>QPython’s main features</li>
 </ul>
-<hr/>
-</div>
-<div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-<div itemprop="articleBody">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body" role="main">
 <div class="section" id="qpython-s-main-features">
-<h1>QPython&#8217;s main features<a class="headerlink" href="#qpython-s-main-features" title="Permalink to this headline">¶</a></h1>
+<h1>QPython’s main features<a class="headerlink" href="#qpython-s-main-features" title="Permalink to this headline">¶</a></h1>
 <p><strong>With QPython, you could build android applications with android application and script language now.</strong></p>
 <div class="section" id="why-should-i-choose-qpython">
 <h2>Why should I choose QPython<a class="headerlink" href="#why-should-i-choose-qpython" title="Permalink to this headline">¶</a></h2>
-<p>The smartphone is becomming people&#8217;s essential information &amp; technical assitant, so an flexiable script engine could help people complete most jobs efficiently without complex development.</p>
-<p>QPython offer <strong>an amazing developing experience</strong>, with it&#8217;s help, you could implement the program easily without complex installing IDE, compiling, package progress etc.</p>
+<p>The smartphone is becomming people’s essential information &amp; technical assitant, so an flexiable script engine could help people complete most jobs efficiently without complex development.</p>
+<p>QPython offer <strong>an amazing developing experience</strong>, with it’s help, you could implement the program easily without complex installing IDE, compiling, package progress etc.</p>
 </div>
 <div class="section" id="id1">
-<h2>QPython&#8217;s main features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>QPython’s main features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>You can do most jobs through QPython just like the way that Python does on PC/Laptop.</p>
 <p><strong>Libraries</strong></p>
 <ul class="simple">
@@ -97,16 +130,16 @@
 <li>QPython supports some Python libraries mixed with C/C++ code which pre-compiled by QPython develop team.</li>
 <li>QPython allows you put on the libraries by yourself.</li>
 </ul>
-<p>Besides these, QPython offers some extra features which Python doesn&#8217;t offer, Like:</p>
+<p>Besides these, QPython offers some extra features which Python doesn’t offer, Like:</p>
 <ul class="simple">
 <li>Android APIs Access(Like SMS, GPS, NFC, BLUETOOTH etc)</li>
 </ul>
 <p><em>Why QPython require so many permissions?</em></p>
-<p>QPython need these permissions to access Android&#8217;s API.</p>
+<p>QPython need these permissions to access Android’s API.</p>
 <p><strong>Runtime modes</strong></p>
 <p>QPython supports several runtime modes for android.</p>
 <p><strong>Console mode</strong></p>
-<p>It&#8217;s the default runtime mode in QPython, it&#8217;s very common in PC/laptop.</p>
+<p>It’s the default runtime mode in QPython, it’s very common in PC/laptop.</p>
 <p><strong>Kivy mode</strong></p>
 <p>QPython supports <a class="reference external" href="http://kivy.org">Kivy</a> as the GUI programming solution.</p>
 <p>Kivy is an open source Python library for rapid development of applications that make use of innovative user interfaces, such as multi-touch apps.</p>
@@ -126,9 +159,9 @@
 </pre></div>
 </div>
 <p>If your library require the opengl driver, you shoule declare the kivy mode header in your script, like the jnius.</p>
-<p><em>NOTE: QPython3 didn&#8217;t support kivy mode yet, we have plan to support it in the future</em></p>
+<p><em>NOTE: QPython3 didn’t support kivy mode yet, we have plan to support it in the future</em></p>
 <p><strong>WebApp mode</strong></p>
-<p>We recommend you implement WebApp with QPython for it offer the easy to accomplish UI and Take advantage of Python&#8217;s fast programming strong point.</p>
+<p>We recommend you implement WebApp with QPython for it offer the easy to accomplish UI and Take advantage of Python’s fast programming strong point.</p>
 <p>WebApp will start a webview in front, and run a python web service background.
 You could use <em>bottle*(QPython built-in library) to implement the web service, or you could install *django</em> / <em>flask</em> framework also.</p>
 <p>By insert into the following header in your script, you can let your script run with webapp mode.</p>
@@ -142,7 +175,7 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
 <span class="c1">#qpy://localhost:8080/hello</span>
 </pre></div>
 </div>
-<p>The previous should start a webview which should load the <em>http://localhost:8080/hello</em> as the default page, and the webview will keep the titlebar which title is &#8220;Hello QPython&#8221;, if you add the <em>#qpy:fullscreen</em> it will hide the titlebar.</p>
+<p>The previous should start a webview which should load the <em>http://localhost:8080/hello</em> as the default page, and the webview will keep the titlebar which title is “Hello QPython”, if you add the <em>#qpy:fullscreen</em> it will hide the titlebar.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#qpy:webapp:Hello Qpython</span>
 <span class="c1">#qpy://127.0.0.1:8080/</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -193,76 +226,45 @@ You could use <em>bottle*(QPython built-in library) to implement the web service
 <span class="nb">print</span> <span class="s2">&quot;Exception: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">repr</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you want the webapp could be close when you exit the webview, you have to define the <em>&#64;route(&#8216;/__exit&#8217;, method=[&#8216;GET&#8217;,&#8217;HEAD&#8217;])</em> method , for the qpython will request the <em>http://localhost:8080/__exit</em> when you exit the webview. So you can release other resource in this function.</p>
+<p>If you want the webapp could be close when you exit the webview, you have to define the <em>&#64;route(‘/__exit’, method=[‘GET’,’HEAD’])</em> method , for the qpython will request the <em>http://localhost:8080/__exit</em> when you exit the webview. So you can release other resource in this function.</p>
 <img alt="QPython WebApp Sample" src="../images/guide_program_pic1.png" />
 <p><em>Running screenshot</em></p>
-<p>In the other part of the code, you could implement a webserver whish serve on localhost:8080 and make the URL /hello implement as your webapp&#8217;s homepage.</p>
+<p>In the other part of the code, you could implement a webserver whish serve on localhost:8080 and make the URL /hello implement as your webapp’s homepage.</p>
 <p><strong>Q mode</strong></p>
-<p>If you don&#8217;t want the QPython display some UI, pelase try to use the QScript mode, it could run a script background, just insert the following header into your script:</p>
+<p>If you don’t want the QPython display some UI, pelase try to use the QScript mode, it could run a script background, just insert the following header into your script:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#qpy:qpyapp</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="articleComments">
 </div>
 </div>
-<footer>
-<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-<a href="guide_ide.html" class="btn btn-neutral float-right" title="Use the best way for developing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-<a href="guide_helloworld.html" class="btn btn-neutral" title="Writing “Hello World”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+}
 </div>
-<hr/>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1680815145503311";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<div class="fb-comments" data-href="http://qpython.org/en/guide_program.html" data-numposts="10"></div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-36070037-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-<hr/><div role="contentinfo">
-<p>
-&copy; Copyright 2017, River.
-</p>
 </div>
-Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</div>
+<div class="col-sm-2"></div>
+</div>
+<footer id="footer">
+<div class="col-sm-offset-2 col-sm-6 footer-div1">
+<div class="footer-block-item">
+<span class="footer-item1">Built with Sphinx using a theme provid by QPython.</span>
+<span class="footer-item2 visible-xs">
+&#169; Copyright 2017, QPython.
+</span>
+</div>
+</div>
+<div class="col-sm-2 footer-div2">
+<a href="/index.html" class="pull-right"><img src="../static/img_logo.png"></a>
+</div>
 </footer>
-</div>
-</div>
-</section>
-</div>
 <script type="text/javascript">
-var DOCUMENTATION_OPTIONS = {
-URL_ROOT:'../',
-VERSION:'0.9',
-COLLAPSE_INDEX:false,
-FILE_SUFFIX:'.html',
-HAS_SOURCE:  true,
-SOURCELINK_SUFFIX: ''
-};
-</script>
-<script type="text/javascript" src="../static/jquery.js"></script>
-<script type="text/javascript" src="../static/underscore.js"></script>
-<script type="text/javascript" src="../static/doctools.js"></script>
-<script type="text/javascript" src="../static/js/theme.js"></script>
-<script type="text/javascript">
-jQuery(function () {
-SphinxRtdTheme.StickyNav.enable();
-});
+$(function(){
+if ($('#footer')[0].offsetTop < $(window).height()){
+$('#footer').addClass('to-bottom')
+}
+})
 </script>
 </body>
 </html>

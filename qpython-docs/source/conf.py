@@ -20,9 +20,9 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 try:
-    import sphinx_rtd_theme
+    import qpython_theme
 except:
-    print('please install sphinx_rtd_theme at first: $ pip install solar-theme')
+    print('please install qpython_theme')
 
     sys.exit(1)
 
@@ -51,12 +51,12 @@ source_suffix = '.rst'
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'document'
 
 # General information about the project.
 project = u'QPython'
-copyright = u'2017, River'
-author = u'River'
+copyright = u'2017, QPython'
+author = u'QPython'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -125,7 +125,7 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'qpython_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -134,7 +134,7 @@ html_theme = 'sphinx_rtd_theme'
 # html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_theme_path = [qpython_theme.theme_path]
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
@@ -180,7 +180,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 #
-# html_sidebars = {}
+#html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
