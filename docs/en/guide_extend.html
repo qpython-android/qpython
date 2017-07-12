@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>QPython Open API &mdash; QPython 0.9 documentation</title>
+<title>QPython Open API &#8212; QPython 0.9 documentation</title>
 <link rel="stylesheet" href="../static/qpython_theme.css" type="text/css" />
 <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
 <script type="text/javascript">
@@ -12,14 +12,15 @@ URL_ROOT:    '../',
 VERSION:     '0.9',
 COLLAPSE_INDEX: false,
 FILE_SUFFIX: '.html',
-HAS_SOURCE:  true
+HAS_SOURCE:  true,
+SOURCELINK_SUFFIX: '.txt'
 };
 </script>
 <script type="text/javascript" src="../static/jquery.js"></script>
 <script type="text/javascript" src="../static/underscore.js"></script>
 <script type="text/javascript" src="../static/doctools.js"></script>
-<link rel="top" title="QPython 0.9 documentation" href="../document.html" />
-<link rel="up" title="Getting started" href="guide.html" />
+<link rel="index" title="Index" href="../genindex.html" />
+<link rel="search" title="Search" href="../search.html" />
 <link rel="next" title="Android" href="guide_developers.html" />
 <link rel="prev" title="AndroidFacade" href="guide_androidhelpers.html" />
 <meta charset="UTF-8">
@@ -27,7 +28,7 @@ HAS_SOURCE:  true
 <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 </head>
-<body role="document">
+<body>
 <div class="header doc-header">
 <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8  index-header">
 <div class="navbar-header">
@@ -71,14 +72,14 @@ data-target="#example-navbar-collapse">
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">Getting started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="guide.html#programming-guide">Programming Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="guide_program.html">QPython&#8217;s main features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide_program.html">QPython’s main features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_ide.html">Use the best way for developing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html">QPython built-in Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#python-3rd-libraries">Python 3rd Libraries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="guide_libraries.html#androidhelper-apis">Androidhelper APIs</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">QPython Open API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#share-some-content-to-qpython-s-scripts">Share some content to QPython&#8217;s scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-qpython-s-script-from-your-own-application">Run QPython&#8217;s script from your own application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#share-some-content-to-qpython-s-scripts">Share some content to QPython’s scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-qpython-s-script-from-your-own-application">Run QPython’s script from your own application</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#qpython-online-service">QPython Online Service</a><ul>
@@ -88,8 +89,8 @@ data-target="#example-navbar-collapse">
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#developers-guide">Developers&#8217; Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors&#8217; Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#developers-guide">Developers’ Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide.html#contributors-guide">Contributors’ Guide</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
@@ -121,7 +122,7 @@ data-target="#example-navbar-collapse">
 <div class="section" id="qpython-open-api">
 <h1>QPython Open API<a class="headerlink" href="#qpython-open-api" title="Permalink to this headline">¶</a></h1>
 <p>QPython has an open activity which allow you run qpython from outside.</p>
-<p>The MPyAPI&#8217;s definition seems like the following:</p>
+<p>The MPyAPI’s definition seems like the following:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">activity</span>
 <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;org.qpython.qpylib.MPyApi&quot;</span>
 <span class="n">android</span><span class="p">:</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;@string/qpy_run_with_share&quot;</span>
@@ -153,14 +154,14 @@ data-target="#example-navbar-collapse">
 <span class="o">&lt;/</span><span class="n">activity</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p><strong>So, with it&#8217;s help, you could:</strong></p>
+<p><strong>So, with it’s help, you could:</strong></p>
 <div class="section" id="share-some-content-to-qpython-s-scripts">
-<h2>Share some content to QPython&#8217;s scripts<a class="headerlink" href="#share-some-content-to-qpython-s-scripts" title="Permalink to this headline">¶</a></h2>
-<p>You could choose some content in some app, and share to qpython&#8217;s script, then you could handle the content with the <strong>sys.argv[2]</strong></p>
+<h2>Share some content to QPython’s scripts<a class="headerlink" href="#share-some-content-to-qpython-s-scripts" title="Permalink to this headline">¶</a></h2>
+<p>You could choose some content in some app, and share to qpython’s script, then you could handle the content with the <strong>sys.argv[2]</strong></p>
 <p><a class="reference external" href="https://www.youtube.com/watch?v=2Y50Yir8TWg">Watch the demo video on YouTube</a></p>
 </div>
 <div class="section" id="run-qpython-s-script-from-your-own-application">
-<h2>Run QPython&#8217;s script from your own application<a class="headerlink" href="#run-qpython-s-script-from-your-own-application" title="Permalink to this headline">¶</a></h2>
+<h2>Run QPython’s script from your own application<a class="headerlink" href="#run-qpython-s-script-from-your-own-application" title="Permalink to this headline">¶</a></h2>
 <p>You can call QPython to run some script or python code in your application by call this activity, like the following sample:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">code</span> <span class="n">sample</span> <span class="n">shows</span> <span class="n">how</span> <span class="n">to</span> <span class="n">call</span> <span class="n">qpython</span> <span class="n">API</span>
 <span class="n">String</span> <span class="n">extPlgPlusName</span> <span class="o">=</span> <span class="s2">&quot;org.qpython.qpy&quot;</span><span class="p">;</span>          <span class="o">//</span> <span class="n">QPython</span> <span class="n">package</span> <span class="n">name</span>
@@ -211,14 +212,14 @@ data-target="#example-navbar-collapse">
 <div class="section" id="qpypi">
 <h2>QPypi<a class="headerlink" href="#qpypi" title="Permalink to this headline">¶</a></h2>
 <p>Can I install some packages which required pre-compiled ?
-Sure, you could install some pre-compiled packages from QPypi, you could find it through &#8220;Libraries&#8221; on dashboard.</p>
+Sure, you could install some pre-compiled packages from QPypi, you could find it through “Libraries” on dashboard.</p>
 <img alt="../images/guide_extend_pic2.png" src="../images/guide_extend_pic2.png" />
-<p>If you couldn&#8217;t found the package here, you could send email to <a class="reference external" href="mailto:river&#37;&#52;&#48;qpython&#46;org">river<span>&#64;</span>qpython<span>&#46;</span>org</a> .</p>
+<p>If you couldn’t found the package here, you could send email to <a class="reference external" href="mailto:river&#37;&#52;&#48;qpython&#46;org">river<span>&#64;</span>qpython<span>&#46;</span>org</a> .</p>
 </div>
 <div class="section" id="qpy-io">
 <h2>QPY.IO<a class="headerlink" href="#qpy-io" title="Permalink to this headline">¶</a></h2>
 <p>Can I build an independent APK from QPython script?</p>
-<p>Sure you can. now the service is <strong>in BETA</strong>, it&#8217;s a challenging thing. We will publish it as a online service, for we want to let the development process is simple, you don&#8217;t need to own the development environment set up when you want to build a application.</p>
+<p>Sure you can. now the service is <strong>in BETA</strong>, it’s a challenging thing. We will publish it as a online service, for we want to let the development process is simple, you don’t need to own the development environment set up when you want to build a application.</p>
 <img alt="../images/guide_extend_pic1.png" src="../images/guide_extend_pic1.png" />
 <p>If you want to try it out or have some business proposal, please contact with us by sending email to <a class="reference external" href="mailto:river&#37;&#52;&#48;qpython&#46;org">river<span>&#64;</span>qpython<span>&#46;</span>org</a> .</p>
 </div>

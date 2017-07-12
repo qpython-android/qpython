@@ -30,4 +30,4 @@ You could write down your suggestion or bug report on the community.
 
 Feedback
 ---------
-Send your feedback to QPython using the contact information: support@qptyhon.org
+Send your feedback to QPython using the contact information: support@qpython.org
