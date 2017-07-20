@@ -94,7 +94,7 @@ myBuddy.add(2) #use myBuddy's new add method derived from the Calculator class
 print(myBuddy.getCurrent()) #print myBuddy's current instance variable
 
 </pre>
-<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step1-btn">Copy to editor to run</button></div>
+<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step1-btn">Run ...</button></div>
 </div>
 <div style="padding-top:30px">
 <h2>Running with Kivy</h2>
@@ -113,10 +113,10 @@ class TestApp(App):
 
 TestApp().run()
 </pre>
-<div style='text-align:center'><button style="display:inline" type="submit" value="Copy to editor to run" class="btn_c" id="step2-btn">Copy to editor to run</button></div>
+<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step2-btn">Run ...</button></div>
 </div>
 <div style="padding-top:30px">
-<h2>Running as Web App ( QPython needs >= 0.9.7.x )</h2>
+<h2>Running as Web App</h2>
 <p>Running Web App with QPython</p>
 <pre style="box-shadow:inset 0 1px 1px rgba(0,0,0,0.1);border:1px solid #ddd" id="step6-code">#qpy:2
 #qpy:webapp:Hello Qpython
@@ -131,13 +131,18 @@ def hello():
     return "Hello World!"
 
 run(host='localhost', port=8080)</pre>
-<div style='text-align:center'><button style="display:inline" type="submit" value="Copy to editor to run" class="btn_c" id="step6-btn">Copy to editor to run</button></div>
+<div style='text-align:center'><button style="display:inline" type="submit" value="Run ..." class="btn_c" id="step6-btn">Run ...</button></div>
 </div>
 
 <div style='padding:20px'></div>
+<hr />
+<div style='padding:20px'></div>
+<div style='text-align:center'><button style="display:inline" type="submit" value="" class="btn_c" id="step7-btn">Donate author</button></div>
+<p style='text-align:center'>Thank you for donating, which should encourage author greatly</p>
 <script>
 var milib;
 if (milib==undefined) {
+
 var milib = function(){
 };
 milib.qeditor = function(str){
@@ -153,8 +158,13 @@ milib.gotoIfPay = function(url, packageId, packageUrl){
 window.open(url)
 };
 } else {
+
 }
 $(document).ready(function() {
+$('#step7-btn').click(function(e){
+milib.openPurchaseActivity();
+});
+
 $('#step1-btn').click(function(e){
 milib.qeditor($('#step1-code').html())
 });
