@@ -12,7 +12,7 @@ Editor
 
 
 File browsing
-------------
+---------------
 
 
 QRCode reader

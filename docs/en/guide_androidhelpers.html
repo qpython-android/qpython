@@ -174,7 +174,12 @@ data-target="#example-navbar-collapse">
 </tbody>
 </table>
 </dd></dl>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="n">code</span> <span class="n">to</span> <span class="n">show</span> <span class="n">setClipboard</span><span class="o">/</span><span class="n">getClipboard</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">androidhelper</span> <span class="k">import</span> <span class="n">Android</span>
+<span class="n">droid</span> <span class="o">=</span> <span class="n">Android</span><span class="p">()</span>
+<span class="c1">#setClipboard</span>
+<span class="n">droid</span><span class="o">.</span><span class="n">setClipboard</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="c1">#getClipboard</span>
+<span class="n">clipboard</span> <span class="o">=</span> <span class="n">droid</span><span class="o">.</span><span class="n">getClipboard</span><span class="p">()</span><span class="o">.</span><span class="n">result</span>
 </pre></div>
 </div>
 </div>
