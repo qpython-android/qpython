@@ -25,7 +25,7 @@ How to launch a local QPython users community
 ================================================================
 
 How to organise a local qpython user sharing event
-----------------------------------------
+---------------------------------------------------
 
 How to became the developer member
 ====================================

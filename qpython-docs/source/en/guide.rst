@@ -26,7 +26,7 @@ If you you want to know more about how to program through qpython, just follow t
 
 **QPython project is not only a powerful Python engine for android, but is a active technology community also.**
 
-Developers' Guide
+Developer Guide
 =======================
 QPython developers' goal is pushing out a great Python for android.
 
@@ -36,7 +36,7 @@ QPython developers' goal is pushing out a great Python for android.
    guide_developers
 
 
-Contributors' Guide
+Contributor Guide
 ========================
 
 Welcome to join QPython contributors team, you are not just a user, but a creator of QPython.
