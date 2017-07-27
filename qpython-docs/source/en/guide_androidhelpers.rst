@@ -25,7 +25,14 @@ Clipboard APIs
 
 ::
 
-    sample code to show setClipboard/getClipboard
+    from androidhelper import Android
+    droid = Android()
+
+    #setClipboard
+    droid.setClipboard("Hello World")
+
+    #getClipboard
+    clipboard = droid.getClipboard().result
 
 
 Intent & startActivity APIs
