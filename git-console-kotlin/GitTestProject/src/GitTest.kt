@@ -1,3 +1,8 @@
+/*
+* @Author: c4dr01d
+* @Classname: GitTest
+* Test program for JGit API
+*/
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.errors.GitAPIException
 import org.eclipse.jgit.api.errors.JGitInternalException
