@@ -3,6 +3,7 @@
 * @Classname: GitInterface
 * The interface for git
 */
+import org.eclipse.jgit.api.errors.CheckoutConflictException
 import org.eclipse.jgit.api.errors.GitAPIException
 import org.eclipse.jgit.api.errors.JGitInternalException
 import java.io.IOException
@@ -11,6 +12,8 @@ interface GitInterface {
     fun Clone()
     @Throws(IOException::class)
     fun Create()
+    @Throws(GitAPIException::class)
+    fun Checkout(branch: String)
     @Throws(IOException::class,GitAPIException::class)
     fun Add()
     @Throws(IOException::class,GitAPIException::class,JGitInternalException::class)

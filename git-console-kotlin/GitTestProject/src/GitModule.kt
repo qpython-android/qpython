@@ -3,14 +3,22 @@
 * @Classname: GitModule
 * The template for Git Module for QPython
 */
+import org.eclipse.jgit.api.CheckoutCommand
+import org.eclipse.jgit.api.CreateBranchCommand
 import org.eclipse.jgit.api.Git
+import org.eclipse.jgit.api.PullCommand
+import org.eclipse.jgit.api.errors.CheckoutConflictException
 import org.eclipse.jgit.api.errors.GitAPIException
 import org.eclipse.jgit.api.errors.JGitInternalException
 import org.eclipse.jgit.internal.storage.file.FileRepository
+import org.eclipse.jgit.lib.Ref
+import org.eclipse.jgit.lib.Repository
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
+import org.jetbrains.annotations.Mutable
 import java.io.File
 import java.io.IOException
+import java.util.logging.Logger
 
 class GitModule : GitInterface {
     /*
@@ -50,9 +58,24 @@ class GitModule : GitInterface {
         val newRepo = FileRepositoryBuilder.create(File(initPath!! + "/.git"))
         // TODO: if the repository directory have .git directory,do nothing,else,init repository
         if (File(initPath!! + "/.git").exists())
-            print("The repo is initialize.")
+            print("\nThe repo is initialize.")
         else
             newRepo.create()
+    }
+    /*
+    * @Method: Checkout
+    * @TODO: Checkout branch
+    * @Throw: GitAPIException
+    */
+    @Throws(GitAPIException::class)
+    override fun Checkout(branch: String) {
+        val git = Git(FileRepository(localPath!! + "/.git"))
+        var checkout: CheckoutCommand = git.checkout().setCreateBranch(false).setName(branch)
+        val refList: List<Ref> = git.branchList().call()
+        if (!refList.stream().anyMatch { refList -> refList.name.replace("refs/heads/","").equals(branch) }) {
+            checkout = checkout.setCreateBranch(true).setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK).setStartPoint("origin/" + branch)
+        }
+        checkout.call()
     }
     /*
     * @Method: Add

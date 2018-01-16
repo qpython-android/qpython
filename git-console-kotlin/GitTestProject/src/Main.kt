@@ -17,21 +17,24 @@ object Main {
         gitHandler.remotePath = scanner.next()
         println("Please input the Local repository path: ")
         gitHandler.localPath = scanner.next()
-        println("Please input the local repository .git object path: ")
-        gitHandler.initPath = scanner.next()
+        gitHandler.initPath = gitHandler.localPath
         try {
             gitHandler.Clone()
             gitHandler.Create()
             gitHandler.Add()
-            println("Your git local repository is modified.")
+            println("\nYour git local repository is modified.")
             println("Please input the commit message: ")
             gitHandler.commitMessage = scanner.next()
             gitHandler.Commit()
             gitHandler.Push()
-            println("Push success.")
-            println("Now,The program try to pull the remote repository")
+            println("\nPush success.")
+            println("\nNow,The program try to pull the remote repository")
             gitHandler.Pull()
-            println("The git module is tested successfully.")
+            println("\nCheckout new remote branch.");
+            gitHandler.Checkout("test")
+            println("\nCheckout master branch.")
+            gitHandler.Checkout("master")
+            println("\nThe git module is tested successfully.")
         }
         catch (e: Exception) {
             e.printStackTrace()
