@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 apply plugin: 'com.android.library'
@@ -13,16 +13,16 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         ndk {
-            moduleName 'libjackpal-termexec2'
-            ldLibs 'log', 'c'
+            abiFilters 'armeabi'
         }
     }
 
@@ -36,6 +36,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path '../termexec/src/main/jni/Android.mk'
+        }
+
     }
 }
 
@@ -51,5 +57,5 @@ android.libraryVariants.all { variant ->
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-annotations:23.4.0'
+    compile rootProject.ext.libSupportAnnotation
 }

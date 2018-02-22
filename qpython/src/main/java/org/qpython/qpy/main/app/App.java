@@ -2,7 +2,7 @@ package org.qpython.qpy.main.app;
 
 import android.content.Context;
 import android.os.Environment;
-import android.support.multidex.MultiDex;
+//import android.support.multidex.MultiDex;
 
 import com.google.gson.Gson;
 import com.quseit.common.updater.Updater;
@@ -18,7 +18,6 @@ import org.qpython.qsl4a.QSL4APP;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.jpush.android.api.JPushInterface;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -31,7 +30,7 @@ public class App extends QSL4APP {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        MultiDex.install(this);
+        //MultiDex.install(this);
     }
 
     @Override
@@ -41,8 +40,6 @@ public class App extends QSL4APP {
 
         MobclickAgent.setScenarioType(getApplicationContext(), MobclickAgent.EScenarioType.E_UM_NORMAL);
 
-        JPushInterface.setDebugMode(true);
-        JPushInterface.init(this);
 
 //        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(getApplicationContext()).build();
 //        Realm.setDefaultConfiguration(realmConfiguration);

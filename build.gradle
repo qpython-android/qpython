@@ -10,9 +10,10 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.0'
         classpath "io.realm:realm-gradle-plugin:1.1.1"
@@ -26,6 +27,7 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         maven { url 'https://dl.bintray.com/azeesoft/maven' }
+        google()
     }
 }
 
@@ -41,4 +43,29 @@ subprojects {
             && (androidHome = androidHome as File).exists()
             && androidHome.canWrite())
         apply plugin: 'android-sdk-manager'
+}
+
+
+def supportVersion = "26.0.2"
+def rxVersion = "1.2.1"
+
+ext {
+    minSdkVersion = 15
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+
+    libSupportV7 = "com.android.support:appcompat-v7:${supportVersion}"
+    libSupportV4 = "com.android.support:support-v4:${supportVersion}"
+    libSupportAnnotation = "com.android.support:support-annotations:${supportVersion}"
+    libSupportCardView = "com.android.support:cardview-v7:${supportVersion}"
+
+    libSupportDesign = "com.android.support:design:${supportVersion}"
+    libGuava = "com.google.guava:guava:18.0"
+    libOkHttp3 = "com.squareup.okhttp3:okhttp:3.4.0"
+
+    libRxJava = "io.reactivex:rxandroid:${rxVersion}"
+    libRxAndroid = "io.reactivex:rxjava:${rxVersion}"
+
+
 }

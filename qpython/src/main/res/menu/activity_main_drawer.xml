@@ -12,10 +12,10 @@
             android:icon="@drawable/ic_forum"
             android:title="@string/forum" />
 
-        <item
+        <!--item
             android:id="@+id/nav_wiki"
             android:icon="@drawable/ic_wiki"
-            android:title="@string/wiki" />
+            android:title="@string/wiki" /-->
     </group>
 
 </menu>

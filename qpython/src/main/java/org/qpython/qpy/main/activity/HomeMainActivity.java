@@ -45,15 +45,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
-import cn.jpush.android.api.JPushInterface;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Unbinder mUnbinder;
 
-    public static final String URL_WIKI = "http://wiki.qpython.org";
+    public static final String URL_WIKI = "http://www.qpython.org";
     public static final String URL_GROUP = "http://groups.google.com/group/qpython";
-    public static final String URL_DOCS = "http://docs.qpython.org";
+    public static final String URL_DOCS = "http://www.qpython.org";
     public static final String URL_LIB_MANAGER = "http://qpypi.qpython.org";
     public static final int REQUEST_OPEN_FILE = 1;
 
@@ -118,14 +117,12 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
     @Override
     protected void onResume() {
         super.onResume();
-        JPushInterface.onResume(this);
     }
 
 
     @Override
     protected void onPause() {
         super.onPause();
-        JPushInterface.onPause(this);
     }
 
     private void startPyService() {
@@ -233,23 +230,24 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
                     if(sFileName.equals("sampleproject.zip")) {
                         Utils.createDirectoryOnExternalStorage( "qpython" );
                         Utils.createDirectoryOnExternalStorage( "qpython/projects");
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/Album Sample");
+                        Utils.createDirectoryOnExternalStorage( "qpython/projects/AlbumSample");
 
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/Album Sample/", false);
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() +
+                                "/qpython/projects/AlbumSample/", false);
 
                     } else if (sFileName.equals("showcase.zip")) {
                         Utils.createDirectoryOnExternalStorage( "qpython" );
                         Utils.createDirectoryOnExternalStorage( "qpython/projects" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/Kivy Showcase");
+                        Utils.createDirectoryOnExternalStorage( "qpython/projects/KivyShowcase");
 
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/Kivy Showcase/", false);
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/KivyShowcase/", false);
 
                     } else if (sFileName.equals("samplewebapp.zip")) {
                         Utils.createDirectoryOnExternalStorage( "qpython" );
                         Utils.createDirectoryOnExternalStorage( "qpython/projects");
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/WebApp Sample");
+                        Utils.createDirectoryOnExternalStorage( "qpython/projects/WebAppSample");
 
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/WebApp Sample/", false);
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/WebAppSample/", false);
 
                     } else if (sFileName.equals("scripts.zip")) {
                         Utils.createDirectoryOnExternalStorage( "qpython" );
@@ -319,9 +317,9 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
             case R.id.nav_forum:
                 Utils.startWebActivityWithUrl(this, getString(R.string.forum), URL_GROUP,"",false, false);
                 break;
-            case R.id.nav_wiki:
-                Utils.startWebActivityWithUrl(this, getString(R.string.wiki), URL_WIKI,"",false, false);
-                break;
+//            case R.id.nav_wiki:
+//                Utils.startWebActivityWithUrl(this, getString(R.string.wiki), URL_WIKI,"",false, false);
+//                break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;

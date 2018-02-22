@@ -29,28 +29,6 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-    <permission
-        android:name="${applicationId}.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <permission
-        android:name="jackpal.androidterm.permission.RUN_SCRIPT"
-        android:description="@string/permdesc_run_script"
-        android:label="@string/perm_run_script"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="dangerous" />
-    <permission
-        android:name="jackpal.androidterm.permission.APPEND_TO_PATH"
-        android:description="@string/permdesc_append_to_path"
-        android:label="@string/perm_append_to_path"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="dangerous" />
-    <permission
-        android:name="jackpal.androidterm.permission.PREPEND_TO_PATH"
-        android:description="@string/permdesc_prepend_to_path"
-        android:label="@string/perm_prepend_to_path"
-        android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="dangerous" />
 
     <application
         android:name="org.qpython.qpy.main.app.App"
@@ -150,7 +128,6 @@
         <activity
             android:name="org.qpython.qpy.console.RunScript"
             android:excludeFromRecents="true"
-            android:permission="jackpal.androidterm.permission.RUN_SCRIPT"
             android:theme="@style/ConsoleTheme">
             <intent-filter>
                 <action android:name="jackpal.androidterm.RUN_SCRIPT" />
@@ -236,74 +213,6 @@
             </intent-filter>
         </service>
 
-        <!-- Rich push 核心功能 since 2.0.6-->
-        <activity
-            android:name="cn.jpush.android.ui.PopWinActivity"
-            android:exported="false"
-            android:theme="@style/MyDialogStyle"></activity>
-
-        <!-- Required SDK核心功能-->
-        <activity
-            android:name="cn.jpush.android.ui.PushActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:exported="false"
-            android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="cn.jpush.android.ui.PushActivity" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="${applicationId}" />
-            </intent-filter>
-        </activity>
-        <!-- Required  SDK核心功能-->
-        <service
-            android:name="cn.jpush.android.service.DownloadService"
-            android:enabled="true"
-            android:exported="false"></service>
-
-
-        <!-- Required SDK 核心功能-->
-        <!-- 可配置android:process参数将PushService放在其他进程中 -->
-        <service
-            android:name="cn.jpush.android.service.PushService"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTER" />
-                <action android:name="cn.jpush.android.intent.REPORT" />
-                <action android:name="cn.jpush.android.intent.PushService" />
-                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
-            </intent-filter>
-        </service>
-
-
-        <!-- Required SDK核心功能-->
-        <receiver
-            android:name="cn.jpush.android.service.PushReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter android:priority="1000">
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />   <!--Required  显示通知栏 -->
-                <category android:name="${applicationId}" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.USER_PRESENT" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <!-- Optional -->
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
-                <data android:scheme="package" />
-            </intent-filter>
-
-        </receiver>
-
-        <!-- Required SDK核心功能-->
-        <receiver
-            android:name="cn.jpush.android.service.AlarmReceiver"
-            android:exported="false" />
 
     </application>
 

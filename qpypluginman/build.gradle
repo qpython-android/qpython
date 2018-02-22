@@ -1,15 +1,17 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 23
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,9 +23,12 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.squareup.okhttp3:okhttp:3.4.0'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
-    compile 'com.android.support:support-v4:23.4.0'
+    compile rootProject.ext.libRxJava
+    compile rootProject.ext.libRxAndroid
+
     compile 'com.liulishuo.filedownloader:library:0.3.5'
+    compile rootProject.ext.libSupportV4
+    compile rootProject.ext.libOkHttp3
+
+
 }
