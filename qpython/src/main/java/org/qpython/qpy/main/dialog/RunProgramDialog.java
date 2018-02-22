@@ -19,6 +19,7 @@ import org.qpython.qpy.main.utils.Bus;
 import org.qpython.qpy.plugin.SpaceItemDecoration;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,18 +60,32 @@ public class RunProgramDialog extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         type = getArguments().getInt(PROGRAM_TYPE);
         File dir = null;
+        ArrayList<File> v = new ArrayList();
+
         if (type == TYPE_SCRIPT) {
             mBinding.tvTitle.setText(R.string.dialog_title_script);
             dir = new File(App.getScriptPath());
+            File[] xx = dir.listFiles();
+            for (int i=0;i<xx.length;i++) {
+                if (xx[i].getAbsolutePath().endsWith(".py")) {
+                    v.add(xx[i]);
+                }
+            }
         }
         if (type == TYPE_PROJECT) {
             mBinding.tvTitle.setText(R.string.dialog_title_project);
             dir = new File(App.getProjectPath());
+            File[] xx = dir.listFiles();
+            for (int i=0;i<xx.length;i++) {
+                if (xx[i].isDirectory()) {
+                    v.add(xx[i]);
+                }
+            }
         }
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        mAdapter.setData(Arrays.asList(dir.listFiles()));
+        mAdapter.setData(v);
     }
 
     public class Adapter extends RecyclerView.Adapter<Holder> {

@@ -34,7 +34,7 @@
         android:name="org.qpython.qpy.main.app.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/micon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"

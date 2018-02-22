@@ -56,10 +56,10 @@ public class PythonActivity extends Activity implements Runnable {
     private File mPath = null;
     private File mScript;
 
-    boolean _isPaused = false;    
-    
+    boolean _isPaused = false;
+
     private static final String DB_INITIALIZED = "db_initialized";
-    		
+
     boolean isMain = false;
 
     public final static int PY_NOTI_FLAG = 123400;
@@ -115,19 +115,19 @@ public class PythonActivity extends Activity implements Runnable {
         // Otherwise, we use the public data, if we have it, or the
         // private data if we do not.
         String act = getIntent().getStringExtra(EXTRA_CONTENT_URL1);
-        
+
         boolean fullscreen = false;
         if (act!=null && act.equals("execute")) {
             mPath = new File(getIntent().getStringExtra(EXTRA_CONTENT_URL2));
-            
+
 			File f = new File(mPath, "main.py");
 			if (f.exists()) {
 	        	if (FileHelper.getFileContents(f.toString()).contains("#qpy:fullscreen")) {
 	        		fullscreen = true;
 	        	}
 			}
-			
-			
+
+
 	        Project p = Project.scanDirectory(mPath);
 
 	        if (p != null) {
@@ -136,7 +136,7 @@ public class PythonActivity extends Activity implements Runnable {
 	            } else {
 	                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	            }
-	            
+
 				if ( p.fullscreen ) {
 					fullscreen = true;
 				}
@@ -146,7 +146,7 @@ public class PythonActivity extends Activity implements Runnable {
         	String fn = getIntent().getStringExtra(EXTRA_CONTENT_URL2);
         	if (fn == null) {
         		isMain = true;
-        		
+
         		fn = "/sdcard/qpython/launcher.py";
         	}
         	mScript = new File(fn);
@@ -156,13 +156,13 @@ public class PythonActivity extends Activity implements Runnable {
 
         	}
         	mPath = mScript.getParentFile();
-        	
+
         	if (FileHelper.getFileContents(mScript.toString()).contains("#qpy:fullscreen")) {
         		fullscreen = true;
         	}
         	//Log.d(TAG, "mscript:"+mScript+"-mPath"+mPath);
         }
-        
+
         //
         if (fullscreen) {
 			getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -178,14 +178,14 @@ public class PythonActivity extends Activity implements Runnable {
             // pass
         }
 
-        
+
         updateNotification(mPath.toString());
 
         //Log.d("PythonActivity", "mPath:"+mPath.toString());
         // go to fullscreen mode
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         String full = getIntent().getStringExtra(EXTRA_CONTENT_URL3);
-        
+
 		File logFile = new File(mPath, ".run.log");
 		if (logFile.exists()) {
 			logFile.delete();
@@ -207,7 +207,7 @@ public class PythonActivity extends Activity implements Runnable {
 				}
 			}
 		}
-		
+
 		/*try {
 			this.mInfo = this.getPackageManager().getApplicationInfo(
 					this.getPackageName(), PackageManager.GET_META_DATA);
@@ -217,17 +217,17 @@ public class PythonActivity extends Activity implements Runnable {
 						WindowManager.LayoutParams.FLAG_FULLSCREEN);
 			}
 		} catch (PackageManager.NameNotFoundException e) {
-		
+
 		}*/
 		//
-		
+
 //		if (isMain) {	//
 //			Intent intent = new Intent();
 //			intent.setClassName(PythonActivity.this, "com.hipipal.sl4alib.PyScriptService");
 //			this.bindService(intent, connection, BIND_AUTO_CREATE);
 //		}
-		
-			
+
+
 		Log.d(TAG, "[RUN param:"+externalStorage.getAbsolutePath().toString()+"-"+mPath.getAbsolutePath().toString()+"-"+s+"]");
         mView = new SDLSurfaceView(
                 this,
@@ -235,24 +235,24 @@ public class PythonActivity extends Activity implements Runnable {
                 s,
                 externalStorage.getAbsolutePath().toString()
                 );
-        
+
         IntentFilter filter = new IntentFilter(".PythonActivity");
         registerReceiver(mReceiver, filter);
 
 		startPyScreen();
     }
-    
+
 	private ServiceConnection connection = new ServiceConnection() {
 		@Override
-		public void onServiceConnected(ComponentName name, IBinder service) {		
-			//if (!CONF.DEBUG) 
+		public void onServiceConnected(ComponentName name, IBinder service) {
+			//if (!CONF.DEBUG)
 			Log.d(TAG, "onServiceConnected");
 			//binded = true;
 		}
 
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
-			//if (!CONF.DEBUG) 
+			//if (!CONF.DEBUG)
 			Log.d(TAG, "onServiceDisconnected");
 			//binded = false;
 		}
@@ -264,7 +264,7 @@ public class PythonActivity extends Activity implements Runnable {
         // Start showing an SDLSurfaceView.
         Hardware.view = mView;
         setContentView(mView);
-        
+
         // Force the background window color if asked
         /*if ( this.mInfo.metaData.containsKey("android.background_color") ) {
         	getWindow().getDecorView().setBackgroundColor(
@@ -272,7 +272,7 @@ public class PythonActivity extends Activity implements Runnable {
         }*/
 
     }
-    
+
     /**
      * Show an error using a toast. (Only makes sense from non-UI
      * threads.)
@@ -310,7 +310,7 @@ public class PythonActivity extends Activity implements Runnable {
      * the .apk is necessary. If it is, the zip file is unpacked.
      */
     public void unpackDataInPyAct(final String resource, File target) {
-    	
+
         // The version of data in memory and on disk.
         String data_version = resourceManager.getString(resource + "_version");
         String disk_version = "0";
@@ -378,7 +378,7 @@ public class PythonActivity extends Activity implements Runnable {
         	Log.d(TAG, "NO MEDIA EXTRACTED");
         }
     }
-    
+
     public static void loadLibrary(File libPath) {
         System.loadLibrary("sdl");
         System.loadLibrary("sdl_image");
@@ -410,7 +410,7 @@ public class PythonActivity extends Activity implements Runnable {
         } catch(UnsatisfiedLinkError e) {
         	Log.d("PythonActivity", "Exception occured when loading python modules:"+e.getLocalizedMessage());
         }
-        
+
         try {
             System.load(libPath + "/lib/python2.7/lib-dynload/_imaging.so");
             System.load(libPath + "/lib/python2.7/lib-dynload/_imagingft.so");
@@ -447,7 +447,7 @@ public class PythonActivity extends Activity implements Runnable {
             mView.onPause();
         }
     }
-    		
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -511,7 +511,7 @@ public class PythonActivity extends Activity implements Runnable {
 			mView = null;
 		}
 		//Log.i(TAG, "on destroy (exit1)");
-		
+
 		//this.finish();
 		// 发送通知给对应的activity
 		String code;
@@ -526,23 +526,23 @@ public class PythonActivity extends Activity implements Runnable {
 		if (!noexit.exists() && !code.contains("#qpy:noend")) {
 			Intent intent1 = new Intent(".MIndexAct");
 			sendBroadcast(intent1);
-			
+
 			Intent intent2 = new Intent(".UProfileAct");
 			sendBroadcast(intent2);
-			
+
 			updateNotification(mPath.toString());
 
 		} else {
 			updateNotification(mPath.toString());
 		}
-		
+
 		try{
 			super.onDestroy();
 		} catch (Exception e) {
-			
+
 		}
 	}
-    
+
     public static void start_service(String serviceTitle, String serviceDescription,
             String pythonServiceArgument) {
         Intent serviceIntent = new Intent(PythonActivity.mActivity, PythonService.class);
@@ -556,7 +556,7 @@ public class PythonActivity extends Activity implements Runnable {
         serviceIntent.putExtra("serviceDescription", serviceDescription);
         serviceIntent.putExtra("pythonServiceArgument", pythonServiceArgument);
         PythonActivity.mActivity.startService(serviceIntent);
-    } 
+    }
     public static void stop_service() {
         Intent serviceIntent = new Intent(PythonActivity.mActivity, PythonService.class);
         PythonActivity.mActivity.stopService(serviceIntent);
@@ -634,7 +634,7 @@ public class PythonActivity extends Activity implements Runnable {
     }
 
 
-////////////////    
+////////////////
     protected final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -642,8 +642,8 @@ public class PythonActivity extends Activity implements Runnable {
 			startPyScreen();
 		}
     };
-	
-	
+
+
 	protected void updateNotification(String scriptFile) {
 		String script = scriptFile.substring(scriptFile.lastIndexOf("/")+1);
 		String logFile = scriptFile+"/.run.log";

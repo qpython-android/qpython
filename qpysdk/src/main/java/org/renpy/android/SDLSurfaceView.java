@@ -357,7 +357,7 @@ public class SDLSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
     String mArgument = null;
     String mScript = null;
     String mDirectory = null;
-    
+
 
     // The resource manager we use.
     ResourceManager mResourceManager;
@@ -380,9 +380,9 @@ public class SDLSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
 
 	public SDLSurfaceView(PythonActivity act, String argument, String script, String directory) {
         super(act);
-        
+
         mScript = script;
-        
+
         SDLSurfaceView.instance = this;
 
         mActivity = act;
@@ -394,7 +394,7 @@ public class SDLSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
 
         mFilesDirectory = mActivity.getFilesDir().getAbsolutePath();
         mDirectory = directory;
-        
+
         mArgument = argument;
 
         PowerManager pm = (PowerManager) act.getSystemService(Context.POWER_SERVICE);
@@ -768,7 +768,7 @@ public class SDLSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
 
         //Log.i(TAG, "End of native init, stop everything (exit0)");
         mActivity.finish();
-        
+
         //System.exit(0);
     }
 
@@ -1228,10 +1228,10 @@ public class SDLSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
                     //send control sequence start /x04 == kayboard layout changed
                     nativeKey(45, 1, 4);
                     nativeKey(45, 0, 4);
-                    }    
+                    }
                 kHeight = heightDiff;
-                }    
-            }); 
+                }
+            });
         return new BaseInputConnection(this, false){
 
             private void deleteLastText(){
