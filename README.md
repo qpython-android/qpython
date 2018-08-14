@@ -13,7 +13,7 @@ What's NEW
 ------------------------
 QPython project include the QPython https://play.google.com/store/apps/details?id=org.qpython.qpy and QPython3 https://play.google.com/store/apps/details?id=org.qpython.qpy3 applications.
 
-QPython application is using the **Python 2.7.2** , and QPython application is using the  **Python 3.2.2** .
+QPython application is using the **Python 2.7.2** , and QPython3 application is using the **Python 3.2.2** .
 
 
 QPython's newest version is 1.3.0 (Released on 2017/3/20) , QPython3's newest version is 1.0.2 (Released on 2017/3/29), New versions include many amazing features, please upgrade to the newest version as soon from google play, amazon appstore etc.
