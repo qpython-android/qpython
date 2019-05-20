@@ -7,7 +7,6 @@ LOCAL_LDLIBS := \
 	-llog \
 
 LOCAL_SRC_FILES := \
-	Android.mk \
 	common.cpp \
 	fileCompat.cpp \
 	termExec.cpp \

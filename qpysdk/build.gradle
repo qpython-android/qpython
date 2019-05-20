@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -11,7 +10,7 @@ android {
         versionName "1.0"
 
         ndk {
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a'
         }
     }
     buildTypes {
@@ -25,6 +24,9 @@ android {
             path 'src/main/jni/Android.mk'
         }
 
+    }
+    lintOptions {
+      abortOnError false
     }
 }
 

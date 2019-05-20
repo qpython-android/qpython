@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -34,6 +33,9 @@ android {
 
     dataBinding {
         enabled = true
+    }
+    lintOptions {
+      abortOnError false
     }
 }
 

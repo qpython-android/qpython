@@ -1,11 +1,9 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'realm-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -16,7 +14,7 @@ android {
         versionName "1.0"
 
         ndk {
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a'
         }
 
         multiDexEnabled true
@@ -48,6 +46,9 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    lintOptions {
+      abortOnError false
+    }
 }
 
 
@@ -68,8 +69,8 @@ dependencies {
     //releaseCompile project(path: ':qpysl4a', configuration: 'libraryRelease')
 
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     compile rootProject.ext.libSupportDesign
     compile rootProject.ext.libSupportV7
@@ -83,7 +84,7 @@ dependencies {
     compile 'org.apmem.tools:layouts:1.9@aar'
     compile 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
     compile 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
-    compile('com.github.afollestad.material-dialogs:commons:0.8.5.6') { transitive = true }
+    compile('com.github.afollestad.material-dialogs:commons:0.8.5.7') { transitive = true }
     compile 'com.daimajia.numberprogressbar:library:1.2@aar'
     compile rootProject.ext.libRxJava
     compile rootProject.ext.libRxAndroid
