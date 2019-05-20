@@ -84,7 +84,7 @@ dependencies {
     compile 'org.apmem.tools:layouts:1.9@aar'
     compile 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
     compile 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
-    compile('com.github.afollestad.material-dialogs:commons:0.8.5.6') { transitive = true }
+    compile('com.github.afollestad.material-dialogs:commons:0.8.5.7') { transitive = true }
     compile 'com.daimajia.numberprogressbar:library:1.2@aar'
     compile rootProject.ext.libRxJava
     compile rootProject.ext.libRxAndroid
