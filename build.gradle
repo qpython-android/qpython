@@ -46,14 +46,13 @@ subprojects {
 }
 
 
-def supportVersion = "26.0.2"
+def supportVersion = "26.1.0"
 def rxVersion = "1.2.1"
 
 ext {
     minSdkVersion = 15
     targetSdkVersion = 26
     compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
 
     libSupportV7 = "com.android.support:appcompat-v7:${supportVersion}"
     libSupportV4 = "com.android.support:support-v4:${supportVersion}"
