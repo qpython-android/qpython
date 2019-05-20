@@ -5,3 +5,4 @@ build
 gradle
 .DS_Store
 *.pyc
+local.properties
