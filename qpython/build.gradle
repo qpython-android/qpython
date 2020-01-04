@@ -36,7 +36,7 @@ android {
         release {
             keyAlias 'zuowuxuxi'
             keyPassword 'myxiake1q'
-            storeFile file('zuowuxuxi.key')
+            storeFile file('qpython.key')
             storePassword 'myxiake1q'
             v1SigningEnabled true
             v2SigningEnabled false
