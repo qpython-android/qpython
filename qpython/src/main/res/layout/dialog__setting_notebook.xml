@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@color/colorPrimary"
+              android:orientation="vertical"
+              android:padding="14dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Enable QPyNotebook"
+        android:textColor="@color/theme_green"
+        android:textSize="18sp"/>
+
+    <CheckBox
+        android:id="@+id/notebook_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/notebook_checkbox"
+        android:buttonTint="@color/theme_green"
+        android:text="Install QPyNotebook Plugin"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+
+    <CheckBox
+        android:id="@+id/notebook_lib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:button="@drawable/notebook_checkbox"
+        android:buttonTint="@color/theme_green"
+        android:text="Install Related Libraries"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        />
+</LinearLayout>

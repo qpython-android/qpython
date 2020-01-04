@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/theme_bg"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/layout_toolbar"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_bg"
+            android:gravity="center"
+            android:padding="@dimen/default_margin"
+            android:textColor="#FFF"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/service_toggle"
+                android:textColor="#FFF"/>
+
+            <org.qpython.qpy.main.widget.ToggleView
+                android:id="@+id/tb_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                style="@style/param_hint"
+                android:text="@string/ftp_root"/>
+
+            <TextView
+                android:id="@+id/tv_path"
+                style="@style/param_text"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                style="@style/param_hint"
+                android:text="@string/port_hint"/>
+
+            <TextView
+                android:id="@+id/tv_port"
+                style="@style/param_text"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                style="@style/param_hint"
+                android:text="@string/ftp_account"/>
+
+            <TextView
+                android:id="@+id/tv_account"
+                style="@style/param_text"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+    </LinearLayout>
+</layout>

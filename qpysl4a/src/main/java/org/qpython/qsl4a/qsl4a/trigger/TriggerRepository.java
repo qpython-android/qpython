@@ -27,7 +27,7 @@ import com.google.common.collect.Multimaps;
 
 import org.qpython.qsl4a.codec.Base64Codec;
 import org.qpython.qsl4a.qsl4a.IntentBuilders;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -154,7 +154,7 @@ public class TriggerRepository {
       final ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
       return (Multimap<String, Trigger>) objectInputStream.readObject();
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
     return ArrayListMultimap.<String, Trigger> create();
   }
@@ -167,7 +167,7 @@ public class TriggerRepository {
       objectOutputStream.writeObject(triggers);
       return new String(Base64Codec.encodeBase64(outputStream.toByteArray()));
     } catch (IOException e) {
-      Log.e(e);
+      LogUtil.e(e);
       return null;
     }
   }

@@ -18,6 +18,7 @@
 #define _JACKPAL_PROCESS_H 1
 
 #include <stddef.h>
+#include <string.h>
 #include "jni.h"
 #include <android/log.h>
 

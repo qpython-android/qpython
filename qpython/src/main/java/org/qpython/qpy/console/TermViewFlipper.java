@@ -16,10 +16,12 @@ package org.qpython.qpy.console;/*
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
@@ -39,27 +41,27 @@ import jackpal.androidterm.emulatorview.compat.AndroidCompat;
 
 
 public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
-    private Context context;
-    private Toast mToast;
+    private Context                    context;
+    private Toast                      mToast;
     private LinkedList<UpdateCallback> callbacks;
     private boolean mStatusBarVisible = false;
 
     private int mCurWidth;
     private int mCurHeight;
-    private Rect mVisibleRect = new Rect();
-    private Rect mWindowRect = new Rect();
+    private Rect         mVisibleRect = new Rect();
+    private Rect         mWindowRect  = new Rect();
     private LayoutParams mChildParams = null;
-    private boolean mRedoLayout = false;
+    private boolean      mRedoLayout  = false;
 
     /**
      * True if we must poll to discover if the view has changed size.
      * This is the only known way to detect the view changing size due to
      * the IME being shown or hidden in API level <= 7.
      */
-    private final boolean mbPollForWindowSizeChange = (AndroidCompat.SDK < 8);
-    private static final int SCREEN_CHECK_PERIOD = 1000;
-    private final Handler mHandler = new Handler();
-    private Runnable mCheckSize = new Runnable() {
+    private final        boolean  mbPollForWindowSizeChange = (AndroidCompat.SDK < 8);
+    private static final int      SCREEN_CHECK_PERIOD       = 1000;
+    private final        Handler  mHandler                  = new Handler();
+    private              Runnable mCheckSize                = new Runnable() {
         public void run() {
             adjustChildSize();
             mHandler.postDelayed(this, SCREEN_CHECK_PERIOD);
@@ -177,13 +179,13 @@ public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
             title = ((GenericTermSession) session).getTitle(title);
         }
 
-        if (mToast == null) {
-            mToast = Toast.makeText(context, title, Toast.LENGTH_SHORT);
-            mToast.setGravity(Gravity.CENTER, 0, 0);
-        } else {
-            mToast.setText(title);
-        }
-        mToast.show();
+//        if (mToast == null) {
+//            mToast = Toast.makeText(context, title, Toast.LENGTH_SHORT);
+//            mToast.setGravity(Gravity.CENTER, 0, 0);
+//        } else {
+//            mToast.setText(title);
+//        }
+//        mToast.show();
     }
 
     @Override
@@ -257,7 +259,13 @@ public class TermViewFlipper extends ViewFlipper implements Iterable<View> {
         /* XXX This breaks with a split action bar, but if we don't do this,
            it's possible that the view won't resize correctly on IME hide */
         visible.right = window.right;
-        visible.bottom = window.bottom;
+        visible.bottom = (int) (window.bottom - getShortcutMenu());
+    }
+
+    private float getShortcutMenu() {
+        Resources r = Resources.getSystem();
+        // 45 means shortcutMenu's dimension
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 45, r.getDisplayMetrics());
     }
 
     private void adjustChildSize() {

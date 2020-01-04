@@ -2,7 +2,7 @@ package org.qpython.qsl4a.codec;
 
 
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -54,7 +54,7 @@ public class StreamGobbler extends InputStream {
 						write_pos += avail;
 
 						int space_available = buffer.length - write_pos;
-						Log.e("space_available:" + buffer.length + "-" + write_pos);
+						LogUtil.e("space_available:" + buffer.length + "-" + write_pos);
 
 						if (space_available == 0) {
 							if (read_pos > 0) {
@@ -64,14 +64,14 @@ public class StreamGobbler extends InputStream {
 								write_pos -= read_pos;
 								read_pos = 0;
 
-								Log.e("read_pos > 0:" + buffer);
+								LogUtil.e("read_pos > 0:" + buffer);
 
 							}
 							else {
 								write_pos = 0;
 								saveBuffer = buffer;
 
-								Log.e("read_pos <=0 :" + buffer);
+								LogUtil.e("read_pos <=0 :" + buffer);
 
 							}
 						}
@@ -137,7 +137,7 @@ public class StreamGobbler extends InputStream {
 
 						synchronizer.notifyAll();
 						writeToFile(s_buffer);
-						// Log.e("OUTPUT:"+String.valueOf(s_buffer));
+						// LogUtil.e("OUTPUT:"+String.valueOf(s_buffer));
 					}
 
 				}
@@ -182,7 +182,7 @@ public class StreamGobbler extends InputStream {
 			out = new FileOutputStream(log, false);
 		}
 		catch (IOException e) {
-			Log.e(e);
+			LogUtil.e(e);
 		}
 		mLogStream = out;
 		buffer = new byte[mBufferSize];
@@ -198,7 +198,7 @@ public class StreamGobbler extends InputStream {
 				mLogStream.write(buffer);
 			}
 			catch (IOException e) {
-				Log.e(e);
+				LogUtil.e(e);
 			}
 		}
 	}

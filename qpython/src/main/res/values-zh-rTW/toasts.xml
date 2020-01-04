@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toast_recent_files_invalid">文件不存在</string>
+<string name="toast_recent_files_deleted">文件已經從最近編輯中移除</string>
+</resources>

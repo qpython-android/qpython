@@ -49,7 +49,7 @@ import android.view.SurfaceHolder.Callback;
 
 import org.qpython.qsl4a.QSL4APP;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.SingleThreadExecutor;
 import org.qpython.qsl4a.qsl4a.SimpleServer.SimpleServerObserver;
 
@@ -208,7 +208,7 @@ private byte[] compressYuvToJpeg(final byte[] yuvData) {
         try {
           mJpegDataReady.await();
         } catch (InterruptedException e) {
-          Log.e(e);
+          LogUtil.e(e);
         }
         return mJpegData;
       }
@@ -257,7 +257,7 @@ private byte[] compressYuvToJpeg(final byte[] yuvData) {
     mCamera = Camera.open();
     mParameters = mCamera.getParameters();
     mParameters.setPictureFormat(ImageFormat.JPEG);
-    mParameters.setPreviewFormat(ImageFormat.JPEG);
+    mParameters.setPreviewFormat(ImageFormat.NV21);
     List<Size> supportedPreviewSizes = mParameters.getSupportedPreviewSizes();
     Collections.sort(supportedPreviewSizes, new Comparator<Size>() {
       @Override
@@ -359,7 +359,7 @@ private byte[] compressYuvToJpeg(final byte[] yuvData) {
     try {
       openCamera(resolutionLevel, jpegQuality);
     } catch (IOException e) {
-      Log.e(e);
+      LogUtil.e(e);
       return false;
     }
     startPreview();

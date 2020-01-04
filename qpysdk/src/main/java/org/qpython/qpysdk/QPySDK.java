@@ -6,8 +6,10 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.qpython.qpysdk.utils.AssetExtract;
+import org.qpython.qpysdk.utils.FileExtract;
 import org.qpython.qpysdk.utils.FileUtils;
 import org.qpython.qpysdk.utils.ResourceManager;
 import org.qpython.qpysdk.utils.StreamGobbler;
@@ -15,6 +17,7 @@ import org.qpython.qpysdk.utils.StreamGobbler;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,18 +32,16 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class QPySDK {
 
-    private final String TAG = "QPySDK";
-    private ResourceManager resourceManager;
-
-    Context context;
+    private static final int    PID_INIT_VALUE      = -1;
+    private static final int    DEFAULT_BUFFER_SIZE = 8192;
+    private final        String TAG                 = "QPySDK";
+    Context  context;
     Activity activity;
-
     ArrayList<String> mArguments = new ArrayList<String>();
-    private static final int PID_INIT_VALUE = -1;
-    private static final int DEFAULT_BUFFER_SIZE = 8192;
-    InputStream mIn;
-    OutputStream mOut;
+    InputStream    mIn;
+    OutputStream   mOut;
     FileDescriptor mFd;
+    private ResourceManager resourceManager;
 
     public QPySDK(Context con, Activity act) {
         resourceManager = new ResourceManager(act);
@@ -48,18 +49,23 @@ public class QPySDK {
         context = con;
     }
 
-    void _recursiveDelete(File f) {
-        if (f.isDirectory()) {
-            if (f.listFiles()!=null) {
-                for (File r : f.listFiles()) {
-                    _recursiveDelete(r);
+    public static void  recursiveDelete(String path) {
+        _recursiveDelete(new File(path));
+    }
+    static void _recursiveDelete(File f) {
+        if (f.exists()) {
+            if (f.isDirectory()) {
+                if (f.listFiles() != null) {
+                    for (File r : f.listFiles()) {
+                        if (!f.getName().equals(".") && !f.getName().equals("..")) {
+                            _recursiveDelete(r);
+                        }
+                    }
                 }
             }
+            f.delete();
         }
-        f.delete();
     }
-
-
 
 
     public void runPyService() {
@@ -88,11 +94,10 @@ public class QPySDK {
         mArguments.add(script);
         String[] argumentsArray = mArguments.toArray(new String[mArguments.size()]);
 
-        final File mLog = new File(String.format("%s", Environment.getExternalStorageDirectory() + "/.qpysdk.run.log"));
+        final File mLog = new File(String.format("%s", QPyConstants.ABSOLUTE_LOG));
         File logDir = mLog.getParentFile();
 
-        mFd = com.googlecode.android_scripting.Exec.createSubprocess(binaryPath, argumentsArray, getEnvironmentArray(f.getParentFile() + ""), Environment.getExternalStorageDirectory() + "/", pid);
-        //Log.d("QPY", "binaryPath:"+binaryPath+"-argumentsArray:"+argumentsArray+"-getEnvironmentArray:"+getEnvironmentArray()+"-getWorkingDirectory:"+getWorkingDirectory()+"-pid:"+pid);
+        mFd = Exec.createSubprocess(binaryPath, argumentsArray, getEnvironmentArray(f.getParentFile() + ""), Environment.getExternalStorageDirectory() + "/", pid);
         final AtomicInteger mPid = new AtomicInteger(PID_INIT_VALUE);
 
         mPid.set(pid[0]);
@@ -103,7 +108,7 @@ public class QPySDK {
 
         new Thread(new Runnable() {
             public void run() {
-                int returnValue = com.googlecode.android_scripting.Exec.waitFor(mPid.get());
+                int returnValue = Exec.waitFor(mPid.get());
                 //long mEndTime = System.currentTimeMillis();
                 int pid = mPid.getAndSet(PID_INIT_VALUE);
                 Log.d("", "out:" + mFd.out.toString());
@@ -153,7 +158,6 @@ public class QPySDK {
                 + filesDir + "/lib/python2.7/lib-dynload/:"
                 + pyPath);
 
-
         //environmentVariables.add("PYTHONSTARTUP=" + externalStorage + "/lib/python2.7/site-packages/qpythoninit.py");
         environmentVariables.add("PYTHONOPTIMIZE=2");
 
@@ -164,7 +168,6 @@ public class QPySDK {
         if (!td.exists()) {
             td.mkdirs();
         }
-
 
         environmentVariables.add("ANDROID_PUBLIC=" + externalStorage);
         environmentVariables.add("ANDROID_PRIVATE=" + this.context.getFilesDir().getAbsolutePath());
@@ -178,12 +181,116 @@ public class QPySDK {
         return environment;
     }
 
+    public void extractRes(File file, File target, boolean forceExtrac) {
+        String fileName = file.getName().startsWith(".") ? file.getName().substring(1, file.getName().length()) : file.getName();
+        fileName = fileName.substring(0, !file.getName().contains(".") ? file.getName().length() : file.getName().indexOf("."));
+
+        String data_version = resourceManager.getString(fileName + "_version");
+        if (data_version==null) {
+            data_version = "0";
+        }
+        String disk_version = "0";
+
+        Log.d(TAG, "extractRes:"+fileName+"["+data_version+"]"+"["+disk_version+"]");
+
+        String disk_version_fn = target.getAbsolutePath() + "/" + fileName + ".version";
+        try {
+            byte buf[] = new byte[64];
+            InputStream is = new FileInputStream(disk_version_fn);
+            int len = is.read(buf);
+            disk_version = new String(buf, 0, len);
+            is.close();
+        } catch (FileNotFoundException e) {
+            disk_version = "0";
+        } catch (IOException e) {
+            disk_version = "0";
+        }
+
+        if ((int) (Double.parseDouble(data_version) - Double.parseDouble(disk_version)) > 0 || disk_version.equals("0") || forceExtrac) {
+            target.mkdirs();
+            if (!new FileExtract().extractTar(file, target.getAbsolutePath())) {
+                Toast.makeText(this.context, "Could not extract " + fileName + " data.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        chmodX();
+    }
+
+    public void extractRes(final String resource, File target, boolean force) {
+        // The version of data in memory and on disk.
+        String data_version = resourceManager.getString(resource + "_version");
+        String disk_version = "0";
+
+        //LogUtil.d(TAG, "data_version:"+data_version+"-"+resource + "_version"+"-"+resourceManager);
+        // If no version, no unpacking is necessary.
+        if (data_version == null) {
+            return;
+        }
+
+        // Check the current disk version, if any.
+        String filesDir = target.getAbsolutePath();
+        String disk_version_fn = filesDir + "/" + resource + ".version";
+
+        try {
+            byte buf[] = new byte[64];
+            InputStream is = new FileInputStream(disk_version_fn);
+            int len = is.read(buf);
+            disk_version = new String(buf, 0, len);
+            is.close();
+        } catch (Exception e) {
+            disk_version = "0";
+        }
+
+
+        //LogUtil.d(TAG, "data_version:"+Math.round(Double.parseDouble(data_version))+"-disk_version:"+Math.round(Double.parseDouble(disk_version))+"-RET:"+(int)(Double.parseDouble(data_version)-Double.parseDouble(disk_version)));
+        if (((int) (Double.parseDouble(data_version) - Double.parseDouble(disk_version)) > 0 || disk_version.equals("0"))
+                || force) {
+            Log.v(TAG, "Extracting " + resource + " assets.");
+
+            //recursiveDelete(target);
+            target.mkdirs();
+
+            AssetExtract ae = new AssetExtract(this.activity);
+            boolean ret = ae.extractTar(resource + ".mp3", target.getAbsolutePath());
+            if (!ret) {
+                //Toast.makeText(this.context, "Could not extract " + resource + " data, please reinstall and make sure your device have enough space", Toast.LENGTH_SHORT).show();
+            } else {
+
+                try {
+                /*if (resource.equals("private")) {
+                    Toast.makeText(getApplicationContext(), R.string.first_load, Toast.LENGTH_SHORT).show();
+            	}*/
+                    // Write .nomedia.
+                    new File(target, ".nomedia").createNewFile();
+
+                    // Write version file.
+                    FileOutputStream os = new FileOutputStream(disk_version_fn);
+                    os.write(data_version.getBytes());
+                    os.close();
+                } catch (Exception e) {
+                    Log.w("python", e);
+                    Toast.makeText(this.context, "Could not extract " + resource + " data, make sure your device have enough space.", Toast.LENGTH_LONG);
+                }
+            }
+        } else {
+            Log.d(TAG, "NO EXTRACT");
+
+        }
+        if (resource.startsWith("private")) {
+            chmodX();
+        }
+    }
 
     public void extractRes(final String resource, File target) {
+        extractRes( resource, target, false);
+    }
+
+
+    public void extractRes2(final String resource, File target) {
         Log.d(TAG, "extractRes:" + target);
         // The version of data in memory and on disk.
         String data_version = resourceManager.getString(resource + "_version");
-        String disk_version = null;
+        String disk_version;
 
         // If no version, no unpacking is necessary.
         if (data_version == null) {
@@ -209,12 +316,13 @@ public class QPySDK {
         if (!data_version.equals(disk_version)) {
             Log.v("python", "Extracting " + resource + " assets.");
 
-            _recursiveDelete(target);
+            //_recursiveDelete(target);
             target.mkdirs();
 
             AssetExtract ae = new AssetExtract(activity);
             if (!ae.extractTar(resource + ".mp3", target.getAbsolutePath())) {
                 //toastError("Could not extract " + resource + " data.");
+//            if (!ae.copyFromAssetsToInternalStorage(resource + ".zip")) {
             } else {
 
                 try {
@@ -230,20 +338,26 @@ public class QPySDK {
             }
         }
 
-        if (resource.startsWith("private")) {
-            File bind = new File(this.context.getFilesDir() + "/bin");
-            if (bind.listFiles() != null) {
-                for (File bin : bind.listFiles()) {
-                    try {
-                        //Log.d(TAG, "chmod:"+bin.getAbsolutePath());
+        if (resource.startsWith("private"))
 
-                        FileUtils.chmod(bin, 0755);
-                    } catch (Exception e1) {
-                        e1.printStackTrace();
-                    }
+        {
+            chmodX();
+        }
+
+    }
+
+    private void chmodX () {
+        File bind = new File(this.context.getFilesDir() + "/bin");
+        if (bind.listFiles() != null) {
+            for (File bin : bind.listFiles()) {
+                try {
+                    //LogUtil.d(TAG, "chmod:"+bin.getAbsolutePath());
+
+                    FileUtils.chmod(bin, 0755);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         }
-
     }
 }

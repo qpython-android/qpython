@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<resources>
+    <string-array name="entries_statusbar_preference">
+        <item>ステータスバーを表示</item>
+        <item>ステータスバーを隠す</item>
+    </string-array>
+
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>アクションバーを表示</item>
+        <item>アクションバーを隠す(画面の上部かメニューボタンを押すと再表示)</item>
+    </string-array>
+
+    <string-array name="entries_orientation_preference">
+        <item>自動</item>
+        <item>水平</item>
+        <item>垂直</item>
+    </string-array>
+
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8px</item>
+        <item>6 pt</item>
+        <item>7 pt</item>
+        <item>8 pt</item>
+        <item>9 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>20 pt</item>
+        <item>24 pt</item>
+        <item>28 pt</item>
+        <item>32 pt</item>
+        <item>36 pt</item>
+        <item>42 pt</item>
+        <item>48 pt</item>
+        <item>64 pt</item>
+        <item>72 pt</item>
+        <item>96 pt</item>
+        <item>144 pt</item>
+        <item>288 pt</item>
+    </string-array>
+
+    <string-array name="entries_color_preference">
+        <item>白の背景・黒の文字</item>
+        <item>黒の背景・白の文字</item>
+        <item>青の背景・白の文字</item>
+        <item>黒の背景・緑の文字</item>
+        <item>黒の背景・黄の文字</item>
+        <item>黒の背景・赤の文字</item>
+        <item>ホログラム</item>
+        <item>高露光</item>
+        <item>低露光</item>
+        <item>Linuxスタイル</item>
+    </string-array>
+
+    <string-array name="entries_backaction_preference">
+        <item>すべてのウィンドウを閉じる</item>
+        <item>現在のウィンドウを閉じる</item>
+        <item>セッションを維持したまま現在のウィンドウを閉じる</item>
+        <item>ESCをコンソールに送る</item>
+        <item>TABをコンソールに送る</item>
+    </string-array>
+
+    <string-array name="entries_controlkey_preference">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>音量上げボタン</item>
+        <item>音量下げボタン</item>
+        <item>カメラボタン</item>
+        <item>無し</item>
+    </string-array>
+
+    <string-array name="entries_fnkey_preference">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>音量上げボタン</item>
+        <item>音量下げボタン</item>
+        <item>カメラボタン</item>
+        <item>無し</item>
+    </string-array>
+
+    <string-array name="entries_ime_preference">
+        <item>文字</item>
+        <item>単語</item>
+    </string-array>
+
+
+    <!-- These are the 'short' names for the control keys. They are used in the special keys dialog. -->
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>音量上げボタン</item>
+        <item>音量下げボタン</item>
+        <item>カメラボタン</item>
+        <item>無し</item>
+    </string-array>
+
+    <!-- These are the 'short' names for the Fn keys. They are used in the special keys dialog. -->
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>左Alt</item>
+        <item>右Alt</item>
+        <item>音量上げボタン</item>
+        <item>音量下げボタン</item>
+        <item>カメラボタン</item>
+        <item>無し</item>
+    </string-array>
+
+
+    <!-- Color themes -->
+
+
+    <string-array name="color_theme_names">
+        <item>クラシック</item>
+        <item>ダーク</item>
+        <item>マトリクス</item>
+        <item>スカイ</item>
+        <item>ドラキュラ</item>
+    </string-array>
+
+</resources>

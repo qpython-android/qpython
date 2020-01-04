@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        >
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageView
+                android:id="@+id/user_avatar_iv"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/empty"/>
+
+            <TextView
+                android:id="@+id/user_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/user_avatar_iv"
+                android:text="JACK"
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/commit_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/user_avatar_iv"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/user_avatar_iv"
+                android:text="1h ago"
+                />
+
+            <TextView
+                android:id="@+id/comment_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/commit_time_tv"
+                android:layout_below="@+id/commit_time_tv"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Re @jack: hello world"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/reply_content_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="250dp"
+                android:padding="@dimen/default_margin"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:text="Hello world Hello world Hello world Hello world Hello world Hello world"
+                android:layout_alignLeft="@+id/comment_content_tv"
+                android:layout_below="@+id/comment_content_tv"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+</layout>

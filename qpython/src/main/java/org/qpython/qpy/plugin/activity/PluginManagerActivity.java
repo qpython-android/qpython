@@ -14,21 +14,12 @@ import org.qpython.qpy.R;
 
 import org.qpython.qpy.plugin.adapter.PluginPagerAdapter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class PluginManagerActivity extends AppCompatActivity {
 
-    private Unbinder mUnbinder;
-
-    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
-    @BindView(R.id.tab_layout)
     TabLayout mTabLayout;
 
-    @BindView(R.id.view_pager)
     ViewPager mViewPager;
 
     public static void start(Context context) {
@@ -40,7 +31,10 @@ public class PluginManagerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plugin_manager);
-        mUnbinder = ButterKnife.bind(this);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationOnClickListener(v -> finish());
     }
@@ -56,6 +50,5 @@ public class PluginManagerActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnbinder.unbind();
     }
 }

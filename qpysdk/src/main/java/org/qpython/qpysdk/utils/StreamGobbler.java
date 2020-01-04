@@ -52,7 +52,7 @@ public class StreamGobbler extends InputStream {
 						write_pos += avail;
 
 						int space_available = buffer.length - write_pos;
-						Log.e("space_available:" + buffer.length + "-" + write_pos);
+						LogUtil.e("space_available:" + buffer.length + "-" + write_pos);
 
 						if (space_available == 0) {
 							if (read_pos > 0) {
@@ -62,14 +62,14 @@ public class StreamGobbler extends InputStream {
 								write_pos -= read_pos;
 								read_pos = 0;
 
-								Log.e("read_pos > 0:" + buffer);
+								LogUtil.e("read_pos > 0:" + buffer);
 
 							}
 							else {
 								write_pos = 0;
 								saveBuffer = buffer;
 
-								Log.e("read_pos <=0 :" + buffer);
+								LogUtil.e("read_pos <=0 :" + buffer);
 
 							}
 						}
@@ -135,7 +135,7 @@ public class StreamGobbler extends InputStream {
 
 						synchronizer.notifyAll();
 						writeToFile(s_buffer);
-						// Log.e("OUTPUT:"+String.valueOf(s_buffer));
+						// LogUtil.e("OUTPUT:"+String.valueOf(s_buffer));
 					}
 
 				}

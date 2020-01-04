@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="47dp"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="5dp"/>

@@ -17,31 +17,31 @@ android {
         }
     }
 
-
-    defaultPublishConfig 'release'
-    publishNonDefault true
-    flavorDimensions "color"
-    productFlavors {
-        library {
-            /* This strange empty flavour is actually needed
-               for the below to be successful
-    debugCompile project(path: ':common', configuration: "libraryDebug")
-    releaseCompile project(path: ':common', configuration: "libraryRelease")
-           */
-        }
-    }
-
+//    defaultPublishConfig 'release'
+//    publishNonDefault true
+//    productFlavors {
+//        library {
+//            /* This strange empty flavour is actually needed
+//               for the below to be successful
+//    debugCompile project(path: ':common', configuration: "libraryDebug")
+//    releaseCompile project(path: ':common', configuration: "libraryRelease")
+//           */
+//        }
+//    }
 
     dataBinding {
         enabled = true
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile rootProject.ext.libSupportDesign
-    compile rootProject.ext.libSupportV7
-
-    compile rootProject.ext.libGuava
+    api rootProject.ext.libSupportDesign
+    //api rootProject.ext.libSupportV7
+    api rootProject.ext.libGoogleGuava
+    compile project(path: ':qbaselib')
 }
+

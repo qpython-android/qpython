@@ -27,7 +27,7 @@ import android.view.WindowManager;
 
 import org.qpython.qsl4a.QSL4APP;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 import java.lang.reflect.Method;
 
@@ -220,7 +220,7 @@ public class SettingsFacade extends RpcReceiver {
       Method isScreenOn = powerManagerClass.getMethod("isScreenOn");
       result = (Boolean) isScreenOn.invoke(mPower);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
       throw new UnsupportedOperationException("This feature is only available after Eclair.");
     }
     return result;

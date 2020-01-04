@@ -42,6 +42,25 @@ public class Updater {
         Updater.downloader = new DefaultDownloader(app.getApplicationContext());
     }
 
+    // download service
+    public static void downloadAs(String file, String url, String savePath) {
+        Updater.downloader.download(file, url, savePath,  new Downloader.Callback() {
+            @Override
+            public void pending(String name) {
+
+            }
+
+            @Override
+            public void complete(String name, File installer) {
+            }
+
+            @Override
+            public void error(String err) {
+
+            }
+        });
+    }
+    // update servivce
     public static void checkUpdate(final CheckUpdateCallback callback) {
         Observable
                 .create(new Observable.OnSubscribe<String>() {
@@ -123,8 +142,18 @@ public class Updater {
         downloader.download(pkg.getName(), pkg.getDownloadUrl(),
                 new Downloader.Callback() {
                     @Override
+                    public void pending(String name) {
+
+                    }
+
+                    @Override
                     public void complete(String name, File installer) {
                         pkg.install(installer);
+                    }
+
+                    @Override
+                    public void error(String err) {
+
                     }
                 });
     }

@@ -28,7 +28,7 @@ public class WifiFacade extends RpcReceiver {
   public WifiFacade(FacadeManager manager) {
     super(manager);
     mService = manager.getService();
-    mWifi = (WifiManager) mService.getSystemService(Context.WIFI_SERVICE);
+    mWifi = (WifiManager) mService.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     mLock = null;
   }
 

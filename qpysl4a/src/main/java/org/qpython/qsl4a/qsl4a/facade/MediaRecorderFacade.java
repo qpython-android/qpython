@@ -28,7 +28,7 @@ import android.view.WindowManager;
 
 import org.qpython.qsl4a.QSL4APP;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 
 import java.io.File;
@@ -95,7 +95,7 @@ public class MediaRecorderFacade extends RpcReceiver {
       Field source = Class.forName("android.media.MediaRecorder$AudioSource").getField("CAMCORDER");
       source.getInt(null);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
     int xSize;
     int ySize;
@@ -179,7 +179,7 @@ public class MediaRecorderFacade extends RpcReceiver {
             Class.forName("android.media.MediaRecorder$AudioSource").getField("CAMCORDER");
         audioSource = source.getInt(null);
       } catch (Exception e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
       mMediaRecorder.setAudioSource(audioSource);
       mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);

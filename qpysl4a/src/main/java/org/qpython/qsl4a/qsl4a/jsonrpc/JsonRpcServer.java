@@ -16,7 +16,7 @@
 
 package org.qpython.qsl4a.qsl4a.jsonrpc;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.SimpleServer;
 import org.qpython.qsl4a.qsl4a.rpc.MethodDescriptor;
 import org.qpython.qsl4a.qsl4a.rpc.RpcError;
@@ -71,7 +71,7 @@ public class JsonRpcServer extends SimpleServer {
     boolean passedAuthentication = false;
     String data;
     while ((data = reader.readLine()) != null) {
-      Log.v("Received: " + data);
+      LogUtil.v("Received: " + data);
       JSONObject request = new JSONObject(data);
       int id = request.getInt("id");
       String method = request.getString("method");
@@ -92,13 +92,13 @@ public class JsonRpcServer extends SimpleServer {
 
       MethodDescriptor rpc = receiverManager.getMethodDescriptor(method);
       if (rpc == null) {
-        send(writer, JsonRpcResult.error(id, new RpcError("Unknown RPC.")));
+        send(writer, JsonRpcResult.error(id, new RpcError("Unknown RPC:"+method)));
         continue;
       }
       try {
         send(writer, JsonRpcResult.result(id, rpc.invoke(receiverManager, params)));
       } catch (Throwable t) {
-        Log.e("Invocation error.", t);
+        LogUtil.e("Invocation error.", t);
         send(writer, JsonRpcResult.error(id, t));
       }
     }
@@ -114,6 +114,6 @@ public class JsonRpcServer extends SimpleServer {
   private void send(PrintWriter writer, JSONObject result) {
     writer.write(result + "\n");
     writer.flush();
-    Log.v("Sent: " + result);
+    LogUtil.v("Sent: " + result);
   }
 }

@@ -15,8 +15,101 @@
 */
 -->
 
-<org.qpython.qpy.console.TermViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/view_flipper"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@android:color/black" />
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FF4A4A4A"
+            android:elevation="2dp"
+            app:popupTheme="@style/DefaultBlueToolbar"
+            app:theme="@style/ToolbarTheme">
+
+            <Spinner
+                android:id="@+id/spinner_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--android:layout_above="@+id/bottom_layout"-->
+
+    <org.qpython.qpy.console.TermViewFlipper
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_flipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_below="@id/toolbar_layout"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/shortcut_height"
+        android:layout_alignParentBottom="true"
+        android:background="#FFE8E8E8"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/switch_notebook_img"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:src="@drawable/ic_notebook"
+            android:layout_gravity="center_vertical"
+            android:padding="6dp"
+            android:visibility="gone"
+            />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#FFD5D5D5"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:id="@+id/notebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/default_margin"
+            android:background="@color/transparency"
+            android:src="@drawable/ic_terminal"
+            />
+
+        <HorizontalScrollView
+            android:id="@+id/hs_shortcut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFE8E8E8"
+            android:baselineAligned="false"
+            android:fadingEdgeLength="30dp"
+            android:requiresFadingEdge="horizontal">
+
+            <jackpal.androidterm.emulatorview.TermShortcutLayout
+                android:id="@+id/term_shortcut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"/>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

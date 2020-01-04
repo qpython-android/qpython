@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- EN -->
+    <!--  -->
+    <string name="release18" translatable="false">1.8 (10 nov 2012)</string>
+    <string name="release18_log" translatable="false">"- Bug fixed : current file / last loaded file
+- Updated notification system
+- Possibility to modify the text font used by the editor (You can use any ttf font located on your device's internal and/or external storage)"</string>
+
+    <!--  -->
+    <string name="release17" translatable="false">1.7 (16 july 2012)</string>
+    <string name="release17_log" translatable="false">"- Bug fixed : Save/Save As crash on some phone
+- Added option to disable autosave on existing files"</string>
+
+    <!--  -->
+    <string name="release16" translatable="false">1.6 (9 july 2012)</string>
+    <string name="release16_log" translatable="false">"- Added the Auto Save feature
+- fixed the bug with Search case "</string>
+
+    <!--  -->
+    <string name="release15" translatable="false">1.5 (21 june 2012)</string>
+    <string name="release15_log" translatable="false">"- Adapted for Ice Cream Sandwich
+- Improved the Undo option (bugs with suggestions) 
+- Added a Home Screen Widgets (shortcut to favorite files)
+- Added option to open a file by default when starting Ted
+- New Graphics (all made by myself ^^)"</string>
+
+    <!--  -->
+    <string name="release13" translatable="false">1.3 (5 may 2012)</string>
+    <string name="release13_log" translatable="false">"- Added an undo option (check the settings)
+- Added some performance tweaks"</string>
+
+    <!--  -->
+    <string name="release12" translatable="false">1.2 (18 apr. 2012)</string>
+    <string name="release12_log" translatable="false">"- Fixed the scroll bug since last update
+- fixed the fling options in the settings (option was always active)"</string>
+
+    <!--  -->
+    <string name="release11" translatable="false">1.1 (10 apr. 2012)</string>
+    <string name="release11_log" translatable="false">"- Fixed the crash at start caused by the last update
+- Added Fling to Scroll (launches the scroll to navigate in large files)
+- Display the active line
+- Added new color theme (ask for more if needed)"</string>
+    <string name="release1" translatable="false">1.0 (27 feb. 2012)</string>
+    <string name="release1_log" translatable="false">"- Brand new release version
+- Supports multiple encoding (including UTF-8)
+- Prevent data loss when saving really big files (note that Ted is not meant to open big files though)
+- Added new color theme (ask for more if needed)
+- Replaced the autosave with a warning and popup (prevent saving unwanted changes)"</string>
+    <string name="beta9" translatable="false">βetα 0.9 (7 jan. 2010)</string>
+    <string name="beta9_log" translatable="false">"- Bug fixed : severall crash on start
+- Added a search tool
+- Ted is listed when opening html, rss, css, php and xml files from any file browser (ask for other types if needed)"</string>
+    <string name="beta8" translatable="false">βetα 0.8 (23 dec. 2010)</string>
+    <string name="beta8_log" translatable="false">"- Automatic save can be disabled in the settings"</string>
+    <string name="beta7" translatable="false">βetα 0.7 (19 dec. 2010)</string>
+    <string name="beta7_log" translatable="false">"- App can be installed on the SD Card (on Android 2.2)
+- Automatic detection of end of line in opened files, possibility to define a default end of line for new files 
+- Bigger dialog boxes
+- Bug fixed when openning big files"</string>
+    <string name="beta6" translatable="false">βetα 0.6 (8 dec. 2010)</string>
+    <string name="beta6_log" translatable="false">"- Possibility to change text size in the settings.
+- Possibility to open read-only text files from other location than the SD card 
+- Added a backup function for unsaved text "</string>
+    <string name="beta5" translatable="false">βetα 0.5 (29 nov. 2010)</string>
+    <string name="beta5_log" translatable="false">"- Bug fixed while opening some files
+- New Graphics"</string>
+    <string name="beta4" translatable="false">βetα 0.4 (27 nov. 2010)</string>
+    <string name="beta4_log" translatable="false">"- Remembers the files opened recently (number of recent files can be changed)
+- display lines numbers (can be changed in the settings)
+- automatically break lines to keep a width of one page (can be changed in the settings)"</string>
+    <string name="beta3" translatable="false">βetα 0.3 (25 nov. 2010)</string>
+    <string name="beta3_log" translatable="false">"- Bug fixed : crash when trying to open online files"</string>
+    <string name="beta2" translatable="false">βetα 0.2 (13 nov. 2010)</string>
+    <string name="beta2_log" translatable="false">"- Open existing files - Save and save as"</string>
+
+</resources>

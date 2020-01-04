@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toast_recent_files_invalid">"ファイルが見つかりませんでした。最近使ったファイルの項目から削除します。"</string>
+    <string name="toast_recent_files_deleted">最近使ったファイルの項目から削除しました。</string>
+    <string name="toast_intent_invalid_uri">ファイルが開けません。URIが不正です。</string>
+    <string name="toast_intent_illegal">ファイルが開けません。</string>
+    <string name="toast_activity_open">ファイルブラウザを読み込めません。</string>
+    <string name="toast_memory_open">メモリ不足のため、ファイルが開けません。</string>
+    <string name="toast_open_error">ファイルが開けません。 (ファイルが大きすぎるか、破損しています)</string>
+    <string name="toast_save_null">パスがnullのため、保存できません。</string>
+    <string name="toast_save_temp">一時ファイルに保存することはできません。</string>
+    <string name="toast_save_delete">保存できません (一時ファイルのコピーでエラーが発生しました。)</string>
+    <string name="toast_save_rename">保存できません (一時ファイルのコピーでエラーが発生しました。)</string>
+    <string name="toast_save_success">保存しました。</string>
+    <string name="toast_folder_cant_write">"このフォルダは書き込み可能ではないため使用できません。"</string>
+    <string name="toast_file_cant_read">"このファイルは読み取り可能ではないため使用できません。"</string>
+    <string name="toast_search_not_found">ファイルが見つかりませんでした。</string>
+    <string name="toast_search_eof">これ以上ファイルが見つかりませんでした。</string>
+    <string name="toast_search_no_input">検索バーに入力すると検索できます。</string>
+    <string name="toast_filename_empty">ファイル名を空にすることはできません。</string>
+    <string name="toast_warn_no_undo">これ以上元に戻せません。</string>
+    <string name="toast_open_home_page_error">既定のファイルが見つかりません。設定から新たに選択してください。</string>
+    <string name="toast_home_page_cant_read">"既定のファイルが読み込み可能ではないため使用できません"</string>
+    <string name="toast_widget_select">新しいウィジェットに関連付けるファイルを選択してください。</string>
+    <string name="toast_open_select">ファイルを選択して開きます。</string>
+    <string name="toast_home_page_select">ホーム画面からTedを起動したときに開くファイルを選択してください。</string>
+    <string name="toast_file_saved_auto">"現在開いているファイルは自動保存されました。次回起動時はこのファイルが自動で開かれます。"</string>
+
+
+    <!--  -->
+    <string name="toast_folder_doesnt_exist">"フォルダが存在していません。"</string>
+    <string name="toast_folder_not_folder">フォルダではありません。</string>
+    <string name="toast_folder_cant_read">"読み取り可能なフォルダではありません。"</string>
+    <string name="toast_no_market">このデバイス上にPlay Storeが存在しません。</string>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_home_editor"
+        android:shortcutDisabledMessage="@string/editor"
+        android:shortcutId="editor"
+        android:shortcutLongLabel="@string/editor"
+        android:shortcutShortLabel="@string/editor">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="org.qpython.qpy.texteditor.EditorActivity"
+            android:targetPackage="org.qpython.qpy"/>
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <!--<categories android:name="android.shortcut.conversation"/>-->
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_home_terminal"
+        android:shortcutDisabledMessage="@string/application_terminal"
+        android:shortcutId="terminal"
+        android:shortcutLongLabel="@string/application_terminal"
+        android:shortcutShortLabel="@string/application_terminal">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="org.qpython.qpy.console.TermActivity"
+            android:targetPackage="org.qpython.qpy"/>
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <!--<categories android:name="android.shortcut.conversation"/>-->
+    </shortcut>
+</shortcuts>

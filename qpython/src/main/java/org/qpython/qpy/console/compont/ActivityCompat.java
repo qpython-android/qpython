@@ -17,6 +17,8 @@ package org.qpython.qpy.console.compont;/*
 
 import android.app.Activity;
 
+import org.qpython.qpysdk.utils.AndroidCompat;
+
 
 /**
  * Compatibility class for android.app.Activity

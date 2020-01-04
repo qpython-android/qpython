@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content">
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"/>
+</FrameLayout>

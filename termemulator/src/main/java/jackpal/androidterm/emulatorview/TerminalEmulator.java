@@ -22,7 +22,9 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
+import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Stack;
 
 import android.util.Log;
 
@@ -33,7 +35,7 @@ import android.util.Log;
  * terminal. Missing functionality: text attributes (bold, underline, reverse
  * video, color) alternate screen cursor key and keypad escape sequences.
  */
-class TerminalEmulator {
+public class TerminalEmulator {
     public void setKeyListener(TermKeyListener l) {
         mKeyListener = l;
     }
@@ -42,7 +44,7 @@ class TerminalEmulator {
     /**
      * The cursor row. Numbered 0..mRows-1.
      */
-    private int mCursorRow;
+    private int             mCursorRow;
 
     /**
      * The cursor column. Numbered 0..mColumns-1.
@@ -319,10 +321,10 @@ class TerminalEmulator {
      */
     private boolean mAlternateCharSet;
 
-    private final static int CHAR_SET_UK = 0;
-    private final static int CHAR_SET_ASCII = 1;
-    private final static int CHAR_SET_SPECIAL_GRAPHICS = 2;
-    private final static int CHAR_SET_ALT_STANDARD = 3;
+    private final static int CHAR_SET_UK                  = 0;
+    private final static int CHAR_SET_ASCII               = 1;
+    private final static int CHAR_SET_SPECIAL_GRAPHICS    = 2;
+    private final static int CHAR_SET_ALT_STANDARD        = 3;
     private final static int CHAR_SET_ALT_SPECIAL_GRAPICS = 4;
 
     /**
@@ -393,13 +395,13 @@ class TerminalEmulator {
     /**
      * UTF-8 support
      */
-    private static final int UNICODE_REPLACEMENT_CHAR = 0xfffd;
-    private boolean mDefaultUTF8Mode = false;
-    private boolean mUTF8Mode = false;
-    private boolean mUTF8EscapeUsed = false;
-    private int mUTF8ToFollow = 0;
-    private ByteBuffer mUTF8ByteBuffer;
-    private CharBuffer mInputCharBuffer;
+    private static final int     UNICODE_REPLACEMENT_CHAR = 0xfffd;
+    private              boolean mDefaultUTF8Mode         = false;
+    private              boolean mUTF8Mode                = false;
+    private              boolean mUTF8EscapeUsed          = false;
+    private              int     mUTF8ToFollow            = 0;
+    private ByteBuffer     mUTF8ByteBuffer;
+    private CharBuffer     mInputCharBuffer;
     private CharsetDecoder mUTF8Decoder;
     private UpdateCallback mUTF8ModeNotify;
 
@@ -670,9 +672,34 @@ class TerminalEmulator {
      * @param length the number of bytes in the array to process
      */
     public void append(byte[] buffer, int base, int length) {
-        if (EmulatorDebug.LOG_CHARACTERS_FLAG) {
-            Log.d(EmulatorDebug.LOG_TAG, "In: '" + EmulatorDebug.bytesToString(buffer, base, length) + "'");
+
+        //Log.d(EmulatorDebug.LOG_TAG, "In: '" + EmulatorDebug.bytesToString(buffer, base, length) + "'");
+
+
+        if (EmulatorDebug.bytesToString(buffer, base, length).endsWith(">>> ")) {
+            sb = new StringBuffer();
+        } else if (sb != null) {
+            sb.append(EmulatorDebug.bytesToString(buffer, base, length)
+                    .replace("\\x0d", "")
+                    .replace("\\x0a", "")
+                    .replace("\\x08", ""));
         }
+
+//        if (sb != null && EmulatorDebug.bytesToString(buffer, base, length).equals("\\x0d\\x0a")) {
+//            if (!history.contains(sb.toString().trim())){
+//
+//                if (history.size() >= HISTORY_MAX) {
+//                    history.remove(history.size()-1);
+//                }
+//                history.add(0,sb.toString().trim());
+//
+//                Log.d(EmulatorDebug.LOG_TAG, "History Added: " + sb.toString());
+//
+//            }
+//            Log.d(EmulatorDebug.LOG_TAG, "History: " + sb.toString());
+//            sb = null;
+//        }
+
         for (int i = 0; i < length; i++) {
             byte b = buffer[base + i];
             try {
@@ -685,6 +712,27 @@ class TerminalEmulator {
             }
         }
     }
+
+    void deleteChar() {
+        if (sb != null) {
+            if (sb.length() <= 1) {
+                sb = sb.delete(0,1);
+            } else {
+                String temp = sb.substring(0, sb.length() - 1);
+                sb.setLength(0);
+                sb.append(temp);
+            }
+        }
+    }
+
+//    public LinkedList<String> getHistory() {
+//        return history;
+//    }
+
+    private static final int HISTORY_MAX = 10;
+
+    //private LinkedList<String> history = new LinkedList<>();
+    private StringBuffer       sb      = null;
 
     private void process(byte b) {
         process(b, true);
@@ -1807,9 +1855,7 @@ class TerminalEmulator {
     /**
      * Send a Unicode code point to the screen.
      *
-     * @param c         The code point of the character to display
-     * @param foreColor The foreground color of the character
-     * @param backColor The background color of the character
+     * @param c The code point of the character to display
      */
     private void emit(int c, int style) {
         boolean autoWrap = autoWrapEnabled();

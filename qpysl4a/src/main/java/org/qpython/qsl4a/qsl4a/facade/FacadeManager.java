@@ -3,7 +3,7 @@ package org.qpython.qsl4a.qsl4a.facade;
 import android.app.Service;
 import android.content.Intent;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.exception.Sl4aException;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiverManager;
@@ -48,7 +48,7 @@ public class FacadeManager extends RpcReceiverManager {
       if (method.isAnnotationPresent(RpcDeprecated.class)) {
         String replacedBy = method.getAnnotation(RpcDeprecated.class).value();
         String title = method.getName() + " is deprecated";
-        Log.notify(mService, title, title, String.format("Please use %s instead.", replacedBy));
+        LogUtil.notify(mService, title, title, String.format("Please use %s instead.", replacedBy));
       } else if (method.isAnnotationPresent(RpcMinSdk.class)) {
         int requiredSdkLevel = method.getAnnotation(RpcMinSdk.class).value();
         if (mSdkLevel < requiredSdkLevel) {
@@ -59,7 +59,7 @@ public class FacadeManager extends RpcReceiverManager {
       return super.invoke(clazz, method, args);
     } catch (InvocationTargetException e) {
       if (e.getCause() instanceof SecurityException) {
-        Log.notify(mService, "RPC invoke failed...", mService.getPackageName(), e.getCause()
+        LogUtil.notify(mService, "RPC invoke failed...", mService.getPackageName(), e.getCause()
             .getMessage());
       }
       throw e;

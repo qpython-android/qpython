@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="term_shortcut_head" translatable="false">
+        <item>tab</item>
+        <item>del</item>
+    </string-array>
+    <string-array name="term_shortcut" translatable="false">
+        <item>ltab</item>
+        <item>rtab</item>
+        <item>def</item>
+        <item>if</item>
+        <item>ef</item>
+        <item>el</item>
+        <item>for</item>
+        <item>imt</item>
+        <item>frm</item>
+        <item>clz</item>
+        <item>ret</item>
+        <item>:</item>
+        <item>\@</item>
+        <item>=</item>
+        <item>\"</item>
+        <item>\'</item>
+        <item>;</item>
+        <item>,</item>
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+        <item>|</item>
+        <item><![CDATA[<]]></item>
+        <item><![CDATA[>]]></item>
+        <item>(</item>
+        <item>)</item>
+        <item>[</item>
+        <item>]</item>
+        <item>{</item>
+        <item>}</item>
+        <item>#</item>
+    </string-array>
+
+</resources>

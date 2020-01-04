@@ -17,13 +17,13 @@
 package org.qpython.qsl4a.qsl4a.facade.ui;
 
 import android.app.Activity;
+//import android.support.v7.app.AlertDialog;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.util.AndroidRuntimeException;
 import android.widget.SeekBar;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.facade.EventFacade;
 
 import org.json.JSONException;
@@ -36,11 +36,11 @@ import org.json.JSONObject;
  */
 public class SeekBarDialogTask extends DialogTask {
 
-  private SeekBar mSeekBar;
   private final int mProgress;
   private final int mMax;
   private final String mTitle;
   private final String mMessage;
+  private SeekBar mSeekBar;
   private String mPositiveButtonText;
   private String mNegativeButtonText;
 
@@ -87,7 +87,7 @@ public class SeekBarDialogTask extends DialogTask {
             result.put("fromuser", fromUser);
             eventFacade.postEvent("dialog", result);
           } catch (JSONException e) {
-            Log.e(e);
+            LogUtil.e(e);
           }
         }
       }
@@ -107,7 +107,7 @@ public class SeekBarDialogTask extends DialogTask {
     mShowLatch.countDown();
   }
 
-  private Builder addOnCancelListener(final AlertDialog.Builder builder, final Activity activity) {
+  private AlertDialog.Builder addOnCancelListener(final AlertDialog.Builder builder, final Activity activity) {
     return builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
       @Override
       public void onCancel(DialogInterface dialog) {
@@ -116,7 +116,7 @@ public class SeekBarDialogTask extends DialogTask {
           result.put("canceled", true);
           result.put("progress", mSeekBar.getProgress());
         } catch (JSONException e) {
-          Log.e(e);
+          LogUtil.e(e);
         }
         dismissDialog();
         setResult(result);

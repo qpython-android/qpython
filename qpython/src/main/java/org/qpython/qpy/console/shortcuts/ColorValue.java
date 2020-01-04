@@ -1,6 +1,6 @@
 package org.qpython.qpy.console.shortcuts;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
@@ -22,16 +22,16 @@ import org.qpython.qpy.console.compont.AlertDialogCompat;
 //////////////////////////////////////////////////////////////////////
 public class ColorValue implements CompoundButton.OnCheckedChangeListener {
     private final Context context;
-    private EditText value;
     private final int[] color = {0xFF, 0, 0, 0};
-    private boolean started = false;
-    private AlertDialogCompat.Builder builder;
-    private boolean barLock = false;
     private final boolean[] locks = {false, false, false, false};
     private final int FP = LinearLayout.LayoutParams.FILL_PARENT;
     private final int WC = LinearLayout.LayoutParams.WRAP_CONTENT;
     private final ImageView imgview;
     private final String result[];
+    private EditText value;
+    private boolean started = false;
+    private AlertDialogCompat.Builder builder;
+    private boolean barLock = false;
     private String imgtext = "";
 
     ////////////////////////////////////////////////////////////

@@ -1,124 +1,309 @@
 package org.qpython.qpy.main.activity;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.quseit.common.updater.Updater;
-import com.quseit.common.updater.callback.DialogCallback;
+import com.quseit.util.NAction;
+import com.quseit.util.Utils;
 
 import org.greenrobot.eventbus.Subscribe;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.qpython.qpy.R;
 import org.qpython.qpy.console.TermActivity;
-import org.qpython.qpy.main.dialog.LogoDialog;
-import org.qpython.qpy.main.dialog.RunProgramDialog;
-import org.qpython.qpy.main.event.RunProgramEvent;
+import org.qpython.qpy.databinding.ActivityMainBinding;
+import org.qpython.qpy.main.app.App;
+import org.qpython.qpy.main.app.CONF;
+import org.qpython.qpy.main.server.MySubscriber;
+import org.qpython.qpy.main.server.model.CourseAdModel;
 import org.qpython.qpy.main.utils.Bus;
-import org.qpython.qpy.main.utils.Utils;
+import org.qpython.qpy.texteditor.EditorActivity;
+import org.qpython.qpy.texteditor.TedLocalActivity;
+import org.qpython.qpy.utils.UpdateHelper;
+import org.qpython.qpysdk.QPyConstants;
 import org.qpython.qpysdk.QPySDK;
 import org.qpython.qpysdk.utils.FileHelper;
 import org.qpython.qsl4a.QPyScriptService;
-import org.renpy.android.ResourceManager;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
-import de.hdodenhof.circleimageview.CircleImageView;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
-public class HomeMainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private Unbinder mUnbinder;
+import static org.qpython.qpysdk.QPyConstants.PYTHON_2;
 
-    public static final String URL_WIKI = "http://www.qpython.org";
-    public static final String URL_GROUP = "http://groups.google.com/group/qpython";
-    public static final String URL_DOCS = "http://www.qpython.org";
-    public static final String URL_LIB_MANAGER = "http://qpypi.qpython.org";
-    public static final int REQUEST_OPEN_FILE = 1;
+public class HomeMainActivity extends BaseActivity {
+    private static final String URL_COMMUNITY = "https://www.qpython.org/community.html";
+    private static final String URL_COURSE    = "https://edu.qpython.org/?from=qpy2";
+    private static final String USER_NAME     = "username";
+    private static final String TAG = "HomeMainActivity";
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
-    @BindView(R.id.nav_view)
-    NavigationView mNavigationView;
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
-    @BindView(R.id.logo_image)
-    CircleImageView mLogoImage;
-    @BindView(R.id.item_lin_console)
-    LinearLayout mItemConsole;
-    @BindView(R.id.item_lin_editor)
-    LinearLayout mItemEditor;
-    @BindView(R.id.item_lin_program)
-    LinearLayout mItemProgram;
-    @BindView(R.id.item_lin_library_manager)
-    LinearLayout mItemLibraryManager;
+    private static final int LOGIN_REQUEST_CODE = 136;
 
-    private long mExitTime = 0;
+    private ActivityMainBinding binding;
 
-    @OnClick({R.id.logo_image, R.id.item_lin_console, R.id.item_lin_editor, R.id.item_lin_program, R.id.item_lin_library_manager})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.logo_image:
-                showLogoDialog();
-                break;
-            case R.id.item_lin_console:
-                TermActivity.startActivity(this);
-                break;
-            case R.id.item_lin_editor:
-                //EditorMainActivity.startActivity(this);
-                break;
-            case R.id.item_lin_program:
-                startProgramExplorerActivity();
-                break;
-            case R.id.item_lin_library_manager:
-                Utils.startWebActivityWithUrl(this, getString(R.string.lib_manager), URL_LIB_MANAGER,"",false, false);
-                break;
-        }
+    public static void start(Context context) {
+        Intent starter = new Intent(context, HomeMainActivity.class);
+        context.startActivity(starter);
+    }
+
+    public static void start(Context context, String userName) {
+        Intent starter = new Intent(context, HomeMainActivity.class);
+        starter.putExtra(USER_NAME, userName);
+        context.startActivity(starter);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mUnbinder = ButterKnife.bind(this);
-        startPyService();
-        Updater.checkUpdate(new DialogCallback(this, true));
-        Bus.getDefault().register(this);
-        init();
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        //App.setActivity(this);
+        startMain();
+        handlePython3(getIntent());
+        handleNotification(savedInstanceState);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Bus.getDefault().unregister(this);
-        mUnbinder.unbind();
+    private void initIcon() {
+        switch (NAction.getQPyInterpreter(this)) {
+            case "3.x":
+                binding.icon.setImageResource(R.drawable.img_home_logo_3);
+                break;
+            case "2.x":
+                binding.icon.setImageResource(R.drawable.img_home_logo);
+                break;
+        }
+    }
+
+    private void initUser() {
+        if (App.getUser() == null) {
+            binding.login.setVisibility(View.GONE);
+        } else {
+            binding.login.setText(Html.fromHtml(getString(R.string.welcome_s, App.getUser().getNick())));
+        }
+    }
+
+    private void startMain() {
+        initListener();
+        startPyService();
+        Bus.getDefault().register(this);
+        init();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            UpdateHelper.checkConfUpdate(this, QPyConstants.BASE_PATH);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        initUser();
+        initIcon();
+        handleNotification();
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        handlePython3(intent);
+    }
+
+    private void initListener() {
+        binding.ivScan.setOnClickListener(v -> Bus.getDefault().post(new StartQrCodeActivityEvent()));
+        binding.login.setOnClickListener(v -> {
+            if (App.getUser() == null) {
+                sendEvent(getString(R.string.event_login));
+                startActivityForResult(new Intent(this, SignInActivity.class), LOGIN_REQUEST_CODE);
+            } else {
+                sendEvent(getString(R.string.event_me));
+                UserActivity.start(this);
+            }
+        });
+
+        binding.llTerminal.setOnClickListener(v -> {
+            TermActivity.startActivity(HomeMainActivity.this);
+            sendEvent(getString(R.string.event_term));
+        });
+
+        binding.llTerminal.setOnLongClickListener(v -> {
+            CharSequence[] chars = new CharSequence[]{ this.getString(R.string.python_interpreter), this.getString(R.string.action_notebook), this.getString(R.string.shell_terminal)};
+            new AlertDialog.Builder(this, R.style.MyDialog)
+                    .setTitle(R.string.choose_action)
+                    .setItems(chars, (dialog, which) -> {
+                        switch (which) {
+                            case 0: // Create Shortcut
+                                TermActivity.startActivity(HomeMainActivity.this);
+                                break;
+                            case 1:
+                                NotebookActivity.start(HomeMainActivity.this, null, false);
+                                break;
+                            case 2:
+                                TermActivity.startShell(HomeMainActivity.this);
+                                break;
+                        }
+                    }).setNegativeButton(getString(R.string.close), new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            })
+                    .show();
+
+            return true;
+        });
+        binding.llEditor.setOnClickListener(v -> {
+            EditorActivity.start(this);
+            sendEvent(getString(R.string.event_editor));
+        });
+        binding.llLibrary.setOnClickListener(v -> {
+            LibActivity.start(this);
+            sendEvent(getString(R.string.event_qpypi));
+        });
+//        binding.llCommunity.setOnClickListener(v -> {
+//            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(URL_COMMUNITY)));
+//            sendEvent(getString(R.string.event_commu));
+//        });
+//        binding.llGist.setOnClickListener(view -> GistActivity.startCommunity(HomeMainActivity.this)
+//        );
+        binding.llSetting.setOnClickListener(v -> {
+            SettingActivity.startActivity(this);
+            sendEvent(getString(R.string.event_setting));
+        });
+        binding.llFile.setOnClickListener(v -> {
+            TedLocalActivity.start(this, TedLocalActivity.REQUEST_HOME_PAGE);
+            sendEvent(getString(R.string.event_file));
+        });
+        binding.llQpyApp.setOnClickListener(v -> {
+                AppListActivity.start(this, AppListActivity.TYPE_SCRIPT);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+            sendEvent(getString(R.string.event_top));
+        });
+
+        binding.llCourse.setOnClickListener(v -> {
+            CourseActivity.start(HomeMainActivity.this);
+            sendEvent(getString(R.string.event_course));
+        });
+/*        binding.llCourse.setOnClickListener(v ->
+                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+
+        initCourseListener();*/
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Bus.getDefault().unregister(this);
+    }
+
+    private void handlePython3(Intent intent) {
+        String action = intent.getAction();
+        if (action != null && action.equals(getString(R.string.action_from_python_three))
+                && NAction.getQPyInterpreter(this).equals(PYTHON_2)) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.py2_now)
+                    .setMessage(R.string.switch_py3_hint)
+                    .setNegativeButton(R.string.no, (dialog, which) -> dialog.dismiss())
+                    .setPositiveButton(R.string.goto_setting, (dialog, which) -> SettingActivity.startActivity(this))
+                    .create()
+                    .show();
+        }
+    }
+
+    private void handleNotification(Bundle bundle) {
+        if (bundle == null) return;
+        if (!bundle.getBoolean("force") && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_hide_push), true)) {
+            return;
+        }
+        String type = bundle.getString("type", "");
+        if (!type.equals("")) {
+            String link = bundle.getString("link", "");
+            String title = bundle.getString("title", "");
+
+            switch (type) {
+                case "in":
+                    QWebViewActivity.start(this, title, link);
+                    break;
+                case "ext":
+                    Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                    startActivity(starter);
+                    break;
+            }
+        }
+    }
+
+    private void handleNotification() {
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_hide_push), true)) {
+            return;
+        }
+        SharedPreferences sharedPreferences = getSharedPreferences(CONF.NOTIFICATION_SP_NAME, MODE_PRIVATE);
+        try {
+            String notifString = sharedPreferences.getString(CONF.NOTIFICATION_SP_OBJ, "");
+            if ("".equals(notifString)) {
+                return;
+            }
+            JSONObject extra = new JSONObject(notifString);
+            String type = extra.getString("type");
+            String link = extra.getString("link");
+            String title = extra.getString("title");
+            switch (type) {
+                case "in":
+                    QWebViewActivity.start(this, title, link);
+                    break;
+                case "ext":
+                    Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                    startActivity(starter);
+                    break;
+            }
+            sharedPreferences.edit().clear().apply();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initCourseListener() {
+        App.getService().getCourseAd().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new MySubscriber<CourseAdModel>() {
+                    @Override
+                    public void onNext(CourseAdModel o) {
+                        super.onNext(o);
+                        if ("0".equals(o.getQpy().getCourse_open())) {
+                            // open web
+                            binding.llCourse.setOnClickListener(v ->
+                                    QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+                        } else {
+                            // open with native
+                            binding.llCourse.setOnClickListener(v -> {
+                                CourseActivity.start(HomeMainActivity.this);
+                                sendEvent(getString(R.string.event_course));
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        binding.llCourse.setOnClickListener(v ->
+                                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+                    }
+                });
+    }
 
     @Override
     protected void onPause() {
@@ -126,98 +311,58 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
     }
 
     private void startPyService() {
+        Log.d(TAG, "startPyService");
         Intent intent = new Intent(this, QPyScriptService.class);
         startService(intent);
     }
 
     private void openQpySDK() {
-        QPySDK qpysdk = new QPySDK(HomeMainActivity.this, HomeMainActivity.this);
-        File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
-
-        qpysdk.extractRes("private", HomeMainActivity.this.getFilesDir());
-        checkPermissionDo(Manifest.permission.WRITE_EXTERNAL_STORAGE , new BaseActivity.PermissionAction() {
+        Log.d("HomeMainActivity", "openQpySDK");
+        String[] permssions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        checkPermissionDo(permssions, new BaseActivity.PermissionAction() {
             @Override
             public void onGrant() {
-                FileHelper.createDirIfNExists(externalStorage+"/cache");
-                qpysdk.extractRes("public", new File(externalStorage + "/lib"));
-                extractRes();
-
+                //这里只执行一次做为初始化
+                initQpySDK();
             }
 
             @Override
             public void onDeny() {
-                Toast.makeText(HomeMainActivity.this, "Unable to extract python files", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HomeMainActivity.this,  getString(R.string.grant_storage_hint), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private boolean checkExpired(final String resource, String filesDir) {
-        ResourceManager resourceManager = new ResourceManager(this);
-
-        String data_version = resourceManager.getString(resource + "_version");
-        String disk_version = "0";
-
-        // If no version, no unpacking is necessary.
-        if (data_version == null) {
-            return false;
-        }
-
-        // Check the current disk version, if any.
-        String disk_version_fn = filesDir + "/" + resource + ".version";
-
-        try {
-            byte buf[] = new byte[64];
-            InputStream is = new FileInputStream(disk_version_fn);
-            int len = is.read(buf);
-            disk_version = new String(buf, 0, len);
-            is.close();
-        } catch (Exception e) {
-
-            disk_version = "0";
-            //Mint.logException(e);
-
-        }
-
-        //Log.d(TAG, "data_version:"+Math.round(Double.parseDouble(data_version))+"-disk_version:"+Math.round(Double.parseDouble(disk_version))+"-RET:"+(int)(Double.parseDouble(data_version)-Double.parseDouble(disk_version)));
-        if ((int)(Double.parseDouble(data_version)-Double.parseDouble(disk_version))>0 || disk_version.equals("0")) {
-            try {
-                FileOutputStream os = new FileOutputStream(disk_version_fn);
-                try {
-                    os.write(data_version.getBytes());
-                    os.close();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    //Mint.logException(e);
-
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                //Mint.logException(e);
-
-            }
-
-
-            return true;
-        } else {
-            return false;
-        }
+    /**
+     * 在工作线程中作初始化
+     */
+    private void initQpySDK() {
+        new Thread(() -> {
+            QPySDK qpysdk = new QPySDK(HomeMainActivity.this, HomeMainActivity.this);
+            //这里会在切换qpy3的时候再次释放相关资源
+            qpysdk.extractRes("private1", HomeMainActivity.this.getFilesDir());
+            qpysdk.extractRes("private2", HomeMainActivity.this.getFilesDir());
+            qpysdk.extractRes("private3", HomeMainActivity.this.getFilesDir());
+            File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
+            FileHelper.createDirIfNExists(externalStorage + "/cache");
+            qpysdk.extractRes("public", new File(externalStorage + "/lib"));
+            extractRes();
+        }).start();
     }
 
-    public void extractRes() {
-        File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
 
-        //File res = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + this.getPackageName() + "/"+(isQpy3?CONF.DFROM_QPY3:CONF.DFROM_QPY2));
-        if (checkExpired("public",new File(externalStorage+"").getAbsolutePath())) {
+    /**
+     * 初始化内置python项目
+     */
+    public void extractRes() {
+        File externalStorage = new File(QPyConstants.ABSOLUTE_PATH);
+        if (checkExpired("public", new File(externalStorage + "/lib").getAbsolutePath(), "programs"+NAction.getPyVer(this))) {
             String name, sFileName;
             InputStream content;
 
             R.raw a = new R.raw();
             java.lang.reflect.Field[] t = R.raw.class.getFields();
             Resources resources = getResources();
-
-            boolean succeed = true;
 
             for (int i = 0; i < t.length; i++) {
                 try {
@@ -226,124 +371,43 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
                     content = getResources().openRawResource(t[i].getInt(a));
                     content.reset();
 
-                // python project
-                    if(sFileName.equals("sampleproject.zip")) {
-                        Utils.createDirectoryOnExternalStorage( "qpython" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects");
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/AlbumSample");
-
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() +
-                                "/qpython/projects/AlbumSample/", false);
-
-                    } else if (sFileName.equals("showcase.zip")) {
-                        Utils.createDirectoryOnExternalStorage( "qpython" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/KivyShowcase");
-
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/KivyShowcase/", false);
-
-                    } else if (sFileName.equals("samplewebapp.zip")) {
-                        Utils.createDirectoryOnExternalStorage( "qpython" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects");
-                        Utils.createDirectoryOnExternalStorage( "qpython/projects/WebAppSample");
-
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/WebAppSample/", false);
+                    if (sFileName.equals("samplewebapp.zip")) {
+                        Utils.createDirectoryOnExternalStorage("qpython/projects/webappsample");
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/webappsample/", true);
 
                     } else if (sFileName.equals("scripts.zip")) {
-                        Utils.createDirectoryOnExternalStorage( "qpython" );
-                        Utils.createDirectoryOnExternalStorage( "qpython/scripts" );
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts/", false);
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts/", true);
                     }
 
                 } catch (Exception e) {
                     Log.e("HomeMainActivity", "Failed to copyResourcesToLocal", e);
-                    //Mint.logException(e);
 
-                    succeed = false;
                 }
-            } // end for all files in res/raw
+            }
         }
     }
 
     private void init() {
-        setSupportActionBar(mToolbar);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        mNavigationView.setNavigationItemSelectedListener(this);
-
         openQpySDK();
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-            return;
-        }
-
-        if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            Toast.makeText(this, getString(R.string.back_app), Toast.LENGTH_SHORT).show();
-            mExitTime = System.currentTimeMillis();
-            return;
-        }
-
-        super.onBackPressed();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_setting:
-                AboutActivity.startActivity(this);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_document:
-                Utils.startWebActivityWithUrl(this, getString(R.string.document), URL_DOCS,"", false, false);
-                break;
-            case R.id.nav_forum:
-                Utils.startWebActivityWithUrl(this, getString(R.string.forum), URL_GROUP,"",false, false);
-                break;
-//            case R.id.nav_wiki:
-//                Utils.startWebActivityWithUrl(this, getString(R.string.wiki), URL_WIKI,"",false, false);
-//                break;
-        }
-        mDrawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (resultCode) {
-            case RESULT_OK:
-                //打开文件
-                Log.e("------------------->>>>", data.getStringExtra("file"));
-                break;
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case LOGIN_REQUEST_CODE:
+                    binding.login.setText(Html.fromHtml(getString(R.string.welcome_s, App.getUser().getNick())));
+                    break;
+            }
         }
     }
 
-    private void showLogoDialog() {
-        LogoDialog.newInstance().show(getSupportFragmentManager(), LogoDialog.TAG);
-    }
-
-
     @Subscribe
     public void startQrCodeActivity(StartQrCodeActivityEvent event) {
-        checkPermissionDo(Manifest.permission.CAMERA, new BaseActivity.PermissionAction() {
+        String[] permissions = {Manifest.permission.CAMERA};
+
+        checkPermissionDo(permissions, new BaseActivity.PermissionAction() {
             @Override
             public void onGrant() {
                 QrCodeActivity.start(HomeMainActivity.this);
@@ -356,64 +420,11 @@ public class HomeMainActivity extends BaseActivity implements NavigationView.OnN
         });
     }
 
-    @Subscribe
-    public void showProgramDialog(ShowProgramDialogEvent event) {
-        checkPermissionDo(Manifest.permission.READ_EXTERNAL_STORAGE, new PermissionAction() {
-            @Override
-            public void onGrant() {
-                if (event.isProject) {
-                    Fragment f = RunProgramDialog.newInstance(RunProgramDialog.TYPE_PROJECT);
-                    getSupportFragmentManager().beginTransaction()
-                            .add(f, RunProgramDialog.TAG)
-                            .commitAllowingStateLoss();
-                } else {
-                    Fragment f = RunProgramDialog.newInstance(RunProgramDialog.TYPE_SCRIPT);
-                    getSupportFragmentManager().beginTransaction()
-                            .add(f, RunProgramDialog.TAG)
-                            .commitAllowingStateLoss();
-                }
-            }
-
-            @Override
-            public void onDeny() {
-                Toast.makeText(HomeMainActivity.this, R.string.no_storage, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Subscribe
-    public void runProgram(RunProgramEvent event) {
-        Log.d("HomeMainActivity", "");
-        if (event.isProject) {
-            playProject(event.path, true);
-        } else {
-            playScript(event.path, null, true);
-        }
-    }
-
-    private void startProgramExplorerActivity() {
-        checkPermissionDo(Manifest.permission.READ_EXTERNAL_STORAGE, new PermissionAction() {
-            @Override
-            public void onGrant() {
-                //ProgramExplorerActivity.start(HomeMainActivity.this, REQUEST_OPEN_FILE);
-            }
-
-            @Override
-            public void onDeny() {
-                Toast.makeText(HomeMainActivity.this, getString(R.string.no_storage), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
     public static class StartQrCodeActivityEvent {
 
     }
 
-    public static class ShowProgramDialogEvent {
-        public final boolean isProject;
+    private void sendEvent(String evenName) {
 
-        public ShowProgramDialogEvent(boolean isProject) {
-            this.isProject = isProject;
-        }
     }
 }

@@ -12,9 +12,9 @@
 		<PROPERTY NAME="noWordSep" VALUE="_" />
 	</PROPS>
 
-	<RULES IGNORE_CASE="TRUE"
+	<RULES DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
 		HIGHLIGHT_DIGITS="TRUE"
-		DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
+		IGNORE_CASE="TRUE"
 		NO_WORD_SEP="-_%">
 
 		<!-- classes: -->
@@ -26,11 +26,11 @@
 
 		<!-- TODO: selectors, see http://www.w3.org/TR/REC-CSS2/selector.html -->
 
-		<SEQ TYPE="OPERATOR" DELEGATE="PSEUDO">:</SEQ>
+		<SEQ DELEGATE="PSEUDO" TYPE="OPERATOR">:</SEQ>
 		<SEQ TYPE="OPERATOR">,</SEQ>
 
 		<!-- property blocks: -->
-		<SPAN TYPE="OPERATOR" DELEGATE="PROPERTIES">
+		<SPAN DELEGATE="PROPERTIES" TYPE="OPERATOR">
 			<BEGIN>{</BEGIN>
 			<END>}</END>
 		</SPAN>
@@ -43,10 +43,10 @@
 	<!-- Pseudo classes like ":active" -->
 	<RULES SET="PSEUDO">
 		<!-- Delegate back: -->
-		<SEQ TYPE="NULL" DELEGATE="MAIN"> </SEQ>
-		<SEQ TYPE="OPERATOR" DELEGATE="MAIN">,</SEQ>
+		<SEQ DELEGATE="MAIN" TYPE="NULL"> </SEQ>
+		<SEQ DELEGATE="MAIN" TYPE="OPERATOR">,</SEQ>
 
-		<SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">{</SEQ>
+		<SEQ DELEGATE="PROPERTIES" TYPE="OPERATOR">{</SEQ>
 
 		<SPAN_REGEXP HASH_CHAR="lang" TYPE="KEYWORD4">
 			<BEGIN>lang\s*\(</BEGIN>
@@ -64,8 +64,8 @@
 		<KEYWORDS>
 			<KEYWORD4>after</KEYWORD4>
 			<KEYWORD4>before</KEYWORD4>
-			<KEYWORD4>first-child</KEYWORD4>
-			<KEYWORD4>last-child</KEYWORD4>
+			<KEYWORD4>first-childList</KEYWORD4>
+			<KEYWORD4>last-childList</KEYWORD4>
 			<KEYWORD4>link</KEYWORD4>
 			<KEYWORD4>visited</KEYWORD4>
 			<KEYWORD4>active</KEYWORD4>
@@ -75,11 +75,11 @@
 	</RULES>
 
 	<!-- Properties: -->
-	<RULES SET="PROPERTIES" ESCAPE="\">
+	<RULES ESCAPE="\" SET="PROPERTIES">
 		<!-- Delegate back -->
-		<SEQ TYPE="OPERATOR" DELEGATE="MAIN">}</SEQ>
+		<SEQ DELEGATE="MAIN" TYPE="OPERATOR">}</SEQ>
 
-		<SEQ TYPE="OPERATOR" DELEGATE="PROP_VALUE">:</SEQ>
+		<SEQ DELEGATE="PROP_VALUE" TYPE="OPERATOR">:</SEQ>
 
 		<IMPORT DELEGATE="GLOBAL" />
 
@@ -313,7 +313,7 @@
 			<INVALID>border-image-outset</INVALID> 					
 			<INVALID>border-image-repeat</INVALID> 					
 			<INVALID>border-image-slice</INVALID> 					
-			<INVALID>border-image-source</INVALID> 					
+			<INVALID>border-image-code</INVALID>
 			<INVALID>border-image-width</INVALID>
 			<INVALID>box-decoration-break</INVALID>
 			<INVALID>box-flex-group</INVALID> 					
@@ -402,12 +402,12 @@
 
 
 	<!-- Values: -->
-	<RULES SET="PROP_VALUE"
+	<RULES DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
 		HIGHLIGHT_DIGITS="TRUE"
-		DIGIT_RE="-?\d+(\.\d+)?(pt|pc|in|mm|cm|em|ex|px|ms|s|%|)"
-		NO_WORD_SEP="-_%">
+		NO_WORD_SEP="-_%"
+		SET="PROP_VALUE">
 
-		<SPAN_REGEXP TYPE="LITERAL1" ESCAPE="\" HASH_CHARS="&quot;'">
+		<SPAN_REGEXP ESCAPE="\" HASH_CHARS="&quot;'" TYPE="LITERAL1">
 			<BEGIN>(["'])</BEGIN>
 			<END>$1</END>
 		</SPAN_REGEXP>
@@ -415,19 +415,19 @@
 		<!-- "functions" -->
 
 		<!-- url without quotes -->
-		<SPAN_REGEXP TYPE="LITERAL1" MATCH_TYPE="KEYWORD1" HASH_CHAR="url(" ESCAPE="\">
+		<SPAN_REGEXP ESCAPE="\" HASH_CHAR="url(" MATCH_TYPE="KEYWORD1" TYPE="LITERAL1">
 			<BEGIN>url\((?=\s*[^"'])</BEGIN>
 			<END>)</END>
 		</SPAN_REGEXP>
 
 		<!-- proprietary IE function: -->
-		<SPAN_REGEXP TYPE="FUNCTION" DELEGATE="javascript::MAIN" HASH_CHAR="expression">
+		<SPAN_REGEXP DELEGATE="javascript::MAIN" HASH_CHAR="expression" TYPE="FUNCTION">
 			<BEGIN>expression\s*\(</BEGIN>
 			<END>)</END>
 		</SPAN_REGEXP>
 
 		<!-- all other functions -->
-		<SPAN_REGEXP TYPE="KEYWORD1" DELEGATE="PROP_VALUE">
+		<SPAN_REGEXP DELEGATE="PROP_VALUE" TYPE="KEYWORD1">
 			<BEGIN>[\w-]+\(</BEGIN>
 			<END>)</END>
 		</SPAN_REGEXP>
@@ -437,8 +437,8 @@
 		<SEQ_REGEXP HASH_CHAR="!" TYPE="KEYWORD2">!\s*important</SEQ_REGEXP>
 
 		<!-- Delegate back: -->
-		<SEQ TYPE="OPERATOR" DELEGATE="PROPERTIES">;</SEQ>
-		<SEQ TYPE="INVALID" DELEGATE="MAIN">}</SEQ> <!-- end properties block, but it's invalid -->
+		<SEQ DELEGATE="PROPERTIES" TYPE="OPERATOR">;</SEQ>
+		<SEQ DELEGATE="MAIN" TYPE="INVALID">}</SEQ> <!-- end properties block, but it's invalid -->
 
 		<IMPORT DELEGATE="GLOBAL" />
 
@@ -911,7 +911,7 @@
 	<RULES SET="GLOBAL">
 		<SEQ TYPE="OPERATOR">:</SEQ>
 		<SEQ TYPE="NULL">;</SEQ>
-		<SPAN TYPE="NULL" ESCAPE="\">
+		<SPAN ESCAPE="\" TYPE="NULL">
 			<BEGIN>(</BEGIN>
 			<END>)</END>
 		</SPAN>

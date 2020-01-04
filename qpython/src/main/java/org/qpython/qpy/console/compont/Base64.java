@@ -45,8 +45,8 @@ public class Base64 {
     public static final int NO_PADDING = 1;
 
     /**
-     * Encoder flag bit to omit all line terminators (i.e., the output
-     * will be on one long line).
+     * Encoder flag bit to omit all PATTERN_LINE terminators (i.e., the output
+     * will be on one long PATTERN_LINE).
      */
     public static final int NO_WRAP = 2;
 
@@ -293,7 +293,7 @@ public class Base64 {
                 // If any of the next four bytes of input are non-data
                 // (whitespace, etc.), value will end up negative.  (All
                 // the non-data values in decode are small negative
-                // numbers, so shifting any of them up and or'ing them
+                // PATTERN_NUMBER, so shifting any of them up and or'ing them
                 // together will result in a value with its top bit set.)
                 //
                 // You can remove this whole block and the output should
@@ -552,8 +552,8 @@ public class Base64 {
 
     /* package */ static class Encoder extends Coder {
         /**
-         * Emit a new line every this many output tuples.  Corresponds to
-         * a 76-character line length (the maximum allowable according to
+         * Emit a new PATTERN_LINE every this many output tuples.  Corresponds to
+         * a 76-character PATTERN_LINE length (the maximum allowable according to
          * <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>).
          */
         public static final int LINE_GROUPS = 19;

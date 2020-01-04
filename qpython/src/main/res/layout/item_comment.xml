@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_margin">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:src="@drawable/empty"/>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/avatar"
+                android:layout_toRightOf="@id/avatar"
+                android:textColor="#FFF"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/avatar"
+                android:layout_toEndOf="@id/avatar"
+                android:layout_toRightOf="@id/avatar"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/from_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/avatar"
+                android:layout_toEndOf="@id/avatar"
+                android:layout_toRightOf="@id/avatar"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/re_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/from_content"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/avatar"
+                android:layout_toRightOf="@id/avatar"
+                android:background="@color/colorPrimary"
+                android:padding="10dp"
+                android:textColor="#FFF"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+</layout>

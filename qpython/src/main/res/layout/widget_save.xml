@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFF"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_save"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:paddingLeft="5dp"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:id="@+id/ib_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_editor_save"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ib_save"
+                android:layout_toRightOf="@id/ib_save"
+                android:text="@string/save"
+                android:textColor="@color/text_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/ib_save"
+                android:layout_toRightOf="@id/ib_save"
+                android:background="@color/divide_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_saveas"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingStart="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_saveas_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_editor_saveas"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iv_saveas_icon"
+                android:layout_toRightOf="@id/iv_saveas_icon"
+                android:text="@string/save_as"
+                android:textColor="@color/text_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/iv_saveas_icon"
+                android:layout_toRightOf="@id/iv_saveas_icon"
+                android:background="@color/divide_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_save_push"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:id="@+id/iv_save_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_editor_saveup"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iv_save_push"
+                android:layout_toRightOf="@id/iv_save_push"
+                android:text="@string/save_amp_push"
+                android:textColor="@color/text_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/iv_save_push"
+                android:layout_toRightOf="@id/iv_save_push"
+                android:background="@color/divide_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_recent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_recent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_editor_recent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iv_recent"
+                android:layout_toRightOf="@id/iv_recent"
+                android:text="@string/recent"
+                android:textColor="@color/text_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/iv_recent"
+                android:layout_toRightOf="@id/iv_recent"
+                android:background="@color/divide_line"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_share_code"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/ib_share_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_editor_snippet"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ib_share_code"
+                android:layout_toRightOf="@id/ib_share_code"
+                android:text="@string/snippet"
+                android:textColor="@color/text_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/ib_share_code"
+                android:layout_toRightOf="@id/ib_share_code"
+                android:background="@color/divide_line"/>
+        </RelativeLayout>
+
+        <ImageButton
+            style="@style/editor_bottom_btn"
+            />
+    </LinearLayout>
+</layout>

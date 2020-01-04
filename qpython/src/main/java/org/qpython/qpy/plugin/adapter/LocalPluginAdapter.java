@@ -20,11 +20,8 @@ import org.qpython.qpy.plugin.model.LocalPluginBean;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class LocalPluginAdapter extends RecyclerView.Adapter<LocalPluginAdapter.PluginHolder> {
-    private Context mContext;
+    private Context               mContext;
     private List<LocalPluginBean> mList;
 
     public LocalPluginAdapter(Context context) {
@@ -84,18 +81,17 @@ public class LocalPluginAdapter extends RecyclerView.Adapter<LocalPluginAdapter.
     }
 
     public static class PluginHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.plugin_name)
         TextView name;
 
-        @BindView(R.id.plugin_description)
         TextView description;
 
-        @BindView(R.id.plugin_menu)
         ImageView menu;
 
         public PluginHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            name = (TextView) itemView.findViewById(R.id.plugin_name);
+            description = (TextView) itemView.findViewById(R.id.plugin_description);
+            menu = (ImageView) itemView.findViewById(R.id.plugin_menu);
         }
     }
 }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="@dimen/default_margin"
+            android:src="@drawable/empty"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/avatar"
+            android:textColor="#FFF"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/avatar"
+            android:layout_toRightOf="@id/avatar"
+            android:textSize="12sp"/>
+
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/avatar"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/avatar"
+            android:background="@null"
+            android:src="@drawable/ic_com_delete"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/avatar"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="#FFF"/>
+
+
+        <TextView
+            android:id="@+id/bookmark_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/title"
+            android:drawableLeft="@drawable/ic_com_like"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/bookmark_count"
+            android:layout_marginRight="@dimen/default_margin"
+            android:layout_toLeftOf="@id/bookmark_count"
+            android:drawableLeft="@drawable/ic_com_comment"
+            android:drawablePadding="5dp"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+</layout>

@@ -22,30 +22,32 @@ import org.qpython.qpy.plugin.view.FileSelectView;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
+//import butterknife.BindView;
+//import butterknife.ButterKnife;
+//import butterknife.Unbinder;
 
 public class LocalPluginInstallActivity extends BaseActivity {
-    private static final String sPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
-    private static final int REQUEST_READ_EXTERNAL_STORAGE = 0;
+    private static final String sPath                         = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+    private static final int    REQUEST_READ_EXTERNAL_STORAGE = 0;
 
     FileSelectView mFileSelectView;
-    private Unbinder mUnbinder;
+//    private Unbinder mUnbinder;
 
-    @BindView(R.id.container)
+    //    @BindView(R.id.container)
     FrameLayout mContainer;
 
-    @BindView(R.id.toolbar)
+    //    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_plugin_install);
-        mUnbinder = ButterKnife.bind(this);
+//        mUnbinder = ButterKnife.bind(this);
+        mContainer = (FrameLayout) findViewById(R.id.container);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white);
+        mToolbar.setNavigationIcon(R.drawable.ic_back);
         mToolbar.setNavigationOnClickListener(v -> finish());
         mToolbar.setTitle(R.string.title_select_plugin);
     }
@@ -60,7 +62,6 @@ public class LocalPluginInstallActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mUnbinder.unbind();
     }
 
     @Override
@@ -92,9 +93,9 @@ public class LocalPluginInstallActivity extends BaseActivity {
         // 初始化文件浏览器
         Map<String, Integer> icon = new HashMap<>();
 
-        icon.put(FileSelectView.PARENT_DIR, R.drawable.ic_file_back);//返回上一层的图标
-        icon.put(FileSelectView.FOLDER, R.drawable.ic_file_dir);//文件夹图标
-        icon.put("py", R.drawable.ic_plugin_blue);
+        icon.put(FileSelectView.PARENT_DIR, R.drawable.prev);//返回上一层的图标
+        icon.put(FileSelectView.FOLDER, R.drawable.ic_editor_folder);//文件夹图标
+        icon.put("py", R.drawable.ic_home_program);
 
         mFileSelectView = new FileSelectView(this, file -> {
             if (LocalPluginManager.install(file)) {

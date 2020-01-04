@@ -37,7 +37,7 @@ public abstract class ForegroundService extends Service {
       try {
         mStartForeground.invoke(this, mStartForegroundArgs);
       } catch (Exception e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
       return;
     }
@@ -62,7 +62,7 @@ public abstract class ForegroundService extends Service {
       try {
         mStopForeground.invoke(this, mStopForegroundArgs);
       } catch (Exception e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
       return;
     }

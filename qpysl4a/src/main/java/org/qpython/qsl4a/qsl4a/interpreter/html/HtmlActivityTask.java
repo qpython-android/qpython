@@ -22,11 +22,13 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
+import android.webkit.JavascriptInterface;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
@@ -34,7 +36,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import org.qpython.qsl4a.qsl4a.FileUtils;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.SingleThreadExecutor;
 import org.qpython.qsl4a.qsl4a.event.Event;
 import org.qpython.qsl4a.qsl4a.facade.EventFacade;
@@ -65,6 +67,7 @@ import org.json.JSONObject;
  */
 public class HtmlActivityTask extends FutureActivityTask<Void> {
 
+    private static final String TAG = "HtmlActivityTask";
   private static final String HTTP = "http";
   private static final String ANDROID_PROTOTYPE_JS =
       "Android.prototype.%1$s = function(var_args) { "
@@ -76,6 +79,8 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
   private final RpcReceiverManager mReceiverManager;
   private final String mJsonSource;
   private final String mAndroidJsSource;
+  private final String mTemplateSource;
+
   private final String mAPIWrapperSource;
   private final String mUrl;
   private final JavaScriptWrapper mWrapper;
@@ -88,11 +93,12 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
   private boolean mDestroyManager;
 
   public HtmlActivityTask(RpcReceiverManager manager, String androidJsSource, String jsonSource,
-      String url, boolean destroyManager) {
+      String templateSource, String url, boolean destroyManager) {
     reference = this;
     mReceiverManager = manager;
     mJsonSource = jsonSource;
     mAndroidJsSource = androidJsSource;
+    mTemplateSource = templateSource;
     mAPIWrapperSource = generateAPIWrapper();
     mWrapper = new JavaScriptWrapper();
     mObserver = new HtmlEventObserver();
@@ -125,10 +131,18 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
         } catch (IOException e) {
           throw new RuntimeException(e);
         }
-        source =
-            "<script>" + mJsonSource + "</script>" + "<script>" + mAndroidJsSource + "</script>"
-                + "<script>" + mAPIWrapperSource + "</script>" + source;
+
+        if (!source.contains("</html>")) {  // if doesn't contain html tag, then use builtin template
+          source = mTemplateSource.replace("{{WEBAPPCONTENT}}", source);
+        }
+
+        source = source.replace("{{QPYBUILTIN}}","<script>" + mJsonSource + "</script>" + "<script>" + mAndroidJsSource + "</script>"
+                + "<script>" + mAPIWrapperSource + "</script>");
+
         mView.loadDataWithBaseURL(BASE_URL, source, "text/html", "utf-8", null);
+
+        Log.d("MyWebViewClient", source);
+
       } else {
         mView.loadUrl(url);
       }
@@ -136,11 +150,11 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
     }
   }
 
-  @SuppressLint("SetJavaScriptEnabled")
-@Override
+  @SuppressLint({"SetJavaScriptEnabled", "JavascriptInterface"})
+  @Override
   public void onCreate() {
     mView = new WebView(getActivity());
-    mView.setId(1);
+    mView.setId(View.NO_ID);
     mView.getSettings().setJavaScriptEnabled(true);
     mView.addJavascriptInterface(mWrapper, "_rpc_wrapper");
     mView.addJavascriptInterface(new Object() {
@@ -152,6 +166,7 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
     }, "_callback_wrapper");
 
     getActivity().setContentView(mView);
+
     mView.setOnCreateContextMenuListener(getActivity());
     mChromeClient = new ChromeClient(getActivity());
     mWebViewClient = new MyWebViewClient();
@@ -164,13 +179,23 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
   }
 
   private void load() {
+      Log.d(TAG, "load:"+mUrl);
     if (!HTTP.equals(Uri.parse(mUrl).getScheme())) {
       String source = null;
       try {
+
         source = FileUtils.readToString(new File(Uri.parse(mUrl).getPath()));
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
+        if (!source.contains("</html>")) {  // if doesn't contain html tag, then use builtin template
+            source = mTemplateSource.replace("{{WEBAPPCONTENT}}", source);
+        }
+
+        source = source.replace("{{QPYBUILTIN}}","<script>" + mJsonSource + "</script>" + "<script>" + mAndroidJsSource + "</script>"
+              + "<script>" + mAPIWrapperSource + "</script>");
+
+        //Log.d(TAG, "source:"+source);
       mView.loadDataWithBaseURL(BASE_URL, source, "text/html", "utf-8", null);
     } else {
       mView.loadUrl(mUrl);
@@ -217,26 +242,29 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
 
   private class JavaScriptWrapper {
     @SuppressWarnings("unused")
+    @JavascriptInterface
     public String call(String data) throws JSONException {
-      Log.v("Received: " + data);
+      LogUtil.v("Received: " + data);
       JSONObject request = new JSONObject(data);
       int id = request.getInt("id");
       String method = request.getString("method");
       JSONArray params = request.getJSONArray("params");
       MethodDescriptor rpc = mReceiverManager.getMethodDescriptor(method);
       if (rpc == null) {
-        return JsonRpcResult.error(id, new RpcError("Unknown RPC.")).toString();
+        return JsonRpcResult.error(id, new RpcError("Unknown RPC:"+method)).toString();
       }
       try {
         return JsonRpcResult.result(id, rpc.invoke(mReceiverManager, params)).toString();
       } catch (Throwable t) {
-        Log.e("Invocation error.", t);
+        LogUtil.e("Invocation error.", t);
         return JsonRpcResult.error(id, t).toString();
       }
     }
 
     @SuppressWarnings("unused")
+    @JavascriptInterface
     public void dismiss() {
+        Log.d(TAG, "dismiss");
       Activity parent = getActivity();
       parent.finish();
     }
@@ -261,7 +289,7 @@ public class HtmlActivityTask extends FutureActivityTask<Void> {
       try {
         json.put("data", JsonBuilder.build(event.getData()));
       } catch (JSONException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
       if (mEventMap.containsKey(event.getName())) {
         for (final Integer id : mEventMap.get(event.getName())) {

@@ -16,110 +16,93 @@
 
 <resources>
     <string-array name="entries_statusbar_preference">
-        <item>显示状态栏</item>
-        <item>隐藏状态栏</item>
+        <item>Show Status bar</item>
+        <item>Hide Status bar</item>
     </string-array>
 
     <string-array name="entries_actionbar_preference">
         <!-- <item>Action bar disabled</item> -->
-        <item>显示操作栏</item>
-        <item>隐藏操作栏 (点击屏幕上方或按菜单键显示)</item>
+        <item>Show Action Bar</item>
+        <item>Hide Action Bar(Click screen top or menu button to reshow)</item>
     </string-array>
 
     <string-array name="entries_orientation_preference">
-        <item>自动</item>
-        <item>横屏</item>
-        <item>竖屏</item>
-    </string-array>
-
-    <string-array name="entries_cursorblink_preference">
-        <item>非闪烁光标</item>
-        <item>闪烁光标</item>
-    </string-array>
-
-    <string-array name="entries_cursorstyle_preference">
-        <item>方块</item>
-        <item>下划线</item>
-        <item>竖线</item>
+        <item>Automate</item>
+        <item>Horizontal</item>
+        <item>Vertical</item>
     </string-array>
 
     <string-array name="entries_fontsize_preference">
-        <item>4 x 8 像素</item>
-        <item>6 磅</item>
-        <item>7 磅</item>
-        <item>8 磅</item>
-        <item>9 磅</item>
-        <item>10 磅</item>
-        <item>12 磅</item>
-        <item>14 磅</item>
-        <item>16 磅</item>
-        <item>20 磅</item>
-        <item>24 磅</item>
-        <item>28 磅</item>
-        <item>32 磅</item>
-        <item>36 磅</item>
-        <item>42 磅</item>
-        <item>48 磅</item>
-        <item>64 磅</item>
-        <item>72 磅</item>
-        <item>96 磅</item>
-        <item>144 磅</item>
-        <item>288 磅</item>
+        <item>4 x 8 Pixel</item>
+        <item>6 point type</item>
+        <item>7 point type</item>
+        <item>8 point type</item>
+        <item>9 point type</item>
+        <item>10 point type</item>
+        <item>12 point type</item>
+        <item>14 point type</item>
+        <item>16 point type</item>
+        <item>20 point type</item>
+        <item>24 point type</item>
+        <item>28 point type</item>
+        <item>32 point type</item>
+        <item>36 point type</item>
+        <item>42 point type</item>
+        <item>48 point type</item>
+        <item>64 point type</item>
+        <item>72 point type</item>
+        <item>96 point type</item>
+        <item>144 point type</item>
+        <item>288 point type</item>
     </string-array>
 
     <string-array name="entries_color_preference">
-        <item>白底黑字</item>
-        <item>黑底白字</item>
-        <item>蓝底白字</item>
-        <item>黑底绿字</item>
-        <item>黑底黄字</item>
-        <item>黑底红字</item>
-        <item>Holo 风格</item>
-        <item>爆光过度</item>
-        <item>爆光不足</item>
-        <item>Linux 终端</item>
+        <item>Black character on white background</item>
+        <item>White character on black background</item>
+        <item>White character on blue background</item>
+        <item>Green character on black background</item>
+        <item>Yellow character on black background</item>
+        <item>Red character on black background</item>
+        <item>Holo style</item>
+        <item>over-exposed</item>
+        <item>lack-exposed</item>
+        <item>Linux style</item>
     </string-array>
 
     <string-array name="entries_backaction_preference">
-        <item>关闭所有窗口</item>
-        <item>关闭当前窗口</item>
-        <item>关闭当前实例，保留正在运行的会话</item>
-        <item>给终端发送 ESC</item>
-        <item>给终端发送 TAB</item>
+        <item>Close all windows</item>
+        <item>Close current window</item>
+        <item>Close current window,but keep running sessions</item>
+        <item>Send ESC to Terminal</item>
+        <item>Send TAB to Terminal</item>
     </string-array>
 
     <string-array name="entries_controlkey_preference">
-        <item>轨迹球</item>
-        <item>\@ 键</item>
-        <item>左 Alt 键</item>
-        <item>右 Alt 键</item>
-        <item>提升音量键</item>
-        <item>降低音量键</item>
-        <item>相机快门键</item>
-        <item>无</item>
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
     </string-array>
 
     <string-array name="entries_fnkey_preference">
-        <item>轨迹球</item>
-        <item>\@ 键</item>
-        <item>左 Alt 键</item>
-        <item>右 Alt 键</item>
-        <item>提升音量键</item>
-        <item>降低音量键</item>
-        <item>相机快门键</item>
-        <item>无</item>
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
     </string-array>
 
     <string-array name="entries_ime_preference">
-        <item>字本</item>
-        <item>词本</item>
+        <item>Character</item>
+        <item>Word</item>
     </string-array>
-
-    <string name="list_select">
-        <item>在编辑器中打开</item>
-        <item>在.....打开</item>
-         <item>重新扫描</item>
-    </string>
 
 
     <!-- These are the 'short' names for the control keys. They are used in the special keys dialog. -->
@@ -146,14 +129,185 @@
         <item>None</item>
     </string-array>
 
-    <string-array name="screen_orientation_values" translatable="false">
-        <item>auto</item>
-        <item>landscape</item>
-        <item>portrait</item>
+
+    <!-- Color themes -->
+
+
+    <string-array name="color_theme_names">
+        <item>Classic</item>
+        <item>Negative</item>
+        <item>Matrix</item>
+        <item>Sky</item>
+        <item>Dracula</item>
+    </string-array>
+    <string-array name="color_theme_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
-    <string-array name="file_explorer_tab">
-        <item>脚本</item>
-        <item>项目</item>
+    <!-- Text size -->
+    <string-array name="text_size_names">
+        <item>6 pt</item>
+        <item>8 pt</item>
+        <item>10 pt</item>
+        <item>12 pt</item>
+        <item>14 pt</item>
+        <item>16 pt</item>
+        <item>18 pt</item>
+        <item>24 pt</item>
+        <item>32 pt</item>
+        <item>48 pt</item>
+    </string-array>
+    <string-array name="text_size_values">
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+        <item>18</item>
+        <item>24</item>
+        <item>32</item>
+        <item>48</item>
+    </string-array>
+
+    <!-- End of lines -->
+
+    <!-- Recent files -->
+
+    <!-- Recent files -->
+
+    <!-- Encoding -->
+
+    <string-array name="max_lines_num_with_syntax_values">
+        <item>100</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1000</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="sku" translatable="false">
+        <item>course_0.99</item>
+        <item>course_1.99</item>
+        <item>course_2.99</item>
+        <item>course_3.99</item>
+        <item>course_4.99</item>
+    </string-array>
+
+    <string-array name="crowdfunding">
+        <item>crowdfunding_5.99</item>
+        <item>crowdfunding_7.99</item>
+        <item>crowdfunding_9.99</item>
+        <item>crowdfunding15.99</item>
+    </string-array>
+
+    <string-array name="support_file_ext" translatable="false">
+        <item>py</item>
+        <item>txt</item>
+        <item>kv</item>
+        <item>html</item>
+        <item>htm</item>
+        <item>js</item>
+        <item>css</item>
+        <item>less</item>
+        <item>vue</item>
+        <item>ini</item>
+        <item>md</item>
+        <item>pyx</item>
+        <item>png</item>
+        <item>jpg</item>
+        <item>ipynb</item>
+    </string-array>
+
+    <string-array name="text_ext" translatable="false">
+        <item>py</item>
+        <item>txt</item>
+        <item>kv</item>
+        <item>html</item>
+        <item>htm</item>
+        <item>js</item>
+        <item>css</item>
+        <item>md</item>
+        <item>pyx</item>
+        <item>log</item>
+        <item>c</item>
+        <item>h</item>
+
+    </string-array>
+
+    <string-array name="syntax_ext" translatable="false">
+        <item>css</item>
+        <item>html</item>
+        <item>htm</item>
+        <item>js</item>
+        <item>json</item>
+        <item>py</item>
+        <item>xml</item>
+        <item>log</item>
+        <item>kv</item>
+        <item>pyx</item>
+        <item>pxd</item>
+    </string-array>
+
+    <string-array name="qpy2compatible_zip" translatable="false">
+        <item>private21.mp3</item>
+        <item>private22.mp3</item>
+        <item>private23.mp3</item>
+    </string-array>
+
+
+    <string-array name="qpy3_zip" translatable="false">
+        <item>private31.mp3</item>
+        <item>private32.mp3</item>
+        <item>private33.mp3</item>
+    </string-array>
+
+    <string-array name="funding_count_divider" translatable="false">
+        <item>100</item>
+        <item>500</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="funding_price">
+        <item>5.99</item>
+        <item>7.99</item>
+        <item>9.99</item>
+        <item>15.99</item>
+    </string-array>
+
+     <!--CN Only-->
+    <string-array name="wechat_funding_price">
+        <item>36</item>
+        <item>48</item>
+        <item>60</item>
+        <item>96</item>
+    </string-array>
+
+    <string-array name="funding_stage">
+        <item>Elementary</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+    </string-array>
+
+    <string-array name="time_label">
+        <item> month ago</item>
+        <item> days ago</item>
+        <item> hours ago</item>
+        <item> minutes ago</item>
+        <item> secs ago</item>
+    </string-array>
+
+
+    <string-array name="switch_py_inters_val">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="switch_py_inters">
+        <item>Switch to Python 3</item>
+        <item>Switch to Python 2</item>
     </string-array>
 </resources>

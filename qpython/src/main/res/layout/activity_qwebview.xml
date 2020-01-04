@@ -1,57 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        style="@style/Toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:theme="@style/ToolbarTheme" />
-    </android.support.design.widget.AppBarLayout>
+<layout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <ProgressBar android:id="@+id/WebViewProgress"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:indeterminate="false"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/lt"
+            layout="@layout/layout_toolbar"/>
+
+        <ProgressBar
+            android:id="@+id/WebViewProgress"
             style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="0dip"
             android:layout_marginRight="0dip"
-            android:layout_marginTop="0dip"
-            android:maxHeight="3px"
-            android:minHeight="3px"></ProgressBar>
+            android:elevation="2dp"
+            android:indeterminate="false"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"/>
+
+
+        <WebView
+            android:id="@+id/wv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
-
-    <FrameLayout
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            >
-            <WebView android:id="@+id/wv"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_x="0.0dip"
-                android:layout_y="0.0dip"
-                android:layout_weight="1.0" />
-        </LinearLayout>
-    </FrameLayout>
-
-</LinearLayout>
+</layout>

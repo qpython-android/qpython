@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="25dp"
+        android:background="@color/colorPrimary">
+
+        <include
+            android:id="@+id/top_bar"
+            layout="@layout/layout_toolbar"/>
+
+        <org.qpython.qpy.texteditor.ui.view.AdvancedEditText
+            android:id="@+id/sample_editor"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_margin="2dp"
+            android:gravity="top|start"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarSize="5dp"
+            android:scrollbars="horizontal|vertical"
+            android:text="@string/lorem_ipsum"
+            android:typeface="monospace"/>
+
+
+        <FrameLayout
+            android:id="@+id/setting_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/app_bar"
+            android:orientation="vertical"/>
+        <!--<ListView-->
+            <!--android:id="@android:id/list"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorPrimaryDark"/>-->
+
+    </LinearLayout>
+</layout>

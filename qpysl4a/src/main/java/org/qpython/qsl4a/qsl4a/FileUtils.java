@@ -22,6 +22,7 @@ import android.os.Environment;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -45,6 +46,62 @@ public class FileUtils {
     String state = Environment.getExternalStorageState();
     return Environment.MEDIA_MOUNTED.equals(state)
         || Environment.MEDIA_MOUNTED_READ_ONLY.equals(state);
+  }
+
+  public static String getFileContents(String filename) {
+
+    File scriptFile = new File( filename );
+    String tContent = "";
+    if (scriptFile.exists()) {
+      BufferedReader in;
+      try {
+        in = new BufferedReader(new FileReader(scriptFile));
+        String line;
+
+        while ((line = in.readLine())!=null) {
+          tContent += line+"\n";
+        }
+        in.close();
+      } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+
+    }
+    return tContent;
+  }
+
+  public static String getFileContents(String filename, int pos) {
+
+    File scriptFile = new File( filename );
+    String tContent = "";
+    if (scriptFile.exists()) {
+      BufferedReader in;
+      try {
+        in = new BufferedReader(new FileReader(scriptFile));
+        String line;
+
+        while ((line = in.readLine())!=null) {
+          tContent += line+"\n";
+          if (tContent.length()>=pos) {
+            in.close();
+            return tContent;
+          }
+        }
+        in.close();
+      } catch (FileNotFoundException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+
+    }
+    return tContent;
   }
 
   public static int chmod(File path, int mode) throws Exception {
@@ -78,18 +135,18 @@ public class FileUtils {
         result &= path.delete();
       }
       if (!result) {
-        Log.e("Delete failed;");
+        LogUtil.e("Delete failed;");
       }
       return result;
     } else {
-      Log.e("File does not exist.");
+      LogUtil.e("File does not exist.");
       return false;
     }
   }
 
   public static File copyFromStream(String name, InputStream input) {
     if (name == null || name.length() == 0) {
-      Log.e("No script name specified.");
+      LogUtil.e("No script name specified.");
       return null;
     }
     File file = new File(name);
@@ -100,7 +157,7 @@ public class FileUtils {
       OutputStream output = new FileOutputStream(file);
       IoUtils.copy(input, output);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
       return null;
     }
     return file;
@@ -112,16 +169,16 @@ public class FileUtils {
       parent = parent.getParentFile();
     }
     if (!directory.exists()) {
-      Log.v("Creating directory: " + directory.getName());
+      LogUtil.v("Creating directory: " + directory.getName());
       if (!directory.mkdirs()) {
-        Log.e("Failed to create directory.");
+        LogUtil.e("Failed to create directory.");
         return false;
       }
     }
     try {
       recursiveChmod(parent, mode);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
       return false;
     }
     return true;

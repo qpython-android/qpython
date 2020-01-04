@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <RelativeLayout
+        android:id="@+id/ll_folder_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="@dimen/default_margin"
+        android:paddingRight="@dimen/default_margin"
+        android:paddingTop="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/iv_file_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_editor_folder"/>
+
+        <ImageView
+            android:id="@+id/uploaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_file_icon"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/rl"
+            android:layout_toStartOf="@+id/rl"
+            android:visibility="gone"
+            />
+
+        <ProgressBar
+            android:id="@+id/uploading"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/iv_file_icon"
+            android:layout_toRightOf="@id/iv_file_icon"
+            >
+
+            <TextView
+                android:id="@+id/tv_file_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/tv_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_file_name"
+                android:textColor="@color/text_color_hint"
+                android:textSize="12sp"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/iv_file_icon"
+            android:layout_marginTop="@dimen/default_margin"
+            android:background="@color/colorPrimary"/>
+
+    </RelativeLayout>
+</layout>

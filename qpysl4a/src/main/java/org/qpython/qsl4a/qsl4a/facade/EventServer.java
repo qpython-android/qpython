@@ -15,7 +15,7 @@
  */
 package org.qpython.qsl4a.qsl4a.facade;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.SimpleServer;
 import org.qpython.qsl4a.qsl4a.event.Event;
 import org.qpython.qsl4a.qsl4a.jsonrpc.JsonBuilder;
@@ -65,7 +65,7 @@ public class EventServer extends SimpleServer implements EventFacade.EventObserv
   @Override
   protected void handleConnection(Socket socket) throws IOException {
     Listener l = new Listener(socket);
-    Log.v("Adding EventServer listener " + socket.getPort());
+    LogUtil.v("Adding EventServer listener " + socket.getPort());
     mListeners.add(l);
     // we are running in the socket accept thread
     // wait until the event dispatcher gets us the events
@@ -80,7 +80,7 @@ public class EventServer extends SimpleServer implements EventFacade.EventObserv
     } catch (IOException e) {
       e.printStackTrace();
     }
-    Log.v("Ending EventServer listener " + socket.getPort());
+    LogUtil.v("Ending EventServer listener " + socket.getPort());
   }
 
   @Override
@@ -92,7 +92,7 @@ public class EventServer extends SimpleServer implements EventFacade.EventObserv
       return;
     }
 
-    Log.v("EventServer dispatching " + result);
+    LogUtil.v("EventServer dispatching " + result);
 
     for (Listener listener : mListeners) {
       if (!listener.out.checkError()) {

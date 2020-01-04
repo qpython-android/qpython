@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/WebViewProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_layout"
+            android:layout_marginLeft="0dip"
+            android:layout_marginRight="0dip"
+            android:elevation="2dp"
+            android:indeterminate="false"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"/>
+
+        <android.support.design.widget.AppBarLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#FF4A4A4A"
+                android:elevation="2dp"
+                app:popupTheme="@style/DefaultBlueToolbar"
+                app:theme="@style/ToolbarTheme">
+
+                <Spinner
+                    android:id="@+id/spinner_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"/>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <org.qpython.qpy.main.widget.WebviewEX
+            android:id="@+id/web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_layout"
+            android:layout_below="@+id/toolbar_layout"
+            >
+
+        </org.qpython.qpy.main.widget.WebviewEX>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Notebook resource is not released"
+            android:textColor="@color/black"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shortcut_height"
+            android:layout_alignParentBottom="true"
+            android:background="#FFE8E8E8"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/switch_terminal_img"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:layout_gravity="center_vertical"
+                android:padding="6dp"
+                android:src="@drawable/ic_open"
+                />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="21dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#FFD5D5D5"/>
+
+            <HorizontalScrollView
+                android:id="@+id/hs_shortcut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFE8E8E8"
+                android:baselineAligned="false"
+                android:fadingEdgeLength="30dp"
+                android:requiresFadingEdge="horizontal">
+
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/ll_control"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/markdown_add_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_edittext_add"
+                        />
+
+                    <ImageView
+                        android:id="@+id/code_add_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_editcode_add"
+                        />
+
+                    <ImageView
+                        android:id="@+id/save_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_save2"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/stepin_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_stepin"
+                        />
+
+
+
+                    <ImageView
+                        android:id="@+id/undo_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_undo"
+                        android:visibility="gone"
+                        />
+
+                    <ImageView
+                        android:id="@+id/switch_code_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_editcode"
+                        />
+
+                    <ImageView
+                        android:id="@+id/switch_markdown_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_edittext"
+                        />
+
+                    <ImageView
+                        android:id="@+id/playall_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_play"
+                        />
+
+                    <ImageView
+                        android:id="@+id/refresh_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_library_reinstall"
+                        android:tint="@color/colorPrimary"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/cell_down_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_editor_arrow_down"
+                        />
+
+                    <ImageView
+                        android:id="@+id/cell_up_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_editor_arrow_up"
+                        />
+
+
+                    <ImageView
+                        android:id="@+id/delete_cell_img"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="14dp"
+                        android:src="@drawable/ic_com_delete"
+                        android:tint="@color/colorPrimary"
+                        />
+
+    
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

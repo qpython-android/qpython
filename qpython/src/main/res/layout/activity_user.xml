@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/default_margin">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#00ffffff">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#00ffffff"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ImageView
+            android:id="@+id/bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_me_bg"/>
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/appbar_layout"
+            android:layout_margin="@dimen/default_margin"
+            android:src="@drawable/empty"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/email"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@id/avatar"-->
+            <!--android:layout_marginLeft="@dimen/default_margin"-->
+            <!--android:layout_marginStart="@dimen/default_margin"-->
+            <!--android:layout_toEndOf="@id/avatar"-->
+            <!--android:layout_toRightOf="@id/avatar"-->
+            <!--android:textColor="#FFF"/>-->
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_alignTop="@id/avatar"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_toEndOf="@id/avatar"
+            android:layout_toRightOf="@id/avatar"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/usage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bg"
+            android:layout_margin="@dimen/default_margin"
+            android:text="@string/my_space_empty"/>
+
+        <LinearLayout
+            android:id="@+id/my_share_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/usage"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/empty"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="@string/my_share"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_editor_arrow_right"
+                android:tint="@color/white"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@drawable/gray_line_btn_bg"
+            android:text="@string/log_out"
+            android:textAllCaps="false"
+            android:textColor="@color/text_gray"
+            />
+    </RelativeLayout>
+</layout>

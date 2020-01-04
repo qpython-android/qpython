@@ -1,1 +1,8 @@
-include ':qpython', ':termemulator', ':termexec', ':qpypluginman', ':qpysl4a', ':qpysdk'
+include ':qpython',
+        ':termemulator',
+        ':termexec',
+        ':qpypluginman',
+        ':qpysl4a',
+        ':qpysdk',
+        ':qbaselib',
+        ':qftplib'

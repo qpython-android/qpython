@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#FF4A4A4A"
+                android:elevation="2dp"
+                app:contentInsetEnd="0dp"
+                app:popupTheme="@style/DefaultBlueToolbar"
+                app:theme="@style/ToolbarTheme">
+
+                <Button
+                    android:id="@+id/send_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@null"
+                    android:text="@string/post"
+                    android:textColor="@color/text_gray"/>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp">-->
+
+                <!--<android.support.design.widget.TextInputEditText-->
+                <!--android:id="@+id/title"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="@dimen/default_margin"-->
+                <!--android:hint="@string/gist_title"-->
+                <!--/>-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/default_margin"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/summary"
+                        />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/text_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginRight="@dimen/default_margin"
+                    android:textColor="@color/text_gray"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:padding="@dimen/default_margin">
+
+                    <org.qpython.qpy.texteditor.ui.view.AdvancedEditText
+                        android:id="@+id/code_content_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="top|start"
+                        android:imeOptions="flagNoFullscreen"
+                        android:inputType="textMultiLine|textNoSuggestions"
+                        android:padding="@dimen/default_margin"
+                        android:scrollbarAlwaysDrawHorizontalTrack="true"
+                        android:scrollbarAlwaysDrawVerticalTrack="true"
+                        android:scrollbarSize="5dp"
+                        android:scrollbars="horizontal|vertical"
+                        android:typeface="monospace"
+                        />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:visibility="gone"/>
+
+                </FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/default_margin">
+
+
+                <CheckBox
+                    android:id="@+id/dess"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+
+                    android:text="@string/gist_own"
+                    android:textColor="@color/text_gray"
+                    android:checked="true"
+                    android:clickable="false"/>
+
+                <CheckBox
+                    android:id="@+id/gist_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+
+                    android:text="@string/gist_intro"
+                    android:textColor="@color/text_gray"/>
+
+
+            </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

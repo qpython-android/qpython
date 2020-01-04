@@ -1,6 +1,22 @@
+/*
+ * Copyright (C) 2016 Google Inc.
+ * seekbar by Copyright (C) 2014 shimoda
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package org.qpython.qsl4a.qsl4a.facade.ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,12 +38,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -253,7 +270,7 @@ public class ViewInflater {
   }
 
   public View inflate(Activity context, XmlPullParser xml) throws XmlPullParserException,
-      IOException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+          IOException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
     int event;
     mContext = context;
     mErrors.clear();
@@ -270,12 +287,12 @@ public class ViewInflater {
   }
 
   private void addln(Object msg) {
-    Log.d(msg.toString());
+    LogUtil.d(msg.toString());
   }
 
   @SuppressWarnings("rawtypes")
   public void setClickListener(View v, android.view.View.OnClickListener listener,
-      OnItemClickListener itemListener) {
+                               OnItemClickListener itemListener, SeekBar.OnSeekBarChangeListener seekbarListener) {
     if (v.isClickable()) {
 
       if (v instanceof AdapterView) {
@@ -294,14 +311,17 @@ public class ViewInflater {
     if (v instanceof ViewGroup) {
       ViewGroup vg = (ViewGroup) v;
       for (int i = 0; i < vg.getChildCount(); i++) {
-        setClickListener(vg.getChildAt(i), listener, itemListener);
+        setClickListener(vg.getChildAt(i), listener, itemListener, seekbarListener);
       }
+    }
+    if (v instanceof SeekBar) {
+      ((SeekBar) v).setOnSeekBarChangeListener(seekbarListener);
     }
   }
 
   private View inflateView(Context context, XmlPullParser xml, ViewGroup root)
-      throws IllegalArgumentException, IllegalAccessException, InvocationTargetException,
-      XmlPullParserException, IOException {
+          throws IllegalArgumentException, IllegalAccessException, InvocationTargetException,
+          XmlPullParserException, IOException {
     View view = buildView(context, xml, root);
     if (view == null) {
       return view;
@@ -309,15 +329,15 @@ public class ViewInflater {
     int event;
     while ((event = xml.next()) != XmlPullParser.END_DOCUMENT) {
       switch (event) {
-      case XmlPullParser.START_TAG:
-        if (view == null || view instanceof ViewGroup) {
-          inflateView(context, xml, (ViewGroup) view);
-        } else {
-          skipTag(xml); // Not really a view, probably, skip it.
-        }
-        break;
-      case XmlPullParser.END_TAG:
-        return view;
+        case XmlPullParser.START_TAG:
+          if (view == null || view instanceof ViewGroup) {
+            inflateView(context, xml, (ViewGroup) view);
+          } else {
+            skipTag(xml); // Not really a view, probably, skip it.
+          }
+          break;
+        case XmlPullParser.END_TAG:
+          return view;
       }
     }
     return view;
@@ -334,7 +354,7 @@ public class ViewInflater {
   }
 
   private View buildView(Context context, XmlPullParser xml, ViewGroup root)
-      throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+          throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
     View view = viewClass(context, xml.getName());
     if (view != null) {
       getLayoutParams(view, root); // Make quite sure every view has a layout param.
@@ -353,8 +373,7 @@ public class ViewInflater {
     return view;
   }
 
-  @SuppressWarnings("deprecation")
-private int getLayoutValue(String value) {
+  private int getLayoutValue(String value) {
     if (value == null) {
       return 0;
     }
@@ -423,8 +442,7 @@ private int getLayoutValue(String value) {
     }
   }
 
-  @SuppressLint("UseValueOf")
-private int tryGetId(String value) {
+  private int tryGetId(String value) {
     Integer id = mIdList.get(value);
     if (id == null) {
       id = new Integer(mNextSeq++);
@@ -472,7 +490,7 @@ private int tryGetId(String value) {
   }
 
   private void setProperty(View view, ViewGroup root, String attr, String value)
-      throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+          throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
     addln(attr + ":" + value);
     if (attr.startsWith("layout_")) {
       setLayoutProperty(view, root, attr, value);
@@ -513,7 +531,8 @@ private int tryGetId(String value) {
       }
     } else if (attr.equals("typeface")) {
       TextView textview = (TextView) view;
-      int style = textview.getTypeface().getStyle();
+      Typeface typeface = textview.getTypeface();
+      int style = typeface == null ? 0 : typeface.getStyle();
       textview.setTypeface(Typeface.create(value, style));
     } else if (attr.equals("src")) {
       setImage(view, value);
@@ -565,22 +584,22 @@ private int tryGetId(String value) {
     }
   }
 
-  @SuppressWarnings("deprecation")
-private void setBackground(View view, String value) {
+  private void setBackground(View view, String value) {
     if (value.startsWith("#")) {
       view.setBackgroundColor(getColor(value));
     } else if (value.startsWith("@")) {
       setInteger(view, "backgroundResource", getInteger(view, value));
     } else {
+      // jellybean: view.setBackground(getDrawable(value));
       view.setBackgroundDrawable(getDrawable(value));
     }
   }
 
-  @SuppressWarnings("deprecation")
-private Drawable getDrawable(String value) {
+  private Drawable getDrawable(String value) {
     try {
       Uri uri = Uri.parse(value);
       if ("file".equals(uri.getScheme())) {
+        // jellybean?: BitmapDrawable bd = new BitmapDrawable(mContext.getResources(), uri.getPath());
         BitmapDrawable bd = new BitmapDrawable(uri.getPath());
         return bd;
       }
@@ -623,8 +642,7 @@ private Drawable getDrawable(String value) {
     return Integer.parseInt(colorValue + colorValue, 16);
   }
 
-  @SuppressLint("DefaultLocale")
-private int getColor(String value) {
+  private int getColor(String value) {
     int a = 0xff, r = 0, g = 0, b = 0;
     if (value.startsWith("#")) {
       try {
@@ -701,7 +719,7 @@ private int getColor(String value) {
   }
 
   private void setDynamicProperty(View view, String attr, String value)
-      throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+          throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
     String name = "set" + PCase(attr);
     try {
       Method m = tryMethod(view, name, CharSequence.class);
@@ -726,8 +744,7 @@ private int getColor(String value) {
     }
   }
 
-  @SuppressLint("DefaultLocale")
-private String PCase(String s) {
+  private String PCase(String s) {
     if (s == null) {
       return null;
     }
@@ -747,8 +764,7 @@ private String PCase(String s) {
     return result;
   }
 
-  @SuppressLint("DefaultLocale")
-public String camelCase(String s) {
+  public String camelCase(String s) {
     if (s == null) {
       return "";
     } else if (s.length() < 2) {
@@ -758,8 +774,7 @@ public String camelCase(String s) {
     }
   }
 
-  @SuppressLint("DefaultLocale")
-private Integer getInteger(Class<?> clazz, String value) {
+  private Integer getInteger(Class<?> clazz, String value) {
     Integer result = null;
     if (value.contains("|")) {
       int work = 0;
@@ -989,12 +1004,12 @@ private Integer getInteger(Class<?> clazz, String value) {
       ArrayAdapter<String> adapter;
       if (view instanceof Spinner) {
         adapter =
-            new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item,
-                android.R.id.text1, list);
+                new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item,
+                        android.R.id.text1, list);
       } else {
         adapter =
-            new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1,
-                android.R.id.text1, list);
+                new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1,
+                        android.R.id.text1, list);
       }
       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
       Method m = tryMethod(view, "setAdapter", SpinnerAdapter.class);
@@ -1005,5 +1020,11 @@ private Integer getInteger(Class<?> clazz, String value) {
     } catch (Exception e) {
       mErrors.add("failed to load list " + e.getMessage());
     }
+  }
+
+  public void clearAll() {
+    getErrors().clear();
+    mIdList.clear();
+    mNextSeq = BASESEQ;
   }
 }

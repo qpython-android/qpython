@@ -25,7 +25,7 @@ import org.qpython.qpy.R;
 
 import org.qpython.qpy.console.compont.ActionBarCompat;
 import org.qpython.qpy.console.compont.ActivityCompat;
-import org.qpython.qpy.console.compont.AndroidCompat;
+import org.qpython.qpysdk.utils.AndroidCompat;
 
 
 public class TermPreferences extends PreferenceActivity {

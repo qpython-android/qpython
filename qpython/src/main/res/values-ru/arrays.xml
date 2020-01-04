@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ -->
+
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+    <string-array name="entries_statusbar_preference">
+        <item>Показать Status bar</item>
+        <item>Скрыть Status bar</item>
+    </string-array>
+
+    <string-array name="entries_actionbar_preference">
+        <!-- <item>Action bar disabled</item> -->
+        <item>Показать Панель действий</item>
+        <item>Скрыть Панель действий(Нажмите на верхнюю часть экрана или кнопку меню, чтобы показать снова)</item>
+    </string-array>
+
+    <string-array name="entries_orientation_preference">
+        <item>Автоматически</item>
+        <item>Горизонтальная</item>
+        <item>Вертикальная</item>
+    </string-array>
+
+    <string-array name="entries_fontsize_preference">
+        <item>4 x 8 Pixel</item>
+        <item>6 point type</item>
+        <item>7 point type</item>
+        <item>8 point type</item>
+        <item>9 point type</item>
+        <item>10 point type</item>
+        <item>12 point type</item>
+        <item>14 point type</item>
+        <item>16 point type</item>
+        <item>20 point type</item>
+        <item>24 point type</item>
+        <item>28 point type</item>
+        <item>32 point type</item>
+        <item>36 point type</item>
+        <item>42 point type</item>
+        <item>48 point type</item>
+        <item>64 point type</item>
+        <item>72 point type</item>
+        <item>96 point type</item>
+        <item>144 point type</item>
+        <item>288 point type</item>
+    </string-array>
+
+    <string-array name="entries_color_preference">
+        <item>Чёрные символы на белом фоне</item>
+        <item>Белые символы на чёрном фоне</item>
+        <item>Белые символы на голубом фоне</item>
+        <item>Зелёные символы на чёрном фоне</item>
+        <item>Жёлтые символы на чёрном фоне</item>
+        <item>Красные символы на чёрном фоне</item>
+        <item>Стиль Holo</item>
+        <item>over-exposed</item>
+        <item>lack-exposed</item>
+        <item>Стиль Linux</item>
+    </string-array>
+
+    <string-array name="entries_backaction_preference">
+        <item>Закрыть все окна</item>
+        <item>Закрыть текущее окно</item>
+        <item>Закрыть текущее окно, но оставить сессии работать</item>
+        <item>Отправить ESC в терминал</item>
+        <item>Отправить TAB в терминал</item>
+    </string-array>
+
+    <string-array name="entries_controlkey_preference">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="entries_fnkey_preference">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="entries_ime_preference">
+        <item>Символьный</item>
+        <item>Слова</item>
+    </string-array>
+
+    <string name="list_select">
+        <item>Открыть оедактором</item>
+        <item>Открыть в ...</item>
+         <item>Сканировать заново</item>
+    </string>
+
+
+    <!-- These are the 'short' names for the control keys. They are used in the special keys dialog. -->
+    <string-array name="control_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+
+    <!-- These are the 'short' names for the Fn keys. They are used in the special keys dialog. -->
+    <string-array name="fn_keys_short_names">
+        <item>Ball</item>
+        <item>\@</item>
+        <item>Left-Alt</item>
+        <item>Right-Alt</item>
+        <item>Vol-Up</item>
+        <item>Vol-Dn</item>
+        <item>Camera</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="screen_orientation_values" translatable="false">
+        <item>auto</item>
+        <item>landscape</item>
+        <item>portrait</item>
+    </string-array>
+
+    <string-array name="file_explorer_tab">
+        <item>Скрипт</item>
+        <item>Проект</item>
+    </string-array>
+
+
+    <!-- Color themes -->
+    <string-array name="files_new">
+        <item>Пустой файл</item>
+        <item>Скрипт</item>
+        <item>Веб-приложение (Проект)</item>
+        <item>Консольное приложение (Проект)</item>
+        <item>Приложение Kivy (Проект)</item>
+    </string-array>
+
+
+    <string-array name="color_theme_names">
+        <item>Классическая</item>
+        <item>Негатив</item>
+        <item>Матрица</item>
+        <item>Небесная</item>
+        <item>Дракула</item>
+    </string-array>
+    <string-array name="color_theme_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <!-- End of lines -->
+
+    <!-- Recent files -->
+
+    <!-- Recent files -->
+
+    <!-- Encoding -->
+
+    <string-array name="max_lines_num_with_syntax_values">
+        <item>100</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1000</item>
+        <item>2000</item>
+    </string-array>
+
+</resources>

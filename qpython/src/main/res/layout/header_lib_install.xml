@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_open_pypi"
+        style="@style/top_hint"
+        android:drawableEnd="@drawable/ic_keyboard_arrow_right_white"
+        android:drawableRight="@drawable/ic_keyboard_arrow_right_white"
+        android:text="@string/install_with_python_s_pypi"/>
+
+    <TextView
+        style="@style/top_describe"
+        android:text="@string/py_pi"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

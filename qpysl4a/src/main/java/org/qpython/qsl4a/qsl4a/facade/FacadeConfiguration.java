@@ -17,7 +17,7 @@
 package org.qpython.qsl4a.qsl4a.facade;
 
 import com.google.common.collect.Maps;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.facade.ui.UiFacade;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
 import org.qpython.qsl4a.qsl4a.rpc.MethodDescriptor;
@@ -38,7 +38,7 @@ import java.util.TreeMap;
 
 /**
  * Encapsulates the list of supported facades and their construction.
- * 
+ *
  * @author Damon Kohler (damonkohler@gmail.com)
  * @author Igor Karp (igor.v.karp@gmail.com)
  */
@@ -46,7 +46,7 @@ import java.util.TreeMap;
 public class FacadeConfiguration {
   private final static Set<Class<? extends RpcReceiver>> sFacadeClassList;
   private final static SortedMap<String, MethodDescriptor> sRpcs =
-      new TreeMap<String, MethodDescriptor>();
+          new TreeMap<String, MethodDescriptor>();
 
   private static int sSdkLevel;
 
@@ -58,33 +58,34 @@ public class FacadeConfiguration {
       try {
         sSdkLevel = Integer.parseInt(android.os.Build.VERSION.SDK);
       } catch (NumberFormatException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
 
-    sFacadeClassList = new HashSet<Class<? extends RpcReceiver>>();
-    sFacadeClassList.add(AndroidFacade.class);
-    sFacadeClassList.add(ApplicationManagerFacade.class);
-    sFacadeClassList.add(CameraFacade.class);
-    sFacadeClassList.add(CommonIntentsFacade.class);
-    sFacadeClassList.add(ContactsFacade.class);
-    sFacadeClassList.add(EventFacade.class);
-    sFacadeClassList.add(LocationFacade.class);
-    sFacadeClassList.add(PhoneFacade.class);
-    sFacadeClassList.add(MediaRecorderFacade.class);
-    sFacadeClassList.add(SensorManagerFacade.class);
-    sFacadeClassList.add(SettingsFacade.class);
-    sFacadeClassList.add(SmsFacade.class);
-    sFacadeClassList.add(SpeechRecognitionFacade.class);
-    sFacadeClassList.add(ToneGeneratorFacade.class);
-    sFacadeClassList.add(WakeLockFacade.class);
-    sFacadeClassList.add(WifiFacade.class);
-    sFacadeClassList.add(UiFacade.class);
-    sFacadeClassList.add(BatteryManagerFacade.class);
-    sFacadeClassList.add(ActivityResultFacade.class);
-    sFacadeClassList.add(MediaPlayerFacade.class);
-    sFacadeClassList.add(PreferencesFacade.class);
-    sFacadeClassList.add(QPyInterfaceFacade.class);
+      sFacadeClassList = new HashSet<Class<? extends RpcReceiver>>();
+      sFacadeClassList.add(AndroidFacade.class);
+      sFacadeClassList.add(ApplicationManagerFacade.class);
+      sFacadeClassList.add(CameraFacade.class);
+      sFacadeClassList.add(CommonIntentsFacade.class);
+      sFacadeClassList.add(ContactsFacade.class);
+      sFacadeClassList.add(EventFacade.class);
+      sFacadeClassList.add(LocationFacade.class);
+      sFacadeClassList.add(PhoneFacade.class);
+      sFacadeClassList.add(MediaRecorderFacade.class);
+      sFacadeClassList.add(SensorManagerFacade.class);
+      sFacadeClassList.add(SettingsFacade.class);
+      sFacadeClassList.add(SmsFacade.class);
+      sFacadeClassList.add(SpeechRecognitionFacade.class);
+      sFacadeClassList.add(ToneGeneratorFacade.class);
+      sFacadeClassList.add(WakeLockFacade.class);
+      sFacadeClassList.add(WifiFacade.class);
+      sFacadeClassList.add(UiFacade.class);
+      sFacadeClassList.add(BatteryManagerFacade.class);
+      sFacadeClassList.add(ActivityResultFacade.class);
+      sFacadeClassList.add(MediaPlayerFacade.class);
+      sFacadeClassList.add(PreferencesFacade.class);
+      sFacadeClassList.add(QPyInterfaceFacade.class);
+      sFacadeClassList.add(USBHostSerialFacade.class);
 
     if (sSdkLevel >= 4) {
       sFacadeClassList.add(TextToSpeechFacade.class);

@@ -15,16 +15,22 @@ package org.qpython.qpy.console;/*
  */
 
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -32,9 +38,11 @@ import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.os.ResultReceiver;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.qpython.qpy.R;
 import org.qpython.qpy.console.compont.ServiceForegroundCompat;
 import org.qpython.qpy.console.util.SessionList;
 import org.qpython.qpy.console.util.TermSettings;
@@ -48,8 +56,7 @@ import jackpal.androidterm.libtermexec.v1.ITerminal;
 
 public class TermService extends Service implements TermSession.FinishCallback {
     /* Parallels the value of START_STICKY on API Level >= 5 */
-    private static final int COMPAT_START_STICKY = 1;
-
+    public static final  int NOTIFICATION_ID      = 40530;
     private static final int RUNNING_NOTIFICATION = 1;
     private ServiceForegroundCompat compat;
 
@@ -70,7 +77,42 @@ public class TermService extends Service implements TermSession.FinishCallback {
 
     /* This should be @Override if building with API Level >=5 */
     public int onStartCommand(Intent intent, int flags, int startId) {
-        return COMPAT_START_STICKY;
+        Intent resultIntent = new Intent(this, TermActivity.class);
+        resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_ONE_SHOT);
+
+        Notification.Builder builder;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            builder = new Notification.Builder(this, createNotificationChannel());
+        } else {
+            builder = new Notification.Builder(this);
+        }
+
+        builder.setContentTitle(getString(R.string.qpy_console))
+                .setContentIntent(pendingIntent)
+                .setContentText(getString(R.string.console_running))
+                .setSmallIcon(R.drawable.terminal_mini_icon);
+        Notification notification;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            notification = builder.build();
+        } else {
+            notification = builder.getNotification();
+        }
+        startForeground(NOTIFICATION_ID, notification);
+        return START_STICKY;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String createNotificationChannel() {
+        String channelId = "my_service";
+        String channelName = "My Background Service";
+        NotificationChannel chan = new NotificationChannel(channelId, channelName,
+                NotificationManager.IMPORTANCE_NONE);
+        chan.setLightColor(Color.BLUE);
+        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager service = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        service.createNotificationChannel(chan);
+        return channelId;
     }
 
     @Override
@@ -94,8 +136,7 @@ public class TermService extends Service implements TermSession.FinishCallback {
         String defValue = getDir("HOME", MODE_PRIVATE).getAbsolutePath();
         String homePath = prefs.getString("home_path", defValue);
         editor.putString("home_path", homePath);
-        editor.commit();
-
+        editor.apply();
         compat = new ServiceForegroundCompat(this);
         mTermSessions = new SessionList();
 
@@ -184,7 +225,7 @@ public class TermService extends Service implements TermSession.FinishCallback {
                                     session.setFinishCallback(new RBinderCleanupCallback(result, callback));
                                     session.setTitle("");
 
-                                    session.initializeEmulator(80, 24);
+                                    session.initializeEmulator(72, 24);
                                 } catch (Exception whatWentWrong) {
                                     Log.e("TermService", "Failed to bootstrap AIDL session: "
                                             + whatWentWrong.getMessage());
@@ -206,7 +247,7 @@ public class TermService extends Service implements TermSession.FinishCallback {
     }
 
     private final class RBinderCleanupCallback implements TermSession.FinishCallback {
-        private final PendingIntent result;
+        private final PendingIntent  result;
         private final ResultReceiver callback;
 
         public RBinderCleanupCallback(PendingIntent result, ResultReceiver callback) {

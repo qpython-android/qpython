@@ -29,7 +29,7 @@ public class MainThread {
         try {
           result.set(task.call());
         } catch (Exception e) {
-          Log.e(e);
+          LogUtil.e(e);
           result.set(null);
         }
       }
@@ -37,7 +37,7 @@ public class MainThread {
     try {
       return result.get();
     } catch (InterruptedException e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
     return null;
   }

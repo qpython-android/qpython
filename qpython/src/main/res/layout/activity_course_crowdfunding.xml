@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="course"
+            type="org.qpython.qpy.main.server.model.CourseModel"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/tl"
+            layout="@layout/layout_toolbar"/>
+
+        <org.qpython.qpy.main.widget.MyNestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/tl"
+            android:layout_marginBottom="40dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <org.qpython.qpy.main.widget.RatioImageView
+                        android:id="@+id/iv_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_course"
+                        android:transitionName="img"/>
+
+                    <TextView
+                        android:id="@+id/tv_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/iv_theme"
+                        android:layout_alignEnd="@id/iv_theme"
+                        android:layout_alignRight="@id/iv_theme"
+                        android:background="@color/theme_yellow"
+                        android:paddingBottom="3dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="3dp"
+                        android:textColor="#FFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:transitionName="level"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:paddingTop="@dimen/default_margin"
+                        android:text="@{course.title}"
+                        android:textColor="#FFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:transitionName="title"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/course_introduction"
+                    android:textColor="#FFF"/>
+
+                <TextView
+                    android:id="@+id/course_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:text="@{course.description}"/>
+
+                <TextView
+                    android:id="@+id/author_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_margin"
+                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/author"
+                    android:textColor="#FFF"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:paddingTop="5dp">
+
+
+                    <ImageView
+                        android:id="@+id/author_avatar"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="@dimen/default_margin"
+                        android:layout_marginRight="@dimen/default_margin"
+                        android:src="@drawable/img_home_logo"/>
+
+                    <TextView
+                        android:id="@+id/author_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/author_avatar"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/author_avatar"
+                        android:layout_toRightOf="@id/author_avatar"
+                        android:text="@{course.auth_desc}"/>
+
+                    <TextView
+                        android:id="@+id/author_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/author_desc"
+                        android:layout_toEndOf="@id/author_avatar"
+                        android:layout_toRightOf="@id/author_avatar"
+                        android:text="@{course.auth}"
+                        android:textColor="#FFF"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/default_margin"
+                    android:text="@string/course_content"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorPrimary"/>
+
+
+                <org.qpython.qpy.main.widget.NonScrollListView
+                    android:id="@+id/rv_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/colorPrimary"/>
+
+                <org.qpython.qpy.main.widget.scheduleview.ScheduleView
+                    android:id="@+id/schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="46dp"
+                    android:layout_marginRight="46dp"
+                    android:layout_marginTop="@dimen/default_margin"
+                    app:dot_radius="8dp"
+                    app:margin="15dp"
+                    app:text_size="14sp"/>
+
+                <RelativeLayout
+                    android:id="@+id/purchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/support_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/theme_yellow"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/funding"
+                        android:textColor="#000"
+                        android:textSize="16sp"/>
+
+                    <ImageButton
+                        android:id="@+id/thumb_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:background="@drawable/yellow_bg_thumbs_up"
+                        android:visibility="gone"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/support_percent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/default_margin"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#FFF"/>
+
+                <TextView
+                    android:id="@+id/explanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/explanation"
+                    android:textColor="#FF9B9B9B"/>
+
+                <org.qpython.qpy.main.widget.expandableview.ExpandableRelativeLayout
+                    android:id="@+id/explanation_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/more_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/default_margin"
+                        android:paddingRight="@dimen/default_margin"
+                        android:text="@string/explanation_more"
+                        android:textColor="#FF9B9B9B"/>
+                </org.qpython.qpy.main.widget.expandableview.ExpandableRelativeLayout>
+
+                <TextView
+                    android:id="@+id/more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/default_margin"
+                    android:paddingRight="@dimen/default_margin"
+                    android:text="@string/more"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/colorPrimary"/>
+            </LinearLayout>
+
+        </org.qpython.qpy.main.widget.MyNestedScrollView>
+
+        <Button
+            android:id="@+id/btn_start_learn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/green_gray_btn"
+            android:text="@string/start_learn"/>
+    </RelativeLayout>
+
+</layout>

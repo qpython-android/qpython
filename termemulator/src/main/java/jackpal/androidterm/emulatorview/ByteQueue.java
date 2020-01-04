@@ -22,11 +22,11 @@ package jackpal.androidterm.emulatorview;
  */
 
 class ByteQueue {
-    public ByteQueue(int size) {
+    ByteQueue(int size) {
         mBuffer = new byte[size];
     }
 
-    public int getBytesAvailable() {
+    int getBytesAvailable() {
         synchronized (this) {
             return mStoredBytes;
         }

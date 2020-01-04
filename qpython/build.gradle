@@ -1,39 +1,79 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'realm-android'
+
+//获取系统时间
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
+    flavorDimensions "default"
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-
-        applicationId "org.qpython.qpy.community"
-        versionCode 1
-        versionName "1.0"
+        versionCode 291
+        versionName "2.6.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
 
         ndk {
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a',"arm64-v8a"
+
         }
 
-        multiDexEnabled true
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'zuowuxuxi'
+            keyPassword 'myxiake1q'
+            storeFile file('zuowuxuxi.key')
+            storePassword 'myxiake1q'
+            v1SigningEnabled true
+            v2SigningEnabled false
+        }
+
+        debug {
+            storeFile file("../debug.keystore")
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
+
+            //修改生成的包名
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = "Qpython_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFileName = fileName
+                    }
+                }
+            }
         }
-    }
-    externalNativeBuild {
-        ndkBuild {
-            path '../qpython/src/main/jni/Android.mk'
+
+        debug {
+            signingConfig signingConfigs.release
         }
 
     }
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -42,57 +82,111 @@ android {
     dataBinding {
         enabled = true
     }
+    lintOptions {
+        disable 'MissingTranslation'
+        abortOnError false
+    }
 
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
+    //为了解决部分第三方库重复打包了META-INF的问题
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    //设置渠道
+    productFlavors {
+
+        google {
+//            resValue "string", "app_name", "Qpython"
+            applicationId "org.qpython.qpy"
+        }
+
+        cn {
+//            resValue "string", "app_name", "QpythonL"
+            applicationId "com.hipipal.qpyplus"
+        }
+
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
         }
     }
-}
 
+
+//    dexOptions {
+//        incremental =true
+//    }
+
+}
 
 configurations {
     all*.exclude group: 'commons-logging', module: 'commons-logging'
 }
 
-
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':termemulator')
-    compile project(':termexec')
-    compile project(':qpypluginman')
-    compile project(':qpysdk')
-    compile project(':qpysl4a')
+    //api rootProject.ext.libButterknife
+    //annotationProcessor rootProject.ext.libButterknifeCompiler
 
-    //debugCompile project(path: ':qpysl4a', configuration: 'libraryDebug')
-    //releaseCompile project(path: ':qpysl4a', configuration: 'libraryRelease')
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api fileTree(include: ['*.so'], dir: 'libs')
 
-    compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.jakewharton:butterknife:8.5.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    api project(':termemulator')
+    api project(':termexec')
+    api project(':qpypluginman')
+    api project(':qpysdk')
 
-    compile rootProject.ext.libSupportDesign
-    compile rootProject.ext.libSupportV7
-    compile rootProject.ext.libSupportAnnotation
-    compile rootProject.ext.libSupportCardView
+    api files('libs/markdown4j.jar')
+    //api files('libs/android-async-http-1.4.8.aar')
+    //api 'com.loopj.android:android-async-http:1.4.8'
 
+    api('com.github.afollestad.material-dialogs:commons:0.8.5.6') { transitive = true }
 
-    compile 'de.hdodenhof:circleimageview:2.0.0'
-    compile 'com.thefinestartist:finestwebview:1.2.7'
-    compile 'me.zhanghai.android.materialprogressbar:library:1.1.4'
-    compile 'org.apmem.tools:layouts:1.9@aar'
-    compile 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
-    compile 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
-    compile('com.github.afollestad.material-dialogs:commons:0.8.5.6') { transitive = true }
-    compile 'com.daimajia.numberprogressbar:library:1.2@aar'
-    compile rootProject.ext.libRxJava
-    compile rootProject.ext.libRxAndroid
+    api 'me.zhanghai.android.materialprogressbar:library:1.1.4'
+    api 'org.apmem.tools:layouts:1.9@aar'
+    api 'com.azeesoft.lib.colorpicker:colorpicker:1.0.8@aar'
+    api 'com.googlecode.juniversalchardet:juniversalchardet:1.0.3'
+    api 'com.daimajia.numberprogressbar:library:1.2@aar'
+    api 'org.litepal.android:core:1.3.1'
+    api 'me.dm7.barcodescanner:zxing:1.9'
+    api 'com.android.support:multidex:1.0.1'
 
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'org.litepal.android:core:1.3.1'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'me.dm7.barcodescanner:zxing:1.9'
-    //compile 'com.android.support:multidex:1.0.1'
-    //compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.loopj.android:android-async-http:1.4.9'
+    api rootProject.ext.libOkHttp3
+    api rootProject.ext.libOkHttp3Log
+
+    api 'com.squareup.okio:okio:1.9.0'
+    api 'com.google.code.gson:gson:2.7'
+    api 'com.yanzhenjie:recyclerview-swipe:1.1.3'
+
+    api rootProject.ext.libRxAndroid
+    api rootProject.ext.libRxJava
+
+    api rootProject.ext.libSupportCardView
+    api rootProject.ext.libSupportPreference
+
+    googleApi rootProject.ext.firebaseCore
+    googleApi rootProject.ext.firebaseMsg
+    googleApi rootProject.ext.firebaseAuth
+    googleApi rootProject.ext.firebaseDatabase
+    googleApi rootProject.ext.googlePlayServiceAuth
+
+    api rootProject.ext.retrofit
+    api rootProject.ext.retrofitCoverterGson
+    api rootProject.ext.retrofitAdapterRxjava
+
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //    微信
+//    cnApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+    //    友盟统计
+    cnApi('com.umeng.analytics:analytics:6.1.2') {
+        exclude group: 'com.android.support:support-v4'
+    }
+
+    api 'com.youth.banner:banner:1.4.10'
 }
+
+apply plugin: 'com.google.gms.google-services'

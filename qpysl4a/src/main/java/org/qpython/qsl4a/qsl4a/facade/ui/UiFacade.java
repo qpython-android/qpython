@@ -19,7 +19,6 @@ package org.qpython.qsl4a.qsl4a.facade.ui;
 import android.app.ProgressDialog;
 import android.app.Service;
 import android.util.AndroidRuntimeException;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -27,11 +26,18 @@ import android.view.MenuItem;
 import android.view.View;
 
 import org.qpython.qsl4a.QSL4APP;
+import org.qpython.qsl4a.qsl4a.BaseApplication;
 import org.qpython.qsl4a.qsl4a.FileUtils;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
 import org.qpython.qsl4a.qsl4a.facade.EventFacade;
 import org.qpython.qsl4a.qsl4a.facade.FacadeManager;
-
+import org.qpython.qsl4a.qsl4a.interpreter.html.HtmlActivityTask;
+import org.qpython.qsl4a.qsl4a.interpreter.html.HtmlInterpreter;
+import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
+import org.qpython.qsl4a.qsl4a.rpc.Rpc;
+import org.qpython.qsl4a.qsl4a.rpc.RpcDefault;
+import org.qpython.qsl4a.qsl4a.rpc.RpcOptional;
+import org.qpython.qsl4a.qsl4a.rpc.RpcParameter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,14 +50,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.qpython.qsl4a.qsl4a.interpreter.html.HtmlActivityTask;
-import org.qpython.qsl4a.qsl4a.interpreter.html.HtmlInterpreter;
-import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
-import org.qpython.qsl4a.qsl4a.rpc.RpcDefault;
-import org.qpython.qsl4a.qsl4a.rpc.RpcOptional;
-
-import org.qpython.qsl4a.qsl4a.rpc.Rpc;
-import org.qpython.qsl4a.qsl4a.rpc.RpcParameter;
 
 /**
  * User Interface Facade. <br>
@@ -114,7 +112,7 @@ import org.qpython.qsl4a.qsl4a.rpc.RpcParameter;
  * convenience functions that create, display and return the relevant dialogs in one call.<br>
  * There is only ever one instance of a dialog. Any dialogCreate call will cause the existing dialog
  * to be destroyed.
- * 
+ *
  * @author MeanEYE.rcf (meaneye.rcf@gmail.com)
  */
 public class UiFacade extends RpcReceiver {
@@ -133,7 +131,6 @@ public class UiFacade extends RpcReceiver {
   private final EventFacade mEventFacade;
   private List<Integer> mOverrideKeys = Collections.synchronizedList(new ArrayList<Integer>());
 
-  private final String TAG = "UiFacade";
   public UiFacade(FacadeManager manager) {
     super(manager);
     mService = manager.getService();
@@ -152,11 +149,11 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Create a text input dialog.")
   public void dialogCreateInput(
-      @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Value") final String title,
-      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter value:") final String message,
-      @RpcParameter(name = "defaultText", description = "text to insert into the input box") @RpcOptional final String text,
-      @RpcParameter(name = "inputType", description = "type of input data, ie number or text") @RpcOptional final String inputType)
-      throws InterruptedException {
+          @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Value") final String title,
+          @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter value:") final String message,
+          @RpcParameter(name = "defaultText", description = "text to insert into the input box") @RpcOptional final String text,
+          @RpcParameter(name = "inputType", description = "type of input data, ie number or text") @RpcOptional final String inputType)
+          throws InterruptedException {
     dialogDismiss();
     mDialogTask = new AlertDialogTask(title, message);
     ((AlertDialogTask) mDialogTask).setTextInput(text);
@@ -167,8 +164,8 @@ public class UiFacade extends RpcReceiver {
 
   @Rpc(description = "Create a password input dialog.")
   public void dialogCreatePassword(
-      @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Password") final String title,
-      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter password:") final String message) {
+          @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Password") final String title,
+          @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter password:") final String message) {
     dialogDismiss();
     mDialogTask = new AlertDialogTask(title, message);
     ((AlertDialogTask) mDialogTask).setPasswordInput();
@@ -177,22 +174,22 @@ public class UiFacade extends RpcReceiver {
   /**
    * The result is the user's input, or None (null) if cancel was hit. <br>
    * Example (python)
-   * 
+   *
    * <pre>
    * import android
    * droid=android.Android()
-   * 
+   *
    * print droid.dialogGetInput("Title","Message","Default").result
    * </pre>
-   * 
+   *
    */
   @SuppressWarnings("unchecked")
   @Rpc(description = "Queries the user for a text input.")
   public String dialogGetInput(
-      @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Value") final String title,
-      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter value:") final String message,
-      @RpcParameter(name = "defaultText", description = "text to insert into the input box") @RpcOptional final String text)
-      throws InterruptedException {
+          @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("Value") final String title,
+          @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter value:") final String message,
+          @RpcParameter(name = "defaultText", description = "text to insert into the input box") @RpcOptional final String text)
+          throws InterruptedException {
     dialogCreateInput(title, message, text, "text");
     dialogSetNegativeButtonText("Cancel");
     dialogSetPositiveButtonText("Ok");
@@ -208,9 +205,9 @@ public class UiFacade extends RpcReceiver {
   @SuppressWarnings("unchecked")
   @Rpc(description = "Queries the user for a password.")
   public String dialogGetPassword(
-      @RpcParameter(name = "title", description = "title of the password box") @RpcDefault("Password") final String title,
-      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter password:") final String message)
-      throws InterruptedException {
+          @RpcParameter(name = "title", description = "title of the password box") @RpcDefault("Password") final String title,
+          @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Please enter password:") final String message)
+          throws InterruptedException {
     dialogCreatePassword(title, message);
     dialogSetNegativeButtonText("Cancel");
     dialogSetPositiveButtonText("Ok");
@@ -222,112 +219,28 @@ public class UiFacade extends RpcReceiver {
       return null;
     }
   }
-  
-  
-  
-  
-  @Rpc(description = "Create a qpython beam master.")
-  public String dialogCreateNFCBeamMaster(
-	      @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("QPython BEAM With NFC") final String title,
-	      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Input message and Beam") final String message,
-	      @RpcParameter(name = "inputType", description = "type of input data, ie number or text") @RpcOptional final String inputType)
-	      throws InterruptedException {
-	    dialogDismiss();
-	    mDialogTask = new NFCBeamTask(title, message);
-	    ((NFCBeamTask) mDialogTask).setBeamType(0);
 
-	    ((NFCBeamTask) mDialogTask).setTextInput("");
-	    if (inputType != null) {
-	      ((NFCBeamTask) mDialogTask).setEditInputType(inputType);
-	    }
-	    
-	    //dialogSetNegativeButtonText("Cancel");
-	    //dialogSetPositiveButtonText("QBeam");
-	    dialogShow();
-	    Map<String, Object> response = (Map<String, Object>) dialogGetResponse();
-	    //if ("positive".equals(response.get("which"))) {
-	      return (String) response.get("value");
-	    //} else {
-	    //  return null;
-	    //}
-	  }
-  
-  @Rpc(description = "Create a qpython beam master to send directory message.")
-  public String NFCBeamMessage(
-	      @RpcParameter(name = "content", description = "message you want to sent") @RpcDefault("Message you want to beam") final String content,
-		  @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("QPython Beam With NFC") final String title,
-	      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Beam Message") final String message)
-	      throws InterruptedException {
-	    dialogDismiss();
-	    mDialogTask = new NFCBeamTask(title, message);
-	    ((NFCBeamTask) mDialogTask).setContent(content);
-	    ((NFCBeamTask) mDialogTask).setBeamType(0);
-
-	    //((NFCBeamTask) mDialogTask).setTextInput("");
-	    
-	    //dialogSetNegativeButtonText("Cancel");
-	    //dialogSetPositiveButtonText("QBeam");
-	    dialogShow();
-	    Map<String, Object> response = (Map<String, Object>) dialogGetResponse();
-	    Log.d(TAG, "NFCBeamMessage:"+response.get("value"));
-	    //if ("positive".equals(response.get("which"))) {
-	      return (String) response.get("value");
-	    //} else {
-	    //  return null;
-	    //}
-	  }
-
-  @Rpc(description = "Create a qpython beam slave.")
-  public String dialogCreateNFCBeamSlave(
-	      @RpcParameter(name = "title", description = "title of the input box") @RpcDefault("QPython Beam With NFC") final String title,
-	      @RpcParameter(name = "message", description = "message to display above the input box") @RpcDefault("Wait for beam message") final String message)
-	      throws InterruptedException {
-	    dialogDismiss();
-	    mDialogTask = new NFCBeamTask(title, message);
-	    ((NFCBeamTask) mDialogTask).setBeamType(1);
-	    //((NFCBeamTask) mDialogTask).setTextInput("");
-	    
-	    //dialogSetNegativeButtonText("Cancel");
-	    //dialogSetPositiveButtonText("QBeam");
-	    dialogShow();
-	    Map<String, Object> response = (Map<String, Object>) dialogGetResponse();
-	    //if ("positive".equals(response.get("which"))) {
-	      return (String) response.get("value");
-	    //} else {
-	    //  return null;
-	    //}
-	  }
-  
-
-
-  /*public void dialogCreateNFCBeam(@RpcParameter(name = "title") @RpcOptional String title,
-      @RpcParameter(name = "message") @RpcOptional String message) {
-    dialogDismiss(); // Dismiss any existing dialog.
-    mDialogTask = new NFCBeamTask(title, message);
-  }*/
-
-  
   @Rpc(description = "Create a spinner progress dialog.")
   public void dialogCreateSpinnerProgress(@RpcParameter(name = "title") @RpcOptional String title,
-      @RpcParameter(name = "message") @RpcOptional String message,
-      @RpcParameter(name = "maximum progress") @RpcDefault("100") Integer max) {
+                                          @RpcParameter(name = "message") @RpcOptional String message,
+                                          @RpcParameter(name = "maximum progress") @RpcDefault("100") Integer max) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask = new ProgressDialogTask(ProgressDialog.STYLE_SPINNER, max, title, message, true);
   }
 
   @Rpc(description = "Create a horizontal progress dialog.")
   public void dialogCreateHorizontalProgress(
-      @RpcParameter(name = "title") @RpcOptional String title,
-      @RpcParameter(name = "message") @RpcOptional String message,
-      @RpcParameter(name = "maximum progress") @RpcDefault("100") Integer max) {
+          @RpcParameter(name = "title") @RpcOptional String title,
+          @RpcParameter(name = "message") @RpcOptional String message,
+          @RpcParameter(name = "maximum progress") @RpcDefault("100") Integer max) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask =
-        new ProgressDialogTask(ProgressDialog.STYLE_HORIZONTAL, max, title, message, true);
+            new ProgressDialogTask(ProgressDialog.STYLE_HORIZONTAL, max, title, message, true);
   }
 
   /**
    * <b>Example (python)</b>
-   * 
+   *
    * <pre>
    *   import android
    *   droid=android.Android()
@@ -347,13 +260,13 @@ public class UiFacade extends RpcReceiver {
    *     print "You can't even make up your mind?"
    *   else:
    *     print "Unknown response=",response
-   * 
+   *
    *   print "Done"
    * </pre>
    */
   @Rpc(description = "Create alert dialog.")
   public void dialogCreateAlert(@RpcParameter(name = "title") @RpcOptional String title,
-      @RpcParameter(name = "message") @RpcOptional String message) {
+                                @RpcParameter(name = "message") @RpcOptional String message) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask = new AlertDialogTask(title, message);
   }
@@ -369,26 +282,26 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Create seek bar dialog.")
   public void dialogCreateSeekBar(
-      @RpcParameter(name = "starting value") @RpcDefault("50") Integer progress,
-      @RpcParameter(name = "maximum value") @RpcDefault("100") Integer max,
-      @RpcParameter(name = "title") String title, @RpcParameter(name = "message") String message) {
+          @RpcParameter(name = "starting value") @RpcDefault("50") Integer progress,
+          @RpcParameter(name = "maximum value") @RpcDefault("100") Integer max,
+          @RpcParameter(name = "title") String title, @RpcParameter(name = "message") String message) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask = new SeekBarDialogTask(progress, max, title, message);
   }
 
   @Rpc(description = "Create time picker dialog.")
   public void dialogCreateTimePicker(
-      @RpcParameter(name = "hour") @RpcDefault("0") Integer hour,
-      @RpcParameter(name = "minute") @RpcDefault("0") Integer minute,
-      @RpcParameter(name = "is24hour", description = "Use 24 hour clock") @RpcDefault("false") Boolean is24hour) {
+          @RpcParameter(name = "hour") @RpcDefault("0") Integer hour,
+          @RpcParameter(name = "minute") @RpcDefault("0") Integer minute,
+          @RpcParameter(name = "is24hour", description = "Use 24 hour clock") @RpcDefault("false") Boolean is24hour) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask = new TimePickerDialogTask(hour, minute, is24hour);
   }
 
   @Rpc(description = "Create date picker dialog.")
   public void dialogCreateDatePicker(@RpcParameter(name = "year") @RpcDefault("1970") Integer year,
-      @RpcParameter(name = "month") @RpcDefault("1") Integer month,
-      @RpcParameter(name = "day") @RpcDefault("1") Integer day) {
+                                     @RpcParameter(name = "month") @RpcDefault("1") Integer month,
+                                     @RpcParameter(name = "day") @RpcDefault("1") Integer day) {
     dialogDismiss(); // Dismiss any existing dialog.
     mDialogTask = new DatePickerDialogTask(year, month, day);
   }
@@ -434,9 +347,6 @@ public class UiFacade extends RpcReceiver {
   public void dialogSetPositiveButtonText(@RpcParameter(name = "text") String text) {
     if (mDialogTask != null && mDialogTask instanceof AlertDialogTask) {
       ((AlertDialogTask) mDialogTask).setPositiveButtonText(text);
-    } else if (mDialogTask != null && mDialogTask instanceof NFCBeamTask) {
-        ((NFCBeamTask) mDialogTask).setPositiveButtonText(text);
-
     } else if (mDialogTask != null && mDialogTask instanceof SeekBarDialogTask) {
       ((SeekBarDialogTask) mDialogTask).setPositiveButtonText(text);
     } else {
@@ -448,9 +358,6 @@ public class UiFacade extends RpcReceiver {
   public void dialogSetNegativeButtonText(@RpcParameter(name = "text") String text) {
     if (mDialogTask != null && mDialogTask instanceof AlertDialogTask) {
       ((AlertDialogTask) mDialogTask).setNegativeButtonText(text);
-    } else if (mDialogTask != null && mDialogTask instanceof NFCBeamTask) {
-          ((NFCBeamTask) mDialogTask).setNegativeButtonText(text);
-
     } else if (mDialogTask != null && mDialogTask instanceof SeekBarDialogTask) {
       ((SeekBarDialogTask) mDialogTask).setNegativeButtonText(text);
     } else {
@@ -489,8 +396,8 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Set dialog single choice items and selected item.")
   public void dialogSetSingleChoiceItems(
-      @RpcParameter(name = "items") JSONArray items,
-      @RpcParameter(name = "selected", description = "selected item index") @RpcDefault("0") Integer selected) {
+          @RpcParameter(name = "items") JSONArray items,
+          @RpcParameter(name = "selected", description = "selected item index") @RpcDefault("0") Integer selected) {
     if (mDialogTask != null && mDialogTask instanceof AlertDialogTask) {
       ((AlertDialogTask) mDialogTask).setSingleChoiceItems(items, selected);
     } else {
@@ -507,9 +414,9 @@ public class UiFacade extends RpcReceiver {
 
   @Rpc(description = "Set dialog multiple choice items and selection.")
   public void dialogSetMultiChoiceItems(
-      @RpcParameter(name = "items") JSONArray items,
-      @RpcParameter(name = "selected", description = "list of selected items") @RpcOptional JSONArray selected)
-      throws JSONException {
+          @RpcParameter(name = "items") JSONArray items,
+          @RpcParameter(name = "selected", description = "list of selected items") @RpcOptional JSONArray selected)
+          throws JSONException {
     if (mDialogTask != null && mDialogTask instanceof AlertDialogTask) {
       ((AlertDialogTask) mDialogTask).setMultiChoiceItems(items, selected);
     } else {
@@ -541,12 +448,14 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Display a WebView with the given URL.")
   public void webViewShow(
-      @RpcParameter(name = "url") String url,
-      @RpcParameter(name = "wait", description = "block until the user exits the WebView") @RpcOptional Boolean wait)
-      throws IOException {
+          @RpcParameter(name = "url") String url,
+          @RpcParameter(name = "wait", description = "block until the user exits the WebView") @RpcOptional Boolean wait)
+          throws IOException {
     String jsonSrc = FileUtils.readFromAssetsFile(mService, HtmlInterpreter.JSON_FILE);
     String AndroidJsSrc = FileUtils.readFromAssetsFile(mService, HtmlInterpreter.ANDROID_JS_FILE);
-    HtmlActivityTask task = new HtmlActivityTask(mManager, AndroidJsSrc, jsonSrc, url, false);
+    String TemplateSrc = FileUtils.readFromAssetsFile(mService, HtmlInterpreter.TEMPLATE_FILE);
+
+    HtmlActivityTask task = new HtmlActivityTask(mManager, AndroidJsSrc, jsonSrc, TemplateSrc, url, false);
     mTaskQueue.execute(task);
     if (wait != null && wait) {
       try {
@@ -562,26 +471,26 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Adds a new item to context menu.")
   public void addContextMenuItem(
-      @RpcParameter(name = "label", description = "label for this menu item") String label,
-      @RpcParameter(name = "event", description = "event that will be generated on menu item click") String event,
-      @RpcParameter(name = "eventData") @RpcOptional Object data) {
+          @RpcParameter(name = "label", description = "label for this menu item") String label,
+          @RpcParameter(name = "event", description = "event that will be generated on menu item click") String event,
+          @RpcParameter(name = "eventData") @RpcOptional Object data) {
     mContextMenuItems.add(new UiMenuItem(label, event, data, null));
   }
 
   /**
    * <b>Example (python)</b>
-   * 
+   *
    * <pre>
    * import android
    * droid=android.Android()
-   * 
+   *
    * droid.addOptionsMenuItem("Silly","silly",None,"star_on")
    * droid.addOptionsMenuItem("Sensible","sensible","I bet.","star_off")
    * droid.addOptionsMenuItem("Off","off",None,"ic_menu_revert")
-   * 
+   *
    * print "Hit menu to see extra options."
    * print "Will timeout in 10 seconds if you hit nothing."
-   * 
+   *
    * while True: # Wait for events from the menu.
    *   response=droid.eventWait(10000).result
    *   if response==None:
@@ -590,15 +499,15 @@ public class UiFacade extends RpcReceiver {
    *   if response["name"]=="off":
    *     break
    * print "And done."
-   * 
+   *
    * </pre>
    */
   @Rpc(description = "Adds a new item to options menu.")
   public void addOptionsMenuItem(
-      @RpcParameter(name = "label", description = "label for this menu item") String label,
-      @RpcParameter(name = "event", description = "event that will be generated on menu item click") String event,
-      @RpcParameter(name = "eventData") @RpcOptional Object data,
-      @RpcParameter(name = "iconName", description = "Android system menu icon, see http://developer.android.com/reference/android/R.drawable.html") @RpcOptional String iconName) {
+          @RpcParameter(name = "label", description = "label for this menu item") String label,
+          @RpcParameter(name = "event", description = "event that will be generated on menu item click") String event,
+          @RpcParameter(name = "eventData") @RpcOptional Object data,
+          @RpcParameter(name = "iconName", description = "Android system menu icon, see http://developer.android.com/reference/android/R.drawable.html") @RpcOptional String iconName) {
     mOptionsMenuItems.add(new UiMenuItem(label, event, data, iconName));
     mMenuUpdated.set(true);
   }
@@ -628,7 +537,7 @@ public class UiFacade extends RpcReceiver {
         MenuItem menuItem = menu.add(MENU_GROUP_ID, Menu.NONE, Menu.NONE, item.mmTitle);
         if (item.mmIcon != null) {
           menuItem.setIcon(mService.getResources()
-              .getIdentifier(item.mmIcon, "drawable", "android"));
+                  .getIdentifier(item.mmIcon, "drawable", "android"));
         }
         menuItem.setOnMenuItemClickListener(item.mmListener);
       }
@@ -643,17 +552,23 @@ public class UiFacade extends RpcReceiver {
    */
   @Rpc(description = "Show Full Screen.")
   public List<String> fullShow(
-      @RpcParameter(name = "layout", description = "String containing View layout") String layout)
-      throws InterruptedException {
+          @RpcParameter(name = "layout", description = "String containing View layout") String layout,
+          @RpcParameter(name = "title", description = "Activity Title") @RpcOptional String title)
+          throws InterruptedException {
     if (mFullScreenTask != null) {
-      fullDismiss();
+      // fullDismiss();
+      mFullScreenTask.setLayout(layout);
+      if (title != null) {
+        mFullScreenTask.setTitle(title);
+      }
+    } else {
+      mFullScreenTask = new FullScreenTask(layout, title);
+      mFullScreenTask.setEventFacade(mEventFacade);
+      mFullScreenTask.setUiFacade(this);
+      mFullScreenTask.setOverrideKeys(mOverrideKeys);
+      mTaskQueue.execute(mFullScreenTask);
+      mFullScreenTask.getShowLatch().await();
     }
-    mFullScreenTask = new FullScreenTask(layout);
-    mFullScreenTask.setEventFacade(mEventFacade);
-    mFullScreenTask.setUiFacade(this);
-    mFullScreenTask.setOverrideKeys(mOverrideKeys);
-    mTaskQueue.execute(mFullScreenTask);
-    mFullScreenTask.getShowLatch().await();
     return mFullScreenTask.mInflater.getErrors();
   }
 
@@ -675,7 +590,7 @@ public class UiFacade extends RpcReceiver {
 
   @Rpc(description = "Get fullscreen properties for a specific widget")
   public Map<String, String> fullQueryDetail(
-      @RpcParameter(name = "id", description = "id of layout widget") String id) {
+          @RpcParameter(name = "id", description = "id of layout widget") String id) {
     if (mFullScreenTask == null) {
       throw new RuntimeException("No screen displayed.");
     }
@@ -684,9 +599,9 @@ public class UiFacade extends RpcReceiver {
 
   @Rpc(description = "Set fullscreen widget property")
   public String fullSetProperty(
-      @RpcParameter(name = "id", description = "id of layout widget") String id,
-      @RpcParameter(name = "property", description = "name of property to set") String property,
-      @RpcParameter(name = "value", description = "value to set property to") String value) {
+          @RpcParameter(name = "id", description = "id of layout widget") String id,
+          @RpcParameter(name = "property", description = "name of property to set") String property,
+          @RpcParameter(name = "value", description = "value to set property to") String value) {
     if (mFullScreenTask == null) {
       throw new RuntimeException("No screen displayed.");
     }
@@ -695,30 +610,39 @@ public class UiFacade extends RpcReceiver {
 
   @Rpc(description = "Attach a list to a fullscreen widget")
   public String fullSetList(
-      @RpcParameter(name = "id", description = "id of layout widget") String id,
-      @RpcParameter(name = "list", description = "List to set") JSONArray items) {
+          @RpcParameter(name = "id", description = "id of layout widget") String id,
+          @RpcParameter(name = "list", description = "List to set") JSONArray items) {
     if (mFullScreenTask == null) {
       throw new RuntimeException("No screen displayed.");
     }
     return mFullScreenTask.setList(id, items);
   }
 
+  @Rpc(description = "Set the Full Screen Activity Title")
+  public void fullSetTitle(
+          @RpcParameter(name = "title", description = "Activity Title") String title) {
+    if (mFullScreenTask == null) {
+      throw new RuntimeException("No screen displayed.");
+    }
+    mFullScreenTask.setTitle(title);
+  }
+
   /**
    * This will override the default behaviour of keys while in the fullscreen mode. ie:
-   * 
+   *
    * <pre>
    *   droid.fullKeyOverride([24,25],True)
    * </pre>
-   * 
+   *
    * This will override the default behaviour of the volume keys (codes 24 and 25) so that they do
    * not actually adjust the volume. <br>
    * Returns a list of currently overridden keycodes.
    */
   @Rpc(description = "Override default key actions")
   public JSONArray fullKeyOverride(
-      @RpcParameter(name = "keycodes", description = "List of keycodes to override") JSONArray keycodes,
-      @RpcParameter(name = "enable", description = "Turn overriding or off") @RpcDefault(value = "true") Boolean enable)
-      throws JSONException {
+          @RpcParameter(name = "keycodes", description = "List of keycodes to override") JSONArray keycodes,
+          @RpcParameter(name = "enable", description = "Turn overriding or off") @RpcDefault(value = "true") Boolean enable)
+          throws JSONException {
     for (int i = 0; i < keycodes.length(); i++) {
       int value = (int) keycodes.getLong(i);
       if (value > 0) {

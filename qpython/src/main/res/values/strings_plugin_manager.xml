@@ -6,7 +6,7 @@
     <string name="dialog_plugin_detail_positive">OK</string>
     <string name="title_select_plugin">Select plugin</string>
     <string name="title_plugin_manage">Plugin manager</string>
-    <string name="toast_read_permission_deny">Permission deny</string>
+    <string name="toast_read_permission_deny" translatable="false">Permission deny</string>
 
     <string name="plugin_install">Install</string>
     <string name="plugin_uninstall">UnInstall</string>

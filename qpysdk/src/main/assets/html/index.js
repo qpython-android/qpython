@@ -3,12 +3,12 @@ function gotoApp() {
 	total = total+1
 	if (total>=10) {
 		//setTimeout('milib.closeWait()',100);
-	    $('#mainEle').html('<div id="loading">Error: Web App failed to start,<br />retry or <a href="javascript:milib.showLog()">check the log</a>.</div>');
-	
+	    $('#mainEle').html('<div id="loading">Fail to start, please retry.</div>');
+	    milib.onNext("timeout");
+
 	} else {
 	 	if (milib.isSrvOk("")) {
 	    	setTimeout('window.location=milib.getSrv()',100);
-	    	
 		} else {
 			if (total<15) {
 		    	setTimeout('gotoApp()',3000);
@@ -23,8 +23,7 @@ function gotoApp() {
     milib.loadConsole("");
 
     gotoApp();
-    
-    
+
     /*var droid = new AndroidHelper();
     droid.makeToast('HelloWorld')*/
 }

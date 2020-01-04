@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/news_share"
+        android:icon="@drawable/ic_com_share"
+        android:title="@string/share"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/news_edit"
+        android:icon="@drawable/gist_editor"
+        app:showAsAction="always"
+        android:title="Edit"/>
+</menu>

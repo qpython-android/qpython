@@ -2,29 +2,33 @@
 // spaces amount
 package org.renpy.android;
 
-import android.app.Activity;
-import android.content.res.AssetManager;
-import android.util.Log;
+import java.io.*;
 
-import org.qpython.qpysdk.jtar.TarEntry;
-import org.qpython.qpysdk.jtar.TarInputStream;
+import android.app.Activity;
+import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.File;
+
 import java.util.zip.GZIPInputStream;
 
-public class AssetExtract {
+import android.content.res.AssetManager;
+
+import com.quseit.common.jtar.TarEntry;
+import com.quseit.common.jtar.TarInputStream;
+
+
+class AssetExtract {
 
     private AssetManager mAssetManager = null;
     private Activity mActivity = null;
 
-    public AssetExtract(Activity act) {
+    AssetExtract(Activity act) {
         mActivity = act;
         mAssetManager = act.getAssets();
     }
@@ -36,6 +40,8 @@ public class AssetExtract {
         InputStream assetStream = null;
         TarInputStream tis = null;
 
+        Log.i("python", "extracting " + asset + " to " + target);
+        
         try {
             assetStream = mAssetManager.open(asset, AssetManager.ACCESS_STREAMING);
             tis = new TarInputStream(new BufferedInputStream(new GZIPInputStream(new BufferedInputStream(assetStream, 8192)), 8192));
@@ -58,7 +64,7 @@ public class AssetExtract {
                 break;
             }
 
-            Log.i("python", "extracting " + entry.getName());
+            // LogUtil.i("python", "extracting " + entry.getName());
 
             if (entry.isDirectory()) {
 

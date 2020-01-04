@@ -26,6 +26,8 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 
+import org.qpython.qsl4a.R;
+
 /**
  * Encapsulates an {@link Activity} and a {@link FutureObject}.
  * 
@@ -48,6 +50,8 @@ public abstract class FutureActivityTask<T> {
 	public void onCreate() {
 		Log.d(TAG, "onCreate");
 		mActivity.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        mActivity.setContentView(R.layout.activity_run_splash);
+
 	}
 
   public void onStart() {

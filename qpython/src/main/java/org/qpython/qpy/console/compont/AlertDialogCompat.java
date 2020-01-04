@@ -1,7 +1,9 @@
 package org.qpython.qpy.console.compont;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.content.Context;
+
+import org.qpython.qpysdk.utils.AndroidCompat;
 
 public class AlertDialogCompat extends AlertDialog {
     // API 11
@@ -19,28 +21,6 @@ public class AlertDialogCompat extends AlertDialog {
 
     private AlertDialogCompat(Context context, boolean cancelable, OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
-    }
-
-    ////////////////////////////////////////////////////////////
-    private static class Api11OrLater extends AlertDialog {
-        public Api11OrLater(Context context, int theme) {
-            super(context, theme);
-        }
-
-        public Api11OrLater(Context context, boolean cancelable, OnCancelListener cancelListener) {
-            super(context, cancelable, cancelListener);
-        }
-    }
-
-    ////////////////////////////////////////////////////////////
-    private static class Api14OrLater extends AlertDialog {
-        public Api14OrLater(Context context, int theme) {
-            super(context, theme);
-        }
-
-        public Api14OrLater(Context context, boolean cancelable, OnCancelListener cancelListener) {
-            super(context, cancelable, cancelListener);
-        }
     }
 
     ////////////////////////////////////////////////////////////
@@ -63,13 +43,35 @@ public class AlertDialogCompat extends AlertDialog {
     public static AlertDialog newInstance(Context context, boolean cancelable, OnCancelListener cancelListener) {
         return (new AlertDialogCompat(context, cancelable, cancelListener));
     }
-    ////////////////////////////////////////////////////////////
 
     public static Builder newInstanceBuilder(Context context, int theme) {
         if (AndroidCompat.SDK >= 11) {
             return new Api11OrLaterBuilder(context, theme);
         } else {
             return new Builder(context);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////
+    private static class Api11OrLater extends AlertDialog {
+        public Api11OrLater(Context context, int theme) {
+            super(context, theme);
+        }
+
+        public Api11OrLater(Context context, boolean cancelable, OnCancelListener cancelListener) {
+            super(context, cancelable, cancelListener);
+        }
+    }
+    ////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////
+    private static class Api14OrLater extends AlertDialog {
+        public Api14OrLater(Context context, int theme) {
+            super(context, theme);
+        }
+
+        public Api14OrLater(Context context, boolean cancelable, OnCancelListener cancelListener) {
+            super(context, cancelable, cancelListener);
         }
     }
 

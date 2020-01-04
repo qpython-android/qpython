@@ -41,7 +41,7 @@ public class FeaturedInterpreters {
         mExtensionMap.put(interpreter.mmExtension, interpreter);
       }
     } catch (MalformedURLException e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
   }
 

@@ -1,0 +1,437 @@
+<resources tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
+
+
+    <string name="terminal">Терминал</string>
+    <string name="library">Библиотека</string>
+    <string name="recent">Недавние</string>
+    <string name="script">Скрипт</string>
+    <string name="project">Проект</string>
+
+
+    <string name="setting">Настройки</string>
+    <string name="editor">Редактор</string>
+    <string name="community">Сообщество</string>
+
+    <string name="more">Больше</string>
+    <string name="sl4a_server">SL4A Сервер</string>
+    <string name="ftp_server">FTP сервер</string>
+
+
+    <!---->
+    <string name="application_terminal">Терминал</string>
+    <string name="preferences">Настройки</string>
+    <string name="new_window">Открыть новое терминал</string>
+    <string name="close_window">Закрыть терминал</string>
+    <string name="window_list">Список окон</string>
+    <string name="reset">Перезапустить терминал</string>
+    <string name="send_email">Отправить email на…</string>
+    <string name="special_keys">Особые ключи</string>
+    <string name="toggle_soft_keyboard">Открыть/Закрыть клавиатуру</string>
+
+    <string name="reset_toast_notification">The state at present will be reset.</string>
+
+    <string name="enable_wakelock">Включить блокировку сна</string>
+    <string name="disable_wakelock">Отключить блокировку сна</string>
+    <string name="enable_wifilock">Включить блокировку WIFI</string>
+    <string name="disable_wifilock">Отключить блокировку WIFI</string>
+
+    <string name="edit_text">Редактировать текст</string>
+    <string name="select_text">Выбрать текст</string>
+    <string name="copy_all">Копировать всё</string>
+    <string name="send_control_key">Нажать клавишу control</string>
+    <string name="send_fn_key">Нажать клавишу Fn</string>
+
+    <string name="window_title">Окно %1$d</string>
+
+    <string name="process_exit_message">Сессия не активна</string>
+
+    <!-- Preference dialog -->
+    <string name="screen_preferences">Экран</string>
+
+    <string name="title_statusbar_preference">Статусбар</string>
+    <string name="summary_statusbar_preference">Показать/Скрыть статусбар</string>
+    <string name="dialog_title_statusbar_preference">Статусбар</string>
+
+    <string name="title_actionbar_preference">Action Bar</string>
+    <string name="summary_actionbar_preference">Выберите поведение панели действий(Android 3.0 и выше)</string>
+    <string name="dialog_title_actionbar_preference">Поведение панели действий</string>
+
+    <string name="title_orientation_preference">Ориентация экрана</string>
+    <string name="summary_orientation_preference">Выберите ориентацию экрана</string>
+    <string name="dialog_title_orientation_preference">ориентация экрана</string>
+
+    <string name="text_preferences">Текст</string>
+
+    <string name="title_utf8_by_default_preference">Использовать UTF-8 по умолчанию</string>
+    <string name="summary_utf8_by_default_preference">Использовать UTF-8 по умолчанию</string>
+
+    <string name="title_fontsize_preference">Размер шрифта</string>
+    <string name="summary_fontsize_preference">Выберите размер шрифта</string>
+    <string name="dialog_title_fontsize_preference">Размер шрифта</string>
+
+    <string name="title_color_preference">Цвет текста</string>
+    <string name="summary_color_preference">Выберите цвет текста</string>
+    <string name="dialog_title_color_preference">Цвет текста</string>
+
+    <string name="keyboard_preferences">Клавиатура</string>
+
+    <string name="title_backaction_preference">Поведение кнопки назад</string>
+    <string name="summary_backaction_preference">Выберите поведение кнопки назад</string>
+    <string name="dialog_title_backaction_preference">Поведение кнопки назад</string>
+
+    <string name="title_controlkey_preference">Клавиша Ctrl</string>
+    <string name="summary_controlkey_preference">Выберите поведение клавиши Ctrl</string>
+    <string name="dialog_title_controlkey_preference">Клавиша Ctrl</string>
+
+    <string name="title_fnkey_preference">Клавиша Fn</string>
+    <string name="summary_fnkey_preference">Выберите поведение клавиши Fn</string>
+    <string name="dialog_title_fnkey_preference">Клавиша Fn</string>
+
+    <string name="title_ime_preference">Способ ввода</string>
+    <string name="summary_ime_preference">Выберите способ ввода</string>
+    <string name="dialog_title_ime_preference">Способ ввода</string>
+
+    <string name="shell_preferences">Оболочка</string>
+    <string name="title_shell_preference">Терминал</string>
+    <string name="summary_shell_preference">Выберите оболочку</string>
+    <string name="dialog_title_shell_preference">Оболочка</string>
+
+    <string name="title_initialcommand_preference">Команда инициализации</string>
+    <string name="summary_initialcommand_preference">Автоматическое выполнение команды инициализации при запуске</string>
+    <string name="dialog_title_initialcommand_preference">Команда инициализации</string>
+
+    <string name="title_termtype_preference">Тип терминала</string>
+    <string name="summary_termtype_preference">Установить оболочку терминала</string>
+    <string name="dialog_title_termtype_preference">Тип терминала</string>
+
+    <string name="title_close_window_on_process_exit_preference">Закрывать терминал при выходе</string>
+    <string name="summary_close_window_on_process_exit_preference">Закрывать терминал при выходе</string>
+
+    <string name="title_verify_path_preference">проверить PATH</string>
+    <string name="summary_verify_path_preference">Очистить неправильный PATH</string>
+
+    <string name="title_do_path_extensions_preference">Разрешить расширение PATH</string>
+    <string name="summary_do_path_extensions_preference">Разрешать добавлять команды к PATH</string>
+
+    <string name="title_allow_prepend_path_preference">Разрешить препозицию PATH</string>
+    <string name="summary_allow_prepend_path_preference">Разрешить перезапись существующих команд в PATH</string>
+
+    <string name="title_home_path_preference">Домашняя папка</string>
+    <string name="summary_home_path_preference">Использовать как переменную пути PATH</string>
+
+    <string name="control_key_dialog_title">Клавиши Ctrl и Fn</string>
+    <string name="control_key_dialog_control_text">CTRLKEY Пробел : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
+    <string name="control_key_dialog_control_disabled_text">Разбиндить клавишу Ctrl</string>
+    <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (столбик)\nFNKEY U : _ (нижнее подчёркивание)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
+    <string name="control_key_dialog_fn_disabled_text">Fn key unset</string>
+
+    <string name="confirm_window_close_message">Закрыть терминал?</string>
+
+    <string name="email_transcript_subject">Копия терминала</string>
+    <string name="feedback_email_subject">Обратная связь - QPython</string>
+    <string name="email_transcript_chooser_title">Обратная связь ...</string>
+    <string name="email_transcript_no_email_activity_found">Не удалось найти подходящее приложение для отправки E-mail</string>
+
+    <string name="alt_sends_esc">Использовать Alt как ESC</string>
+    <string name="alt_sends_esc_summary_on">Используется Alt как ESC</string>
+    <string name="alt_sends_esc_summary_off">Отменить использование Alt как ESC</string>
+
+    <string name="title_mouse_tracking_preference">Отправить событие мыши</string>
+    <string name="summary_mouse_tracking_preference">События касания и прокрутки игнорируются?</string>
+
+    <string name="dialog_title_script">скрипт</string>
+    <string name="dialog_title_project">проект</string>
+
+
+    <string name="title_use_keyboard_shortcuts">Use Keyboard Shortcuts</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: пролистнуть терминал, Ctrl-Shift-N: новое терминал, Ctrl-Shift-V: вставить.</string>
+    <string name="use_keyboard_shortcuts_summary_off">Сокращения для клавиатуры отключены.</string>
+    <string name="help">Помощь</string>
+    <string name="activity_term_here_title">Называть здесь</string>
+    <!-- BEGIN SHORTCUT RELATED STRINGS -->
+    <!-- AndroidManifest.xml -->
+    <string name="activity_shortcut_create">"Временный ярлык"</string>
+    <string name="addshortcut_button_find_command">Команда поиска</string>
+    <string name="addshortcut_command_hint">команда</string>
+    <string name="addshortcut_example_hint">--пример=\""a\"</string>
+    <string name="addshortcut_navigator_title">ВЫБЕРИТЕ ЦЕЛЬ ДЛЯ ЯРЛЫКА</string>
+    <string name="addshortcut_command_window_instructions">Command window requires full mPath, no arguments. For other commands use Arguments window (ex: cd /sdcard).</string>
+    <string name="addshortcut_arguments_label">Добавить в директорию</string>
+    <string name="addshortcut_shortcut_label">Надпись ярлыка\:</string>
+    <string name="addshortcut_button_text_icon">Текстовая иконка</string>
+    <string name="addshortcut_make_text_icon">СДЕЛАТЬ ТЕКСТОВУЮ ИКОНКУ</string>
+    <string name="addshortcut_text_icon_instructions"></string>
+    <string name="addshortcut_title">Временный ярлык</string>
+    <!-- FSNavigator.java -->
+    <string name="fsnavigator_title">ВЫБОР ФАЙЛА</string>
+    <string name="fsnavigator_no_external_storage">Внешнее хранилище недоступно</string>
+    <string name="fsnavigator_optional_enter_path">Or enter mPath here.</string>
+    <string name="fsnavigator_change_theme">Изменить тему</string>
+    <!-- ColorValue.java -->
+    <string name="colorvalue_label_lock_button_column">БЛОКИРОВКА</string>
+    <string name="colorvalue_icon_text_entry_hint">Введите текст иконк </string>
+
+    <string name="help_url">https://www.qpython.org</string>
+
+    <string name="new_file">Новый файл</string>
+    <string name="read_only">Только чтение</string>
+    <string name="file">Файловый менеджер</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="ok">ОК</string>
+    <string name="close">Закрыть</string>
+    <string name="no_change">Нет изменений</string>
+    <string name="feedback">Обратная свзяь</string>
+    <string name="about">О приложении</string>
+    <string name="file_not_exists">Файл не существует</string>
+    <string name="enable_root">Включён</string>
+    <!--<string name="my_name">作者：彭春瑜</string>-->
+    <!--<string name="qq_group">QQ群：87272821</string>-->
+    <string name="send">Отправить</string>
+    <string name="no_camera">Не удаётся подключиться к камере. Проверьте соответствующее разрешение для приложения.</string>
+    <string name="no_storage">Нет разрешения для доступа к хранилищу</string>
+    <plurals name="x_text_replaced">
+        <item quantity="zero">0 найдено</item>
+        <item quantity="other">%d текст заменён</item>
+    </plurals>
+    <string-array name="insert_datetime_lang">
+        <item>English</item>
+        <item>Chinese</item>
+    </string-array>
+    <string-array name="wrap_char_list">
+        <item>Использовать \\n（Linux/OSX）</item>
+        <item>Использовать \\r\\n（Windows）</item>
+    </string-array>
+    <string-array name="date_number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>100</item>
+    </string-array>
+    <string-array name="screen_orientation">
+        <item>Автоматически</item>
+        <item>Горизонтальная</item>
+        <item>Вертикальная</item>
+    </string-array>
+
+    <string-array name="list_select">
+        <item>Открыть в редакторе</item>
+        <item>Открыть в .....</item>
+        <item>Мканировать заново</item>
+    </string-array>
+
+
+    <array name="library">Net библиотека</array>
+
+
+    <string-array name="tab_string">
+        <item>Net библиотека</item>
+        <item>Загружено</item>
+    </string-array>
+
+
+    <string name="pref_initialcommand_default_qpython">python</string>
+    <string name="qpy_app">QPY</string>
+    <string name="local_app">Локальное приложение</string>
+    <string name="task">Задача</string>
+    <string name="root_mode">Root режим</string>
+    <string name="star_it">Оценить</string>
+    <string name="disable_root">Отключён</string>
+    <string name="http_qpypi_qpython_org">https://pypi.python.org/simple/</string>
+    <string name="add">добавить</string>
+    <string name="sl4a_running">SL4A сервер запущен</string>
+    <string name="sl4a_un_running">SL4A сеовер не активен</string>
+    <string name="service_toggle">Переключить сервер</string>
+    <string name="qpy_description">QPython это движок для скриптов, запускаемый на устройствах Android, таких, как телефоны и планшеты.</string>
+    <string name="warning">Предупреждение</string>
+    <string name="reset_warning">Сброс удалит все данные и загруженные библиотеки. Вы уверены, что хотите продолжить?</string>
+    <string name="downloading">Библиотека</string>
+    <string name="location">Расположение</string>
+
+
+    <!--  -->
+
+    <!-- Titles -->
+    <string name="title_editor">QEdit - %1$s</string>
+    <string name="title_editor_dirty">QEdit - %1$s *</string>
+    <string name="title_editor_readonly">QEdit - [%1$s]</string>
+
+    <string name="title_settings">QEdit - Настройки</string>
+
+    <!-- Config screen strings -->
+    <string name="config_cat_display">Дисплей</string>
+    <string name="config_title_line_numbers">Показывать номера строк</string>
+    <string name="config_title_word_wrap">Перенос слов</string>
+    <string name="config_title_font">Изменить шрифт</string>
+    <string name="config_title_text_size">Размер текста</string>
+    <string name="config_title_color_theme">Цветовая схема</string>
+    <string name="config_title_scroll_fling">Бросьте для быстрой прокрутки</string>
+    <string name="config_summary_line_numbers">Отображать номера строк слева</string>
+    <string name="config_summary_word_wrap">Строки будут делиться, если они не умещаются на экран</string>
+    <string name="config_summary_scroll_fling">Выключите, если у вас проблемы с производительностью</string>
+
+    <!-- Options Menu in QEdit -->
+
+    <!-- Misc UI strings -->
+    <string name="ui_save_text">"Хотите сохранить файл? \nНесохранённые изменения будут потеряны."</string>
+    <string name="ui_save">Сохранить</string>
+    <string name="ui_delete">Удалить</string>
+    <string name="ui_no_save">"Не сохранять"</string>
+    <string name="ui_cancel">Отмена</string>
+    <string name="ui_hint_file_name">Имя файла</string>
+    <string name="ui_hint_search">Поиск</string>
+    <string name="ui_history">История</string>
+    <string name="ui_force_read_only">Открыть только для чтения</string>
+    <string name="about_content">QEdit это текстовый редактор для планшетов и телеыонов на платформе Android. Кроме редактирования теста, он может сделать разработку на python / HTML on гораздо более интересной и очень удобной.</string>
+
+    <!-- Misc Strings -->
+    <string name="lorem_ipsum">"QEdit отличный редактор кода."</string>
+
+    <string name="file_exists">Файл существует. Пожалуйста, измените название</string>
+    <string name="search_hint"></string>
+
+    <string name="video_src">Видео {0}</string>
+    <string name="play_video">Запустить видео</string>
+    <string name="no_videos_found">На странице не найдены видео</string>
+    <string name="pls_install_a8_play">Пожалуйста, установите A8 Video Player</string>
+    <string name="download_as">Загрузить и сохранить как</string>
+    <string name="info_browser">QBrowser</string>
+
+    <!--  added by kyle -->
+    <string name="share">Расшарить</string>
+    <string name="save_as_snippets">Сохранить как фоагмент</string>
+    <string name="snippet_exist">Фрагменты существуют. Пожалуйста, измените название.</string>
+    <string name="save_as_snippets_1">Фрагменты были сохранены как: </string>
+    <string name="fail_to_insert">Не удалось вставить фрагмент</string>
+    <string name="fail_to_goto">Пожалуйста, введите корректное число</string>
+    <string name="max_lines_num_with_syntax_title">Авто-подсветка строк</string>
+    <string name="max_lines_num_with_syntax_summary">Авто-подсветка при количестве строк меньше, чем %s</string>
+    <string name="qedit_not_support">QEdit поддерживает просмотр/запуск форматов\n.py, .sh, .lua, .html, .md.</string>
+
+    <string name="pls_install_lua">Пожалуйста, установите QLua для запуска скрипта</string>
+    <string name="pls_install_qpy">Пожалуйста, установите QPython для запуска скрипта</string>
+    <string name="info_snippets">Snippets</string>
+
+    <string name="ui_ok">ОК</string>
+    <string name="ui_contact_title">Контакты</string>
+    <string name="ui_licence_title">Лицензия</string>
+    <string name="ui_mail">support@qpython.org</string>
+    <string name="ui_choose_mail">Открыть почту, используя &#8230; </string>
+    <string name="ui_market_url">"https://market.android.com/developer?pub=Xavier+Gouchet"</string>
+    <string name="ui_market_app_url">"https://play.google.com/store/apps/details?id=%s"</string>
+    <string name="ui_market">"Взгляните на другие приложения от меня"</string>
+    <string name="ui_app_rating">"Оценить приложение \n Оставить отзыв"</string>
+    <string name="ui_feedback">"Вы можете связаться со мной для обсуждения любого бага или новой фнкции. "</string>
+    <string name="ui_licence_content">"Это программное обеспечение предоставляется 'как есть', без каких-либо гарантий явно выраженных или подразумеваемых. Ни при каких обстоятельствах автор не несет ответственности за любой ущерб, возникший в результате использования этого программного обеспечения."</string>
+    <string name="ui_art_licence_title">Художественная лицензия</string>
+    <string name="ui_art_licence_content">"Все иконки для этого приложения были созданы и принадлежат его автору: QPython."</string>
+    <string name="ui_whats_new">"Что нового"</string>
+    <string name="save">Сохранить</string>
+    <string name="save_as">Сохранить как</string>
+    <string name="open">Открыть</string>
+    <string name="file_name">Имя файла</string>
+    <string name="file_exist_hint">Файл сушествует. Пожалуйста, переименуйте его.</string>
+    <string name="empty_file">Пустой файл</string>
+w    <string name="confirm">Подтвердить</string>
+    <string name="cancel">Отмена</string>
+    <string name="new_project">Новый проект</string>
+    <string name="error_dont_kn">Возникла ошибка.</string>
+    <string name="project_name">Имя проекта</string>
+    <string name="jump_to">Переместиться к</string>
+    <string name="choose_ttf">Выберите файл шрифта(.ttf)</string>
+    <string name="explorer">Файловый менеджер</string>
+    <string name="new_script">Новый скрипт</string>
+    <string name="enter_name_hint">Ваедите имя скрипта</string>
+
+    <string name="paste">Вставить</string>
+    <string name="download_fail">Не удалось загрузить</string>
+    <string name="key_reset">reset_storage</string>
+    <string name="key_ftp_state">running_state</string>
+    <string name="key_username">username</string>
+    <string name="key_ftp_pwd">password</string>
+    <string name="key_port_num">portNum</string>
+    <string name="key_show_pwd">show_password</string>
+    <string name="key_root_dir">chrootDir</string>
+    <string name="key_stay_awake">stayAwake</string>
+    <string name="key_about">about</string>
+    <string name="dir_not_valid">Недоступная директория</string>
+    <string name="already_newest">Уже последняя</string>
+    <string name="share_text">QPython это движок скриптов, работающий на устройствах Android, таких как телефон или планшет. Он включает в себя интерпретатор Python, консоль, редактор, библиотеку SL4A для Android, что позволяет вашему устройству Android работать с Python\'ом https://www.qpython.com/privacy.html</string>
+    <string name="new_folder">Новая папка</string>
+    <string name="folder_name">Название папки</string>
+    <string name="untitled_folder">untitled folder</string>
+    <string name="toast_folder_exist">Операция провалена! Пожалуйста, выберите другое имя папки</string>
+    <string name="fail_open_file">Не удалось открыть файл. Файл не существует</string>
+    <string name="run_dirty_hint">Сохранить изменения?</string>
+    <string name="no_im_good">Нет, и так сойдёт</string>
+    <string name="convert_fail">Не удалось конвертировать</string>
+    <string name="delete_file_hint">Вы хотите удалить этот файл?</string>
+    <string name="rename">Переименовать</string>
+    <string name="rename_fail">Не удалось переименовать</string>
+    <string name="delete_fail">Не удалось удалить</string>
+    <string name="runtime_log">Лог: %s</string>
+    <string name="log_title">Лог</string>
+
+    <string name="fedback_mail">[Обоатная связь]\n\n</string>
+    <string name="date_format">[ %s ]</string>
+    <string name="not_root_yet">Устройство ещё не рутировано</string>
+    <string name="download_apk">Загрузить APK?</string>
+    <string name="download_apk_hint">Загрузка может быть платной, если вы не используете WIFI</string>
+    <string name="downloading_new_apk">Загрузка нового пакета</string>
+    <string name="checking_update">Проверка обновлений</string>
+    <string name="run_bg_title">Запустить в фоновом режиме</string>
+    <string name="scan">Сканировать</string>
+    <string name="read_script_from_qrcode">Чтение кода с QRCode</string>
+
+    <string name="course">Курсы</string>
+    <string name="lost_connect">Потеряно соединение</string>
+    <string name="featured_courses">Курсы</string>
+    <string name="programs">Программы</string>
+    <string name="open_gl2_is_not_supported">OpenGL2 не поддерживается</string>
+    <string name="unable_extract">Невозможно извлечь файлы python</string>
+    <string name="get_setting_data_fail">Не удалось получить данные ностроек</string>
+    <string name="terminal_bg_hint">Оставить терминал работать в фоновом режиме?</string>
+    <string name="thanks">СПАСИБО!</string>
+    <string name="extra_pypi">Установить PYPI</string>
+    <string name="already_newest_current_version">Установлена последняя версия. Номер версии: </string>
+    <string name="reward">Reward</string>
+    <string name="oops_seems_like_your_net_have_some_trouble">Ой! \n Похоже, у вас пробелмы с сетью…</string>
+    <string name="lose_google_server">Не удаётся подключиться к сервисам Google Play. Пожалуйста, проверьте ваше соединение.</string>
+    <string name="thanks_your_support">Спасибо за вашу помощь!</string>
+    <string name="under_16_status_bar_hint">Изменение праметра видимости статус-бара будет применено только при следующем запуске терминала.</string>
+    <string name="refresh">Обновить</string>
+    <string name="reset_suc">Успешный перезапуск</string>
+    <string name="reset_hint">Эта операция будет актовной только после перезапуска</string>
+    <string name="restart">Перезапуск</string>
+    <string name="fail_resume_console">Не удалось восстановить консоль</string>
+    <string name="failed_bind_term">Не удалось забиндить TermService!</string>
+    <string name="console_running">Консоль QPython запущена</string>
+    <string name="qpy_console">Консоль QPython</string>
+    <string name="recommend">Рекомендованное</string>
+    <string name="newest_course">Последнее</string>
+    <string name="best_python_development_ide_non_mobile">Лучшее приложение Python на мобильных устройствах</string>
+    <string name="sign_in_with_google">Войти через Google</string>
+    <string name="by_signing_in_you_agree_to_out_privacy_policy_term_of_service"><![CDATA[By signing in you agree to out privacy policy & term of service]]></string>
+    <string name="copy_hint">Скопируйте в редактор, чтобы запустить</string>
+    <string name="my_scripts">Мои скрипты</string>
+    <string name="my_share">Моё расшаренное</string>
+    <string name="snippet">Фрагмент</string>
+    <string name="gist_title">Gist заголовок</string>
+    <string name="description">Описание</string>
+    <string name="too_long_hint">Текст должен включать 140 или меньше символов.</string>
+    <string name="enter_snippet">Введите имя фрагмента</string>
+    <string name="welcome_s">Приветствую, <![CDATA[<font color="#4BAC07"><u>%s</u></font>]]></string>
+    <string name="login"><u>войти</u></string>
+    <string name="auth_failed">Неудачная аторизация.</string>
+    <string name="log_out">выйти</string>
+    <string name="me">Я</string>
+    <string name="grant_storage_hint">Необходимо получить разрешение для доступа к хранилищу.</string>
+    <string name="lost_google_hint">Не могу подключиться к серверу Google. Пожалуйста, проверьте ваше соединение.</string>
+</resources>

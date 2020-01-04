@@ -24,7 +24,7 @@ class EmulatorDebug {
     /**
      * Set to true to add debugging code and logging.
      */
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = true;
 
     /**
      * Set to true to log IME calls.
@@ -36,7 +36,7 @@ class EmulatorDebug {
      * android log, which makes it easier to debug some kinds of problems with
      * emulating escape sequences and control codes.
      */
-    public static final boolean LOG_CHARACTERS_FLAG = DEBUG & false;
+    public static final boolean LOG_CHARACTERS_FLAG = DEBUG;
 
     /**
      * Set to true to log unknown escape sequences.

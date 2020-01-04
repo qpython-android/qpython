@@ -6,9 +6,9 @@
     <integer name="pref_orientation_default">0</integer>
     <string name="pref_cursorstyle_default" translatable="false">0</string>
     <string name="pref_cursorblink_default" translatable="false">0</string>
-    <string name="pref_fontsize_default" translatable="false">10</string>
+    <string name="pref_fontsize_default" translatable="false">14</string>
     <string name="pref_color_default" translatable="false">1</string>
-    <bool name="pref_utf8_by_default_default">false</bool>
+    <bool name="pref_utf8_by_default_default">true</bool>
     <string name="pref_backaction_default" translatable="false">2</string>
     <string name="pref_controlkey_default" translatable="false">5</string>
     <string name="pref_fnkey_default" translatable="false">4</string>
@@ -16,7 +16,7 @@
     <bool name="pref_alt_sends_esc_default">false</bool>
     <string name="pref_shell_default" translatable="false">/system/bin/sh -</string>
     <string name="pref_initialcommand_default" translatable="false"></string>
-    <string name="pref_termtype_default" translatable="false">screen</string>
+    <string name="pref_termtype_default" >screen</string>
     <bool name="pref_close_window_on_process_exit_default">true</bool>
     <bool name="pref_verify_path_default">true</bool>
     <bool name="pref_do_path_extensions_default">true</bool>

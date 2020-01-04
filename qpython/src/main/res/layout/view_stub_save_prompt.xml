@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_margin"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:background="@drawable/edit_text_background"
+            android:drawableEnd="@drawable/ic_editor_delete_name"
+            android:drawableRight="@drawable/ic_editor_delete_name"
+            android:hint="@string/file_name"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            style="@style/green_btn"
+            android:layout_gravity="end"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_weight="1"
+            android:text="@string/save"/>
+    </LinearLayout>
+</layout>

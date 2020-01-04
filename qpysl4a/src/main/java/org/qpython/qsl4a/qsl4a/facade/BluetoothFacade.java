@@ -25,7 +25,7 @@ import android.content.Intent;
 
 import org.qpython.qsl4a.codec.Base64Codec;
 import org.qpython.qsl4a.qsl4a.Constants;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.MainThread;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
 import org.qpython.qsl4a.qsl4a.rpc.Rpc;
@@ -446,7 +446,7 @@ class BluetoothConnection {
       byte[] buffer = new byte[bufferSize];
       int bytesRead = mInputStream.read(buffer);
       if (bytesRead == -1) {
-        Log.e("Read failed.");
+        LogUtil.e("Read failed.");
         throw new IOException("Read failed.");
       }
       byte[] truncatedBuffer = new byte[bytesRead];
@@ -467,7 +467,7 @@ class BluetoothConnection {
       char[] buffer = new char[bufferSize];
       int bytesRead = mReader.read(buffer);
       if (bytesRead == -1) {
-        Log.e("Read failed.");
+        LogUtil.e("Read failed.");
         throw new IOException("Read failed.");
       }
       return new String(buffer, 0, bytesRead);
@@ -491,7 +491,7 @@ class BluetoothConnection {
       try {
         mSocket.close();
       } catch (IOException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     mSocket = null;
@@ -499,7 +499,7 @@ class BluetoothConnection {
       try {
         mServerSocket.close();
       } catch (IOException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     mServerSocket = null;
@@ -508,7 +508,7 @@ class BluetoothConnection {
       try {
         mInputStream.close();
       } catch (IOException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     mInputStream = null;
@@ -516,7 +516,7 @@ class BluetoothConnection {
       try {
         mOutputStream.close();
       } catch (IOException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     mOutputStream = null;
@@ -524,7 +524,7 @@ class BluetoothConnection {
       try {
         mReader.close();
       } catch (IOException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     mReader = null;

@@ -7,7 +7,7 @@
 
 <!-- Modified 19-Jul-00 by Ivan Frohne to: -->
 <!--  (a) implement 'indentOnEnter'; -->
-<!--  (b) indent next line automatically after control structures followed -->
+<!--  (b) indent nPATTERN_LINEline automatically after control structures followed -->
 <!--	  by ':'; -->
 <!--  (c) make """ or ''' multiline quotes TYPE LITERAL2; -->
 <!--  (d) add TYPE FUNCTION identified by a following '(' -->

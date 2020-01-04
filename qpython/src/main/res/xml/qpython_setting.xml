@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="setting_page"
+    >
+    <PreferenceCategory
+        android:key="other"
+        android:title="@string/about"/>
+    <!--<Preference-->
+        <!--android:key="install_py3"-->
+        <!--android:title="@string/install_py3"/>-->
+
+    <!--Preference
+        android:key="course"
+        android:title="@string/course"
+        android:summary="@string/learn_course"/-->
+
+
+    <Preference
+        android:key="community"
+        android:title="@string/get_help"
+        android:summary="@string/get_support_from_community"/>
+    <Preference
+        android:key="@string/key_about"
+        android:title="@string/about"
+        android:summary="About / Feedback / Contributors"/>
+
+
+    <Preference
+        android:key="ipaddress"
+        android:title="@string/ip_address"
+        android:summary=""/>
+
+    <PreferenceCategory
+        android:key="config"
+        android:title="@string/more"/>
+
+
+    <Preference
+        android:key="lastlog"
+        android:title="@string/last_log"
+        android:summary="@string/get_last_log"/>
+
+    <PreferenceScreen
+        android:key="@string/key_py_inter"
+        android:title="@string/py_inter">
+
+        <PreferenceCategory
+            android:key="py_inter_update"
+            android:title="@string/py_resources">
+
+            <Preference
+                android:key="@string/key_update_qpy3"
+                android:summary=""
+                android:title="@string/update_py3"/>
+
+            <Preference
+                android:key="@string/key_update_qpy2compatible"
+                android:title="@string/update_py2compatible"/>
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="py_inter_update"
+            android:title="@string/py_inter">
+
+            <Preference
+                android:key="@string/key_py3"
+                android:title="@string/switch_py3"/>
+
+            <Preference
+                android:key="@string/key_py2"
+                android:summary="@string/switch_py2_libs"
+                android:title="@string/switch_py2"/>
+
+
+
+            <Preference
+                android:key="@string/key_py2compatible"
+                android:summary="@string/switch_py2_libs"
+                android:title="@string/switch_py2compatible"/>
+
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+
+    <!--CheckBoxPreference
+        android:key="@string/key_aipy"
+        android:summary="@string/aipy_install"
+        android:title="@string/install_aipy"/-->
+    <PreferenceScreen
+        android:summary="@string/notebook_not_install"
+        android:key="@string/key_notebook_page"
+        android:title="@string/notebook">
+        <PreferenceCategory
+            android:key="notebook_update"
+            android:title="@string/notebook_res">
+            <Preference
+                android:key="@string/key_notebook"
+                android:title="@string/install_notebook"/>
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="notebook_update"
+            android:title="@string/notebook_service">
+
+            <CheckBoxPreference
+                android:key="@string/key_notebook_run"
+                android:summary="@string/notebook_explorer_bg_start"
+                android:title="@string/notebook_explorer"/>
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="@string/key_root"
+        android:summaryOn="@string/enable_root"
+        android:summaryOff="@string/disable_root"
+        android:title="@string/root_mode"/>
+
+    <CheckBoxPreference
+        android:key="@string/key_sl4a"
+        android:summaryOn="@string/sl4a_running"
+        android:summaryOff="@string/sl4a_un_running"
+        android:title="@string/sl4a_server"/>
+    <!--Preference
+        android:key="@string/key_qpypi"
+        android:summary="@string/http_qpypi_qpython_org"
+        android:title="@string/extra_pypi"/-->
+    <Preference
+        android:key="@string/key_reset"
+        android:title="@string/internal_space"/>
+    <PreferenceScreen
+        android:key="ftp"
+        android:title="@string/ftp_server">
+        <!-- Arbitrary key/value pairs can be included for fragment arguments -->
+        <!--<extra-->
+        <!--android:name="someKey"-->
+        <!--android:value="somePrefValue"/>-->
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/key_ftp_state"
+            android:summary="@string/running_summary_stopped"
+            android:title="@string/running_label"/>
+
+        <PreferenceCategory
+            android:key="config"
+            android:title="@string/config">
+            <Preference
+                android:defaultValue="@string/username_default"
+                android:key="@string/key_username"
+                android:theme="@style/MyDialog"
+                android:title="@string/username_label"/>
+            <Preference
+                android:defaultValue="@string/password_default"
+                android:inputType="textPassword"
+                android:key="@string/key_ftp_pwd"
+                android:title="@string/password_label"/>
+            <Preference
+                android:defaultValue="@string/portnumber_default"
+                android:key="@string/key_port_num"
+                android:title="@string/portnumber_label"/>
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="settings"
+            android:title="@string/settings_label">
+
+            <CheckBoxPreference
+                android:defaultValue="@string/show_password_default"
+                android:key="@string/key_show_pwd"
+                android:title="@string/show_password_label"/>
+            <Preference
+                android:defaultValue="@string/chroot_default"
+                android:key="@string/key_root_dir"
+                android:title="@string/chroot_label"/>
+
+            <CheckBoxPreference
+                android:defaultValue="@string/wakelock_default"
+                android:key="@string/key_stay_awake"
+                android:title="@string/wakelock_label"/>
+            <!--<PreferenceScreen-->
+            <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:title="@string/advancedsettings_label">-->
+
+            <!--</PreferenceScreen>-->
+
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceCategory
+        android:key="notify"
+        android:title="Notifications">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_hide_noti"
+            android:title="@string/log_noti"/>
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/key_hide_push"
+            android:title="@string/app_noti"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

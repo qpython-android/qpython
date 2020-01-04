@@ -3,15 +3,19 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="nav_header_vertical_spacing">16dp</dimen>
-    <dimen name="nav_header_img_size">66dp</dimen>
 
+    <dimen name="layout_padding">16dp</dimen>
+    <dimen name="icon_margin_top">5dp</dimen>
+    <!--<dimen name="default_margin">16dp</dimen>-->
+    <dimen name="icon_size">60dp</dimen>
 
-    <dimen name="main_logo_img_size">200dp</dimen>
-    <dimen name="main_icon_size">54dp</dimen>
-    <dimen name="main_icon_margin_top">10dp</dimen>
+    
+    <dimen name="dialog_buttons_margin">16dp</dimen>
 
+    <dimen name="widget_margin">4dp</dimen>
 
-    <dimen name="divider_height">0.5dp</dimen>
-    <dimen name="tab_text_size">9sp</dimen>
+    <dimen name="list_item_height">45dp</dimen>
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="course_gap">6dp</dimen>
+    <dimen name="shortcut_height">45dp</dimen>
 </resources>

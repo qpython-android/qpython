@@ -29,7 +29,7 @@
 			<key>name</key>
 			<string>Comment</string>
 			<key>scope</key>
-			<string>comment</string>
+			<string>from_content</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -120,7 +120,7 @@
 			<key>name</key>
 			<string>String interpolation</string>
 			<key>scope</key>
-			<string>constant.character.escape, string source</string>
+			<string>constant.character.escape, string code</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -314,9 +314,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Embedded source</string>
+			<string>Embedded code</string>
 			<key>scope</key>
-			<string>text source, string.unquoted</string>
+			<string>text code, string.unquoted</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>
@@ -325,9 +325,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Embedded embedded source</string>
+			<string>Embedded embedded code</string>
 			<key>scope</key>
-			<string>text source string.unquoted, text source text source</string>
+			<string>text code string.unquoted, text code text code</string>
 			<key>settings</key>
 			<dict>
 				<key>background</key>

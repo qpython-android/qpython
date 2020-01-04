@@ -16,6 +16,7 @@
 
 package jackpal.androidterm.emulatorview;
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -29,6 +30,7 @@ import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.CodingErrorAction;
+import java.util.Arrays;
 
 /**
  * A terminal session, consisting of a VT100 terminal emulator and its
@@ -56,63 +58,37 @@ import java.nio.charset.CodingErrorAction;
  * and closes the attached I/O streams.
  */
 public class TermSession {
-    public void setKeyListener(TermKeyListener l) {
-        mKeyListener = l;
-    }
-
-    private TermKeyListener mKeyListener;
-
-    private ColorScheme mColorScheme = BaseTextRenderer.defaultColorScheme;
-    private UpdateCallback mNotify;
-
-    private OutputStream mTermOut;
-    private InputStream mTermIn;
-
-    private String mTitle;
-
-    private TranscriptScreen mTranscriptScreen;
-    private TerminalEmulator mEmulator;
-
-    private boolean mDefaultUTF8Mode;
-
-    private Thread mReaderThread;
-    private ByteQueue mByteQueue;
-    private byte[] mReceiveBuffer;
-
-    private Thread mWriterThread;
-    private ByteQueue mWriteQueue;
-    private Handler mWriterHandler;
-
-    private CharBuffer mWriteCharBuffer;
-    private ByteBuffer mWriteByteBuffer;
-    private CharsetEncoder mUTF8Encoder;
-
     // Number of rows in the transcript
     private static final int TRANSCRIPT_ROWS = 10000;
+    private static final int NEW_INPUT       = 1;
+    private static final int NEW_OUTPUT      = 2;
+    private static final int FINISH          = 3;
+    private static final int EOF             = 4;
+    private TermKeyListener mKeyListener;
+    private ColorScheme mColorScheme = BaseTextRenderer.defaultColorScheme;
+    private UpdateCallback   mNotify;
+    private OutputStream     mTermOut;
+    private InputStream      mTermIn;
+    private String           mTitle;
+    private TranscriptScreen mTranscriptScreen;
+    private TerminalEmulator mEmulator;
+    private boolean          mDefaultUTF8Mode;
+    private Thread           mReaderThread;
+    private ByteQueue        mByteQueue;
+    private byte[]           mReceiveBuffer;
+    private Thread           mWriterThread;
+    private ByteQueue        mWriteQueue;
+    private Handler          mWriterHandler;
+    private CharBuffer       mWriteCharBuffer;
+    private ByteBuffer       mWriteByteBuffer;
+    private CharsetEncoder   mUTF8Encoder;
+    private FinishCallback   mFinishCallback;
+    private boolean mIsRunning  = false;
+    private Handler mMsgHandler = new MyHandler();
+    private UpdateCallback mTitleChangedListener;
 
-    private static final int NEW_INPUT = 1;
-    private static final int NEW_OUTPUT = 2;
-    private static final int FINISH = 3;
-    private static final int EOF = 4;
-
-    /**
-     * Callback to be invoked when a {@link TermSession} finishes.
-     *
-     * @see TermSession#setUpdateCallback
-     */
-    public interface FinishCallback {
-        /**
-         * Callback function to be invoked when a {@link TermSession} finishes.
-         *
-         * @param session The <code>TermSession</code> which has finished.
-         */
-        void onSessionFinish(TermSession session);
-    }
-
-    private FinishCallback mFinishCallback;
-
-    private boolean mIsRunning = false;
-    private Handler mMsgHandler = new Handler() {
+    @SuppressLint("HandlerLeak")
+    private class MyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             if (!mIsRunning) {
@@ -129,9 +105,7 @@ public class TermSession {
                 });
             }
         }
-    };
-
-    private UpdateCallback mTitleChangedListener;
+    }
 
     public TermSession() {
         this(false);
@@ -154,6 +128,7 @@ public class TermSession {
                 try {
                     while (true) {
                         int read = mTermIn.read(mBuffer);
+                        //System.out.println("READER + " + convert(mBuffer));
                         if (read == -1) {
                             // EOF -- process exited
                             break;
@@ -175,7 +150,7 @@ public class TermSession {
                 if (exitOnEOF) mMsgHandler.sendMessage(mMsgHandler.obtainMessage(EOF));
             }
         };
-        mReaderThread.setName("TermSession input reader");
+        mReaderThread.setName("% input reader");
 
         mWriteQueue = new ByteQueue(4096);
         mWriterThread = new Thread() {
@@ -206,7 +181,7 @@ public class TermSession {
                 ByteQueue writeQueue = mWriteQueue;
                 byte[] buffer = mBuffer;
                 OutputStream termOut = mTermOut;
-
+                //System.out.println("OUTPUT+ " + convert(buffer));
                 int bytesAvailable = writeQueue.getBytesAvailable();
                 int bytesToWrite = Math.min(bytesAvailable, buffer.length);
 
@@ -229,6 +204,39 @@ public class TermSession {
             }
         };
         mWriterThread.setName("TermSession output writer");
+    }
+
+    public void appendTextToEmulator(String text) {
+        byte[] input = text.getBytes();
+        int read = input.length;
+        int offset = 0;
+        while (read > 0) {
+            int written;
+            try {
+                written = mByteQueue.write(input,
+                        offset, read);
+                offset += written;
+                read -= written;
+                mMsgHandler.sendMessage(
+                        mMsgHandler.obtainMessage(NEW_INPUT));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private String convert(byte[] bytes) {
+        StringBuffer stringBuffer = new StringBuffer();
+        int index = 0;
+        while (index < bytes.length && bytes[index] != 0) {
+            stringBuffer.append(Character.toString((char) bytes[index]));
+            index++;
+        }
+        return stringBuffer.toString();
+    }
+
+    public void setKeyListener(TermKeyListener l) {
+        mKeyListener = l;
     }
 
     protected void onProcessExit() {
@@ -408,7 +416,7 @@ public class TermSession {
      * Notify the {@link UpdateCallback} registered by {@link
      * #setUpdateCallback setUpdateCallback} that the screen has changed.
      */
-    protected void notifyUpdate() {
+    public void notifyUpdate() {
         if (mNotify != null) {
             mNotify.onUpdate();
         }
@@ -512,7 +520,7 @@ public class TermSession {
      * @param offset The offset into the buffer where the read data begins.
      * @param count  The number of bytes read.
      */
-    protected void processInput(byte[] data, int offset, int count) {
+    public void processInput(byte[] data, int offset, int count) {
         mEmulator.append(data, offset, count);
     }
 
@@ -615,7 +623,9 @@ public class TermSession {
      */
     public void finish() {
         mIsRunning = false;
-        mEmulator.finish();
+        if (mEmulator != null) {
+            mEmulator.finish();
+        }
         if (mTranscriptScreen != null) {
             mTranscriptScreen.finish();
         }
@@ -641,10 +651,23 @@ public class TermSession {
     public void shellRun() {
         //Exec.setPtyUTF8Mode(mTermFd, getUTF8Mode());
         //setUTF8ModeUpdateCallback(mUTF8ModeNotify);
-        initializeEmulator(80,24);
+        initializeEmulator(72, 24);
         /*mWatcherThread.start();
         sendInitialCommand(mInitialCommand);*/
 
     }
 
+    /**
+     * Callback to be invoked when a {@link TermSession} finishes.
+     *
+     * @see TermSession#setUpdateCallback
+     */
+    public interface FinishCallback {
+        /**
+         * Callback function to be invoked when a {@link TermSession} finishes.
+         *
+         * @param session The <code>TermSession</code> which has finished.
+         */
+        void onSessionFinish(TermSession session);
+    }
 }

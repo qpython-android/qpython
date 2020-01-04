@@ -20,24 +20,15 @@ import org.qpython.qpy.plugin.model.LocalPluginBean;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.realm.Realm;
 import rx.Subscription;
 
 public class LocalPluginFragment extends Fragment {
-    private Unbinder mUnbinder;
-    private LocalPluginAdapter mLocalPluginAdapter;
-    private Realm mRealm;
-    private Subscription mRefreshDataSubscription;
-
-    @BindView(R.id.rv_plugin)
     RecyclerView mRvPlugin;
-
-    @BindView(R.id.none_item_bg)
     LinearLayout noneItemBackground;
+    private LocalPluginAdapter mLocalPluginAdapter;
+    private Realm              mRealm;
+    private Subscription       mRefreshDataSubscription;
 
     public static LocalPluginFragment newInstance() {
         return new LocalPluginFragment();
@@ -47,8 +38,14 @@ public class LocalPluginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_plugin_local, container, false);
-        mUnbinder = ButterKnife.bind(this, v);
+        mRvPlugin = (RecyclerView) v.findViewById(R.id.rv_plugin);
+        noneItemBackground = (LinearLayout) v.findViewById(R.id.none_item_bg);
         mRealm = Realm.getDefaultInstance();
+
+        v.findViewById(R.id.fab).setOnClickListener(v1 -> {
+            Intent intent = new Intent(getActivity(), LocalPluginInstallActivity.class);
+            startActivity(intent);
+        });
         return v;
     }
 
@@ -65,18 +62,9 @@ public class LocalPluginFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mUnbinder.unbind();
         mRealm.close();
         mRefreshDataSubscription.unsubscribe();
     }
-
-
-    @OnClick(R.id.fab)
-    void startLocalPluginInstallActivity() {
-        Intent intent = new Intent(getActivity(), LocalPluginInstallActivity.class);
-        startActivity(intent);
-    }
-
 
     private void showData(List<LocalPluginBean> list) {
         if (list == null || list.isEmpty()) {

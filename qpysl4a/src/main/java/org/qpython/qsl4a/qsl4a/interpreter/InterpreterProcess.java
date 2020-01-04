@@ -18,7 +18,7 @@ package org.qpython.qsl4a.qsl4a.interpreter;
 
 import org.qpython.qsl4a.qsl4a.Analytics;
 import org.qpython.qsl4a.qsl4a.AndroidProxy;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.Process;
 import org.qpython.qsl4a.qsl4a.SimpleServer;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiverManagerFactory;
@@ -77,10 +77,10 @@ public class InterpreterProcess extends Process {
       try {
         return SimpleServer.getPublicInetAddress().getHostName();
       } catch (UnknownHostException e) {
-        Log.i("public address", e);
+        LogUtil.i("public address", e);
         e.printStackTrace();
       } catch (SocketException e) {
-        Log.i("public address", e);
+        LogUtil.i("public address", e);
       }
     }
     return result;

@@ -20,11 +20,16 @@ import android.app.Service;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.telephony.gsm.SmsManager;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.QSL4APP;
+import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
+import org.qpython.qsl4a.qsl4a.LogUtil;
+import org.qpython.qsl4a.qsl4a.facade.ui.AlertDialogTask;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
 import org.qpython.qsl4a.qsl4a.rpc.Rpc;
 import org.qpython.qsl4a.qsl4a.rpc.RpcDefault;
@@ -50,9 +55,13 @@ public class SmsFacade extends RpcReceiver {
   private final Service mService;
   private final ContentResolver mContentResolver;
   private final SmsManager mSms;
+  private FacadeManager smanager = null;
 
   public SmsFacade(FacadeManager manager) {
+
     super(manager);
+    smanager = manager;
+
     mService = manager.getService();
     mContentResolver = mService.getContentResolver();
     mSms = SmsManager.getDefault();
@@ -69,7 +78,7 @@ public class SmsFacade extends RpcReceiver {
     Uri.Builder builder = Uri.parse("content://sms").buildUpon();
     builder.appendPath(folder);
     Uri uri = builder.build();
-    Log.v("Built SMS URI: " + uri);
+    LogUtil.v("Built SMS URI: " + uri);
     return uri;
   }
 
@@ -77,6 +86,7 @@ public class SmsFacade extends RpcReceiver {
     Uri.Builder builder = Uri.parse("content://sms").buildUpon();
     ContentUris.appendId(builder, id);
     Uri uri = builder.build();
+    LogUtil.d("buildMessageUri:"+uri.toString()+"");
     return uri;
   }
 
@@ -105,16 +115,31 @@ public class SmsFacade extends RpcReceiver {
 
   @Rpc(description = "Returns a List of all message IDs.")
   public List<Integer> smsGetMessageIds(@RpcParameter(name = "unreadOnly") Boolean unreadOnly,
-      @RpcParameter(name = "folder") @RpcDefault("inbox") String folder) {
+      @RpcParameter(name = "folder") @RpcDefault("inbox") String folder) throws InterruptedException {
     Uri uri = buildFolderUri(folder);
     List<Integer> result = new ArrayList<Integer>();
     String selection = buildSelectionClause(unreadOnly);
     String[] columns = { "_id" };
-    Cursor cursor = mContentResolver.query(uri, columns, selection, null, null);
-    while (cursor != null && cursor.moveToNext()) {
-      result.add(cursor.getInt(0));
+    final int REQUEST_CODE_ASK_PERMISSIONS = 123;
+
+    if(ContextCompat.checkSelfPermission(mService.getApplicationContext(), "android.permission.READ_SMS") == PackageManager.PERMISSION_GRANTED) {
+      Cursor cursor = mContentResolver.query(uri, columns, selection, null, null);
+      while (cursor != null && cursor.moveToNext()) {
+        result.add(cursor.getInt(0));
+      }
+      cursor.close();
+    } else {
+      AlertDialogTask mDialogTask = new AlertDialogTask("QPython", "API:smsGetMessageIds requires android.permission.READ_SMS");
+      mDialogTask.setPositiveButtonText("OK");
+      smanager.getReceiver(EventFacade.class);
+
+      EventFacade mEventFacade = smanager.getReceiver(EventFacade.class);
+      FutureActivityTaskExecutor mTaskQueue = ((QSL4APP) mService.getApplication()).getTaskExecutor();
+      mDialogTask.setEventFacade(mEventFacade);
+      mTaskQueue.execute(mDialogTask);
+      mDialogTask.getShowLatch().await();
+
     }
-    cursor.close();
     return result;
   }
 
@@ -128,7 +153,7 @@ public class SmsFacade extends RpcReceiver {
     String[] columns;
     if (attributes == null || attributes.length() == 0) {
       // In case no attributes are specified we set the default ones.
-      columns = new String[] { "_id", "address", "date", "body", "read" };
+      columns = new String[] { "_id", "address", "date", "body", "read", "person", "status", "type" };
     } else {
       // Convert selected attributes list into usable string list.
       columns = new String[attributes.length()];
@@ -157,7 +182,7 @@ public class SmsFacade extends RpcReceiver {
     String[] columns;
     if (attributes == null || attributes.length() == 0) {
       // In case no attributes are specified we set the default ones.
-      columns = new String[] { "_id", "address", "date", "body", "read" };
+      columns = new String[] { "_id", "address", "date", "body", "read", "person", "status", "type" };
     } else {
       // Convert selected attributes list into usable string list.
       columns = new String[attributes.length()];

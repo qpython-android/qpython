@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:id="@+id/type_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_margin">
+
+            <TextView
+                android:id="@+id/basic"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/basics_light"
+                android:gravity="center_horizontal"
+                android:text="@string/basics"
+                android:textColor="@color/theme_green"/>
+
+            <TextView
+                android:id="@+id/database"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/database"
+                android:gravity="center_horizontal"
+                android:text="@string/tools"/>
+
+            <TextView
+                android:id="@+id/arvr"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/arvr"
+                android:gravity="center_horizontal"
+                android:text="@string/funny"/>
+
+            <TextView
+                android:id="@+id/aipy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/aipy"
+                android:gravity="center_horizontal"
+                android:text="@string/aipy"/>
+
+            <TextView
+                android:id="@+id/web"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/web"
+                android:gravity="center_horizontal"
+                android:text="@string/other"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/swipe_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/type_layout"
+            android:background="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/empty_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/empty"
+            android:gravity="center_horizontal"
+            android:text="@string/nothing_here_yet"
+            android:textColor="#FFF"
+            android:visibility="gone"/>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/editor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ViewStub
+            android:id="@+id/vs_search_top"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:inflatedId="@+id/ii_search_top"
+            android:layout="@layout/search_top"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4">
+
+            <org.qpython.qpy.texteditor.ui.view.AdvancedEditText
+                android:id="@+id/editor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|start"
+                android:imeOptions="flagNoFullscreen"
+                android:inputType="textMultiLine|textNoSuggestions"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarSize="5dp"
+                android:scrollbars="horizontal|vertical"
+                android:typeface="monospace">
+
+                <requestFocus/>
+            </org.qpython.qpy.texteditor.ui.view.AdvancedEditText>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/default_margin"
+                android:src="@drawable/ic_gist"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/return_bar_box"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#FFE8E8E8"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:id="@+id/ib_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_editcode"
+                    />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="21dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="#FFD5D5D5"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fadingEdgeLength="30dp"
+                    android:requiresFadingEdge="horizontal">
+
+                    <include
+                        android:id="@+id/control"
+                        layout="@layout/widget_editor_control"/>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/search_bottom"
+                layout="@layout/search"/>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

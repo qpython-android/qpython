@@ -56,7 +56,7 @@ public class ScriptStorageAdapter {
       out.write(data);
       out.close();
     } catch (IOException e) {
-      Log.e("Failed to write script.", e);
+      LogUtil.e("Failed to write script.", e);
     }
   }
 

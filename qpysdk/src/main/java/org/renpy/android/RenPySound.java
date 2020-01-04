@@ -91,6 +91,8 @@ public class RenPySound {
             prepared[0] = prepared[1];
             prepared[1] = false;
 
+            Log.i("python", "Using queued file " + filename[0]);
+
             if (filename[0] != null) {
                 updateVolume();
 
@@ -188,10 +190,7 @@ public class RenPySound {
         }
 
         synchronized int get_pos(){
-			if (prepared[0]) {
-				return player[0].getCurrentPosition();
-			}
-			return 0;
+            return player[0].getCurrentPosition();
         }
 
         synchronized int get_length(){
@@ -216,8 +215,8 @@ public class RenPySound {
          * Called on completion.
          */
         synchronized public void onCompletion(MediaPlayer mp) {
-            if (mp == player[0]) {
-                play();
+        	if (mp == player[0]) {
+        		play();
             }
         }
 
@@ -242,7 +241,7 @@ public class RenPySound {
         return rv;
     }
 
-    static void queue(int channel, String filename, String real_fn, long base, long length) {        
+    public static void queue(int channel, String filename, String real_fn, long base, long length) {
         Channel c = getChannel(channel);
         c.queue(filename, real_fn, base, length);
         if (c.filename[0] == null) {
@@ -251,7 +250,7 @@ public class RenPySound {
 
     }
 
-    static void play(int channel,
+    public static void play(int channel,
             String filename,
             String real_fn,
             long base,
@@ -262,23 +261,23 @@ public class RenPySound {
         c.play();
     }
 
-    static void seek(int channel, float position){
+    public static void seek(int channel, float position){
         Channel c = getChannel(channel);
         c.seek(position);
     }
 
-    static void stop(int channel) {
+    public static void stop(int channel) {
         Channel c = getChannel(channel);
         c.stop();
     }
 
-    static void dequeue(int channel) {
+    public static void dequeue(int channel) {
         Channel c = getChannel(channel);
         c.dequeue();
     }
 
 
-    static String playing_name(int channel) {
+    public static String playing_name(int channel) {
         Channel c = getChannel(channel);
         if (c.filename[0] == null) {
             return "";
@@ -287,7 +286,7 @@ public class RenPySound {
         return c.filename[0];
     }
 
-    static int queue_depth(int channel) {
+    public static int queue_depth(int channel) {
         Channel c = getChannel(channel);
 
         if (c.filename[0] == null) return 0;
@@ -295,37 +294,37 @@ public class RenPySound {
         return 2;
     }
 
-    static void set_volume(int channel, float v) {
+    public static void set_volume(int channel, float v) {
         Channel c = getChannel(channel);
         c.set_volume(v);
     }
 
-    static void set_secondary_volume(int channel, float v) {
+    public static void set_secondary_volume(int channel, float v) {
         Channel c = getChannel(channel);
         c.set_secondary_volume(v);
     }
 
-    static void set_pan(int channel, float pan) {
+    public static void set_pan(int channel, float pan) {
         Channel c = getChannel(channel);
         c.set_pan(pan);
     }
 
-    static void pause(int channel) {
+    public static void pause(int channel) {
         Channel c = getChannel(channel);
         c.pause();
     }
 
-    static void unpause(int channel) {
+    public static void unpause(int channel) {
         Channel c = getChannel(channel);
         c.unpause();
     }
 
-    static int get_pos(int channel){
+    public static int get_pos(int channel){
         Channel c = getChannel(channel);
         return c.get_pos();
     }
 
-    static int get_length(int channel){
+    public static int get_length(int channel){
         Channel c = getChannel(channel);
         return c.get_length();
     }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.TabLayout>
+    <!--<LinearLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:id="@+id/root"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/btns"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<Button-->
+    <!--android:id="@+id/latestBtn"-->
+    <!--style="@style/tab_btn"-->
+    <!--android:text="@string/newest_course"/>-->
+
+    <!--<Button-->
+    <!--android:id="@+id/recommendBtn"-->
+    <!--style="@style/tab_btn"-->
+    <!--android:text="@string/recommend"/>-->
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+    <!--android:id="@+id/lines"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="3dp"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<View-->
+    <!--android:id="@+id/line_latest"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="#FF4BAC07"/>-->
+
+    <!--<View-->
+    <!--android:id="@+id/line_recommend"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/theme_bg"/>-->
+    <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
+</layout>

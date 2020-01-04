@@ -32,6 +32,7 @@ interface TextRenderer {
     public static final int MODE_ALT_SHIFT = 2;
     public static final int MODE_CTRL_SHIFT = 4;
     public static final int MODE_FN_SHIFT = 6;
+    public static final int MODE_TAB_SHIFT = 8;
 
     void setReverseVideo(boolean reverseVideo);
 

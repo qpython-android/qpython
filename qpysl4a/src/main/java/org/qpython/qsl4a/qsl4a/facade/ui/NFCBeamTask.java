@@ -32,9 +32,9 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+//import android.support.v7.app.AlertDialog;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -71,20 +71,21 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 	  private final List<String> mItems;
 	  private final Set<Integer> mSelectedItems;
 	  private final Map<String, Object> mResultMap;
+    //protected _WBase WBase;
+    protected int dialogIndex;
+	NfcAdapter _nfcAdapter;
+	IntentFilter[] _readTagFilters;
+	Handler mhandler;
 	  private InputType mInputType;
 	  private int mEditInputType = 0;
-
 	  private String mPositiveButtonText;
 	  private String mNegativeButtonText;
 	  private String mNeutralButtonText;
-
 	  private EditText mEditText;
 	  private String mDefaultText;
-
 	  private int beamStat=0;
-	  private enum InputType {
-	    DEFAULT, MENU, SINGLE_CHOICE, MULTI_CHOICE, PLAIN_TEXT, PASSWORD;
-	  }
+	private PendingIntent _nfcPendingIntent;
+    private String content = "QPython NFC";
 
 	  public NFCBeamTask(String title, String message) {
 	    mTitle = title;
@@ -109,7 +110,7 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 
 	  /**
 	   * Set list items.
-	   * 
+	   *
 	   * @param items
 	   */
 	  public void setItems(JSONArray items) {
@@ -126,7 +127,7 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 
 	  /**
 	   * Set single choice items.
-	   * 
+	   *
 	   * @param items
 	   *          a list of items as {@link String}s to display
 	   * @param selected
@@ -141,7 +142,7 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 
 	  /**
 	   * Set multi choice items.
-	   * 
+	   *
 	   * @param items
 	   *          a list of items as {@link String}s to display
 	   * @param selected
@@ -190,15 +191,6 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 	  public void setPasswordInput() {
 	    mInputType = InputType.PASSWORD;
 	  }
-
-  
-	NfcAdapter _nfcAdapter;
-	private PendingIntent _nfcPendingIntent;
-	IntentFilter[] _readTagFilters;
-    //protected _WBase WBase;
-    protected int dialogIndex;
-
-    private String content = "QPython NFC";
     
     @SuppressLint("NewApi")
 	public boolean initNFCBeam() {
@@ -385,7 +377,7 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
         return mItems.toArray(new CharSequence[mItems.size()]);
       }
 
-      private Builder addOnCancelListener(final AlertDialog.Builder builder, final Activity activity) {
+      private AlertDialog.Builder addOnCancelListener(final AlertDialog.Builder builder, final Activity activity) {
         return builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
           @Override
           public void onCancel(DialogInterface dialog) {
@@ -593,9 +585,7 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 	public void setContent(String content) {
 		this.content = content;
 	}
-	Handler mhandler;
 
-	
 	@SuppressLint("NewApi")
 	@Override
 	public void onNdefPushComplete(NfcEvent arg0) {
@@ -614,23 +604,27 @@ class NFCBeamTask extends DialogTask implements CreateNdefMessageCallback, OnNde
 		} else {
 			data = content;
 		}
-	
+
 		String mimeType = "application/com.hipipal.qpy.nfc";
-	
+
 		byte[] mimeBytes = mimeType.getBytes(Charset.forName("UTF-8"));
 		byte[] dataBytes = data.getBytes(Charset.forName("UTF-8"));
 		byte[] id = new byte[0];
-	
+
 		NdefRecord record = new NdefRecord(NdefRecord.TNF_MIME_MEDIA,
 				mimeBytes, id, dataBytes);
-	
+
 		NdefMessage message = new NdefMessage(new NdefRecord[] { record });
-	
+
 		return message;
 	}
-	
+
 	  public boolean onKeyDown(int keyCode, KeyEvent event) {
 		  getActivity().finish();
 		  return true;
+	  }
+	
+	  private enum InputType {
+	    DEFAULT, MENU, SINGLE_CHOICE, MULTI_CHOICE, PLAIN_TEXT, PASSWORD;
 	  }
 }

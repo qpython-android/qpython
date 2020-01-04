@@ -34,7 +34,7 @@ import android.view.SurfaceHolder.Callback;
 import org.qpython.qsl4a.QSL4APP;
 import org.qpython.qsl4a.qsl4a.FileUtils;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 
 import org.qpython.qsl4a.qsl4a.future.FutureActivityTask;
@@ -88,7 +88,7 @@ public class CameraFacade extends RpcReceiver {
       Method method = camera.getClass().getMethod("setDisplayOrientation", int.class);
       method.invoke(camera, 90);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
 
     try {
@@ -100,7 +100,7 @@ public class CameraFacade extends RpcReceiver {
       takePicture(new File(targetPath), takePictureResult, camera);
       previewTask.finish();
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     } finally {
       camera.release();
     }
@@ -162,11 +162,11 @@ public class CameraFacade extends RpcReceiver {
           output.close();
           takePictureResult.mmResult = true;
         } catch (FileNotFoundException e) {
-          Log.e("Failed to save picture.", e);
+          LogUtil.e("Failed to save picture.", e);
           takePictureResult.mmResult = false;
           return;
         } catch (IOException e) {
-          Log.e("Failed to save picture.", e);
+          LogUtil.e("Failed to save picture.", e);
           takePictureResult.mmResult = false;
           return;
         } finally {

@@ -9,7 +9,7 @@
 	</PROPS>
 
 	<RULES IGNORE_CASE="TRUE">
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
@@ -169,7 +169,7 @@
 			<KEYWORD1>section</KEYWORD1>
 			<KEYWORD1>select</KEYWORD1>
 			<KEYWORD1>small</KEYWORD1>
-			<KEYWORD1>source</KEYWORD1>
+			<KEYWORD1>code</KEYWORD1>
 			<KEYWORD1>span</KEYWORD1>
 			<KEYWORD1>strike</KEYWORD1>
 			<KEYWORD1>strong</KEYWORD1>

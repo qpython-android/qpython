@@ -271,7 +271,7 @@ public class FSNavigator extends android.app.Activity {
                         , 1
                 )
         );
-        b1.setImageResource(up ? R.drawable.ic_folderup : R.drawable.ic_folder);
+        b1.setImageResource(up ? R.drawable.prev : R.drawable.ic_editor_folder);
         b1.setOnClickListener(directoryListener);
         b1.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         return (b1);

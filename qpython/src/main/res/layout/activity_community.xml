@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/lt"
+            layout="@layout/layout_toolbar"/>
+
+        <org.qpython.qpy.main.widget.MyNestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/lt"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.quseit.view.AdSlidShowView
+                    android:id="@+id/ad_slide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"/>
+
+                <include
+                    android:id="@+id/tabs"
+                    layout="@layout/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <org.qpython.qpy.main.widget.WrapContentHeightViewPager
+                    android:id="@+id/vp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </org.qpython.qpy.main.widget.MyNestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <include
+            android:id="@+id/top_tabs"
+            layout="@layout/tabs"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lt"/>
+    </RelativeLayout>
+</layout>

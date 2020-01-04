@@ -1,188 +1,205 @@
-<resources>
-    <string name="app_name">QPythonO</string>
-    <string name="nav_header_name">QPythonO</string>
-    <string name="nav_header_link">www.qpython.org</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+    <string name="aipylibs_version" translatable="false">20171016.1205</string>
+    <string name="notebook3_version" translatable="false">20180805.1205</string>
+    <string name="notebook2_version" translatable="false">20180805.1205</string>
+    <string name="aipylibs_file_name" translatable="false">aipylibs.mp3</string>
+    <string name="notebook3libs_file_name" translatable="false">notebook3.mp3</string>
+    <string name="notebook2libs_file_name" translatable="false">notebook2.mp3</string>
 
-    <string name="document">文档</string>
-    <string name="forum">论坛</string>
-    <string name="wiki">Wiki</string>
-    <string name="back_app">再按一次退出程序</string>
+    <string name="private1_version" translatable="false">1347438900.05</string>
+    <string name="private2_version" translatable="false">1347438994.05</string>
+    <string name="private3_version" translatable="false">1347438700.05</string>
 
+    <string name="private21_version" translatable="false">1347438900.05</string>
+    <string name="private22_version" translatable="false">1347438800.05</string>
+    <string name="private23_version" translatable="false">1347438700.05</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="setting">设置</string>
-    <string name="console">终端</string>
-    <string name="editor">编辑器</string>
-    <string name="program">程序</string>
-    <string name="community">社区</string>
-    <string name="library_manager">库管理</string>
+    <string name="private31_version" translatable="false">1347438761.05</string>
+    <string name="private32_version" translatable="false">1347438781.05</string>
+    <string name="private33_version" translatable="false">1347438761.05</string>
 
-    <string name="setting_about">关于</string>
-    <string name="setting_update">检查新版本</string>
-    <string name="setting_mark">为它打分</string>
-    <string name="setting_back">反馈</string>
-    <string name="setting_about_all">相关</string>
-    <string name="more">更多</string>
-    <string name="lib_manager">库管理</string>
-    <string name="sl4a_server">SL4A服务</string>
-    <string name="normal_program">默认程序</string>
-    <string name="qpypi">QPypi</string>
-    <string name="internal_space">重置内部空间</string>
-    <string name="ftp_server">FTP服务</string>
+    <string name="public_version" translatable="false">12000</string>
+    <string name="public3_version" translatable="false">1347438600.05</string>
+    <string name="privacy_html" translatable="false">https://www.qpython.com/privacy.html</string>
+    <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
+    <string name="lower_project" translatable="false">projects</string>
+    <string name="lib_manager" translatable="false">QPYPI</string>
+    <string name="qpypi_up" translatable="false">QPYPI</string>
+    <!-- ColorValue.java -->
+    <string name="colorvalue_letter_alpha" translatable="false">α</string>
+    <string name="colorvalue_letter_red" translatable="false">R</string>
+    <string name="colorvalue_letter_green" translatable="false">G</string>
+    <string name="colorvalue_letter_blue" translatable="false">B</string>
+
+    <string name="ui_feedback_mail" translatable="false">support@qpython.org</string>
+    <string name="log" translatable="false">Log</string>
+    <string name="v_version" translatable="false">v %s</string>
+    <string name="web" translatable="false">Web</string>
+    <string name="arvr" translatable="false">AR/VR</string>
+    <string name="action_from_python_three" translatable="false">from_python_three</string>
+    <string name="key_saver" translatable="false">saver</string>
+    <string name="aipy_app_id" translatable="false">org.aipy.app</string>
+    <string name="notebook_app_id" translatable="false">org.qpython.notebook</string>
+    <string name="python3_app_id" translatable="false">org.qpython.qpy36</string>
+    <string name="lib_cache_folder_name" translatable="false">.lib_cache</string>
+    <string name="aipy" translatable="false">AIPy</string>
+    <string name="slash_project_node" translatable="false">/projects</string>
+    <string name="key_hide_noti" translatable="false">hide_noti</string>
+    <string name="key_hide_push" translatable="false">hide_push</string>
+    <string name="logo" translatable="false">logo</string>
+    <string name="level" translatable="false">lv %s</string>
+    <!--color string-->
+    <string name="color_red" translatable="false">#FFD2483D</string>
+    <string name="color_light_gray" translatable="false">#FF595959</string>
+    <string name="color_dark_gray" translatable="false">#FF4A4A4A</string>
+    <string name="color_yellow" translatable="false">#FFECCD00</string>
+
+    <string name="terminal">Terminal</string>
+    <string name="recent">Recent</string>
+    <string name="snippet">Snippet</string>
+    <string name="script">Script</string>
+    <string name="project">Project</string>
+
+    <string name="setting">Setting</string>
+    <string name="editor">Editor</string>
+    <string name="community">Community</string>
+    <string name="gist">Gist</string>
+
+    <string name="more">More</string>
+    <string name="qpypi">Featured</string>
+    <string name="sl4a_server">SL4A Server</string>
+    <string name="internal_space"><![CDATA[Permissions & Storage]]></string>
+    <string name="ftp_server">FTP Server</string>
 
 
     <!---->
-    <string name="application_terminal">终端模拟器</string>
-    <string name="preferences">首选项</string>
-    <string name="new_window">新窗口</string>
-    <string name="close_window">关闭窗口</string>
-    <string name="window_list">窗口列表</string>
-    <string name="prev_window">前一窗口</string>
-    <string name="next_window">后一窗口</string>
-    <string name="reset">重置终端</string>
-    <string name="send_email">发送电子邮件到...</string>
-    <string name="special_keys">特殊键</string>
-    <string name="toggle_soft_keyboard">打开/关闭软键盘</string>
+    <string name="application_terminal">Terminal</string>
+    <string name="preferences">Preference</string>
+    <string name="new_window">Open new terminal</string>
+    <string name="close_window">Close terminal</string>
+    <string name="window_list">Terminal list</string>
+    <string name="reset">Reset Terminal</string>
+    <string name="send_email">Send mail to…</string>
+    <string name="special_keys">Special keys</string>
+    <string name="toggle_soft_keyboard">Open/Close soft keyboard</string>
 
-    <string name="reset_toast_notification">当前窗口终端状态将被重置</string>
+    <string name="reset_toast_notification">The state at present will be reset.</string>
 
-    <string name="enable_wakelock">开启唤醒锁</string>
-    <string name="disable_wakelock">关闭唤醒锁</string>
-    <string name="enable_wifilock">开启 Wifi 锁</string>
-    <string name="disable_wifilock">关闭 Wifi 锁</string>
+    <string name="enable_wakelock">Enable wakelock</string>
+    <string name="disable_wakelock">Disable wakelock</string>
+    <string name="enable_wifilock">Enable WIFI lock</string>
+    <string name="disable_wifilock">Disable WIFI lock</string>
 
-    <string name="edit_text">编辑文本</string>
-    <string name="select_text">选择文本</string>
-    <string name="copy_all">全部复制</string>
-    <string name="send_control_key">发送 Ctrl 键</string>
-    <string name="send_fn_key">发送 Fn 键</string>
+    <string name="edit_text">Edit text</string>
+    <string name="select_text">Select text</string>
+    <string name="copy_all">Copy all</string>
+    <string name="send_control_key">Send control key</string>
+    <string name="send_fn_key">Send Fn key</string>
 
-    <string name="window_title">窗口 %1$d</string>
+    <string name="window_title">Terminal %1$d</string>
 
-    <string name="service_notify_text">会话正在运行</string>
-
-    <string name="process_exit_message">会话已结束</string>
+    <string name="process_exit_message">Session is over</string>
 
     <!-- Preference dialog -->
-    <string name="screen_preferences">屏幕</string>
+    <string name="screen_preferences">Screen</string>
 
-    <string name="title_statusbar_preference">状态栏</string>
-    <string name="summary_statusbar_preference">显示/隐藏状态栏。</string>
-    <string name="dialog_title_statusbar_preference">状态栏</string>
+    <string name="title_statusbar_preference">Status bar</string>
+    <string name="summary_statusbar_preference">Show/Hide Status bar</string>
+    <string name="dialog_title_statusbar_preference">Status bar</string>
 
-    <string name="title_actionbar_preference">操作栏</string>
-    <string name="summary_actionbar_preference">选择操作栏行为 (Android 3.0 及以上)</string>
-    <string name="dialog_title_actionbar_preference">操作栏行为</string>
+    <string name="title_actionbar_preference">Action Bar</string>
+    <string name="summary_actionbar_preference">Choose Action bar\'s behavior(Android 3.0 and above)</string>
+    <string name="dialog_title_actionbar_preference">Action bar\'s behavior</string>
 
-    <string name="title_orientation_preference">屏幕方位</string>
-    <string name="summary_orientation_preference">选择屏幕方位行为</string>
-    <string name="dialog_title_orientation_preference">屏幕方位行为</string>
+    <string name="title_orientation_preference">Screen orientation</string>
+    <string name="summary_orientation_preference">Choose screen orientation action</string>
+    <string name="dialog_title_orientation_preference">screen orientation action</string>
 
-    <string name="title_cursorstyle_preference">光标样式</string>
-    <string name="summary_cursorstyle_preference">选择光标样式</string>
-    <string name="dialog_title_cursorstyle_preference">光标样式</string>
+    <string name="text_preferences">Text</string>
 
-    <string name="title_cursorblink_preference">光标闪烁</string>
-    <string name="summary_cursorblink_preference">选择光标闪烁模式</string>
-    <string name="dialog_title_cursorblink_preference">光标闪烁</string>
+    <string name="title_utf8_by_default_preference">Default use UTF-8</string>
+    <string name="summary_utf8_by_default_preference">Using UTF-8 as default</string>
 
-    <string name="text_preferences">文本</string>
+    <string name="title_fontsize_preference">Text size</string>
+    <string name="summary_fontsize_preference">Choose text size</string>
+    <string name="dialog_title_fontsize_preference">Text size</string>
 
-    <string name="title_utf8_by_default_preference">默认 UTF-8</string>
-    <string name="summary_utf8_by_default_preference">是否将 UTF-8 模式设为默认</string>
+    <string name="title_color_preference">Text color</string>
+    <string name="summary_color_preference">Choose text color</string>
+    <string name="dialog_title_color_preference">Text color</string>
 
-    <string name="title_fontsize_preference">文本大小</string>
-    <string name="summary_fontsize_preference">选择文本大小</string>
-    <string name="dialog_title_fontsize_preference">文本大小</string>
+    <string name="keyboard_preferences">Keyboard</string>
 
-    <string name="title_color_preference">颜色</string>
-    <string name="summary_color_preference">选择文本颜色</string>
-    <string name="dialog_title_color_preference">文本颜色</string>
+    <string name="title_backaction_preference">Back key behavior</string>
+    <string name="summary_backaction_preference">Choose Back key behavior</string>
+    <string name="dialog_title_backaction_preference">Back key behavior</string>
 
-    <string name="keyboard_preferences">键盘</string>
+    <string name="title_controlkey_preference">Ctrl key</string>
+    <string name="summary_controlkey_preference">Choose Ctrl key behavior</string>
+    <string name="dialog_title_controlkey_preference">Ctrl key</string>
 
-    <string name="title_backaction_preference">返回键行为</string>
-    <string name="summary_backaction_preference">选择返回键行为</string>
-    <string name="dialog_title_backaction_preference">返回键行为</string>
+    <string name="title_fnkey_preference">Fn key</string>
+    <string name="summary_fnkey_preference">Choose Fn key behavior</string>
+    <string name="dialog_title_fnkey_preference">Fn key</string>
 
-    <string name="title_controlkey_preference">Ctrl 键</string>
-    <string name="summary_controlkey_preference">设置 Ctrl 键</string>
-    <string name="dialog_title_controlkey_preference">Ctrl 键</string>
-
-    <string name="title_fnkey_preference">Fn 键</string>
-    <string name="summary_fnkey_preference">设置 Fn 键</string>
-    <string name="dialog_title_fnkey_preference">Fn 键</string>
-
-    <string name="title_ime_preference">输入方式</string>
-    <string name="summary_ime_preference">选择输入方式或软键盘</string>
-    <string name="dialog_title_ime_preference">输入方式</string>
+    <string name="title_ime_preference">Input method</string>
+    <string name="summary_ime_preference">Choose input method</string>
+    <string name="dialog_title_ime_preference">Input method</string>
 
     <string name="shell_preferences">Shell</string>
-    <string name="title_shell_preference">命令行</string>
-    <string name="summary_shell_preference">指定命令行使用的 Shell</string>
+    <string name="title_shell_preference">Terminal</string>
+    <string name="summary_shell_preference">Choose Shell</string>
     <string name="dialog_title_shell_preference">Shell</string>
 
-    <string name="title_initialcommand_preference">初始命令</string>
-    <string name="summary_initialcommand_preference">启动 Shell 时自动执行的命令</string>
-    <string name="dialog_title_initialcommand_preference">初始命令</string>
+    <string name="title_initialcommand_preference">Initial command</string>
+    <string name="summary_initialcommand_preference">Automatic performance initial command when start</string>
+    <string name="dialog_title_initialcommand_preference">Initial command</string>
 
-    <string name="title_termtype_preference">终端类型</string>
-    <string name="summary_termtype_preference">设置 Shell 的终端类型</string>
-    <string name="dialog_title_termtype_preference">终端类型</string>
+    <string name="title_termtype_preference">Terminal type</string>
+    <string name="summary_termtype_preference">Set Shell\'s Terminal type</string>
+    <string name="dialog_title_termtype_preference">Terminal type</string>
 
-    <string name="title_close_window_on_process_exit_preference">退出时关闭窗口</string>
-    <string name="summary_close_window_on_process_exit_preference">退出 Shell 时是否关闭窗口</string>
+    <string name="title_close_window_on_process_exit_preference">Close terminal when exit</string>
+    <string name="summary_close_window_on_process_exit_preference">Close terminal when exit</string>
 
-    <string name="title_verify_path_preference">验证 PATH 路径</string>
-    <string name="summary_verify_path_preference">是否将 PATH 中无效的路径清除</string>
+    <string name="title_verify_path_preference">verify PATH</string>
+    <string name="summary_verify_path_preference">Clear invalid PATH</string>
 
-    <string name="title_do_path_extensions_preference">允许 PATH 后扩</string>
-    <string name="summary_do_path_extensions_preference">是否允许程序添加额外命令到 PATH</string>
+    <string name="title_do_path_extensions_preference">Allow PATH expand</string>
+    <string name="summary_do_path_extensions_preference">Allow add command to PATH</string>
 
-    <string name="title_allow_prepend_path_preference">允许 PATH 前置</string>
-    <string name="summary_allow_prepend_path_preference">是否允许程序覆盖 PATH 中已有命令</string>
+    <string name="title_allow_prepend_path_preference">Allow preposition PATH</string>
+    <string name="summary_allow_prepend_path_preference">Allow override exist command in PATH</string>
 
-    <string name="title_home_path_preference">HOME 文件夹</string>
-    <string name="summary_home_path_preference">用作 HOME 的可写文件夹路径</string>
+    <string name="title_home_path_preference">HOME Folder</string>
+    <string name="summary_home_path_preference">Use as HOME\'s writable path</string>
 
-    <string name="control_key_dialog_title">Ctrl 与 Fn 键</string>
+    <string name="control_key_dialog_title">Ctrl and Fn key</string>
     <string name="control_key_dialog_control_text">CTRLKEY Space : Control-@ (NUL)\nCTRLKEY A..Z : Control-A..Z\nCTRLKEY 5 : Control-]\nCTRLKEY 6 : Control-^\nCTRLKEY 7 : Control-_\nCTRLKEY 9 : F11\nCTRLKEY 0 : F12</string>
-    <string name="control_key_dialog_control_disabled_text">未设置 Ctrl 键</string>
+    <string name="control_key_dialog_control_disabled_text">Ctrl key unset</string>
     <string name="control_key_dialog_fn_text">FNKEY 1..9 : F1-F9\nFNKEY 0 : F10\nFNKEY W : Up\nFNKEY A : Left\nFNKEY S : Down\nFNKEY D : Right\nFNKEY P : PageUp\nFNKEY N : PageDown\nFNKEY T : Tab\nFNKEY L : | (pipe)\nFNKEY U : _ (underscore)\nFNKEY E : Control-[ (ESC)\nFNKEY X : Delete\nFNKEY I : Insert\nFNKEY H : Home\nFNKEY F : End\nFNKEY . : Control-\\\n</string>
-    <string name="control_key_dialog_fn_disabled_text">未设置 Fn 键</string>
+    <string name="control_key_dialog_fn_disabled_text">Fn key unset</string>
 
-    <string name="confirm_window_close_message">关闭窗口吗？</string>
+    <string name="confirm_window_close_message">Close terminal?</string>
 
-    <string name="perm_run_script">在终端模拟器中运行命令</string>
-    <string name="permdesc_run_script">允许程序开启新窗口并运行包括与网络、存储卡相关命令在内的所有命令</string>
-    <string name="perm_append_to_path">添加命令到终端模拟器</string>
-    <string name="permdesc_append_to_path">允许程序添加额外命令</string>
-    <string name="perm_prepend_to_path">覆盖终端模拟器中已有命令</string>
-    <string name="permdesc_prepend_to_path">允许程序覆盖终端模拟器中已有命令</string>
+    <string name="email_transcript_subject">Copy terminal</string>
+    <string name="feedback_email_subject">Feedback - QPython</string>
+    <string name="email_transcript_chooser_title">Feedback …</string>
+    <string name="email_transcript_no_email_activity_found">Can not find propriety App to send E-mail</string>
 
-    <string name="email_transcript_subject">终端模拟器副本</string>
-    <string name="email_transcript_chooser_title">发送副本的邮件实例：</string>
-    <string name="email_transcript_no_email_activity_found">找不到邮件实例发送副本</string>
+    <string name="alt_sends_esc">Use Alt as ESC</string>
+    <string name="alt_sends_esc_summary_on">Using Alt as ESC</string>
+    <string name="alt_sends_esc_summary_off">Cancel using Alt as ESC</string>
 
-    <string name="alt_sends_esc">Alt 键发送 ESC</string>
-    <string name="alt_sends_esc_summary_on">开启 Alt 键发送 ESC</string>
-    <string name="alt_sends_esc_summary_off">关闭 Alt 键发送 ESC</string>
+    <string name="title_mouse_tracking_preference">Send mouse event</string>
+    <string name="summary_mouse_tracking_preference">Are touch and scroll event ignored?</string>
 
-    <string name="title_mouse_tracking_preference">发送鼠标事件</string>
-    <string name="summary_mouse_tracking_preference">触摸与滚屏事件是否被终端忽略</string>
-
-    <string name="dialog_title_menu">菜单</string>
-    <string name="dialog_item_qrcode">扫描二维码</string>
-    <string name="dialog_item_script">运行脚本</string>
-    <string name="dialog_item_project">运行项目</string>
-
-    <string name="dialog_title_script">脚本</string>
-    <string name="dialog_title_project">项目</string>
+    <string name="dialog_title_script">script</string>
+    <string name="dialog_title_project">project</string>
 
 
     <string name="title_use_keyboard_shortcuts">Use Keyboard Shortcuts</string>
-    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle window, Ctrl-Shift-N: new window, Ctrl-Shift-V: paste.</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: cycle terminal, Ctrl-Shift-N: new terminal, Ctrl-Shift-V: paste.</string>
     <string name="use_keyboard_shortcuts_summary_off">Keyboard shortcuts disabled.</string>
     <string name="help">Help</string>
     <string name="activity_term_here_title">Term here</string>
@@ -193,8 +210,8 @@
     <string name="addshortcut_command_hint">command</string>
     <string name="addshortcut_example_hint">--example=\""a\"</string>
     <string name="addshortcut_navigator_title">SELECT SHORTCUT TARGET</string>
-    <string name="addshortcut_command_window_instructions">Command window requires full mPath, no arguments. For other commands use Arguments window (ex: cd /sdcard).</string>
-    <string name="addshortcut_arguments_label">Arguments\:</string>
+    <string name="addshortcut_command_window_instructions">Command terminal requires full mPath, no arguments. For other commands use Arguments terminal (ex: cd /sdcard).</string>
+    <string name="addshortcut_arguments_label">Add to dictionary</string>
     <string name="addshortcut_shortcut_label">Shortcut label\:</string>
     <string name="addshortcut_button_text_icon">Text icon</string>
     <string name="addshortcut_make_text_icon">MAKE TEXT ICON</string>
@@ -205,229 +222,523 @@
     <string name="fsnavigator_no_external_storage">External storage not available</string>
     <string name="fsnavigator_optional_enter_path">Or enter mPath here.</string>
     <string name="fsnavigator_change_theme">Change theme</string>
-    <!-- ColorValue.java -->
-    <string name="colorvalue_letter_alpha">α</string>
-    <string name="colorvalue_letter_red">R</string>
-    <string name="colorvalue_letter_green">G</string>
-    <string name="colorvalue_letter_blue">B</string>
     <string name="colorvalue_label_lock_button_column">LOCK</string>
     <string name="colorvalue_icon_text_entry_hint">Enter icon text</string>
 
-    <string name="help_url" translatable="false">http://jackpal.github.com/Android-Terminal-Emulator/help/index.html</string>
+    <string name="help_url">https://www.qpython.org</string>
+
+    <string name="read_only">Read only</string>
+    <string name="file">Explorer</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="close">close</string>
+    <string name="no_change">No change</string>
+    <string name="feedback">Feedback</string>
+    <string name="about">About</string>
+    <string name="file_not_exists">File did not exist</string>
+    <string name="enable_root">Enable root</string>
+    <string name="send">Send</string>
+    <string name="no_camera">Can not find the available camera, please check if the camera permissions is granted</string>
+    <string name="no_storage">No read storage permission</string>
 
 
-    <string name="new_file">新建</string>
-    <string name="open">打开</string>
-    <string name="save">保存</string>
-    <string name="undo">撤销</string>
-    <string name="redo">重做</string>
-    <string name="save_all">全部保存</string>
-    <string name="save_as">另存为</string>
-    <string name="recent_files">最近打开</string>
-    <string name="line_separator">换行符</string>
-    <string name="select_all">全选</string>
-    <string name="duplication_line">重复行</string>
-    <string name="find_in_files">搜索文件</string>
-    <string name="jump_to_start">跳到开始</string>
-    <string name="jump_to_end">跳到结束</string>
-    <string name="goto_line">跳到行</string>
-    <string name="back">上个位置</string>
-    <string name="forward">下个位置</string>
-    <string name="document_info">文档信息</string>
-    <string name="symbol">符号</string>
-    <string name="insert_color">插入颜色</string>
-    <string name="highlight_language">高亮语言</string>
-    <string name="encoding">编码</string>
-    <string name="read_only">只读模式</string>
-    <string name="insert_datetime">插入时间</string>
-    <string name="edit_mode">编辑模式</string>
-    <string name="run">运行</string>
-    <string name="file">文件</string>
-    <string name="other">其它</string>
-    <string name="view">查看</string>
-    <string name="edit">编辑</string>
-    <string name="new_filename">无标题 %d</string>
-    <string name="confirm_save">确认保存</string>
-    <string name="confirm_save_msg">文档 %s 尚未保存，是否保存并关闭</string>
-    <string name="yes">是</string>
-    <string name="no">否</string>
-    <string name="cannt_access_file">文件 %s 无法访问</string>
-    <string name="cannt_read_file">无法读取文件 %s</string>
-    <string name="ok">确定</string>
-    <string name="read_file_exception">读取文件时发生异常</string>
-    <string name="init_syntax_msg">正在初始化语法高亮…</string>
-    <string name="init_syntax_error">初始化语法文件失败，请检查是否有足够的存储空间</string>
-    <string name="init_build_index_error">建立索引失败</string>
-    <string name="close">关闭</string>
-    <string name="cancel">取消</string>
-    <string name="convert_wrap_char">转换换行符</string>
-    <string name="path_x">路径：%s</string>
-    <string name="char_x">字符数：%d</string>
-    <string name="word_x">单词数：%d</string>
-    <string name="line_number_x">行数：%d</string>
-    <string name="encoding_x">编码：%s</string>
-    <string name="tab">标签</string>
-    <string name="no_change">没有任何改变</string>
-    <string name="save_success">保存成功</string>
-    <string name="find_label">Find What:</string>
-    <string name="replace_label">Replace With:</string>
-    <string name="case_sensitive">Case sensitive</string>
-    <string name="whole_words_only">Whole words only</string>
-    <string name="regex">Regular expression</string>
-    <string name="in_path">In Path:</string>
-    <string name="recursively">Recursively</string>
-    <string name="cannot_be_empty">不能为空</string>
-    <string name="path_not_exists">路径不存在</string>
-    <string name="find_not_found">找不到结果</string>
-    <string name="previous_occurrence">向上查找</string>
-    <string name="next_occurrence">查找下一个</string>
-    <string name="replace_all">替换全部</string>
-    <string name="searching">搜索中…</string>
-    <string name="select_lang_to_highlight">Select a language to highlight</string>
-    <string name="more_menu">更多菜单</string>
-    <string name="reopen_with_encoding">使用该编码重新打开</string>
-    <string name="save_as_file_first">请先保存为文件</string>
-    <string name="document_changed">文档已经改变</string>
-    <string name="give_up_document_changed_message">文档已经改变，重新打开将放弃改变，确认要放弃？</string>
-    <string name="preview_in_browser">在浏览器预览</string>
-    <string name="use_sl4a_in_background_run_script">调用SL4A在后台运行脚本</string>
-    <string name="use_sl4a_in_terminal_run_script">调用SL4A在命令行运行脚本</string>
-    <string name="please_save_as_file_first">请先保存为文件</string>
-    <string name="run_fail_message">调用外部应用失败</string>
-    <string name="settings">设置</string>
-    <string name="font">字体</string>
-    <string name="default_value">默认值</string>
-    <string name="font_size">字体大小</string>
-    <string name="cursor_width">光标宽度</string>
-    <string name="touch_to_adjust_text_size">多点触摸缩放字体大小</string>
-    <string name="word_wrap_in_editor">自动换行</string>
-    <string name="show_linenumber">显示行号</string>
-    <string name="show_whitespace">显示空白字符</string>
-    <string name="auto_indent">自动缩进</string>
-    <string name="insert_space_for_tab">使用空格代替制表符</string>
-    <string name="indent_size">缩进大小</string>
-    <string name="highlight_and_theme">高亮和主题</string>
-    <string name="highlight_the_file_size_limit">限制高亮的文件大小</string>
-    <string name="select_theme">选择主题（待开发）</string>
-    <string name="auto_save">自动保存文档</string>
-    <string name="remember_last_opened_files">记住最后打开的文件</string>
-    <string name="remember_last_opened_files_summary">启动编辑器时自动打开上次打开的文件</string>
-    <string name="screen_orientation">屏幕方向</string>
-    <string name="keep_screen_on">保持屏幕常亮</string>
-    <string name="auto_capitalize">首字母自动大写</string>
-    <string name="feedback">意见反馈</string>
-    <string name="donate">捐赠</string>
-    <string name="help_translate">翻译本应用</string>
-    <string name="about">关于</string>
-    <string name="enable_highlight">启用语法高亮</string>
-    <string name="version_x">版本：%s</string>
-    <string name="need_to_enable_read_storage_permissions">需要打开读取存储器权限</string>
-    <string name="file_not_exists">文件不存在</string>
-    <string name="cannt_handle_intent_x">无法处理来源信息：%s</string>
-    <string name="handle_intent_x_error">处理来源：%s 时发生错误</string>
-    <string name="hex_color_char" translatable="false">#</string>
-    <string name="color_R" translatable="false">R:</string>
-    <string name="color_G" translatable="false">G:</string>
-    <string name="color_B" translatable="false">B:</string>
-    <string name="verify_sign_failure">你当前使用的是非官方发布的应用，请转到 https://github.com/jecelyin/920-text-editor-v2/releases 下载官方发布的应用。</string>
-    <string name="press_again_will_exit">再按一次返回按钮将退出程序</string>
-    <string name="find_replace">查找/替换</string>
-    <string name="find_title">\"%s\" Find Results</string>
-    <string name="zero_matches">0 matches</string>
-    <string name="chooser_browser">选择一个浏览器</string>
-    <string name="find_or_replace">查找/替换…</string>
-    <string name="other_application">其它程序…</string>
-    <string name="chooser_application">选择程序</string>
-    <string name="editor_create_unknown_exception">创建编辑器时发生未知异常</string>
-    <string name="convert_to_uppercase">转换为大写</string>
-    <string name="convert_to_lowercase">转换为小写</string>
-    <string name="duplication_text">重复选中文本</string>
-    <string name="tab_size">制表符大小</string>
-    <string name="new_version_available">发现新版本</string>
-    <string name="install">安装</string>
-    <string name="new_version_update_content">Latest Version: %1$s\n\nWhat\'s New:\n%2$s</string>
-    <string name="download_progress">正在下载：%1$d%%</string>
-    <string name="download_failure_x">下载失败：%s</string>
-    <string name="start_download">开始下载</string>
-    <string name="auto_check_updates">自动检查更新</string>
-    <string name="cannt_download">无法下载</string>
-    <string name="readonly_mode_not_support_this_action">Read-only mode does not support this action</string>
-    <string name="x_text_replaced">%d text has been replaced</string>
-    <string name="enable_root">启用Root权限</string>
-    <string name="my_name">作者：彭春瑜</string>
-    <string name="my_email" translatable="false"><![CDATA[Email：<a href="mailto:jecelyin@gmail.com">jecelyin@gmail.com</a>]]></string>
-    <string name="project_url" translatable="false"><![CDATA[URL：<a href="https://github.com/jecelyin/920-text-editor-v2/">https://github.com/jecelyin/920-text-editor-v2/</a>]]></string>
-    <string name="qq_group">QQ群：87272821</string>
-    <string name="license"><![CDATA[Copyright (C) 2016 Jecelyin Peng,\n\n920 Text Editor open source software is licensed under the Apache License 2.0]]></string>
-    <string name="open_with_external_browser">使用外部浏览器打开</string>
-    <string name="contact_email_optional">联系Email（可选）</string>
-    <string name="with_error_logs">错误日志</string>
-    <string name="content">内容</string>
-    <string name="send">发送</string>
-    <string name="feedback_content_length_must_be_greater_than_x_char">反馈内容长度必须大于%d个字</string>
-    <string name="feedback_submit_error_x">提交反馈失败：%s</string>
-    <string name="submit_success">提交成功</string>
-    <string name="agree">返回</string>
-    <string name="alert">提示</string>
-    <string name="no_find_img">没有扫描到二维码信息</string>
-    <string name="no_camera">没有发现可用的摄像头，请查看是否开启摄像头权限</string>
-    <string name="no_storage">没有文件读取权限</string>
-    <string name="list_alert">扫描到了二维码</string>
-    <plurals name="x_text_replaced">
-        <item quantity="zero">0 found</item>
-        <item quantity="other">%d text replaced</item>
-    </plurals>
-    <string-array name="insert_datetime_lang">
-        <item>英语</item>
-        <item>中文</item>
-    </string-array>
-    <string-array name="wrap_char_list">
-        <item>转换为 \\n（Linux/OSX）</item>
-        <item>转换为 \\r\\n（Windows）</item>
-    </string-array>
-    <string-array name="date_number">
-        <item>〇</item>
-        <item>一</item>
-        <item>二</item>
-        <item>三</item>
-        <item>四</item>
-        <item>五</item>
-        <item>六</item>
-        <item>七</item>
-        <item>八</item>
-        <item>九</item>
-        <item>十</item>
-    </string-array>
-    <string-array name="screen_orientation">
-        <item>自动</item>
-        <item>横屏</item>
-        <item>竖屏</item>
-    </string-array>
-
-    <string-array name="list_select">
-        <item>在编辑器中打开</item>
-        <item>在.....打开</item>
-        <item>重新扫描</item>
-    </string-array>
-
-
-    <string name="recent_download">已下载</string>
-    <array name="library">网络库</array>
-
-    <string name="load_failed">加载失败，点击重新加载</string>
-    <string name="download_error">加载出现了问题，点击文字，重新加载</string>
-    <string name="download">下载</string>
-
-
-    <string-array name="tab_string">
-        <item>网络库</item>
-        <item>已下载</item>
-    </string-array>
-
-
-    <string name="private_version">10000</string>
-    <string name="public_version">10000</string>
     <string name="pref_initialcommand_default_qpython">python</string>
-    <string name="use_qpython_run_script">调用QPython运行</string>
+    <string name="qpy_app">QPY</string>
+    <string name="local_app">Local APP</string>
+    <string name="task">Task</string>
+    <string name="root_mode">Root mode</string>
+    <string name="star_it">Rate it</string>
+    <string name="disable_root">Disable</string>
+    <string name="http_qpypi_qpython_org">https://pypi.python.org/simple/</string>
+    <string name="add">add</string>
+    <string name="sl4a_running">SL4A server is running</string>
+    <string name="sl4a_un_running">SL4A server is not running</string>
+    <string name="service_toggle">Server taggle</string>
+    <string name="qpy_description">QPython is a script engine running on android devices like phone or tablet.</string>
+    <string name="warning">Warning</string>
+    <string name="reset_warning">Reset storage will lost all setting and downloaded libs, are you sure you want to reset?</string>
+    <string name="downloading">Library</string>
+    <string name="location">Location</string>
+
+
+    <!--  -->
+
+    <!-- Titles -->
+    <string name="title_untitled">untitled</string>
+    <string name="title_editor">%1$s</string>
+    <string name="title_editor_dirty">%1$s *</string>
+    <string name="title_editor_readonly">[%1$s]</string>
+
+    <string name="title_settings">Settings </string>
+
+    <!-- Config screen strings -->
+    <string name="config_cat_display">Display(Please restart the editor after changing)</string>
+    <string name="config_title_line_numbers">Show line numbers</string>
+    <string name="config_title_word_wrap">Word wrap</string>
+    <string name="config_title_font">Change text font</string>
+    <string name="config_title_text_size">Text size</string>
+    <string name="config_title_color_theme">Color theme</string>
+    <string name="config_title_scroll_fling">Fling to scroll faster</string>
+    <string name="config_gist_icon"></string>
+    <string name="config_title_gist">Show Gist button</string>
+
+    <string name="config_summary_line_numbers">Display the line number at the left of the page</string>
+    <string name="config_summary_word_wrap">Lines will break in new lines if they are too wide for the screen</string>
+    <string name="config_summary_scroll_fling">Uncheck if you have performance issues</string>
+
+    <!-- Options Menu in QEdit -->
+
+    <!-- Misc UI strings -->
+    <string name="ui_save_text">"Do you want to save your document? \nAny unsaved changes will be lost. "</string>
+    <string name="ui_save">Save</string>
+    <string name="ui_delete">Delete</string>
+    <string name="ui_no_save">"Don't save"</string>
+    <string name="ui_cancel">Cancel</string>
+    <string name="ui_hint_file_name">File name</string>
+    <string name="ui_hint_search">Search</string>
+    <string name="ui_history">History</string>
+    <string name="ui_force_read_only">Open as read only</string>
+    <string name="about_content">QEdit is a text editor for android tablets and phones, besides text edit, it can make python / HTML development on android more fun and convenient especially.</string>
+
+    <!-- Misc Strings -->
+    <string name="lorem_ipsum">"QEdit is a great script editor."</string>
+
+    <string name="file_exists">File or project exists, please rename</string>
+
+    <string name="video_src">Video {0}</string>
+    <string name="play_video">Play</string>
+    <string name="no_videos_found">No videos found in this page</string>
+    <string name="pls_install_a8_play">Please install A8 Video Player first</string>
+    <string name="download_as">Download and save as</string>
+    <string name="info_browser">QBrowser</string>
+
+    <!--  added by kyle -->
+    <string name="share">Share</string>
+    <string name="save_as_snippets">Save as snippet</string>
+    <string name="snippet_exist">Snippet exists, please change to another name.</string>
+    <string name="save_as_snippets_1">Snippets has been saved as: </string>
+    <string name="fail_to_insert">Fail to insert snippet</string>
+    <string name="fail_to_goto">Please input correct number</string>
+    <string name="max_lines_num_with_syntax_title">Auto-highlight lines</string>
+    <string name="max_lines_num_with_syntax_summary">Auto-highlight if lines less than %s</string>
+    <string name="qedit_not_support">QEdit only support to preview/execute the following file types\n.py, .sh, .lua, .html, .md.</string>
+
+    <string name="pls_install_lua">Please install the QLua to run lua script</string>
+    <string name="pls_install_qpy">Please install the QPython to run python script</string>
+    <string name="info_snippets">Snippets</string>
+
+    <string name="ui_ok">OK</string>
+    <string name="ui_contact_title">Contact</string>
+    <string name="ui_licence_title">Licence</string>
+    <string name="ui_mail">support@qpython.org</string>
+    <string name="ui_choose_mail">Open mail using &#8230; </string>
+    <string name="ui_market_url">"https://market.android.com/developer?pub=Xavier+Gouchet"</string>
+    <string name="ui_market_app_url">"https://play.google.com/store/apps/details?id=%s"</string>
+    <string name="ui_market">"Take a look at my other apps"</string>
+    <string name="ui_app_rating">"Rate this app \n Leave a feedback"</string>
+    <string name="ui_feedback">"Please feel free to contact me for any feedback, feature request or bug report. "</string>
+    <string name="ui_licence_content">"This software is provided 'as-is', without any express or implied warranty.  In no event will the author be held liable for any damages arising from the use of this software."</string>
+    <string name="ui_art_licence_title">Artistic Licence</string>
+    <string name="ui_art_licence_content">"All icons for this app were created and belong to the author of the app : QPython."</string>
+    <string name="ui_whats_new">"What's new"</string>
+    <string name="save">Save</string>
+    <string name="save_as">Save as</string>
+    <string name="open">Open</string>
+    <string name="file_name">File Name</string>
+    <string name="file_exist_hint">This file is exist, please rename.</string>
+    <string name="empty_file">Blank file</string>
+    <string name="webapp_project">WebApp</string>
+    <string name="console_app_project">ConsoleApp</string>
+    <string name="kivy_app_project">KivyApp</string>
+    <string name="pygame_app_project">PygameApp</string>
+    <string name="quiet_app_project">QuietScript</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_project">New project</string>
+    <string name="error_dont_kn">Unkown error occurred.</string>
+    <string name="project_name">Project name</string>
+    <string name="jump_to">Jump to</string>
+    <string name="choose_ttf">Choose font file(.ttf)</string>
+    <string name="explorer">Explorer</string>
+    <string name="new_script">New script</string>
+    <string name="enter_name_hint">Enter script name</string>
+
+    <string name="paste">Paste</string>
+    <string name="install_with_python_s_pypi">QPYPI CLIENT</string>
+    <string name="py_pi"><![CDATA[You can manager and install Python packages from QPYPI and Python\'s PYPI]]></string>
+    <string name="download_fail">Download fail</string>
+    <string name="key_reset">reset_storage</string>
+    <string name="key_ftp_state">running_state</string>
+    <string name="key_username">username</string>
+    <string name="key_ftp_pwd">password</string>
+    <string name="key_port_num">portNum</string>
+    <string name="key_show_pwd">show_password</string>
+    <string name="key_root_dir">chrootDir</string>
+    <string name="key_stay_awake">stayAwake</string>
+    <string name="key_about">about</string>
+    <string name="dir_not_valid">The direction is not valid</string>
+    <string name="already_newest">Already newest</string>
+    <string name="share_text">QPython is a script engine running on android devices like phone or tablet, It embeds the Python interpreter, console, editor, SL4A Library for Android, which can make your android device run Python https://www.qpython.com/privacy.html</string>
+    <string name="new_folder">New Folder</string>
+    <string name="folder_name">Folder name</string>
+    <string name="untitled_folder">untitled folder</string>
+    <string name="toast_folder_exist">Operation failed! Please use a different name</string>
+    <string name="fail_open_file">Unable to open the file, the file is not exists</string>
+    <string name="run_dirty_hint">Do you want to save the change first?</string>
+    <string name="no_im_good">No, I\'m good</string>
+    <string name="convert_fail">Convert fail</string>
+    <string name="delete_file_hint">Do you want to delete this file?</string>
+    <string name="rename">Rename</string>
+    <string name="rename_fail">Rename fail</string>
+    <string name="delete_fail">Delete fail</string>
+    <string name="runtime_log">Runtime Log: %s</string>
+    <string name="fedback_mail">[Feedback]\n\n</string>
+    <string name="log_title">Runtime Log</string>
+
+    <string name="date_format">[ %s ]</string>
+    <string name="not_root_yet">This device is not rooted yet</string>
+    <string name="download_apk">Download APK?</string>
+    <string name="download_apk_hint">This operation may charge if you ain\'t in wifi state</string>
+    <string name="downloading_new_apk">Downloading new package</string>
+    <string name="checking_update">Checking update</string>
+    <string name="run_bg_title">Run on background</string>
+    <string name="scan">Scan</string>
+    <string name="read_script_from_qrcode">Read code from QRCode</string>
+
+    <string name="course">QPython Courses</string>
+    <string name="lost_connect">Lose Connect</string>
+    <string name="featured_courses">Courses</string>
+    <string name="programs">Programs</string>
+    <string name="open_gl2_is_not_supported">OpenGL2 is not supported</string>
+    <string name="unable_extract">Unable to extract python files</string>
+    <string name="get_setting_data_fail">Get setting data fail</string>
+    <string name="terminal_bg_hint">Do you want to keep terminal running on background?</string>
+    <string name="thanks">THANKS!</string>
+    <string name="extra_pypi">Set PYPI</string>
+    <string name="already_newest_current_version">Already newest, current version is </string>
+    <string name="reward">Reward</string>
+    <string name="oops_seems_like_your_net_have_some_trouble">Oops! \n Seems like your net has some trouble…</string>
+    <string name="lose_google_server">Can\'t connect to Google Play service, please check your network.</string>
+    <string name="thanks_your_support">Thanks for your support!</string>
+    <string name="under_16_status_bar_hint">The change of status bar\'s visibility will be apply after restart Terminal.</string>
+    <string name="refresh">Refresh</string>
+    <string name="reset_suc">Reset success</string>
+    <string name="reset_hint">This operation will only become effective after restart</string>
+    <string name="restart">Restart</string>
+    <string name="fail_resume_console">Fail to resume console</string>
+    <string name="failed_bind_term">Failed to bind to TermService!</string>
+    <string name="console_running">QPython Console is running</string>
+    <string name="qpy_console">QPython Console</string>
+    <string name="recommend">Recommend</string>
+    <string name="newest_course">Latest</string>
+    <string name="best_python_development_ide_non_mobile">Best Python Application on Mobile</string>
+    <string name="by_signing_in_you_agree_to_out_privacy_policy_term_of_service"><![CDATA[By signing in you agree with our <font color="#4BAC07">privacy policy & term </font>of service]]></string>
+    <string name="copy_hint">Copy to editor to run</string>
+    <string name="my_scripts">My Scripts</string>
+    <string name="my_share">My Gists</string>
+    <string name="gist_title">Title</string>
+    <string name="description">Description</string>
+    <string name="too_long_hint">This value is too long. It should have 140 characters or less.</string>
+    <string name="enter_snippet">Enter snippet name</string>
+    <string name="welcome_s">Welcome, <![CDATA[<font color="#4BAC07"><u>%s</u></font>]]></string>
+    <string name="re_format">Re <![CDATA[<font color="#ECCD00">@%1$s</font>]]>:\u0020 %2$s</string>
+    <string name="replied_format"><![CDATA[<font color="#ECCD00">@%1$s</font>]]>:\u0020 %2$s</string>
+    <string name="login"><u>Sign In</u></string>
+    <string name="auth_failed">Authentication failed.</string>
+    <string name="log_out">Sign Out</string>
+    <string name="me">Me</string>
+    <string name="grant_storage_hint">You need to grant storage permission</string>
+    <string name="lost_google_hint">Can not connect to google server, please check your internet</string>
+    <string name="upload_suc">Code upload successfully.</string>
+    <string name="upload_fail">Code could not be uploaded,</string>
+    <string name="my_program">My Program</string>
+    <string name="nothing_here_yet">Nothing here yet. :(</string>
+    <string name="sofa_hint">Do you want to be the first to from_content?</string>
+    <string name="null_comment_hint">Null from_content content…</string>
+    <string name="initial">Initial</string>
+    <string name="share_empty_hint">You need to save file before share.</string>
+    <string name="need_login">Need Sign in</string>
+    <string name="upload_login_hint">You have to Sign in before you could upload your code</string>
+    <string name="login_now">Login now</string>
+    <string name="cloud_empty_hint">You don\'t have any scripts on cloud yet</string>
+    <string name="mkdir_fail">Make direction fail.</string>
+    <string name="not_support_type_hint">Not support upload this type of file now</string>
+    <string name="conflict_hint"><Data>
+        <![CDATA[ <b>Remote file:</b>   <br/>
+
+                  <u>Last modified:</u> %s   <br/><br/>
+
+                  <b>Local file:</b><br/>
+
+                  <u>Last modified:</u> %s <br/><br/>
+        Do you want to override?]]></Data></string>
+    <string name="override_fail_hint">Override fail, please retry later</string>
+    <string name="delete_remote_suc">Delete remote file success</string>
+    <string name="delete_suc">Delete file success</string>
+    <string name="click_retry">Request timed out \nClick screen to retry</string>
+    <string name="lout">Do you want to sign out?</string>
+    <string name="log_noti">Log Notification</string>
+    <string name="app_noti">App Notifications</string>
+    <string name="override_hint">Override local file?</string>
+    <string name="file_downloaded">File downloaded</string>
+    <string name="login_error">Login error</string>
+    <string name="my_space">My Space (%d / 100 files)</string>
+    <string name="my_space_empty">My Space (— / 100 files)</string>
+    <string name="save_amp_push"><![CDATA[Save & Push]]></string>
+    <string name="shortcut_create_suc">Shortcut %s is created success</string>
+    <string name="need_grant">You need grant these permissions</string>
+    <string name="no_space">You don\'t have enough space to upload</string>
+    <string name="no_file">No file within this folder</string>
+    <string name="no_recent_file">You have not open any file recently</string>
+    <string name="cant_open">This file can not be opened.</string>
+    <string name="toolbar_showing">Project structure</string>
+    <string name="toolbar_close">Editor</string>
+    <string name="not_support_yet">Not support yet</string>
+    <string name="new_file">New file</string>
+    <string name="tools">Tools</string>
+    <string name="aipy_not_install"><![CDATA[Please <font color="#4BAC07">enable AIPY from setting</font>]]></string>
+    <string name="jupyter_not_install"><![CDATA[Please <font color="#4BAC07">install base packages</font> \n before install related Jupyter packages.]]></string>
+
+
+    <string name="update_time_hint">Update: %s</string>
+    <string name="aipy_list_empty_hint">Can\'t find any AIPy package, please locate the error by following the steps below.\n
+        1. Make sure you have installed AIPy application\n
+        2. Make sure QPython has the permission of write file\n
+        3. Try to refresh by clicking the upper right corner button\n\n
+        If that dose\'t work, feel free to contact us by Email or github
+    </string>
+    <string name="package_installed">This package already installed</string>
+    <string name="install_suc">Install success</string>
+    <string name="install_fail">Install fail, please try again later</string>
+    <string name="install_package_fail">Install package fail, please retry later</string>
+    <string name="aipy_not_release">Please Install AIPY Packages</string>
+    <string name="newest_resource">You have downloaded the newest resource</string>
+
+    <string name="jupyter_not_release">Please Install and run setup from QPyNotebook App</string>
+    <string name="aipy_not_support">AIPY does not support QPY3 yet</string>
+    <string name="jupyter_not_support">QPyNotebook do not support QPY3 yet</string>
+
+    <string name="aipy_lib_hint">You can install or upgrade AIPY App to get more features</string>
+    <string name="album">Album</string>
+    <string name="last_refresh">Last Refresh: %s</string>
+    <string name="last_log">Runtime log</string>
+    <string name="get_last_log">Check last runtime log</string>
+
+    <string name="data_saver">Data saver</string>
+    <string name="saver_on">Use local cache</string>
+    <string name="saver_off">Reload every time</string>
+    <string name="library">Library</string>
+    <string name="run">Run</string>
+
+    <string name="insert_tab">\u0009</string>
+
+    <string name="insert_if">if :\n</string>
+    <string name="insert_def">def ():\n</string>
+    <string name="insert_for">for\u0020\u0020in :\n</string>
+    <string name="insert_import">import\u0020\n</string>
+    <string name="insert_import_f">from\u0020\u0020import\u0020\n</string>
+    <string name="insert_clz">class\u0020\u0020:</string>
+    <string name="insert_ef">elif\u0020\u0020:\n</string>
+    <string name="insert_el">else:\n</string>
+    <string name="insert_ret">return\n</string>
+    <string name="insert_frm">from</string>
+
+    <string name="file_new">File</string>
+    <string name="install_py3">Install Python 3</string>
+    <string name="py2_now">Using Python 2 now</string>
+    <string name="py3_now">Using Python 3 now</string>
+    <string name="install_py3_first">To switch to Python 3, please download it\'s resource</string>
+    <string name="install_py2compatible_first">To switch to Python 2 Compatible, please download it\'s resource</string>
+
+    <string name="choose_py3_inter"><![CDATA[You have downloaded it, you can switch to Python 3 to use it\'s interpreter]]></string>
+    <string name="choose_py2compatible_inter"><![CDATA[You have downloaded it, you can switch to Python 2 Compatible to use it\'s interpreter]]></string>
+    <string name="install_notebook_first">To Start Notebook Service, please download it\'s resource</string>
+
+    <string name="choose_notebook_inter"><![CDATA[You have downloaded it, you can Start Notebook Service now]]></string>
+
+    <string name="notebook_first">First run, it will extract the notebook resource</string>
+
+    <string name="py_resources">Download Python Resource</string>
+
+    <string name="aipy_install">Check to Install AIPY</string>
+    <string name="aipy_installed">AIPy is installed</string>
+    <string name="switch_py3">Switch to Python 3</string>
+    <string name="update_py3"><![CDATA[Download Py3 Resource]]></string>
+    <string name="update_py2compatible"><![CDATA[Download Py2 Compatible Resource]]></string>
+
+    <string name="switch_py2">Reset to Python 2 Standard</string>
+    <string name="switch_py2_libs">It will remove all Python 2 libraries you have installed</string>
+
+    <string name="switch_py2compatible">Reset to Python 2 Compatible</string>
+
+    <string name="py_inter">Choose Python Interpreter</string>
+    <string name="notebook_res">QPyNotebook Resource</string>
+
+    <string name="install_aipy">Enable AIPY</string>
+    <string name="notebook">QPyNotebook</string>
+    <string name="notebook_for_py">QPyNotebook for Python {0}</string>
+
+    <string name="install_notebook">Download Notebook Resource</string>
+    <string name="notebook_service">Notebook Service</string>
+    <string name="notebook_service_not_ready">Notebook Service is not ready, please retry</string>
+    <string name="notebook_service_restart">Do you want to reload this notebook or restart the service?</string>
+    <string name="notebook_restart">Restart</string>
+    <string name="notebook_reload">Reload</string>
+
+    <string name="notebook_open">Do you want to open it with QPyNotebook?</string>
+
+    <string name="notebook_explorer">Start Notebook Service</string>
+    <string name="notebook_explorer_bg_start">It will run when QPython starts</string>
+
+    <string name="enter_history">History</string>
+    <string name="qpy_featured">QPython Featured</string>
+    <string name="history_emp">History is empty</string>
+    <string name="no_google">Can\'t login without Google service</string>
+    <string name="pip_no_net">Can\'t open pip without network</string>
+    <string name="key_py3" translatable="false">switch_py3</string>
+    <string name="key_py2" translatable="false">switch_py2</string>
+    <string name="key_py2compatible" translatable="false">switch_py2compatible</string>
+
+    <string name="key_py_inter" translatable="false">py_inter</string>
+    <string name="key_aipy" translatable="false">aipy</string>
+    <string name="key_notebook" translatable="false">notebook</string>
+    <string name="key_notebook_run" translatable="false">notebook_run</string>
+
+    <string name="key_notebook_page" translatable="false">notebook_page</string>
+
+    <string name="py3_not_install">QPY3 not install</string>
+    <string name="install_py3_hint">Confirm to download Python 3 Resource?</string>
+    <string name="install_py2compatible_hint">Confirm to download Python 2 Compatible Resource?</string>
+
+    <string name="install_notebook_hint">Confirm to download QPyNotebook Resources</string>
+
+    <string name="open_app_market">Install with App</string>
+    <string name="download_it">Download it</string>
+    <string name="download_py">Download Python Resource</string>
+    <string name="download_progress_need_sometime">It may take some time, please check the progress from notification bar</string>
+
+    <string name="download_notebook">Download QPyNotebook Resource</string>
+
+    <string name="release_error">Packages not release</string>
+
+    <string name="open_py3_hint">Please release packages from Python 3 app first</string>
+    <string name="open_py3">Open Python 3 app</string>
+    <string name="unzip_pac_fail">Unzip packages fail</string>
+    <string name="retry_hint">Please retry</string>
+    <string name="event_login" translatable="false">LOGIN</string>
+    <string name="event_me" translatable="false">Open_Me</string>
+    <string name="event_term" translatable="false">Open_terminal</string>
+    <string name="event_editor" translatable="false">Open_editor</string>
+    <string name="event_qpypi" translatable="false">Open_QPYPI</string>
+    <string name="event_commu" translatable="false">Open_community</string>
+    <string name="event_setting" translatable="false">Open_setting</string>
+    <string name="event_file" translatable="false">Open_explorer</string>
+    <string name="event_course" translatable="false">Open_course</string>
+    <string name="event_top" translatable="false">Open_Top</string>
+    <string name="browser">QPyBrowser</string>
+    <string name="switch_py3_hint">The interpreter are using python 2 now, do you want to switch to python 3?</string>
+    <string name="goto_setting">Go to setting</string>
+    <string name="net_lagging">The net seems lagging, please wait with patience</string>
+    <string name="usage_not_init">Usage is not init, please wait with patient</string>
+    <string name="free_plan">My Space Plan : Free (10M Max)</string>
+    <string name="share_body">Share the body</string>
+    <string name="crowdfunding">Crowdfunding%d%%</string>
+    <string name="funding">Donate</string>
+    <string name="support">Support</string>
+    <string name="my">My</string>
+    <string name="course_introduction">Course Introduction</string>
+    <string name="show">Show</string>
+    <string name="course_content">Course Content</string>
+    <string name="about_the_author">About The Author</string>
+    <string name="hide">Hide</string>
+    <string name="support_count">%s person supported</string>
+    <string name="free">Learn</string>
+    <string name="explanation">Crowdfunding Description: ：\n\n\u0020\u0020Welcome to Crowdfunding QPython Premium Curriculum. QPython\'s crowdfunding encourages the creation of quality, original Python text content for your learning.</string>
+    <string name="explanation_more">\u0020\u0020Over 100 people complete the crowdfunding, the author will launch a quality beginner\'s program in less than a week. Over 500 people complete the crowdfunding, the author will launch an intermediate learning course within two weeks. When more than 2,000 people complete the crowdfunding, the author will launch an advanced learning course within three weeks. \n\n\u0020\u0020The cost of crowdfunding varies from stage to stage. For the first 100 people, you only need %1$s for the first stage. When in the medium stage you need %2$s, and %3$s for the advanced stage. If you want to participate in the learning after the crowdfunding is completed, you have to pay at least %4$s.\n\n\u0020\u0020You can participate in the crowdfunding at any stage, and after the crowdfunding you will have access to the corresponding course. You can read materials, practice programming, share programs and get a more interesting learning experience. If you are interested in this course, welcome to participate as soon as possible.</string>
+    <string name="support_explanation">Your reward is the motivation for us to continue to write good courses.</string>
+    <string name="from_content">Comment</string>
+    <string name="author">Author</string>
+    <string name="basics">Basics</string>
+    <string name="database">Database</string>
+    <string name="explore_course">Explore more courses</string>
+    <string name="featured">Featured</string>
+    <string name="other">Other</string>
+    <string name="support_us">Support Us</string>
+    <string name="thank">Thanks</string>
+    <string name="start">Start</string>
+    <string name="buy_course">Buy Course</string>
+    <string name="rmb">%s RMB</string>
+    <string name="notebook_installed">You can browse the ipynb file from explorer</string>
+    <string name="notebook_not_install">QPyNotebook is not installed</string>
+    <string name="notebook_enable" translatable="false">notebook_enable</string>
+    <string name="start_learn">Start to learn</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="ennable_notebook_first">Please enable QPyNotebook in setting.</string>
+    <string name="funny">Funny</string>
+    <string name="back_course">Back this course</string>
+    <string name="c_funding">Crowdfunding</string>
+
+    <string name="elementary">Primary course</string>
+    <string name="intermediate">Intermediate course</string>
+    <string name="advanced">Advanced course</string>
+    <string name="dialog_alert">Notice</string>
+    <string name="conn_error">connection error!</string>
+    <string name="create_shortcut">Create Shortcut</string>
+    <string name="run_with_params">Run with params</string>
+    <string name="open_with_editor">Edit</string>
+
+    <string name="enter_u_params">Enter your params</string>
+    <string name="params">Params</string>
+    <string name="params_emp">Params is Empty</string>
+    <string name="install_kivy_first">Please install kivy library from QPYPI first.</string>
+    <string name="login_to_comment_hint">You need to login before post comment.</string>
+    <string name="write_a_response">Write a response…</string>
+    <string name="default_text">--</string>
+    <string name="copy_to_editor_to_run">copy to editor to run</string>
+    <string name="empty_hint">Comment must be not empty</string>
+    <string name="login_first">Please login first</string>
+    <string name="reply_to">Reply to: %s</string>
+    <string name="reply_format"><![CDATA[<font color="#ECCD00">@ %1$s</font>: %2$s]]></string>
+    <string name="no_data">No data</string>
+    <string name="delete_gist_hint">Do you really want to delete this gist?</string>
+    <string name="view_code">View </string>
+    <string name="fork_code">Fork</string>
+    <string name="fork_suc">Fork Success, you can view it in [My Gist]</string>
+    <string name="post">post</string>
+    <string name="summary">Summary</string>
+    <!--ADD 265-->
+    <string name="choose_action">Choose action</string>
+    <string name="learn_course">Learn QPython with courses</string>
+    <string name="get_help">Get support</string>
+    <string name="get_support_from_community">Get support from community</string>
+    <string name="my_gists">My Gists</string>
+    <string name="my_stars">My Stars</string>
+    <string name="gist_intro">And I want to share my code to support forum</string>
+    <string name="gist_own">I will save the script to my gist repo</string>
+
+    <string name="login_successfully">Login successfully</string>
+    <string name="login_failed">Login failed</string>
+
+    <string name="qr_info">Confirm</string>
+    <string name="qr_goto">Do you want to visit this URL: </string>
+
+
+    <string name="signin_error">Error occured, please retry</string>
+    <string name="project_main_error"> Project\'s main.py does not exit</string>
+
+    <string name="key_root" translatable="false">root</string>
+    <string name="key_sl4a" translatable="false">sl4a</string>
+    <string name="key_qpypi" translatable="false">qpypi</string>
+    <string name="key_update_qpy3" translatable="false">update_py3</string>
+    <string name="key_update_qpy2compatible" translatable="false">update_py2compatible</string>
+
+    <string name="python_interpreter">Python Interpreter</string>
+    <string name="action_notebook">Notebook</string>
+
+    <string name="shell_terminal">Shell Terminal</string>
+    <string name="ip_address">My IP Adress</string>
+    <string name="ip_address_need_wifi">Please connect your wifi</string>
 
 </resources>

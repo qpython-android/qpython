@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/log_menu"
+        android:title="@string/log"
+        android:visible="false"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/refresh_menu"
+        android:icon="@drawable/ic_library_reinstall"
+        android:title="@string/refresh"
+        app:showAsAction="ifRoom"/>
+</menu>

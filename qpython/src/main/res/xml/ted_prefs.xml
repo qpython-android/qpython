@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:key="ted_settings"
+                  android:title="@string/title_settings">
+
+    <PreferenceCategory android:title="@string/config_cat_display">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="show_gist"
+            android:summaryOn="@string/config_gist_icon"
+            android:title="@string/config_title_gist"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="show_line_numbers"
+            android:summaryOn="@string/config_summary_line_numbers"
+            android:title="@string/config_title_line_numbers"/>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_break_lines"
+            android:summaryOn="@string/config_summary_word_wrap"
+            android:title="@string/config_title_word_wrap"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="fling_to_scroll"
+            android:summary="@string/config_summary_scroll_fling"
+            android:title="@string/config_title_scroll_fling"/>
+
+        <Preference
+            android:key="select_font"
+            android:title="@string/config_title_font"/>
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/color_theme_names"
+            android:entryValues="@array/color_theme_values"
+            android:key="color_theme"
+            android:title="@string/config_title_color_theme"/>
+        <ListPreference
+            android:defaultValue="14"
+            android:entries="@array/text_size_names"
+            android:entryValues="@array/text_size_values"
+            android:key="text_size"
+            android:title="@string/config_title_text_size"/>
+
+        <!--ListPreference
+            android:defaultValue="300"
+            android:entries="@array/max_lines_num_with_syntax_values"
+            android:entryValues="@array/max_lines_num_with_syntax_values"
+            android:key="max_lines_num_with_syntax"
+            android:summary="@string/max_lines_num_with_syntax_summary"
+            android:title="@string/max_lines_num_with_syntax_title"/-->
+    </PreferenceCategory>
+</PreferenceScreen>

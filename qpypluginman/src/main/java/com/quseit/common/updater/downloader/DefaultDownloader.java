@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Environment;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
@@ -21,7 +22,6 @@ public class DefaultDownloader implements Downloader {
     private final Context context;
     private final NotificationManager notificationManager;
 
-
     public DefaultDownloader(Context context) {
         this.context = context;
         FileDownloader.init(context);
@@ -32,49 +32,73 @@ public class DefaultDownloader implements Downloader {
     @Override
     public void download(final String name, String url, final Callback callback) {
         String path = DEFAULT_PATH + "/" + name;
+        download(name, url, path, callback);
+    }
+
+    @Override
+    public void download(final String name, String url, final String path, final Callback callback) {
+        Log.d(TAG, "download:"+name+":"+url+"["+path+"]");
         FileDownloader.getImpl()
-                .create(url)
-                .setPath(path, false)
-                .setCallbackProgressTimes(300)
-                .setListener(new FileDownloadListener() {
-                    @Override
-                    protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+        .create(url)
+        .setPath(path, false)
+        .setCallbackProgressTimes(2000)
+        .setListener(new FileDownloadListener() {
+            @Override
+            protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                Log.d(TAG, "download:pending:");
+                callback.pending(name);
+            }
 
-                    }
+            @Override
+            protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                Log.d(TAG, "download:progress:");
 
-                    @Override
-                    protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
-                        Notification notification = new NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.ic_cloud_download_black_24dp)
-                                .setContentTitle(context.getText(R.string.downloading))
-                                .setContentText(name)
-                                .setProgress(totalBytes, soFarBytes, false)
-                                .build();
-                        notificationManager.notify(name.hashCode(), notification);
-                    }
+                Notification notification = new NotificationCompat.Builder(context)
+                        .setSmallIcon(R.drawable.ic_cloud_download_black_24dp)
+                        .setContentTitle(context.getText(R.string.downloading))
+                        .setContentText(name)
+                        .setProgress(totalBytes, soFarBytes, false)
+                        .build();
+                notificationManager.notify(name.hashCode(), notification);
+            }
 
-                    @Override
-                    protected void completed(BaseDownloadTask task) {
-                        notificationManager.cancel(name.hashCode());
-                        File file = new File(task.getTargetFilePath());
-                        callback.complete(name, file);
-                    }
+            @Override
+            protected void completed(BaseDownloadTask task) {
+                Log.d(TAG, "download:completed:");
 
-                    @Override
-                    protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                //notificationManager.cancel(name.hashCode());
+                Notification notification = new NotificationCompat.Builder(context)
+                        .setSmallIcon(R.drawable.ic_cloud_download_black_24dp)
+                        .setContentTitle(context.getText(R.string.downloaded))
+                        .setContentText(name)
+                        .setProgress(100, 100, false)
+                        .build();
 
-                    }
+                notificationManager.notify(name.hashCode(),notification);
+                File file = new File(task.getTargetFilePath());
+                callback.complete(name, file);
+            }
 
-                    @Override
-                    protected void error(BaseDownloadTask task, Throwable e) {
+            @Override
+            protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
+                Log.d(TAG, "download:paused:");
 
-                    }
+            }
 
-                    @Override
-                    protected void warn(BaseDownloadTask task) {
+            @Override
+            protected void error(BaseDownloadTask task, Throwable e) {
+                Log.d(TAG, "download:error:"+e.getLocalizedMessage());
+                callback.error(e.getLocalizedMessage());
 
-                    }
-                })
-                .start();
+            }
+
+            @Override
+            protected void warn(BaseDownloadTask task) {
+                Log.d(TAG, "download:warn:");
+
+            }
+        })
+        .start();
+
     }
 }

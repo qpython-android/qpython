@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_path"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FF363636">
+
+            <TextView
+                android:id="@+id/tv_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_toLeftOf="@+id/iv_new_folder"
+                android:layout_toStartOf="@+id/iv_new_folder"
+                android:ellipsize="start"
+                android:gravity="start"
+                android:singleLine="true"
+                android:textColor="#FF9B9B9B"/>
+
+            <ImageView
+                android:id="@+id/iv_new_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:src="@drawable/ic_editor_newfolder"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimary"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/prev_folder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_file_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="@dimen/default_margin"
+                android:src="@drawable/prev"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iv_file_icon"
+                android:layout_toRightOf="@id/iv_file_icon"
+                android:text=".."
+                android:textColor="#FFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/iv_file_icon"
+                android:layout_marginTop="@dimen/default_margin"
+                android:background="@color/colorPrimary"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/net_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/img_empty_net"
+            android:text="@string/net_error"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.yanzhenjie.recyclerview.swipe.SwipeMenuRecyclerView
+                android:id="@+id/swipe_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <TextView
+                android:id="@+id/empty_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@drawable/empty"
+                android:text="@string/no_recent_file"
+                android:textColor="#FFF"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

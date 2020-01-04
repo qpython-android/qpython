@@ -1,16 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="PagerSlidingTabStrip">
-        <attr name="pstsIndicatorColor" format="color" />
-        <attr name="pstsUnderlineColor" format="color" />
-        <attr name="pstsDividerColor" format="color" />
-        <attr name="pstsIndicatorHeight" format="dimension" />
-        <attr name="pstsUnderlineHeight" format="dimension" />
-        <attr name="pstsDividerPadding" format="dimension" />
-        <attr name="pstsTabPaddingLeftRight" format="dimension" />
-        <attr name="pstsScrollOffset" format="dimension" />
-        <attr name="pstsTabBackground" format="reference" />
-        <attr name="pstsShouldExpand" format="boolean" />
-        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="pstsIndicatorColor" format="color"/>
+        <attr name="pstsUnderlineColor" format="color"/>
+        <attr name="pstsDividerColor" format="color"/>
+        <attr name="pstsIndicatorHeight" format="dimension"/>
+        <attr name="pstsUnderlineHeight" format="dimension"/>
+        <attr name="pstsDividerPadding" format="dimension"/>
+        <attr name="pstsTabPaddingLeftRight" format="dimension"/>
+        <attr name="pstsScrollOffset" format="dimension"/>
+        <attr name="pstsTabBackground" format="reference"/>
+        <attr name="pstsShouldExpand" format="boolean"/>
+        <attr name="pstsTextAllCaps" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ToggleView">
+        <attr name="sb_shadow_radius" format="reference|dimension"/>
+        <attr name="sb_shadow_offset" format="reference|dimension"/>
+        <attr name="sb_shadow_color" format="reference|color"/>
+        <attr name="sb_uncheck_color" format="reference|color"/>
+        <attr name="sb_checked_color" format="reference|color"/>
+
+        <attr name="sb_border_width" format="reference|dimension"/>
+        <attr name="sb_checkline_color" format="reference|color"/>
+        <attr name="sb_checkline_width" format="reference|dimension"/>
+        <attr name="sb_uncheckcircle_color" format="reference|color"/>
+        <attr name="sb_uncheckcircle_width" format="reference|dimension"/>
+        <attr name="sb_uncheckcircle_radius" format="reference|dimension"/>
+
+        <attr name="sb_checked" format="reference|boolean"/>
+        <attr name="sb_shadow_effect" format="reference|boolean"/>
+        <attr name="sb_effect_duration" format="reference|integer"/>
+        <attr name="sb_button_color" format="reference|color"/>
+        <attr name="sb_show_indicator" format="reference|boolean"/>
+        <attr name="sb_background" format="reference|color"/>
+        <attr name="sb_enable_effect" format="reference|boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ScheduleView">
+        <attr name="dot_count" format="reference|integer"/>
+        <attr name="light_color" format="reference|color"/>
+        <attr name="dim_color" format="reference|color"/>
+        <attr name="dot_radius" format="reference|dimension"/>
+        <attr name="line_width" format="reference|dimension"/>
+        <attr name="margin" format="reference|dimension"/>
+        <attr name="text_size" format="reference|dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="PercentView">
+        <attr name="pv_light_color" format="reference|color"/>
+        <attr name="pv_dim_color" format="reference|color"/>
+        <attr name="pv_width" format="reference|dimension"/>
+        <attr name="pv_text_size" format="reference|dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="expandableLayout">
+        <attr name="ael_duration" format="integer" />
+        <attr name="ael_expanded" format="boolean" />
+        <attr name="ael_defaultChildIndex" format="integer" />
+        <attr name="ael_defaultPosition" format="dimension" />
+        <attr name="ael_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="ael_interpolator" format="enum">
+            <enum name="accelerateDecelerate" value="0" />
+            <enum name="accelerate" value="1" />
+            <enum name="anticipate" value="2" />
+            <enum name="anticipateOvershoot" value="3" />
+            <enum name="bounce" value="4" />
+            <enum name="decelerate" value="5" />
+            <enum name="fastOutLinearIn" value="6" />
+            <enum name="fastOutSlowIn" value="7" />
+            <enum name="linear" value="8" />
+            <enum name="linearOutSlowIn" value="9" />
+            <enum name="overshoot" value="10" />
+        </attr>
     </declare-styleable>
 </resources>

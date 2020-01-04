@@ -29,7 +29,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.database.Cursor;
 import android.net.Uri;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.SingleThreadExecutor;
 import org.qpython.qsl4a.qsl4a.interpreter.html.HtmlInterpreter;
 import org.qpython.qsl4a.qsl4a.interpreter.shell.ShellInterpreter;
@@ -125,7 +125,7 @@ public class InterpreterConfiguration {
       }
       mmDiscoveredInterpreters.put(packageName, discoveredInterpreter);
       mInterpreterSet.add(discoveredInterpreter);
-      Log.v("Interpreter discovered: " + packageName + "\nBinary: "
+      LogUtil.v("Interpreter discovered: " + packageName + "\nBinary: "
           + discoveredInterpreter.getBinary());
     }
 
@@ -138,7 +138,7 @@ public class InterpreterConfiguration {
         public void run() {
           Interpreter interpreter = mmDiscoveredInterpreters.get(packageName);
           if (interpreter == null) {
-            Log.v("Interpreter for " + packageName + " not installed.");
+            LogUtil.v("Interpreter for " + packageName + " not installed.");
             return;
           }
           mInterpreterSet.remove(interpreter);
@@ -161,7 +161,7 @@ public class InterpreterConfiguration {
       Map<String, String> interpreterMap =
           getMap(provider, InterpreterConstants.PROVIDER_PROPERTIES);
       if (interpreterMap == null) {
-        Log.e("Null interpreter map for: " + packageName);
+        LogUtil.e("Null interpreter map for: " + packageName);
         return null;
       }
       Map<String, String> environmentMap =
@@ -220,7 +220,7 @@ public class InterpreterConfiguration {
     try {
       mInterpreterSet.add(new HtmlInterpreter(mContext));
     } catch (IOException e) {
-      Log.e("Failed to instantiate HtmlInterpreter.", e);
+      LogUtil.e("Failed to instantiate HtmlInterpreter.", e);
     }
     mObserverSet = new CopyOnWriteArraySet<ConfigurationObserver>();
     IntentFilter filter = new IntentFilter();

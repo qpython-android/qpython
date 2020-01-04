@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="org.qpython.qpy">
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+
+
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- privacy sensitive permissions -->
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:name="org.qpython.qpy.main.app.App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/img_home_logo"/>
+
+        <service android:name=".main.service.QPyService"/>
+        <service android:name="org.qpython.qsl4a.QPyScriptService"/>
+        <service android:name=".main.service.FTPServerService"/>
+
+        <activity
+            android:name=".main.activity.SignInActivity"
+            android:launchMode="singleTask"/>
+
+        <activity
+            android:name="org.qpython.qpylib.MPyApi"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"/>
+
+        <service
+            android:name="org.qpython.qpylib.MPyService"
+            android:exported="true"
+            tools:ignore="ExportedService"/>
+
+        <activity
+            android:name=".main.activity.SplashActivity"
+            android:theme="@style/FullscreenTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.qpython.qpy.main.activity.HomeMainActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
+        </activity>
+
+
+        <activity
+            android:name="org.qpython.qpy.main.activity.QWebViewActivity"
+            android:label="@string/browser">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+                <data
+                    android:host="course"
+                    android:path="/"
+                    android:scheme="qpython"/>
+            </intent-filter>
+
+            <!-- Used to handle Chrome then menu then share.-->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.activity.CourseActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".main.activity.CourseIndexActivity"/>
+        <activity android:name=".main.activity.GistEditActivity"/>
+        <activity android:name=".main.activity.CodeDetailActivity"/>
+        <activity android:name=".main.activity.CodeShareActivity"/>
+        <activity android:name=".main.activity.UserActivity"/>
+        <activity
+            android:name="org.qpython.qpy.main.activity.SettingActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name="org.qpython.qpy.console.TermActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".main.activity.LogActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".texteditor.EditorActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:label="@string/editor">
+            <intent-filter>
+                <!--<action android:name="android.intent.action.SEND"/>-->
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/*"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="content"/>
+                <data android:host="*"/>
+                <data android:mimeType="*/*"/>
+                <data android:pathPattern=".*\\.txt"/>
+                <data android:pathPattern=".*\\.html"/>
+                <data android:pathPattern=".*\\.css"/>
+                <data android:pathPattern=".*\\.js"/>
+                <data android:pathPattern=".*\\.md"/>
+                <data android:pathPattern=".*\\.php"/>
+                <data android:pathPattern=".*\\.py"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.qpython.qpy.texteditor.TedLocalActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="org.qpython.qpy.texteditor.TedSettingsActivity"
+            android:theme="@style/SettingTheme"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name="org.qpython.qpy.texteditor.TedFontActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <activity
+            android:name=".main.activity.LibActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="org.qpython.qpy.OPEN_AIPY_FRAGMENT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".main.activity.AboutActivity"/>
+
+
+        <activity
+            android:name=".main.activity.AppListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+            android:name="org.swiftp.gui.ServerPreferenceActivity"
+            android:label="Preferences"/>
+        <activity android:name=".texteditor.MFTPSettingActivity"/>
+        <activity android:name=".main.activity.PurchaseActivity"/>
+
+        <activity-alias
+            android:name="TermInternal"
+            android:exported="false"
+            android:targetActivity="org.qpython.qpy.console.TermActivity"
+            android:theme="@style/ConsoleTheme">
+            <intent-filter>
+                <action android:name="jackpal.androidterm.private.OPEN_NEW_WINDOW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="jackpal.androidterm.private.SWITCH_WINDOW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity-alias>
+        <activity
+            android:name="org.qpython.qpy.console.RemoteInterface"
+            android:excludeFromRecents="true"
+            android:theme="@style/ConsoleTheme">
+            <intent-filter>
+                <action android:name="jackpal.androidterm.OPEN_NEW_WINDOW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity-alias
+            android:name="TermHere"
+            android:exported="true"
+            android:label="@string/activity_term_here_title"
+            android:targetActivity="org.qpython.qpy.console.RemoteInterface"
+            android:theme="@style/ConsoleTheme">
+        </activity-alias>
+
+        <activity
+            android:name="org.qpython.qsl4a.qsl4a.activity.FutureActivity"
+            android:label="QSL4A FutureActivity"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="application/com.hipipal.qpy.nfc"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.qpython.qpy.console.RunScript"
+            android:excludeFromRecents="true"
+            android:permission="jackpal.androidterm.permission.RUN_SCRIPT"
+            android:theme="@style/ConsoleTheme">
+            <intent-filter>
+                <action android:name="jackpal.androidterm.RUN_SCRIPT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.qpython.qpy.console.RunShortcut"
+            android:excludeFromRecents="true"
+            android:theme="@style/ConsoleTheme">
+            <intent-filter>
+                <action android:name="jackpal.androidterm.RUN_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.qpython.qpy.console.TermPreferences"
+            android:label="@string/preferences"
+            android:theme="@style/ConsoleTheme"/>
+
+        <activity
+            android:name="org.qpython.qpy.console.WindowList"
+            android:label="@string/window_list"
+            android:theme="@style/ConsoleTheme"/>
+
+
+        <activity
+            android:name="org.qpython.qpy.console.shortcuts.AddShortcut"
+            android:configChanges="orientation|keyboard|keyboardHidden"
+            android:label="@string/activity_shortcut_create"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.qpython.qpy.console.shortcuts.FSNavigator"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="true"
+            android:label="@string/addshortcut_button_find_command"
+            android:launchMode="singleTop"
+            android:theme="@style/ConsoleTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.OPENABLE"/>
+
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name="org.qpython.qpy.plugin.activity.PluginManagerActivity"/>
+        <activity android:name="org.qpython.qpy.plugin.activity.LocalPluginInstallActivity"/>
+
+
+        <!--zxing-->
+        <activity android:name="org.qpython.qpy.main.activity.QrCodeActivity"/>
+        <activity
+            android:name=".main.activity.GistActivity"
+            android:configChanges="orientation"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".main.activity.GistDetailActivity"
+            android:configChanges="orientation"/>
+        <activity
+            android:name=".main.activity.MyGistActivity"
+            android:configChanges="orientation"/>
+        <!--SERVICE-->
+        <service android:name="org.qpython.qpy.console.TermService"
+                 tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="jackpal.androidterm.action.START_TERM.v1"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+
+        <!--友盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a24fdea8f4a9d34b00000b5"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="QPython"/>
+
+        <!--微信-->
+        <activity
+            android:name="com.hipipal.qpyplus.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name="com.hipipal.qpyplus.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <!--<activity android:name=".main.activity.CourseCrowdfundingActivity"/>-->
+        <activity android:name=".main.activity.CourseIndexFundingActivity"/>
+        <!--<activity android:name=".main.activity.CourseFreeActivity"/>-->
+        <activity android:name=".main.activity.FundingPurchaseActivity"/>
+        <activity
+            android:name=".main.activity.NotebookActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".main.activity.NotebookListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+        <!--leancloud-->
+        <service
+            android:name="com.avos.avoscloud.PushService"
+            android:exported="true"
+            tools:ignore="ExportedService"/>
+        <receiver android:name=".main.receiver.LeancloudReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.avos.UPDATE_STATUS"/>
+                <action android:name="com.qpython.action"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+    <meta-data
+        android:name="com.sec.android.support.multiwindow"
+        android:value="true"/>
+
+</manifest>

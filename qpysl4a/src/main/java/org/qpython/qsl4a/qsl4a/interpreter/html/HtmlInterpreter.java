@@ -31,10 +31,14 @@ public class HtmlInterpreter extends Interpreter {
 
   public static final String JSON_FILE = "json2.js";
   public static final String ANDROID_JS_FILE = "android.js";
+  public static final String TEMPLATE_FILE = "webapp.html";
+
   public static final String HTML_NICE_NAME = "HTML and JavaScript";
 
   private final String mJson;
   private final String mAndroidJs;
+  private final String mTemplate;
+
 
   public HtmlInterpreter(Context context) throws IOException {
     setExtension(HTML_EXTENSION);
@@ -46,6 +50,7 @@ public class HtmlInterpreter extends Interpreter {
     setHasInteractiveMode(false);
     mJson = FileUtils.readFromAssetsFile(context, JSON_FILE);
     mAndroidJs = FileUtils.readFromAssetsFile(context, ANDROID_JS_FILE);
+    mTemplate = FileUtils.readFromAssetsFile(context, TEMPLATE_FILE);
   }
 
   public boolean hasInterpreterArchive() {
@@ -81,4 +86,8 @@ public class HtmlInterpreter extends Interpreter {
   public String getAndroidJsSource() {
     return mAndroidJs;
   }
+  public String getTemplateSource() {
+    return mTemplate;
+  }
+
 }

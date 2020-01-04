@@ -21,7 +21,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
@@ -31,7 +31,7 @@ import android.view.View;
 import org.qpython.qsl4a.QSL4APP;
 import org.qpython.qsl4a.qsl4a.Constants;
 import org.qpython.qsl4a.qsl4a.FutureActivityTaskExecutor;
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.future.FutureActivityTask;
 
 /**
@@ -41,7 +41,7 @@ import org.qpython.qsl4a.qsl4a.future.FutureActivityTask;
  * 
  * @author Damon Kohler (damonkohler@gmail.com)
  */
-public class FutureActivity extends AppCompatActivity {
+public class FutureActivity extends Activity {
   private FutureActivityTask<?> mTask;
   
   private int count = 0;
@@ -49,7 +49,7 @@ public class FutureActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    Log.v("FutureActivity created.");
+    LogUtil.v("FutureActivity created.");
     int id = getIntent().getIntExtra(Constants.EXTRA_TASK_ID, 0);
     if (id == 0) {
       throw new RuntimeException("FutureActivityTask ID is not specified.");
@@ -59,12 +59,13 @@ public class FutureActivity extends AppCompatActivity {
     mTask = taskQueue.getTask(id);
     if (mTask == null) { // TODO: (Robbie) This is now less of a kludge. Would still like to know
                          // what is happening.
-      Log.w("FutureActivity has no task!");
+      LogUtil.w("FutureActivity has no task!");
       try {
         Intent intent = new Intent(Intent.ACTION_MAIN); // Should default to main of current app.
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         String packageName = getPackageName();
         for (ResolveInfo resolve : getPackageManager().queryIntentActivities(intent, 0)) {
+          LogUtil.d("resolve.activityInfo.name:"+resolve.activityInfo.name);
           if (resolve.activityInfo.packageName.equals(packageName)) {
             intent.setClassName(packageName, resolve.activityInfo.name);
             break;
@@ -72,7 +73,7 @@ public class FutureActivity extends AppCompatActivity {
         }
         startActivity(intent);
       } catch (Exception e) {
-        Log.e("Can't find main activity.");
+        LogUtil.e("Can't find main activity.");
       }
     } else {
       mTask.setActivity(this);

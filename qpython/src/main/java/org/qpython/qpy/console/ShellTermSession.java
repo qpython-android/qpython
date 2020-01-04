@@ -16,15 +16,16 @@ package org.qpython.qpy.console;/*
 
 
 import android.content.Context;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
+import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.console.compont.FileCompat;
 import org.qpython.qpy.console.util.TermSettings;
-import org.qpython.qsl4a.qsl4a.util.SPFUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -86,98 +87,7 @@ public class ShellTermSession extends GenericTermSession {
     }
 
     private void initializeSession() throws IOException {
-        /*TermSettings settings = mSettings;
-
-        //int[] processId = new int[1];
-
-        String path = System.getenv("PATH");
-        if (settings.doPathExtensions()) {
-            String appendPath = settings.getAppendPath();
-            if (appendPath != null && appendPath.length() > 0) {
-                path = path + ":" + appendPath;
-            }
-
-            if (settings.allowPathPrepend()) {
-                String prependPath = settings.getPrependPath();
-                if (prependPath != null && prependPath.length() > 0) {
-                    path = prependPath + ":" + path;
-                }
-            }
-        }
-        if (settings.verifyPath()) {
-            path = checkPath(path);
-        }
-        String[] env = new String[21];
-        File filesDir = this.context.getFilesDir();
-
-        env[0] = "TERM=" + settings.getTermType();
-        env[1] = "PATH=" + this.context.getFilesDir()+"/bin"+":"+path;
-        env[2] = "HOME=" + settings.getHomePath();
-
-        env[3] = "LD_LIBRARY_PATH=.:"+filesDir+"/lib/"+":"+filesDir+"/:"+filesDir.getParentFile()+"/lib/";
-        env[4] = "PYTHONHOME="+filesDir;
-        env[5] = "ANDROID_PRIVATE="+filesDir;
-
-        // HACKED FOR QPython
-        File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
-
-        if (!externalStorage.exists()) {
-            externalStorage.mkdir();
-        }
-
-        env[6] = "PYTHONPATH="
-                +filesDir+"/lib/python2.7/site-packages/:"
-                +filesDir+"/lib/python2.7/:"
-                +filesDir+"/lib/python27.zip:"
-                +filesDir+"/lib/python2.7/lib-dynload/:"
-                +externalStorage+"/lib/python2.7/site-packages/:"
-                +pyPath;
-
-            //env[14] = "IS_QPY2=1";
-        env[7] = "PYTHONSTARTUP="+filesDir+"/lib/python2.7/site-packages/qpy.py";
-
-
-        env[8] = "PYTHONOPTIMIZE=2";
-        env[9] = "TMPDIR="+externalStorage+"/cache";
-        File td = new File(externalStorage+"/cache");
-        if (!td.exists()) {
-            td.mkdir();
-        }
-
-        env[10] = "AP_HOST="+ SPFUtils.getSP(this.context, "sl4a.hostname");
-        env[11] = "AP_PORT="+SPFUtils.getSP(this.context, "sl4a.port");
-        env[12] = "AP_HANDSHAKE="+SPFUtils.getSP(this.context, "sl4a.secue");
-
-        env[13] = "ANDROID_PUBLIC="+externalStorage;
-        env[14] = "ANDROID_PRIVATE="+this.context.getFilesDir().getAbsolutePath();
-        env[15] = "ANDROID_ARGUMENT="+pyPath;
-
-        env[16] = "QPY_USERNO="+ SPFUtils.getUserNoId(context);
-        env[17] = "QPY_ARGUMENT="+SPFUtils.getExtConf(context);
-        env[18] = "PYTHONDONTWRITEBYTECODE=1";
-        env[19] = "TMP="+externalStorage+"/cache";
-        env[20] = "ANDROID_APP_PATH="+externalStorage+"";
-
-        File enf = new File(context.getFilesDir()+"/bin/init.sh");
-        //if (! enf.exists()) {
-        String content = "#!/system/bin/sh";
-        for (int i=0;i<env.length;i++) {
-            content += "\nexport "+env[i];
-        }
-        FileHelper.putFileContents(context, enf.getAbsolutePath(), content.trim());
-        try {
-            FileUtils.chmod(enf, 0755);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.d("ShellTermSession", "initializeSession:"+settings.getShell());
-
-        createSubprocess(settings.getShell(), env);*/
-       /* mProcId = processId[0];
-
-        setTermOut(new FileOutputStream(mTermFd));
-        setTermIn(new FileInputStream(mTermFd));*/
+        Log.d("TAG","initializeSession");
         TermSettings settings = mSettings;
 
         String path = System.getenv("PATH");
@@ -197,41 +107,27 @@ public class ShellTermSession extends GenericTermSession {
         if (settings.verifyPath()) {
             path = checkPath(path);
         }
-        File filesDir = this.context.getFilesDir();
-        File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
 
-        String[] env = new String[21];
 
-        env[0] = "TERM=" + settings.getTermType();
-        env[1] = "PATH=" + this.context.getFilesDir()+"/bin"+":"+path;
-        env[2] = "HOME=" + settings.getHomePath();
-        env[3] = "LD_LIBRARY_PATH=.:"+filesDir+"/lib/"+":"+filesDir+"/:"+filesDir.getParentFile()+"/lib/";
-        env[4] = "PYTHONHOME="+filesDir;
-        env[5] = "ANDROID_PRIVATE="+filesDir;
-        env[6] = "PYTHONPATH="
-                +filesDir+"/lib/python2.7/site-packages/:"
-                +filesDir+"/lib/python2.7/:"
-                +filesDir+"/lib/python27.zip:"
-                +filesDir+"/lib/python2.7/lib-dynload/:"
-                +externalStorage+"/lib/python2.7/site-packages/:"
-                +pyPath;
-        env[7] = "PYTHONSTARTUP="+filesDir+"/lib/python2.7/site-packages/qpy.py";
-        env[8] = "PYTHONOPTIMIZE=2";
-        env[9] = "TMPDIR="+externalStorage+"/cache";
-        env[10] = "AP_HOST="+ SPFUtils.getSP(this.context, "sl4a.hostname");
-        env[11] = "AP_PORT="+SPFUtils.getSP(this.context, "sl4a.port");
-        env[12] = "AP_HANDSHAKE="+ SPFUtils.getSP(this.context, "sl4a.secue");
-        env[13] = "ANDROID_PUBLIC="+externalStorage;
-        env[14] = "ANDROID_PRIVATE="+this.context.getFilesDir().getAbsolutePath();
-        env[15] = "ANDROID_ARGUMENT="+pyPath;
-        env[16] = "QPY_USERNO="+ SPFUtils.getUserNoId(context);
-        env[17] = "QPY_ARGUMENT="+SPFUtils.getExtConf(context);
-        env[18] = "PYTHONDONTWRITEBYTECODE=1";
-        env[19] = "TMP="+externalStorage+"/cache";
-        env[20] = "ANDROID_APP_PATH="+externalStorage+"";
+        String[] env = ScriptExec.getInstance().getPyEnv(context, path, settings.getTermType(), pyPath);
+
+        File enf = new File(context.getFilesDir()+"/bin/init.sh");
+        //if (! enf.exists()) {
+        String content = "#!/system/bin/sh";
+        for (int i=0;i<env.length;i++) {
+            content += "\nexport "+env[i];
+        }
+        FileHelper.putFileContents(context, enf.getAbsolutePath(), content.trim());
+        try {
+            FileUtils.chmod(enf, 0755);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         mProcId = createSubprocess(settings.getShell(), env);
+
     }
 
     private String checkPath(String path) {
@@ -352,37 +248,4 @@ public class ShellTermSession extends GenericTermSession {
     void hangupProcessGroup() {
         TermExec.sendSignal(-mProcId, 1);
     }
-
-    //QPython
-    public static void loadLibrary(File libPath) {
-
-        System.load(libPath+"/libsdl.so");
-        System.load(libPath+"/libsdl_image.so");
-        System.load(libPath+"/libsdl_ttf.so");
-        System.load(libPath+"/libsdl_mixer.so");
-        try {
-            System.load(libPath+"/libpython2.7.so");
-            System.load(libPath+"/libapplication.so");
-            System.load(libPath+"/libsdl_main.so");
-            System.load(libPath+"/libsqlite3.so");
-        } catch(UnsatisfiedLinkError e) {
-        }
-        //String libPath = new File(Environment.getExternalStorageDirectory(), mActivity.getPackageName()).toString()+"/"+CONF.DFROM_LIB;
-
-        try {
-            System.load(libPath + "/lib/python2.7/lib-dynload/_io.so");
-            System.load(libPath + "/lib/python2.7/lib-dynload/unicodedata.so");
-            System.load(libPath + "/lib/python2.7/lib-dynload/_sqlite3.so");
-        } catch(UnsatisfiedLinkError e) {
-            Log.d(TermDebug.LOG_TAG, ""+e.getMessage());
-        }
-
-        /*try {
-            System.load(libPath + "/lib/python2.7/lib-dynload/_imaging.so");
-            System.load(libPath + "/lib/python2.7/lib-dynload/_imagingft.so");
-            System.load(libPath + "/lib/python2.7/lib-dynload/_imagingmath.so");
-        } catch(UnsatisfiedLinkError e) {
-        }*/
-    }
-
 }

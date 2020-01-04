@@ -22,6 +22,8 @@ import android.os.Build;
 import android.os.Process;
 import android.util.Log;
 
+import org.qpython.qpysdk.utils.AndroidCompat;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -227,7 +229,7 @@ public final class PRNGFixes {
                 out.flush();
             } catch (IOException e) {
                 // On a small fraction of devices /dev/urandom is not writable.
-                // Log and ignore.
+                // LogUtil and ignore.
                 Log.w(PRNGFixes.class.getSimpleName(),
                         "Failed to mix seed into " + URANDOM_FILE);
             } finally {

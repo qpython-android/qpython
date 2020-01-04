@@ -17,23 +17,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_margin="5dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@android:color/black" />
 
         <TextView
-            android:textColor="@android:color/black"
             android:id="@+id/plugin_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/plugin_name"
             android:layout_margin="5dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@android:color/black" />
 
         <ImageView
             android:id="@+id/plugin_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_plugin" />

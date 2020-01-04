@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#313131</color>
-    <color name="colorPrimaryDark">#313131</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="white">#ffffff</color>
-    <color name="gray">#FF707070</color>
+    <color name="colorPrimary">#FF4A4A4A</color>
+    <color name="colorPrimaryDark">#FF363636</color>
+    <color name="colorAccent">#FF4BAC07</color>
+    <color name="theme_yellow">#ECCD00</color>
+    <color name="theme_bg">#FF4A4A4A</color>
+    <color name="theme_gray">#c5c5c5</color>
+    <!--<color name="white">#ffffff</color>-->
 
-
+    <color name="error">#D2483D</color>
+    <color name="Color_White">#FFF</color>
     <color name="ripple_normal">#CACCCB</color>
-    <color name="ripple_dark">#B0B2B1</color>
-    <color name="divider_light">#e0e0e0</color>
     <color name="text_dark">#333333</color>
 
-    <color name="background_grey">#efeff4</color>
-    <color name="divider">#e3e3e8</color>
 
-
-    <color name="scrollbar_track">#85cccccc</color>
-    <color name="colorControlHighlight">@color/ripple_material_light</color>
     <color name="ripple_material_light">#40000000</color>
-    <color name="tool_layout_bg">#F4F4F4</color>
-    <color name="main_menu_bg">#f0f2f5f8</color>
 
-    <color name="gary">#30ac93</color>
-    <color name="editor_accent">#009688</color>
+    <color name="topbar">#1f1f1f</color>
+    <color name="divide_line">#FFE4E4E4</color>
+    <color name="link">#FF0066CC</color>
+    <!--<color name="divider">#fef8ec</color>-->
+
+    <color name="cmain3">#c8c800</color>
+
+    <color name="cmain8">#2eb3e4</color>
+
+    <color name="cwhite">#ffffff</color>
+    <color name="cwhite3">#fbfbfb</color>
+
+    <color name="cgrey6">#e8e8e8</color>
+    \
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 </resources>

@@ -52,7 +52,7 @@
 			<key>name</key>
 			<string>Comment</string>
 			<key>scope</key>
-			<string>comment</string>
+			<string>from_content</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

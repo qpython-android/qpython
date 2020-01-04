@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>QPY WEBAPP</title>
+    <link href="file:///android_asset/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="file:///android_asset/stylesheets/css/sticky-footer.css" rel="stylesheet">
+    <script src="file:///android_asset/stylesheets/js/jquery.min.js"></script>
+    <script src="file:///android_asset/stylesheets/js/bootstrap.min.js"></script>
+    {{QPYBUILTIN}}
+    <script>
+        function appExit() {
+            var android = new AndroidHelper();
+            android.dismiss();
+        }
+    </script>
+</head>
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal" id="app-name">QPY WEBAPP</h5>
+    <nav class="my-2 my-md-0 mr-md-3" id="app-nav">
+        <a class="p-2 text-dark" href="#">NAV1</a>
+        <a class="p-2 text-dark" href="#">NAV2</a>
+    </nav>
+    <a class="btn btn-outline-primary" id="app-exit" href="javascript:appExit()">Exit</a>
+</div>
+
+<!-- Begin page content -->
+<main role="main" class="container">
+    {{WEBAPPCONTENT}}
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <a href="javascript:appExit()" class="text-muted">Exit</a>
+        <span class="text-muted float-right">Powered by QPY</span>
+    </div>
+</footer>
+</body>
+</html>

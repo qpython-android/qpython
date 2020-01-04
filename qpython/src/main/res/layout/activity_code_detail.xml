@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/lt"
+                layout="@layout/layout_toolbar"/>
+
+            <RelativeLayout
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lt"
+                android:padding="@dimen/default_margin">
+
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="@dimen/default_margin"
+                    android:layout_marginRight="@dimen/default_margin"
+                    android:src="@drawable/empty"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/avatar"
+                    android:layout_toRightOf="@id/avatar"
+                    android:textColor="#FFF"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/avatar"
+                    android:layout_toEndOf="@id/avatar"
+                    android:layout_toRightOf="@id/avatar"
+                    android:textSize="12sp"/>
+
+                <TextView
+                    android:id="@+id/bookmark_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawableLeft="@drawable/ic_com_like"
+                    android:drawablePadding="5dp"
+                    android:drawableStart="@drawable/ic_com_like"
+                    android:textSize="12sp"/>
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFF"/>
+
+            <TextView
+                android:id="@+id/code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description"
+                android:layout_margin="@dimen/default_margin"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginStart="@dimen/default_margin"
+                android:background="#FFF"
+                android:padding="10dp"
+                android:textColor="@color/text_gray"/>
+
+            <Button
+                android:id="@+id/btn_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/code"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/green_btn_rect"
+                android:padding="10dp"
+                android:text="@string/copy_hint"/>
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/btn_copy"
+                android:layout_marginEnd="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/ic_com_comment"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_com_comment"
+                android:textSize="12sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/comment_count"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/empty_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/comment_count"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:drawablePadding="5dp"
+                android:drawableTop="@drawable/empty"
+                android:paddingBottom="100dp"
+                android:text="@string/sofa_hint"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/comment_count"
+                android:layout_marginTop="11dp"/>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

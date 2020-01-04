@@ -2,27 +2,29 @@ buildscript {
     repositories {
         jcenter()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:3.0.0'
+//    }
 }
+
 apply plugin: 'com.android.library'
 
 repositories {
     jcenter()
+    google()
 }
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion rootProject.ext.minSdkVersion
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a',"arm64-v8a"
+
         }
     }
 
@@ -43,6 +45,9 @@ android {
         }
 
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 // by default recent plugin version does not copy any AIDL files "to avoid publishing too much"
@@ -56,6 +61,6 @@ android.libraryVariants.all { variant ->
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile rootProject.ext.libSupportAnnotation
+//    api fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.libSupportAnnotation
 }

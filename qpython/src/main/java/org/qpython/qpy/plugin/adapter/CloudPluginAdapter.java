@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.quseit.common.updater.Updater;
+
 import org.qpython.qpy.R;
 
 import org.qpython.qpy.plugin.CloudPluginManager;
@@ -21,11 +22,9 @@ import org.qpython.qpy.plugin.model.CloudPluginBean;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class CloudPluginAdapter extends RecyclerView.Adapter<CloudPluginAdapter.PluginHolder> {
-    private Context mContext;
+    private Context               mContext;
     private List<CloudPluginBean> mPluginBeen;
 
     public CloudPluginAdapter(Context context) {
@@ -65,7 +64,7 @@ public class CloudPluginAdapter extends RecyclerView.Adapter<CloudPluginAdapter.
                     }
             );
         } else if (install) {
-            holder.menu.setImageResource(R.drawable.ic_update);
+            holder.menu.setImageResource(R.drawable.ic_library_upgrade);
             menu.inflate(R.menu.plugin_update_menu);
             menu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
@@ -82,7 +81,7 @@ public class CloudPluginAdapter extends RecyclerView.Adapter<CloudPluginAdapter.
                 return true;
             });
         } else {
-            holder.menu.setImageResource(R.drawable.ic_install);
+            holder.menu.setImageResource(R.drawable.ic_library_download);
             menu.inflate(R.menu.plugin_uninstalled_menu);
             menu.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
@@ -127,18 +126,17 @@ public class CloudPluginAdapter extends RecyclerView.Adapter<CloudPluginAdapter.
     }
 
     public static class PluginHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.plugin_name)
         TextView name;
 
-        @BindView(R.id.plugin_description)
         TextView description;
 
-        @BindView(R.id.plugin_menu)
         ImageView menu;
 
         public PluginHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            name = (TextView) itemView.findViewById(R.id.plugin_name);
+            description = (TextView) itemView.findViewById(R.id.plugin_description);
+            menu = (ImageView) itemView.findViewById(R.id.plugin_menu);
         }
     }
 }

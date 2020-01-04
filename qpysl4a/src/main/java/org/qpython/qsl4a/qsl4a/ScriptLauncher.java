@@ -54,7 +54,7 @@ public class ScriptLauncher {
         ((QSL4APP) service.getApplication()).getTaskExecutor();
     final HtmlActivityTask task =
         new HtmlActivityTask(manager, interpreter.getAndroidJsSource(),
-            interpreter.getJsonSource(), script.getAbsolutePath(), true);
+            interpreter.getJsonSource(),interpreter.getTemplateSource(), script.getAbsolutePath(), true);
     executor.execute(task);
     return task;
   }

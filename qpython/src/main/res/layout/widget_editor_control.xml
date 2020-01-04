@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFE8E8E8">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ll_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_lock"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_keyboard"/>
+
+            <ImageButton
+                android:id="@+id/ib_jump_to"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_next"
+                />
+
+            <ImageButton
+                android:id="@+id/ib_save"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_save"
+                />
+
+            <ImageButton
+                android:id="@+id/play_btn"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_run"/>
+
+
+            <ImageButton
+                android:id="@+id/ib_search"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_search"
+                />
+
+            <ImageButton
+                android:id="@+id/ib_undo"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/undo"/>
+
+            <ImageButton
+                android:id="@+id/ib_redo"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/redo"/>
+
+            <ImageButton
+                android:id="@+id/ib_save_as"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_saveas"
+                />
+
+            <ImageButton
+                android:id="@+id/ib_recent"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_recent"/>
+
+            <ImageButton
+                android:id="@+id/ib_snippet"
+                style="@style/editor_bottom_btn"
+                android:src="@drawable/ic_editor_sharecode"/>
+        </LinearLayout>
+
+        <ViewStub
+            android:id="@+id/vs_shortcut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflatedId="@+id/vs_shortcut"
+            android:layout="@layout/widget_shortcut"/>
+    </RelativeLayout>
+
+</layout>

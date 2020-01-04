@@ -1,5 +1,23 @@
+/*
+ * Copyright (C) 2016 Google Inc.
+ * seekbar Copyright (C) 2014 shimoda
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package org.qpython.qsl4a.qsl4a.facade.ui;
 
+import android.R;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -10,10 +28,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
 import org.qpython.qsl4a.qsl4a.facade.EventFacade;
 import org.qpython.qsl4a.qsl4a.future.FutureActivityTask;
-
 
 import java.io.StringReader;
 import java.util.HashMap;
@@ -25,7 +45,7 @@ import org.json.JSONArray;
 import org.xmlpull.v1.XmlPullParser;
 
 public class FullScreenTask extends FutureActivityTask<Object> implements OnClickListener,
-    OnItemClickListener {
+        OnItemClickListener, OnSeekBarChangeListener {
   private EventFacade mEventFacade;
   private UiFacade mUiFacade;
   public View mView = null;
@@ -34,10 +54,16 @@ public class FullScreenTask extends FutureActivityTask<Object> implements OnClic
   protected final CountDownLatch mShowLatch = new CountDownLatch(1);
   protected Handler mHandler = null;
   private List<Integer> mOverrideKeys;
+  protected String mTitle;
 
-  public FullScreenTask(String layout) {
+  public FullScreenTask(String layout, String title) {
     super();
     mLayout = layout;
+    if (title != null) {
+      mTitle = title;
+    } else {
+      mTitle = "SL4a";
+    }
   }
 
   @Override
@@ -56,11 +82,11 @@ public class FullScreenTask extends FutureActivityTask<Object> implements OnClic
     } catch (Exception e) {
       mInflater.getErrors().add(e.toString());
       mView = defaultView();
-//      mInflater.setIdList(R.id.class);
+      mInflater.setIdList(R.id.class);
     }
     getActivity().setContentView(mView);
-    getActivity().setTitle("SL4A Title");
-    mInflater.setClickListener(mView, this, this);
+    getActivity().setTitle(mTitle);
+    mInflater.setClickListener(mView, this, this, this);
     mShowLatch.countDown();
   }
 
@@ -71,8 +97,7 @@ public class FullScreenTask extends FutureActivityTask<Object> implements OnClic
   }
 
   /** default view in case of errors */
-  @SuppressWarnings("deprecation")
-protected View defaultView() {
+  protected View defaultView() {
     LinearLayout result = new LinearLayout(getActivity());
     result.setOrientation(LinearLayout.VERTICAL);
     TextView text = new TextView(getActivity());
@@ -168,6 +193,24 @@ protected View defaultView() {
     mEventFacade.postEvent("click", mInflater.getViewInfo(view));
   }
 
+  public void loadLayout(String layout) {
+    ViewInflater inflater = new ViewInflater();
+    View view;
+    StringReader sr = new StringReader(layout);
+    try {
+      XmlPullParser xml = ViewInflater.getXml(sr);
+      view = inflater.inflate(getActivity(), xml);
+      mView = view;
+      mInflater = inflater;
+      getActivity().setContentView(mView);
+      mInflater.setClickListener(mView, this, this, this);
+      mLayout = layout;
+      mView.invalidate();
+    } catch (Exception e) {
+      mInflater.getErrors().add(e.toString());
+    }
+  }
+
   private class SetProperty implements Runnable {
     View mView;
     String mProperty;
@@ -197,13 +240,44 @@ protected View defaultView() {
     SetList(View view, JSONArray items) {
       mView = view;
       mItems = items;
-      mView.invalidate();
       mLatch.countDown();
     }
 
     @Override
     public void run() {
       mInflater.setListAdapter(mView, mItems);
+      mView.invalidate();
+    }
+  }
+
+  private class SetLayout implements Runnable {
+    String mLayout;
+    CountDownLatch mLatch = new CountDownLatch(1);
+
+    SetLayout(String layout) {
+      mLayout = layout;
+    }
+
+    @Override
+    public void run() {
+      loadLayout(mLayout);
+      mLatch.countDown();
+    }
+  }
+
+  private class SetTitle implements Runnable {
+    String mSetTitle;
+    CountDownLatch mLatch = new CountDownLatch(1);
+
+    SetTitle(String title) {
+      mSetTitle = title;
+    }
+
+    @Override
+    public void run() {
+      mTitle = mSetTitle;
+      getActivity().setTitle(mSetTitle);
+      mLatch.countDown();
     }
   }
 
@@ -214,8 +288,8 @@ protected View defaultView() {
     data.put("action", String.valueOf(event.getAction()));
     mEventFacade.postEvent("key", data);
     boolean overrideKey =
-        (keyCode == KeyEvent.KEYCODE_BACK)
-            || (mOverrideKeys == null ? false : mOverrideKeys.contains(keyCode));
+            (keyCode == KeyEvent.KEYCODE_BACK)
+                    || (mOverrideKeys == null ? false : mOverrideKeys.contains(keyCode));
     return overrideKey;
   }
 
@@ -233,6 +307,47 @@ protected View defaultView() {
 
   public void setOverrideKeys(List<Integer> overrideKeys) {
     mOverrideKeys = overrideKeys;
+  }
+
+  // Used to hot-switch screens.
+  public void setLayout(String layout) {
+    SetLayout p = new SetLayout(layout);
+    mHandler.post(p);
+    try {
+      p.mLatch.await();
+    } catch (InterruptedException e) {
+      mInflater.getErrors().add(e.toString());
+    }
+  }
+
+  public void setTitle(String title) {
+    SetTitle p = new SetTitle(title);
+    mHandler.post(p);
+    try {
+      p.mLatch.await();
+    } catch (InterruptedException e) {
+      mInflater.getErrors().add(e.toString());
+    }
+  }
+
+  @Override
+  public void onProgressChanged(SeekBar aview, int progress, boolean fromUser) {
+    Map<String, String> data = mInflater.getViewInfo(aview);
+    data.put("position", String.valueOf(progress));
+    data.put("progress", String.valueOf(progress));
+    mEventFacade.postEvent("itemclick", data);
+  }
+
+  @Override
+  public void onStartTrackingTouch(SeekBar arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void onStopTrackingTouch(SeekBar arg0) {
+    // TODO Auto-generated method stub
+
   }
 
 }

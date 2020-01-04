@@ -15,39 +15,44 @@
 ** limitations under the License.
 */
 -->
+<layout>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/window_list_label"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:maxLines="1"
-        android:padding="15dp"
-        android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <View
-        android:id="@+id/window_list_separator"
-        android:layout_width="1dp"
-        android:layout_height="fill_parent"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="5dp"
-        android:background="#ff313431" />
+        <TextView
+            android:id="@+id/window_list_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:singleLine="true"
+            android:text="#FFF"
+            />
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
 
-    <view
-        android:id="@+id/window_list_close"
-        class="org.qpython.qpy.console.WindowList$CloseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:background="@drawable/close_background"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:scaleType="center"
-        android:src="@drawable/btn_close_window" />
-</LinearLayout>
+        <View
+            android:id="@+id/window_list_separator"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:background="#ff313431"/>
+
+        <ImageView
+            android:id="@+id/window_list_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/close_background"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:scaleType="center"
+            android:src="@drawable/btn_close_window"/>
+    </LinearLayout>
+</layout>

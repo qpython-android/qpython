@@ -27,7 +27,7 @@ import org.qpython.qpy.utils.FileUtils;
 
 public class CloudPluginManager {
     private static final String INSTALL_DIR = App.getContext().getFilesDir().getAbsolutePath();
-    private static final String URL = "http://tubebook.net/tubebook/conf/";
+    private static final String URL = "https://www.qpython.org/conf/";
     private static OkHttpClient client = new OkHttpClient();
 
     public static boolean checkInstalled(CloudPluginBean plugin) {

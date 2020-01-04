@@ -42,7 +42,7 @@ public class FileHelper {
 		File yy = new File(dst);
 		if (!yy.exists()) {
 			String content = FileHelper.LoadDataFromAssets(con, filename);
-			FileHelper.writeToFile(dst, content);
+			FileHelper.writeToFile(dst, content, false);
 		}
 	}
 	public static void openFile(Context context, String filePath, String fileExtension) {
@@ -115,9 +115,9 @@ public class FileHelper {
 		}
 	}
 
-	public static void writeToFile(String filePath, String data) {
+	public static void writeToFile(String filePath, String data, boolean append) {
 		try {
-			FileOutputStream fOut = new FileOutputStream(filePath);
+			FileOutputStream fOut = new FileOutputStream(filePath, append);
             fOut.write(data.getBytes());
             fOut.flush();
             fOut.close();
@@ -144,12 +144,12 @@ public class FileHelper {
 		
 		} catch(Exception e) {
 			e.printStackTrace();
-			//Log.d(TAG, "getFileContentsFromAssets:"+e.getMessage());
+			//LogUtil.d(TAG, "getFileContentsFromAssets:"+e.getMessage());
 		}  
 		return content; 
 	}
 	public static String getFileContents(String filename) {
-		
+
         File scriptFile = new File( filename );
         String tContent = "";
         if (scriptFile.exists()) {
@@ -157,7 +157,7 @@ public class FileHelper {
 			try {
 				in = new BufferedReader(new FileReader(scriptFile));
             	String line;
-            	
+
 				while ((line = in.readLine())!=null) {
 					tContent += line+"\n";
 				}
@@ -173,16 +173,46 @@ public class FileHelper {
         }
 		return tContent;
 	}
-	
+
+	public static String getFileContents(String filename, int pos) {
+
+		File scriptFile = new File( filename );
+		String tContent = "";
+		if (scriptFile.exists()) {
+			BufferedReader in;
+			try {
+				in = new BufferedReader(new FileReader(scriptFile));
+				String line;
+
+				while ((line = in.readLine())!=null) {
+					tContent += line+"\n";
+					if (tContent.length()>=pos) {
+						in.close();
+						return tContent;
+					}
+				}
+				in.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return tContent;
+	}
+
 	public static void clearDir(String dir, int level, boolean deleteS) {
-		//Log.d(TAG, "clearDir:"+dir);
+		//LogUtil.d(TAG, "clearDir:"+dir);
 		File basePath = new File(dir);
 		if (basePath.exists() && basePath.isDirectory()) {
 			for (File item : basePath.listFiles()) {
 				if (item.isFile()) {
-					//Log.d(TAG, "deleteItem:"+item.getAbsolutePath());
+					//LogUtil.d(TAG, "deleteItem:"+item.getAbsolutePath());
 					item.delete();
-					
+
 				} else if (item.isDirectory()){
 					clearDir(item.getAbsolutePath(), level+1, deleteS);
 				}
@@ -190,10 +220,9 @@ public class FileHelper {
 			if (level>0 || deleteS) {
 				basePath.delete();
 			}
-			
-			
 		}
 	}
+
 	public static File getBasePath(String parDir, String subdir) throws IOException {
 		try {
 		File basePath = new File(Environment.getExternalStorageDirectory(),
@@ -233,7 +262,7 @@ public class FileHelper {
 	
 	/*public static File getBasePath(String subdir) throws IOException {
 		File basePath = new File(Environment.getExternalStorageDirectory(),
-				CONF.BASE_PATH);
+				BASE_CONF.BASE_PATH);
 
 		if (!basePath.exists()) {
 			if (!basePath.mkdirs()) {
@@ -244,7 +273,7 @@ public class FileHelper {
 		File subPath = null;
 		if (!subdir.equals("")) {
 			subPath = new File(Environment.getExternalStorageDirectory(),
-					CONF.BASE_PATH+"/"+subdir);
+					BASE_CONF.BASE_PATH+"/"+subdir);
 			if (!subPath.exists()) {
 				if (!subPath.mkdirs()) {
 					throw new IOException(String.format("%s cannot be created!",
@@ -301,13 +330,13 @@ public class FileHelper {
     public static String getExt(String filename, String def) {
     	String[] yy = filename.split("\\?");
         String[] xx = yy[0].split("\\.");
-        //Log.d(TAG, "filename:"+filename+"-size:"+xx.length);
+        //LogUtil.d(TAG, "filename:"+filename+"-size:"+xx.length);
     
         if (xx.length<2) {
             return def; 
         } else {
             String ext = xx[xx.length-1];
-            //Log.d(TAG, "ext:"+ext);
+            //LogUtil.d(TAG, "ext:"+ext);
             return ext;
         }   
     } 

@@ -1,0 +1,494 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+
+    <string name="app_name">QPython</string>
+    <string name="terminal">コンソール</string>
+    <string name="recent">最近</string>
+    <string name="snippet">スニペット</string>
+    <string name="script">スクリプト</string>
+    <string name="project">プロジェクト</string>
+
+    <string name="setting">設定</string>
+    <string name="editor">エディタ</string>
+    <string name="community">コミュニティ</string>
+
+    <string name="more">さらに</string>
+    <string name="sl4a_server">SL4Aサーバー</string>
+    <string name="ftp_server">FTPサーバー</string>
+
+
+    <!---->
+    <string name="application_terminal">コンソール</string>
+    <string name="preferences">設定</string>
+    <string name="new_window">新しくコンソールを開始</string>
+    <string name="close_window">コンソールを閉じる</string>
+    <string name="window_list">現在のコンソール一覧</string>
+    <string name="reset">コンソールをリセット</string>
+    <string name="send_email">メールを送る...</string>
+    <string name="special_keys">特殊キー</string>
+    <string name="toggle_soft_keyboard">仮想キーボードを表示・非表示</string>
+
+    <string name="reset_toast_notification">現在の状態はリセットされます。</string>
+
+    <string name="enable_wakelock">wakelockを有効化</string>
+    <string name="disable_wakelock">wakelockを無効化</string>
+    <string name="enable_wifilock">WIFI lockを有効化</string>
+    <string name="disable_wifilock">WIFI lockを無効化</string>
+
+    <string name="edit_text">テキストの編集</string>
+    <string name="select_text">テキストを選択</string>
+    <string name="copy_all">すべてコピー</string>
+    <string name="send_control_key">Ctrlキーを送信</string>
+    <string name="send_fn_key">Fnキーを送信</string>
+
+    <string name="window_title">コンソール%1$d</string>
+
+    <string name="process_exit_message">セッションは終了しました。</string>
+
+    <!-- Preference dialog -->
+    <string name="screen_preferences">画面</string>
+
+    <string name="title_statusbar_preference">ステータスバー</string>
+    <string name="summary_statusbar_preference">ステータスバーの表示・非表示</string>
+    <string name="dialog_title_statusbar_preference">ステータスバー</string>
+
+    <string name="title_actionbar_preference">アクションバー</string>
+    <string name="summary_actionbar_preference">アクションバーの動作を選択(Android 3.0以上)</string>
+    <string name="dialog_title_actionbar_preference">アクションバーの動作</string>
+
+    <string name="title_orientation_preference">画面の向き</string>
+    <string name="summary_orientation_preference">画面の向きの動作を選択</string>
+    <string name="dialog_title_orientation_preference">画面の向きの動作</string>
+
+    <string name="text_preferences">テキスト</string>
+
+    <string name="title_utf8_by_default_preference">デフォルトでUTF-8を使用</string>
+    <string name="summary_utf8_by_default_preference">デフォルトでUTF-8を使用中</string>
+
+    <string name="title_fontsize_preference">文字の大きさ</string>
+    <string name="summary_fontsize_preference">文字サイズを選択</string>
+    <string name="dialog_title_fontsize_preference">文字の大きさ</string>
+
+    <string name="title_color_preference">文字色</string>
+    <string name="summary_color_preference">文字の色を選択</string>
+    <string name="dialog_title_color_preference">文字色</string>
+
+    <string name="keyboard_preferences">キーボード</string>
+
+    <string name="title_backaction_preference">戻るボタンの動作</string>
+    <string name="summary_backaction_preference">戻るボタンの動作を選択</string>
+    <string name="dialog_title_backaction_preference">戻るボタンの動作</string>
+
+    <string name="title_controlkey_preference">Ctrlキー</string>
+    <string name="summary_controlkey_preference">Ctrlキーの動作を選択</string>
+    <string name="dialog_title_controlkey_preference">Ctrlキー</string>
+
+    <string name="title_fnkey_preference">Fnキー</string>
+    <string name="summary_fnkey_preference">Fnキーの動作を選択</string>
+    <string name="dialog_title_fnkey_preference">Fnキー</string>
+
+    <string name="title_ime_preference">入力方式</string>
+    <string name="summary_ime_preference">入力方式を選択</string>
+    <string name="dialog_title_ime_preference">入力方式</string>
+
+    <string name="shell_preferences">シェル</string>
+    <string name="title_shell_preference">コンソール</string>
+    <string name="summary_shell_preference">シェルを選択</string>
+    <string name="dialog_title_shell_preference">シェル</string>
+
+    <string name="title_initialcommand_preference">自動実行コマンド</string>
+    <string name="summary_initialcommand_preference">スタート時に自動実行するコマンドを設定</string>
+    <string name="dialog_title_initialcommand_preference">自動実行コマンド</string>
+
+    <string name="title_termtype_preference">コンソールのタイプ</string>
+    <string name="summary_termtype_preference">コンソールのタイプを設定</string>
+    <string name="dialog_title_termtype_preference">コンソールのタイプ</string>
+
+    <string name="title_close_window_on_process_exit_preference">終了時にコンソールを閉じる</string>
+    <string name="summary_close_window_on_process_exit_preference">終了時にコンソールを閉じる</string>
+
+    <string name="title_verify_path_preference">PATHを検証</string>
+    <string name="summary_verify_path_preference">不正なPATHを削除</string>
+
+    <string name="title_do_path_extensions_preference">PATHの拡張を許可</string>
+    <string name="summary_do_path_extensions_preference">PATHへのコマンドの追加を許可</string>
+
+    <string name="title_allow_prepend_path_preference">PATHの先頭に追加することを許可</string>
+    <string name="summary_allow_prepend_path_preference">PATH既存のコマンドの上書を許可</string>
+
+    <string name="title_home_path_preference">HOMEディレクトリ</string>
+    <string name="summary_home_path_preference">HOMEディレクトリとして使用する書き込み可能なディレクトリ</string>
+
+    <string name="control_key_dialog_title">CtrlとFnキー</string>
+    <string name="control_key_dialog_control_text">CTRL+Space : Control-@ (NUL)\nCTRL+A..Z : Control-A..Z\nCTRL+5 : Control-]\nCTRL+6 : Control-^\nCTRL+7 : Control-_\nCTRL+9 : F11\nCTRL+0 : F12</string>
+    <string name="control_key_dialog_control_disabled_text">Ctrl キー unset</string>
+    <string name="control_key_dialog_fn_text">FN+1..9 : F1-F9\nFN+0 : F10\nFN+W : Up\nFN+A : Left\nFN+S : Down\nFN+D : Right\nFN+P : PageUp\nFN+N : PageDown\nFN+T : Tab\nFN+L : | (pipe)\nFN+U : _ (アンダースコア)\nFN+E : Control-[ (ESC)\nFN+X : Delete\nFN+I : Insert\nFN+H : Home\nFN+F : End\nFN+. : Control-\\\n</string>
+    <string name="control_key_dialog_fn_disabled_text">Fnキーの設定を削除</string>
+
+    <string name="confirm_window_close_message">コンソールを閉じますか?</string>
+
+    <string name="email_transcript_subject">コンソールのコピー</string>
+    <string name="feedback_email_subject">QPythonのフィードバック</string>
+    <string name="email_transcript_chooser_title">フィードバック...</string>
+    <string name="email_transcript_no_email_activity_found">メーラーアプリが見つかりませんでした。</string>
+
+    <string name="alt_sends_esc">AltキーをESCとして使う</string>
+    <string name="alt_sends_esc_summary_on">AltキーをESCとして使用中</string>
+    <string name="alt_sends_esc_summary_off">AltキーのESCとしての使用をやめる</string>
+
+    <string name="title_mouse_tracking_preference">マウスイベントの送信</string>
+    <string name="summary_mouse_tracking_preference">タッチとスクロールを無視しますか?</string>
+
+    <string name="dialog_title_script">スクリプト</string>
+    <string name="dialog_title_project">プロジェクト</string>
+
+
+    <string name="title_use_keyboard_shortcuts">キーボードショートカットを使用</string>
+    <string name="use_keyboard_shortcuts_summary_on">Ctrl-Tab: コンソールの切り替え、 Ctrl-Shift-N: 新規コンソール、 Ctrl-Shift-V: 貼り付け</string>
+    <string name="use_keyboard_shortcuts_summary_off">キーボードショートカットが無効になっています</string>
+    <string name="help">ヘルプ</string>
+    <string name="activity_term_here_title">活動期間</string>
+    <!-- BEGIN SHORTCUT RELATED STRINGS -->
+    <!-- AndroidManifest.xml -->
+    <string name="activity_shortcut_create">"Term shortcut"</string>
+    <string name="addshortcut_button_find_command">Find command</string>
+    <string name="addshortcut_command_hint">command</string>
+    <string name="addshortcut_example_hint">--example=\""a\"</string>
+    <string name="addshortcut_navigator_title">SELECT SHORTCUT TARGET</string>
+    <string name="addshortcut_command_window_instructions">Command terminal requires full mPath, no arguments. For other commands use Arguments terminal (ex: cd /sdcard).</string>
+    <string name="addshortcut_arguments_label">Add to dictionary</string>
+    <string name="addshortcut_shortcut_label">Shortcut label\:</string>
+    <string name="addshortcut_button_text_icon">Text icon</string>
+    <string name="addshortcut_make_text_icon">MAKE TEXT ICON</string>
+    <string name="addshortcut_text_icon_instructions"></string>
+    <string name="addshortcut_title">Term shortcut</string>
+    <!-- FSNavigator.java -->
+    <string name="fsnavigator_title">FILE SELECTOR</string>
+    <string name="fsnavigator_no_external_storage">External storage not available</string>
+    <string name="fsnavigator_optional_enter_path">Or enter mPath here.</string>
+    <string name="fsnavigator_change_theme">Change theme</string>
+    <!-- ColorValue.java -->
+    <string name="colorvalue_label_lock_button_column">LOCK</string>
+    <string name="colorvalue_icon_text_entry_hint">Enter icon text</string>
+
+    <string name="help_url">https://www.qpython.org</string>
+
+    <string name="read_only">読み取り専用</string>
+    <string name="file">探索</string>
+    <string name="yes">はい</string>
+    <string name="no">いいえ</string>
+    <string name="ok">了解</string>
+    <string name="close">閉じる</string>
+    <string name="no_change">変更なし</string>
+    <string name="feedback">フィードバック</string>
+    <string name="about">QPythonについて</string>
+    <string name="file_not_exists">ファイルが見つかりません</string>
+    <string name="enable_root">rootモードを有効にする</string>
+    <!--<string name="my_name">作者：彭春瑜</string>-->
+    <!--<string name="qq_group">QQ群：87272821</string>-->
+    <string name="send">送信</string>
+    <string name="no_camera">有効なカメラが見つかりませんでした。カメラへのアクセス権限を確認してください。</string>
+    <string name="no_storage">ストレージの読み取り権限がありません。</string>
+
+
+    <string name="pref_initialcommand_default_qpython">python</string>
+    <string name="qpy_app">QPY</string>
+    <string name="local_app">ローカルアプリ</string>
+    <string name="task">タスク</string>
+    <string name="root_mode">rootモード</string>
+    <string name="star_it">評価する</string>
+    <string name="disable_root">無効化</string>
+    <string name="http_qpypi_qpython_org">https://pypi.python.org/simple/</string>
+    <string name="add">add</string>
+    <string name="sl4a_running">SL4Aは動作中です</string>
+    <string name="sl4a_un_running">SL4Aは動作していません。</string>
+    <string name="service_toggle">Server taggle</string>
+    <string name="qpy_description">QPythonはAndroidデバイス上で動作するスクリプトエンジンです。QPythonはAndoidのタブレットやスマートホン上で動作します。</string>
+    <string name="warning">警告</string>
+    <string name="reset_warning">この操作を続行すると、設定やダウンロードしたライブラリがすべて失われます。続行しますか?</string>
+    <string name="downloading">ライブラリ</string>
+    <string name="location">ロケーション</string>
+
+
+    <!--  -->
+
+    <!-- Titles -->
+    <string name="title_untitled">名称未設定</string>
+    <string name="title_editor">%1$s</string>
+    <string name="title_editor_dirty">%1$s *</string>
+    <string name="title_editor_readonly">[%1$s]</string>
+
+    <string name="title_settings">設定</string>
+
+    <!-- Config screen strings -->
+    <string name="config_cat_display">表示</string>
+    <string name="config_title_line_numbers">行番号を表示</string>
+    <string name="config_title_word_wrap">文字を折り返す</string>
+    <string name="config_title_font">フォントの変更</string>
+    <string name="config_title_text_size">文字の大きさ</string>
+    <string name="config_title_color_theme">色のテーマ</string>
+    <string name="config_title_scroll_fling">スクロースの高速化のために整理する</string>
+    <string name="config_summary_line_numbers">ページの左側に行番号を表示</string>
+    <string name="config_summary_word_wrap">長すぎる行を折り返す</string>
+    <string name="config_summary_scroll_fling">パフォーマンスを検証しない</string>
+
+    <!-- Options Menu in QEdit -->
+
+    <!-- Misc UI strings -->
+    <string name="ui_save_text">"保存しますか? 保存していない内容は失われます。"</string>
+    <string name="ui_save">保存</string>
+    <string name="ui_delete">削除</string>
+    <string name="ui_no_save">保存しない</string>
+    <string name="ui_cancel">取り消し</string>
+    <string name="ui_hint_file_name">ファイル名</string>
+    <string name="ui_hint_search">検索</string>
+    <string name="ui_history">履歴</string>
+    <string name="ui_force_read_only">読み取り専用で開く</string>
+    <string name="about_content">QEditはAndroid用のテキストエディタです。Python / HTMLの編集に特化しており、使いやすいエディタです。</string>
+
+    <!-- Misc Strings -->
+    <string name="lorem_ipsum">"QEditは素晴らしいテキストエディタです。"</string>
+
+    <string name="file_exists">ファイルが既に存在します。別の名前にしてください。</string>
+
+    <string name="video_src">動画 {0}</string>
+    <string name="play_video">再生</string>
+    <string name="no_videos_found">このページに動画はありません。</string>
+    <string name="pls_install_a8_play">A8 Video Playerを先にインストールしてください。</string>
+    <string name="download_as">ダウンロードして保存</string>
+    <string name="info_browser">QBrowser</string>
+
+    <!--  added by kyle -->
+    <string name="share">共有</string>
+    <string name="save_as_snippets">スニペットとして保存</string>
+    <string name="snippet_exist">すでにスニペットが存在します。別の名前で試してください。</string>
+    <string name="save_as_snippets_1">スニペットが次の名前で保存されました: </string>
+    <string name="fail_to_insert">スニペットの挿入に失敗しました</string>
+    <string name="fail_to_goto">有効な数字を入力してください。</string>
+    <string name="max_lines_num_with_syntax_title">行を自動ハイライト</string>
+    <string name="max_lines_num_with_syntax_summary">%s行より少なければ自動ハイライト</string>
+    <string name="qedit_not_support">QEditは以下のタイプのファイルのみプレビュー・実行をサポートします。\n.py, .sh, .lua, .html, .md.</string>
+
+    <string name="pls_install_lua">Luaを実行するにはQLuaを先にインストールする必要があります。</string>
+    <string name="pls_install_qpy">Pythonを実行するにはQPythonを先にインストールする必要があります。</string>
+    <string name="info_snippets">スニペット</string>
+
+    <string name="ui_ok">OK</string>
+    <string name="ui_contact_title">連絡を取る</string>
+    <string name="ui_licence_title">ライセンス</string>
+    <string name="ui_mail">support@qpython.org</string>
+    <string name="ui_choose_mail">メールを開く...</string>
+    <string name="ui_market_url">"https://market.android.com/developer?pub=Xavier+Gouchet"</string>
+    <string name="ui_market_app_url">"https://play.google.com/store/apps/details?id=%s"</string>
+    <string name="ui_market">"ほかのアプリ"</string>
+    <string name="ui_app_rating">"このアプリを評価する \n フィードバックを残す"</string>
+    <string name="ui_feedback">"どうぞご遠慮なくフィードバック、機能提案、または不具合報告をしてください。. "</string>
+    <string name="ui_licence_content">"このソフトウエアは現状のまま提供されており、いかなる保証もありません。このソフトウエアの著作者は、このソフトウエアを利用したことによって発生したいかなる損害でもその責任を負いません。"</string>
+    <string name="ui_art_licence_title">Artistic Licence</string>
+    <string name="ui_art_licence_content">"このアプリに使用されているアイコンはQPythonの著作者の製作であり、その権利はその著作者に帰属します。"</string>
+    <string name="ui_whats_new">"最新情報"</string>
+    <string name="save">保存</string>
+    <string name="save_as">ファイル名を指定して保存</string>
+    <string name="open">開く</string>
+    <string name="file_name">ファイル名</string>
+    <string name="file_exist_hint">そのファイルは既に存在します。名前を変えてください。</string>
+    <string name="empty_file">空ファイル</string>
+    <string name="confirm">確認</string>
+    <string name="cancel">取り消し</string>
+    <string name="new_project">新規プロジェクト</string>
+    <string name="error_dont_kn">エラーが発生しました。</string>
+    <string name="project_name">プロジェクト名</string>
+    <string name="jump_to">移動する</string>
+    <string name="choose_ttf">フォントファイルを選択(.ttf)</string>
+    <string name="explorer">エクスプローラ</string>
+    <string name="new_script">新規スクリプト</string>
+    <string name="enter_name_hint">スクリプト名を入力</string>
+
+    <string name="paste">貼り付け</string>
+    <string name="download_fail">ダウンロード失敗</string>
+    <string name="key_reset">reset_storage</string>
+    <string name="key_ftp_state">running_state</string>
+    <string name="key_username">username</string>
+    <string name="key_ftp_pwd">password</string>
+    <string name="key_port_num">portNum</string>
+    <string name="key_show_pwd">show_password</string>
+    <string name="key_root_dir">chrootDir</string>
+    <string name="key_stay_awake">stayAwake</string>
+    <string name="key_about">about</string>
+    <string name="dir_not_valid">不正なディレクトリです</string>
+    <string name="already_newest">すでに最新です</string>
+    <string name="share_text">QPythonはAndroidデバイス上で動作するスクリプトエンジンです。Pythonインタプリタ、コンソール、エディタ、SL4Aライブラリを組み込みで持っており、それらはAndroid上でのPythonの実行を可能にします。https://www.qpython.com/privacy.html</string>
+    <string name="new_folder">新規フォルダ</string>
+    <string name="folder_name">フォルダ名</string>
+    <string name="untitled_folder">名称未設定フォルダ</string>
+    <string name="toast_folder_exist">操作に失敗しました。別の名前で再度お試しください。</string>
+    <string name="fail_open_file">ファイルが存在しないため、ファイルを開けません。</string>
+    <string name="run_dirty_hint">先に保存しますか?</string>
+    <string name="no_im_good">必要ありません。</string>
+    <string name="convert_fail">変換に失敗しました。</string>
+    <string name="delete_file_hint">このファイルを消去しますか?</string>
+    <string name="rename">名前の変更</string>
+    <string name="rename_fail">名前を変更できませんでした。</string>
+    <string name="delete_fail">削除できませんでした。</string>
+    <string name="runtime_log">実行時ログ: %s</string>
+    <string name="fedback_mail">[フィードバック]\n\n</string>
+    <string name="log_title">実行時ログ</string>
+
+    <string name="date_format">[ %s ]</string>
+    <string name="not_root_yet">このデバイスはルート化されていません。</string>
+    <string name="download_apk">APKをダウンロードしますか?</string>
+    <string name="download_apk_hint">WiFi未接続の場合、モバイル通信料がかかる可能性があります。</string>
+    <string name="downloading_new_apk">新規パッケージをダウンロード</string>
+    <string name="checking_update">アップデートの確認</string>
+    <string name="run_bg_title">バックグラウンドで実行する</string>
+    <string name="scan">スキャン</string>
+    <string name="read_script_from_qrcode">QRCodeからコードを読み込み</string>
+
+    <string name="course">コース</string>
+    <string name="lost_connect">接続失敗</string>
+    <string name="featured_courses">コース</string>
+    <string name="programs">プログラム</string>
+    <string name="open_gl2_is_not_supported">OpenGL2はサポートされていません。</string>
+    <string name="unable_extract">Pythonコードを抽出できません。</string>
+    <string name="get_setting_data_fail">設定を読み込めませんでした。</string>
+    <string name="terminal_bg_hint">コンソールをバックグラウンドで続行しますか?</string>
+    <string name="thanks">ありがとうございます!</string>
+    <string name="extra_pypi">PYPIを設定</string>
+    <string name="already_newest_current_version">すでに最新です。現在のバージョンは</string>
+    <string name="reward">報酬</string>
+    <string name="oops_seems_like_your_net_have_some_trouble">しまった! \nインターネット接続に問題があるようです!</string>
+    <string name="lose_google_server">Google Playに接続できませんでした。ネットワークを確認してください。</string>
+    <string name="thanks_your_support">応援してくださってありがとうございます!</string>
+    <string name="under_16_status_bar_hint">ステータスバーの表示・非表示はコンソールを再起動すると適用されます。</string>
+    <string name="refresh">最新の状態に更新する</string>
+    <string name="reset_suc">リセットに成功しました。</string>
+    <string name="reset_hint">この操作はアプリの再起動後に適用されます。</string>
+    <string name="restart">アプリを再起動</string>
+    <string name="fail_resume_console">コンソールを続行できません。</string>
+    <string name="failed_bind_term">TermServiceに接続できませんでした。!</string>
+    <string name="console_running">QPythonコンソール動作中</string>
+    <string name="qpy_console">QPythonコンソール</string>
+    <string name="recommend">推奨</string>
+    <string name="newest_course">最新</string>
+    <string name="best_python_development_ide_non_mobile">モバイル上の最高のPythonアプリケーション</string>
+    <string name="sign_in_with_google">Googleでサインイン</string>
+    <string name="by_signing_in_you_agree_to_out_privacy_policy_term_of_service"><![CDATA[サインインするには、当サービスの<font color="#4BAC07">プライバシーポリシー</font>に同意する必要があります。]]></string>
+    <string name="copy_hint">実行のため、エディタにコピーします</string>
+    <string name="my_scripts">スクリプト</string>
+    <string name="my_share">共有済み</string>
+    <string name="gist_title">Gistのタイトル</string>
+    <string name="description">説明</string>
+    <string name="too_long_hint">値が長すぎます。140文字以内にしてください。</string>
+    <string name="enter_snippet">スニペットの名前を入力</string>
+    <string name="welcome_s">ようこそ、<![CDATA[<font color="#4BAC07"><u>%s</u></font>]]>さん</string>
+    <string name="re_format">Re <![CDATA[<font color="#ECCD00">@%1$s</font>]]>:\u0020 %2$s</string>
+    <string name="replied_format"><![CDATA[<font color="#ECCD00">@%1$s</font>]]>:\u0020 %2$s</string>
+    <string name="login"><u>サインイン</u></string>
+    <string name="auth_failed">認証に失敗しました。</string>
+    <string name="log_out">サインアウト</string>
+    <string name="me">Me</string>
+    <string name="grant_storage_hint">ストレージへのアクセスを許可をする必要があります。</string>
+    <string name="lost_google_hint">Googleのサーバーに接続できませんでした。ネットワークを確認してください。</string>
+    <string name="upload_suc">正常にコードをアップロードしました。</string>
+    <string name="upload_fail">コードをアップロードできませんでした。</string>
+    <string name="my_program">プログラム</string>
+    <string name="nothing_here_yet">まだ何もありません。 :(</string>
+    <string name="sofa_hint">初めにコメントしますか?</string>
+    <string name="null_comment_hint">コメントに内容がありません。</string>
+    <string name="initial">初期</string>
+    <string name="share_empty_hint">共有前に保存する必要があります。</string>
+    <string name="need_login">サインインしてください。</string>
+    <string name="upload_login_hint">サインインせずにコードをアップロードすることはできません。</string>
+    <string name="login_now">ログインする</string>
+    <string name="cloud_empty_hint">クラウド上にコードがありません。</string>
+    <string name="mkdir_fail">ディレクトリの作成に失敗しました。</string>
+    <string name="not_support_type_hint">このファイルタイプのアップロードはサポートされていません。</string>
+    <string name="conflict_hint"><Data>
+        <![CDATA[ <b>オンラインのファイル:</b>   <br/>
+    <u>サイズ:</u>  %4$s   <br/>
+    <u>最終更新:</u> %3$s   <br/><br/>
+    <b>ローカルのファイル:</b><br/>
+    <u>大きさ:</u> %2$s<br/>
+    <u>最終更新:</u> %1$s <br/><br/>
+    上書きしますか?]]></Data></string>
+    <string name="override_fail_hint">上書きできませんでした。時間をおいて再度お試しください。</string>
+    <string name="delete_remote_suc">オンラインのファイルを正常に削除しました。</string>
+    <string name="delete_suc">ファイルを正常に削除しました。</string>
+    <string name="click_retry">リクエストに失敗しました。画面をタップして再試行します。</string>
+    <string name="lout">ログアウトしますか?</string>
+    <string name="log_noti">ログ通知</string>
+    <string name="app_noti">アプリの通知</string>
+    <string name="override_hint">ローカルのファイルを上書きしますか?</string>
+    <string name="file_downloaded">ファイルがダウンロードされました。</string>
+    <string name="login_error">ログイン中にエラーが発生しました。</string>
+    <string name="my_space">容量 (%d / 100文件)</string>
+    <string name="my_space_empty">空き容量 (? / 10文件)</string>
+    <string name="save_amp_push"><![CDATA[保存して上書き]]></string>
+    <string name="shortcut_create_suc">ショートカット%sは正常に作成されました。</string>
+    <string name="need_grant">これらの権限を許可する必要があります。</string>
+    <string name="no_space">容量が足りません。</string>
+    <string name="no_file">このフォルダにはファイルが存在しません。</string>
+    <string name="no_recent_file">最近ファイルを開いていません。</string>
+    <string name="cant_open">このファイルは開けません。</string>
+    <string name="toolbar_showing">プロジェクトの構造</string>
+    <string name="toolbar_close">エディタ</string>
+    <string name="not_support_yet">まだサポートされていません。</string>
+    <string name="new_file">新規ファイル</string>
+    <string name="tools">ツール</string>
+    <string name="aipy_not_install"><![CDATA[<font color="#4BAC07">依存しているパッケージ</font>をインストールしてからAIPYをインストールしてください。]]></string>
+
+    <!--color string-->
+
+    <string name="update_time_hint">更新: %s</string>
+    <string name="aipy_list_empty_hint">AIPyが見つかりません。AIPyを探すか、以下の手順でインストールしてください。\n
+        1. AIPyアプリをインストール\n
+        2. QPythonにファイル書き込みを許可\n
+        3. 右上部の角にあるボタンを押して最新の状態に更新\n\n
+        動かない場合は遠慮なくメールかGithubに連絡してください。
+    </string>
+    <string name="package_installed">このパッケージは既にインストールされています。</string>
+    <string name="install_suc">インストール成功</string>
+    <string name="install_fail">インストールに失敗しました。時間をおいて再度お試しください。</string>
+    <string name="install_package_fail">パッケージのインストールに失敗しました。時間をおいて再度お試しください。</string>
+    <string name="aipy_not_release">AIPyのアプリからインストールとセットアップをしてください。</string>
+    <string name="aipy_not_support">AIPyはQPY3をまだサポートしていません。</string>
+
+    <string name="album">アルバム</string>
+    <string name="last_refresh">最終更新: %s</string>
+    <string name="data_saver">データサーバー</string>
+    <string name="saver_on">ローカルのキャッシュを使う</string>
+    <string name="saver_off">毎回再読み込みする</string>
+    <string name="library">ライブラリ</string>
+    <string name="run">実行</string>
+
+    <string name="insert_if">if :\n</string>
+    <string name="insert_def">def ():\n</string>
+    <string name="insert_for">for\u0020\u0020in :\n</string>
+    <string name="insert_import">import\u0020\n</string>
+    <string name="insert_import_f">from\u0020\u0020import\u0020\n</string>
+    <string name="insert_clz">class\u0020\u0020:</string>
+    <string name="insert_ef">elif\u0020\u0020:\n</string>
+    <string name="insert_el">else:\n</string>
+    <string name="insert_ret">return\n</string>
+
+    <string name="file_new">ファイル</string>
+    <string name="install_py3">Python 3をインストール</string>
+    <string name="py2_now">現在Python 2を使用中</string>
+    <string name="py3_now">現在Python 3を使用中</string>
+    <string name="switch_py3">Python 3に切り替え</string>
+    <string name="enter_history">履歴</string>
+    <string name="qpy_featured">QPythonの特集</string>
+    <string name="history_emp">履歴はありません</string>
+    <string name="no_google">Googleサービスなしでログインできません。</string>
+    <string name="pip_no_net">ネットワークなしでpipを開くことはできません。</string>
+    <string name="py3_not_install">QPY3はインストールされていません。</string>
+    <string name="open_app_market">アプリマーケットに移動</string>
+    <string name="release_error">パッケージが解放されていません。</string>
+    <string name="open_py3_hint">先にPython3からパッケージを開放してください。</string>
+    <string name="open_py3">Python3を開く</string>
+    <string name="unzip_pac_fail">zipの解凍に失敗しました。</string>
+    <string name="retry_hint">再試行してください。</string>
+    <string name="browser">ブラウザ</string>
+    <string name="switch_py3_hint">現在Python2を使用中です。Python3に切り替えますか?</string>
+    <string name="goto_setting">設定に移動</string>
+    <string name="net_lagging">ネットワークにラグが発生しています。しばらくお待ちください。</string>
+</resources>

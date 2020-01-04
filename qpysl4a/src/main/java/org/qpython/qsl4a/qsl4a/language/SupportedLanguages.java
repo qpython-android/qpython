@@ -1,6 +1,6 @@
 package org.qpython.qsl4a.qsl4a.language;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,9 +56,9 @@ public class SupportedLanguages {
       try {
         lang = clazz.newInstance();
       } catch (IllegalAccessException e) {
-        Log.e(e);
+        LogUtil.e(e);
       } catch (InstantiationException e) {
-        Log.e(e);
+        LogUtil.e(e);
       }
     }
     return lang;

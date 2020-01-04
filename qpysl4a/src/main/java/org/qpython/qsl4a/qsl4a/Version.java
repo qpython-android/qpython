@@ -31,7 +31,7 @@ public class Version {
       PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
       return info.versionName;
     } catch (PackageManager.NameNotFoundException e) {
-      Log.e("Package name not found", e);
+      LogUtil.e("Package name not found", e);
     }
     return "?";
   }

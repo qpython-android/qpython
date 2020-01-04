@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">QPyengine</string>
+    <string name="app_name">QPYSDK</string>
+    <string name="open_log">Do you want to check the runtime log?</string>
 </resources>

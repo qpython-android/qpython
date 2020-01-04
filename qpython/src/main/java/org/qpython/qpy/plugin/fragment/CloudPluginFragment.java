@@ -20,23 +20,15 @@ import org.qpython.qpy.plugin.model.CloudPluginBean;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.realm.Realm;
 import rx.Subscription;
 
 public class CloudPluginFragment extends Fragment {
-    private Unbinder mUnbinder;
+    RecyclerView rvPlugin;
+    LinearLayout noneItemBackground;
     private CloudPluginAdapter mCloudPluginAdapter;
     private Realm mRealm;
     private Subscription mRefreshDataSubscription;
-
-    @BindView(R.id.rv_plugin)
-    RecyclerView rvPlugin;
-
-    @BindView(R.id.none_item_bg)
-    LinearLayout noneItemBackground;
 
     public static CloudPluginFragment newInstance() {
         return new CloudPluginFragment();
@@ -46,7 +38,9 @@ public class CloudPluginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_plugin_cloud, container, false);
-        mUnbinder = ButterKnife.bind(this, v);
+        rvPlugin = (RecyclerView) v.findViewById(R.id.rv_plugin);
+        noneItemBackground = (LinearLayout) v.findViewById(R.id.none_item_bg);
+
         mRealm = Realm.getDefaultInstance();
         return v;
     }
@@ -65,7 +59,6 @@ public class CloudPluginFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mUnbinder.unbind();
         mRealm.close();
         mRefreshDataSubscription.unsubscribe();
     }

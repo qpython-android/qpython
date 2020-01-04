@@ -8,7 +8,7 @@
 		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
 	</PROPS>
 	<RULES>
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
@@ -51,7 +51,7 @@
 		</SPAN>
 	</RULES>
 	<RULES SET="TAGS" DEFAULT="MARKUP" NO_WORD_SEP="-_">
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
@@ -71,13 +71,13 @@
 		<MARK_PREVIOUS TYPE="LABEL" MATCH_TYPE="OPERATOR">:</MARK_PREVIOUS>
 	</RULES>
 	<RULES SET="DTD-TAGS" DEFAULT="KEYWORD2" IGNORE_CASE="FALSE">
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
 		</SPAN>
 
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>--</BEGIN>
 			<END>--</END>
@@ -132,13 +132,13 @@
  	</RULES>
  	<!-- }}} -->
 	<RULES SET="ENTITY-TAGS" DEFAULT="KEYWORD2">
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>&lt;!--</BEGIN>
 			<END>--&gt;</END>
 		</SPAN>
 
-		<!-- SGML comment -->
+		<!-- Sfrom_contentment -->
 		<SPAN TYPE="COMMENT1">
 			<BEGIN>--</BEGIN>
 			<END>--</END>

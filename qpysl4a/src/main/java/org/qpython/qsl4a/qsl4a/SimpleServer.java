@@ -86,18 +86,18 @@ public abstract class SimpleServer {
 
     @Override
     public void run() {
-      Log.v("Server thread " + getId() + " started.");
+      LogUtil.v("Server thread " + getId() + " started.");
       try {
         handleConnection(mmSocket);
       } catch (Exception e) {
         if (!mStopServer) {
-          Log.e("Server error.", e);
+          LogUtil.e("Server error.", e);
         }
       } finally {
         close();
         mConnectionThreads.remove(this);
         notifyOnDisconnect();
-        Log.v("Server thread " + getId() + " died.");
+        LogUtil.v("Server thread " + getId() + " died.");
       }
     }
 
@@ -106,7 +106,7 @@ public abstract class SimpleServer {
         try {
           mmSocket.close();
         } catch (IOException e) {
-          Log.e(e.getMessage(), e);
+          LogUtil.e(e.getMessage(), e);
         }
       }
     }
@@ -153,7 +153,7 @@ public abstract class SimpleServer {
       address = InetAddress.getLocalHost();
       mServer = new ServerSocket(port, 5 /* backlog */, address);
     } catch (Exception e) {
-      Log.e("Failed to start server.", e);
+      LogUtil.e("Failed to start server.", e);
       return null;
     }
     int boundPort = start();
@@ -175,7 +175,7 @@ public abstract class SimpleServer {
       address = null;
       mServer = new ServerSocket(port, 5 /* backlog */, address);
     } catch (Exception e) {
-      Log.e("Failed to start server.", e);
+      LogUtil.e("Failed to start server.", e);
       return null;
     }
     int boundPort = start();
@@ -194,7 +194,7 @@ public abstract class SimpleServer {
     try {
       mServer = new ServerSocket(port, 5 /* backlog */);
     } catch (Exception e) {
-      Log.e("Failed to start server.", e);
+      LogUtil.e("Failed to start server.", e);
       return null;
     }
     int boundPort = start();
@@ -215,14 +215,14 @@ public abstract class SimpleServer {
             }
           } catch (IOException e) {
             if (!mStopServer) {
-              Log.e("Failed to accept connection.", e);
+              LogUtil.e("Failed to accept connection.", e);
             }
           }
         }
       }
     };
     mServerThread.start();
-    Log.v("Bound to " + mServer.getInetAddress());
+    LogUtil.v("Bound to " + mServer.getInetAddress());
     return mServer.getLocalPort();
   }
 
@@ -242,7 +242,7 @@ public abstract class SimpleServer {
     		mServer.close();
     	}
     } catch (IOException e) {
-      Log.e("Failed to close server socket.", e);
+      LogUtil.e("Failed to close server socket.", e);
     }
     // Since the server is not running, the mNetworkThreads set can only
     // shrink from this point onward. We can just stop all of the running helper

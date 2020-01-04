@@ -16,7 +16,7 @@
 
 package org.qpython.qsl4a.qsl4a.jsonrpc;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.rpc.MethodDescriptor;
 
 import java.lang.reflect.Constructor;
@@ -66,7 +66,7 @@ public abstract class RpcReceiverManager {
       object = constructor.newInstance(this);
       mReceivers.put(clazz, object);
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
 
     return object;

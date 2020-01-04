@@ -45,12 +45,12 @@ public class IoUtils {
       try {
         out.close();
       } catch (IOException e) {
-        Log.e(e.getMessage(), e);
+        LogUtil.e(e.getMessage(), e);
       }
       try {
         in.close();
       } catch (IOException e) {
-        Log.e(e.getMessage(), e);
+        LogUtil.e(e.getMessage(), e);
       }
     }
     return count;

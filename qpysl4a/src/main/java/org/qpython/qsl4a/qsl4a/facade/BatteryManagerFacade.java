@@ -24,7 +24,7 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
 
-import org.qpython.qsl4a.qsl4a.Log;
+import org.qpython.qsl4a.qsl4a.LogUtil;
 import org.qpython.qsl4a.qsl4a.jsonrpc.RpcReceiver;
 import org.qpython.qsl4a.qsl4a.rpc.Rpc;
 import org.qpython.qsl4a.qsl4a.rpc.RpcMinSdk;
@@ -118,7 +118,7 @@ public class BatteryManagerFacade extends RpcReceiver {
       Field f = BatteryManager.class.getField(name);
       return f.get(null).toString();
     } catch (Exception e) {
-      Log.e(e);
+      LogUtil.e(e);
     }
     return null;
   }

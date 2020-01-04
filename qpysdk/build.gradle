@@ -11,7 +11,7 @@ android {
         versionName "1.0"
 
         ndk {
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a',"arm64-v8a"
         }
     }
     buildTypes {
@@ -24,12 +24,22 @@ android {
         ndkBuild {
             path 'src/main/jni/Android.mk'
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
+    lintOptions {
+        abortOnError false
     }
 }
 
+
 dependencies {
-    //compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile files('libs/locale_platform.jar')
-    compile rootProject.ext.libGuava
+//    api fileTree(dir: 'libs', include: ['*.jar'])
+//    api files('libs/locale_platform.jar')
+    api rootProject.ext.libGoogleGuava
+    api project(':qbaselib')
+    api project(':qpysl4a')
 }

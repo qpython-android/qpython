@@ -1,29 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+<layout>
 
-    <include
-        layout="@layout/include_main_layout"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        android:theme="@style/nav_menu_style"
-        app:headerLayout="@layout/nav_header_main"
-        app:itemTextColor="@color/gray"
-        app:menu="@menu/activity_main_drawer" />
+        android:background="@drawable/img_home_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/img_homebar_bg"
+            android:padding="@dimen/layout_padding">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/layout_padding"
+                android:src="@drawable/img_home_logo"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ll_qpy_app"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:src="@drawable/ic_home_qpyapp"/>
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textColor="#FFF"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="25dp"
+            android:layout_weight="5"
+            android:background="#4A4A4A"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_terminal"
+                    style="@style/row_ll">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_terminal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/terminal"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_editor"
+                    style="@style/row_ll">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_editor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/editor"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
 
 
-</android.support.v4.widget.DrawerLayout>
+                <LinearLayout
+                    android:id="@+id/ll_file"
+                    style="@style/row_ll">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_file"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/file"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/iv_scan"
+                    style="@style/row_ll">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_scan"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/scan"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_library"
+                    style="@style/row_ll">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_library"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/qpypi_up"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_gist"
+                    style="@style/row_ll">
+
+                    <!--ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_gist"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/gist"
+                        android:textColor="#FFF"/-->
+                </LinearLayout>
+
+                <!--<LinearLayout-->
+                <!--android:id="@+id/ll_local_app"-->
+                <!--style="@style/row_ll">-->
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/ic_home_app"/>-->
+
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="@dimen/icon_margin_top"-->
+                <!--android:text="@string/local_app"-->
+                <!--android:textColor="#FFF"/>-->
+                <!--</LinearLayout>-->
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_setting"
+                    style="@style/row_ll">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_more"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/more"
+                        android:textColor="#FFF"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_course"
+                    style="@style/row_ll">
+
+                    <!--ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_course"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/course"
+                        android:textColor="#FFF"/-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_community"
+                    style="@style/row_ll">
+
+                    <!--ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home_club"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/icon_margin_top"
+                        android:text="@string/community"
+                        android:textColor="#FFF"/-->
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

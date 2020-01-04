@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="toast_recent_files_invalid">"File doesn't exist anymore, removing from recent list."</string>
+    <string name="toast_recent_files_deleted">File deleted from recent list</string>
+    <string name="toast_intent_invalid_uri">Unable to open the file, URI is invalid</string>
+    <string name="toast_intent_illegal">Unable to open the file</string>
+    <string name="toast_activity_open">Unable to load the file browser</string>
+    <string name="toast_memory_open">Unable to open the file, not enough memory</string>
+    <string name="toast_open_error">Unable to open the file (maybe the file is too big, or corrupted)</string>
+    <string name="toast_save_null">Unable to save, path is null</string>
+    <string name="toast_save_temp">Unable to save to temp file</string>
+    <string name="toast_save_delete">Unable to save (error while copying temp file to save location)</string>
+    <string name="toast_save_rename">Unable to save (error while copying temp file to save location)</string>
+    <string name="toast_save_success">File saved</string>
+    <string name="toast_folder_cant_write">"Can't use this folder cause it isn't writeable"</string>
+    <string name="toast_file_cant_read">"Can't use this file cause it isn't readable"</string>
+    <string name="toast_search_not_found">No match was found in the current file</string>
+    <string name="toast_search_eof">No more match found in the current file</string>
+    <string name="toast_search_no_input">Type a text to search in the search bar</string>
+    <string name="toast_filename_empty">The filename must not be empty</string>
+    <string name="toast_warn_no_undo">Nothing to undo anymore.</string>
+    <string name="toast_open_home_page_error">Default file not found, try setting a new one in the settings.</string>
+    <string name="toast_home_page_cant_read">"Can't open default file cause it isn't readable"</string>
+    <string name="toast_widget_select">Select a file to associate with this new widget</string>
+    <string name="toast_open_select">Select a file to open</string>
+    <string name="toast_home_page_select">Select a file to open when you launch Ted from your home screen</string>
+    <string name="toast_file_saved_auto">"The opened file was saved automatically, and will be opened at next startup"</string>
+
+
+    <!--  -->
+    <string name="toast_folder_doesnt_exist">"Can't display folder cause it doesn't exist"</string>
+    <string name="toast_folder_not_folder">Can\'t display folder cause it isn\'t a folder</string>
+    <string name="toast_folder_cant_read">"Can't display folder cause it isn't readable"</string>
+    <string name="toast_no_market">The Android Play Store is not present on this device</string>
+
+</resources>

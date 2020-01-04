@@ -6,11 +6,6 @@ package org.audiostream;
 
 import java.lang.Thread;
 import android.os.Process;
-import android.media.MediaRecorder;
-import android.media.MediaRecorder.AudioSource;
-import android.media.MediaRecorder.OutputFormat;
-import android.media.MediaRecorder.AudioEncoder;
-import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.util.Log;
 import java.nio.ByteBuffer;
