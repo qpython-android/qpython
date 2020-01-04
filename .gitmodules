@@ -1,0 +1,6 @@
+[submodule "qbaselib"]
+	path = qbaselib
+	url = https://github.com/QUSEIT/qbaselib.git
+[submodule "qftplib"]
+	path = qftplib
+	url = https://github.com/QUSEIT/qftplib.git
