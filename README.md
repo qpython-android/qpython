@@ -58,6 +58,8 @@ So if you have any issue need the core developer team to solve with higher prior
 **It's the official QPython Users & Contributors' Guide, please follow http://www.qpython.org for more information.**
 
 
+# 中文向导
+
 ## 设置开发环境
 
 git clone ...
