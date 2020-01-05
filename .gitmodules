@@ -1,9 +1,9 @@
 [submodule "qbaselib"]
 	path = qbaselib
-	url = https://github.com/QUSEIT/qbaselib.git
+	url = git@github.com:qpython-android/qbaselib.git
 [submodule "qftplib"]
 	path = qftplib
-	url = https://github.com/QUSEIT/qftplib.git
+	url = git@github.com:qpython-android/qftplib.git
 [submodule "qpysdk/src/main/jni"]
 	path = qpysdk/src/main/jni
 	url = git@github.com:qpython-android/pygamesdl2-jni.git
