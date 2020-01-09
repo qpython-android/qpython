@@ -8,6 +8,16 @@ QPython is a script engine that runs Python on android devices. It lets your and
 
 QPython has several millions users in the world already, it's a great project for programming users, welcome to join us for contributing to this project NOW.
 
+## Quick start
+
+- Macos + Android studio, (Ubuntu may work too)
+- git clone git@github.com:qpython-android/qpython.git
+- git submodule init
+- git submodule sync
+- git submodule update
+- build it...
+
+
 
 ## How to contribute
 COMMING SOON, AND WE NEED YOUR HELP AND CONTRIBUTE, WE WILL BE VERY GRATEFUL IF YOU CAN TELL US YOUR IDEA OR SUGGESTION.
