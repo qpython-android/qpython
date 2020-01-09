@@ -1,5 +1,5 @@
 # About
-<p align="center"><a href="http://www.qpython.org" target="_blank"><img src="https://www.qpython.org/images/bestpython.png"></a></p>
+<p align="center"><a href="https://play.google.com/store/apps/details?id=org.qpython.qpy" target="_blank"><img src="https://lh3.googleusercontent.com/E2sU2Mca-geyscWogW2ZsQC3dY1Y46a3HU35NoHv0AIBvCgQn_ZRZ2MOeA5tg3YkWg=s360-rw"></a></p>
 
 Welcome to read the QPython guide!
 
