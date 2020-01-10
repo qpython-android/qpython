@@ -22,6 +22,7 @@ QPython has several millions users in the world already, it's a great project fo
 ## How to contribute
 WE NEED YOUR HELP AND CONTRIBUTE, WE WILL BE VERY GRATEFUL IF YOU CAN TELL US YOUR IDEA OR SUGGESTION.
 
+IF YOU WANT TO PARTICIPATE THIS PROJECT, PLEASE SEND YOUR EMAIL TO ME, I WILL INVITE YOU INTO SLACK WHERE WE WILL DISCUSS HOW TO PUSH ON QPYTHON.
 
 - Email: support@qpython.org
 - Twitter: @qpython
