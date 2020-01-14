@@ -17,6 +17,10 @@ QPython has several millions users in the world already, it's a great project fo
 - git submodule update
 - build it...
 
+## How to ask QPython related questions
+
+- [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
+- [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
 
 ## Donation
 
