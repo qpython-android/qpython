@@ -20,8 +20,8 @@ QPython has several millions users in the world already, it's a great project fo
 
 ## Donation
 
-- harford
-- 晨晖 
+- harford (Wechat)
+- 晨晖 (Wechat)
 
 THANK YOU VERY MUCH FOR DONATION!
 
