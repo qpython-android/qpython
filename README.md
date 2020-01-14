@@ -18,6 +18,13 @@ QPython has several millions users in the world already, it's a great project fo
 - build it...
 
 
+## Donation
+
+- harford
+- 晨晖 
+
+THANK YOU VERY MUCH FOR DONATION!
+
 
 ## How to contribute
 WE NEED YOUR HELP AND CONTRIBUTE, WE WILL BE VERY GRATEFUL IF YOU CAN TELL US YOUR IDEA OR SUGGESTION.
