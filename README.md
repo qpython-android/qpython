@@ -19,6 +19,8 @@ QPython has several millions users in the world already, it's a great project fo
 
 ## How to ask QPython related questions
 
+Please tell us what phone, android version, QPython version, where did you install it and your detail question when asking.
+
 - [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
 - [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
 
