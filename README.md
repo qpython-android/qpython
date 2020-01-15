@@ -18,7 +18,7 @@ QPython has several millions users in the world already, it's a great project fo
 - build it...
 
 ## How to ask QPython related questions
-In order to benefit those who have the same issue with QPython, we suggest that you should ask the issues which is related with QPython within public techical communities.
+In order to benefit those guys who have the same issue with QPython, we suggest that you should ask the issue which is related with QPython within public techical communities.
 
 Please tell us your phone's informatioin, android os information, QPython version, where did you install it and the detailed stituation you have encountered.
 
