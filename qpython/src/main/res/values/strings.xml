@@ -741,4 +741,7 @@
     <string name="ip_address">My IP Adress</string>
     <string name="ip_address_need_wifi">Please connect your wifi</string>
 
+
+    <string name="editor_override">Do you want to override?</string>
+
 </resources>

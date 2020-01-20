@@ -9,7 +9,9 @@ import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -27,6 +29,7 @@ import org.qpython.qpy.main.app.CONF;
 import org.qpython.qpy.main.fragment.ExplorerFragment;
 import org.qpython.qpy.main.fragment.LocalFragment;
 import org.qpython.qpy.main.fragment.MyProjectFragment;
+import org.qpython.qpy.texteditor.ui.view.EnterDialog;
 import org.qpython.qpy.utils.NotebookUtil;
 import org.qpython.qpysdk.QPyConstants;
 
@@ -191,11 +194,26 @@ public class TedLocalActivity extends AppCompatActivity {
             String filename = ((ExplorerFragment) firstPageFragment).getCurPath() + "/" + fn;
             final File f = new File(filename);
             if (f.exists()) {
-                Toast.makeText(this, R.string.file_exist_hint, Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialog);
+                builder.setTitle(R.string.confirm)
+                        .setMessage(R.string.editor_override)
+                        .setPositiveButton(R.string.yes, (dialog, which) -> {
+                            setSaveResult(f.getAbsolutePath());
+
+                        })
+                        .setNegativeButton(R.string.cancel, ((dialog, which) -> nothing()))
+                        .show();
+
+
+                //Toast.makeText(this, R.string.file_exist_hint, Toast.LENGTH_SHORT).show();
             } else {
                 setSaveResult(f.getAbsolutePath());
             }
         }
+    }
+    private void nothing() {
+
+
     }
 
     protected boolean setSaveResult(String filepath) {

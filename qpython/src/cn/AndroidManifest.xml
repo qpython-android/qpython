@@ -42,81 +42,86 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 
     <uses-permission android:name="com.android.vending.BILLING"/>
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:name="org.qpython.qpy.main.app.App"
-        android:allowBackup="true"
-        android:hardwareAccelerated="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:largeHeap="true"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    android:networkSecurityConfig="@xml/network_security_config"
+    android:name="org.qpython.qpy.main.app.App"
+    android:allowBackup="true"
+    android:hardwareAccelerated="true"
+    android:icon="@drawable/ic_launcher"
+    android:label="@string/app_name"
+    android:largeHeap="true"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
+    <meta-data
+        android:name="com.google.firebase.messaging.default_notification_icon"
+        android:resource="@drawable/img_home_logo"/>
+
+    <service android:name=".main.service.QPyService"/>
+    <service android:name="org.qpython.qsl4a.QPyScriptService"/>
+    <service android:name=".main.service.FTPServerService"/>
+
+    <activity
+        android:name=".main.activity.SignInActivity"
+        android:launchMode="singleTask"/>
+
+    <activity
+        android:name="org.qpython.qpylib.MPyApi"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat"/>
+
+    <service
+        android:name="org.qpython.qpylib.MPyService"
+        android:exported="true"
+        tools:ignore="ExportedService"/>
+
+    <activity
+        android:name=".main.activity.SplashActivity"
+        android:theme="@style/FullscreenTheme"
+        >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+    </activity>
+
+    <activity
+        android:name="org.qpython.qpy.main.activity.HomeMainActivity"
+        android:launchMode="singleTask">
         <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/img_home_logo"/>
-
-        <service android:name=".main.service.QPyService"/>
-        <service android:name="org.qpython.qsl4a.QPyScriptService"/>
-        <service android:name=".main.service.FTPServerService"/>
-
-        <activity
-            android:name=".main.activity.SignInActivity"
-            android:launchMode="singleTask"/>
-
-        <activity
-            android:name="org.qpython.qpylib.MPyApi"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat"/>
-
-        <service
-            android:name="org.qpython.qpylib.MPyService"
-            android:exported="true"
-            tools:ignore="ExportedService"/>
-
-        <activity
-            android:name=".main.activity.SplashActivity"
-            android:theme="@style/FullscreenTheme"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name="org.qpython.qpy.main.activity.HomeMainActivity"
-            android:launchMode="singleTask">
-            <meta-data
-                android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts"/>
-        </activity>
+            android:name="android.app.shortcuts"
+            android:resource="@xml/shortcuts"/>
+    </activity>
 
 
-        <activity
-            android:name="org.qpython.qpy.main.activity.QWebViewActivity"
-            android:label="@string/browser">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+    <activity
+        android:name="org.qpython.qpy.main.activity.QWebViewActivity"
+        android:label="@string/browser">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:mimeType="text/plain"/>
-                <data android:mimeType="image/*"/>
-                <data
-                    android:host="course"
-                    android:path="/"
-                    android:scheme="qpython"/>
-            </intent-filter>
+            <data android:mimeType="text/plain"/>
+            <data android:mimeType="image/*"/>
+            <data
+                android:host="course"
+                android:path="/"
+                android:scheme="qpython"/>
+        </intent-filter>
 
-            <!-- Used to handle Chrome then menu then share.-->
+        <!-- Used to handle Chrome then menu then share.-->
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
