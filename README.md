@@ -24,6 +24,7 @@ Please tell us your phone's informatioin, android os information, QPython versio
 
 - [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
 - [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
+- [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
 
 ## Donation
 
