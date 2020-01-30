@@ -23,8 +23,10 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 Please tell us your phone's informatioin, android os information, QPython version, where did you install it and the detailed stituation you have encountered.
 
 - [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
-- [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
 - [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
+
+- [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
+- [在贴吧讨论 - Chinese](https://tieba.baidu.com/f?ie=utf-8&kw=qpython)
 
 ## Donation
 
