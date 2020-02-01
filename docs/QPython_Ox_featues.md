@@ -1,4 +1,6 @@
-# QPython OL featues
+# QPython Ox featues
+
+Because google play and some appstores have strict requirements on the permissions of the app, we use different strategies in different appstores, which is why the branch name will be different. For example, L means Limited, and S means it contains Sensitive permissions.
 
 ## Python
 - Python3 + Python2 basis
