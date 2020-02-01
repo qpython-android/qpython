@@ -24,7 +24,7 @@ QPython has QPython OS, QPython OL, QPython 3S, QPython 3L branches.
 
 ## Related 
 
-- [QPython 3S featues, QPython 3L features](https://github.com/qpython-android/qpython/blob/master/docs/QPython_3x_featues.md), [QPython One features,  QPython OL features](https://github.com/qpython-android/qpython/blob/master/docs/QPython_Ox_featues.md)
+- [QPython 3S and 3L features](https://github.com/qpython-android/qpython/blob/master/docs/QPython_3x_featues.md), [QPython One and OL features](https://github.com/qpython-android/qpython/blob/master/docs/QPython_Ox_featues.md)
 - [QPySL4A APIs](https://github.com/qpython-android/qpysl4a/blob/master/doc/en/APIs.rst) and [test scripts](https://github.com/qpython-android/qpysl4a/issues/1)
 - QPYPI Packages
 
