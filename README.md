@@ -31,7 +31,6 @@ QPython has QPython OS, QPython OL, QPython 3S, QPython 3L branches.
 ## How to ask QPython related questions
 In order to benefit those guys who have the same issue with QPython, we suggest that you should ask the issue which is related with QPython within public techical communities.
 
-Please tell us your phone's informatioin, android os information, QPython version, where did you install it and the detailed stituation you have encountered.
 
 ### English QPythonista Community
 
@@ -42,6 +41,13 @@ Please tell us your phone's informatioin, android os information, QPython versio
 
 - [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
 - [在贴吧讨论 - Chinese](https://tieba.baidu.com/f?ie=utf-8&kw=qpython)
+
+### Report issues
+
+Please tell us your phone's informatioin, android os information, QPython branch, and your code, where did you install it and the detailed stituation you have encountered.
+
+- [Report an app's issue](https://github.com/qpython-android/qpython/issues)
+- [Report an non-app's issue](https://github.com/qpython-android/qpython.org/issues)
 
 ## Donation
 
