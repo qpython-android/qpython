@@ -48,7 +48,7 @@ Please tell us your phone's informatioin, android os information, QPython branch
 
 - [Report an app's issue](https://github.com/qpython-android/qpython/issues)
 - [Report an non-app's issue](https://github.com/qpython-android/qpython.org/issues)
-- [Request to support a package](https://github.com/qpython-android/QPYPI/issues)
+- [Request to support a package](https://github.com/qpython-android/qpypi/issues)
 
 ## Donation
 
