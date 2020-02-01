@@ -17,6 +17,12 @@ QPython has several millions users in the world already, it's a great project fo
 - git submodule update
 - build it...
 
+## Related 
+
+- QPython 3S featues, QPython 3L features, QPython One features,  QPython OL features
+- [QPySL4A APIs](https://github.com/qpython-android/qpysl4a/blob/master/doc/en/APIs.rst) and [test scripts](https://github.com/qpython-android/qpysl4a/issues/1)
+- QPYPI Packages
+
 ## How to ask QPython related questions
 In order to benefit those guys who have the same issue with QPython, we suggest that you should ask the issue which is related with QPython within public techical communities.
 
