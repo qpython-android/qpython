@@ -22,6 +22,8 @@ QPython has QPython OS, QPython OL, QPython 3S, QPython 3L branches.
 - git submodule update
 - build it...
 
+Get more information from [wiki](https://github.com/qpython-android/qpython/wiki) for developing QPython
+
 ## Related 
 
 - [QPython 3S and 3L features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython OS and OL features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
