@@ -17,7 +17,7 @@ QPython 3x is mainly for experienced Python users, it can provide some in-depth 
 
 ## Quick start
 
-Current Project is the QPython Ox project.
+This repository is the QPython Ox project repository, you can follow the below steps to run it.
 
 - Macos + Android studio, (Ubuntu may work too)
 - git clone git@github.com:qpython-android/qpython.git
