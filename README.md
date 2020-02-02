@@ -9,10 +9,15 @@ QPython is a Python script engine on android. It let you use Python on android e
 
 QPython already has millions of users in the world, it's a opensource project too.
 
-For different usage scenarios, QPython has different branches, 
-QPython has QPython OS, QPython OL, QPython 3S, QPython 3L branches.
+For different usage scenarios, QPython has two branches, the QPython Ox and 3L.
+
+QPython Ox is mainly for programming learners, it provides more friendly features for beginners.
+QPython 3x is mainly for experienced Python users, it can provide some in-depth technical features.
+
 
 ## Quick start
+
+Current Project is the QPython Ox project.
 
 - Macos + Android studio, (Ubuntu may work too)
 - git clone git@github.com:qpython-android/qpython.git
