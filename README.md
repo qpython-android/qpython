@@ -5,15 +5,14 @@
 
 Welcome to the QPython project!
 
-QPython is a Python engine on android. It contains some amazing features like Python runtime environment, interpreter, editor, and the QPYI. It lets you use Python on android easily.
+QPython is the Python engine for android. It contains some amazing features such as Python runtime environment, interpreter, editor and QPYI. It makes it easy for you to use Python on Android.
 
-QPython already has millions of users in the world, it's a opensource project too.
+QPython already has millions of users worldwide and it is also an open source project.
 
-For different usage scenarios, QPython has two branches, the QPython Ox and 3L.
+For different usage scenarios, QPython has two branches, namely QPython Ox and 3L.
 
-QPython Ox is mainly for programming learners, it provides more friendly features for beginners.
-QPython 3x is mainly for experienced Python users, it can provide some in-depth technical features.
-
+QPython Ox is mainly aimed at programming learners, and it provides more friendly features for beginners.
+QPython 3x is mainly for experienced Python users, and it provides some in-depth technical features.
 
 ## Quick start
 
