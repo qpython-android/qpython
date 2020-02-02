@@ -29,7 +29,7 @@ Get more information from [wiki](https://github.com/qpython-android/qpython/wiki
 
 ## Related 
 
-- [QPython 3S and 3L features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython OS and OL features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
+- [QPython 3x features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython Ox features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
 - [QPySL4A APIs](https://github.com/qpython-android/qpysl4a/blob/master/doc/en/APIs.rst) and [test scripts](https://github.com/qpython-android/qpysl4a/issues/1)
 - QPYPI Packages
 
