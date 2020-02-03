@@ -96,12 +96,16 @@ android {
     //设置渠道
     productFlavors {
 
-        google {
+        ol {
+//            resValue "string", "app_name", "Qpython"
+            applicationId "org.qpython.qpy"
+        }
+        os {
 //            resValue "string", "app_name", "Qpython"
             applicationId "org.qpython.qpy"
         }
 
-        cn {
+        op {
 //            resValue "string", "app_name", "QpythonL"
             applicationId "com.hipipal.qpyplus"
         }
@@ -165,11 +169,17 @@ dependencies {
     api rootProject.ext.libSupportCardView
     api rootProject.ext.libSupportPreference
 
-    googleApi rootProject.ext.firebaseCore
-    googleApi rootProject.ext.firebaseMsg
-    googleApi rootProject.ext.firebaseAuth
-    googleApi rootProject.ext.firebaseDatabase
-    googleApi rootProject.ext.googlePlayServiceAuth
+    osApi rootProject.ext.firebaseCore
+    osApi rootProject.ext.firebaseMsg
+    osApi rootProject.ext.firebaseAuth
+    osApi rootProject.ext.firebaseDatabase
+    osApi rootProject.ext.googlePlayServiceAuth
+
+    olApi rootProject.ext.firebaseCore
+    olApi rootProject.ext.firebaseMsg
+    olApi rootProject.ext.firebaseAuth
+    olApi rootProject.ext.firebaseDatabase
+    olApi rootProject.ext.googlePlayServiceAuth
 
     api rootProject.ext.retrofit
     api rootProject.ext.retrofitCoverterGson
@@ -178,11 +188,11 @@ dependencies {
     api 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //    微信
-//    cnApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
-//        exclude group: 'com.android.support:support-v4'
-//    }
+    opApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+        exclude group: 'com.android.support:support-v4'
+    }
     //    友盟统计
-    cnApi('com.umeng.analytics:analytics:6.1.2') {
+    opApi('com.umeng.analytics:analytics:6.1.2') {
         exclude group: 'com.android.support:support-v4'
     }
 

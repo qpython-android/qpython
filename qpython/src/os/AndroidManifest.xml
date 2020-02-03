@@ -7,7 +7,6 @@
         android:name="android.hardware.touchscreen"
         android:required="false"/>
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -35,6 +34,19 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
     <uses-permission android:name="net.dinglisch.android.tasker.PERMISSION_RUN_TASKS" />
+    <!-- privacy sensitive permissions -->
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <uses-feature android:name="android.hardware.microphone" android:required="false"/>
     <uses-feature android:name="android.hardware.telephony" android:required="false"/>
@@ -51,7 +63,6 @@
     <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
 
     <application
-        android:networkSecurityConfig="@xml/network_security_config"
         android:name="org.qpython.qpy.main.app.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -60,7 +71,6 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -69,21 +79,24 @@
         <service android:name=".main.service.QPyService"/>
         <service android:name="org.qpython.qsl4a.QPyScriptService"/>
         <service android:name=".main.service.FTPServerService"/>
+        <service
+            android:name=".main.service.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".main.service.MyFirebaseInstanceIDService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
 
         <activity
             android:name=".main.activity.SignInActivity"
             android:launchMode="singleTask"/>
-
-        <activity
-            android:name="org.renpy.android.PythonSDLActivity"
-            android:hardwareAccelerated="true"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|uiMode|orientation"
-            android:launchMode="singleTask"
-            android:process=":python"
-            android:screenOrientation="user"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden">
-        </activity>
 
         <activity
             android:name="org.qpython.qpylib.MPyApi"
@@ -167,7 +180,7 @@
                 <!--<action android:name="android.intent.action.SEND"/>-->
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:mimeType="text/*"/>
                 <data android:scheme="file"/>
             </intent-filter>
@@ -175,7 +188,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="content"/>
                 <data android:host="*"/>
                 <data android:mimeType="*/*"/>
