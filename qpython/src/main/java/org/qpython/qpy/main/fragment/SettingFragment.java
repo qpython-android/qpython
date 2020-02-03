@@ -64,7 +64,7 @@ import rx.schedulers.Schedulers;
 public class SettingFragment extends PreferenceFragment {
     private static final String TAG = "SettingFragment";
 
-    private static final String URL_COMMUNITY = "http://www.qpython.org/community.html";
+    private static final String URL_COMMUNITY = "https://www.qpython.org/community.html";
 
     private LoadingDialog mLoadingDialog;
 
@@ -365,20 +365,20 @@ public class SettingFragment extends PreferenceFragment {
         });
 
         py3.setOnPreferenceClickListener(preference -> {
-            if (!isQPycRelease(false)) {
-
-                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                        .setTitle(R.string.notice)
-                        .setMessage(R.string.install_py3_first)
-                        .setPositiveButton(R.string.ok, (dialog1, which) ->  dialog1.dismiss())
-                        .create()
-                        .show();
-
-            } else {
+//            if (!isQPycRelease(false)) {
+//
+//                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+//                        .setTitle(R.string.notice)
+//                        .setMessage(R.string.install_py3_first)
+//                        .setPositiveButton(R.string.ok, (dialog1, which) ->  dialog1.dismiss())
+//                        .create()
+//                        .show();
+//
+//            } else {
                 NotebookUtil.killNBSrv(getActivity());
 
                 releasePython3(preference);
-            }
+//            }
             return false;
         });
 
@@ -439,12 +439,12 @@ public class SettingFragment extends PreferenceFragment {
                 return true;
             });
 
-//        findPreference("course").
-//            setOnPreferenceClickListener(preference ->
-//            {
-//                CourseActivity.start(getActivity());
-//                return true;
-//            });
+        findPreference("course").
+            setOnPreferenceClickListener(preference ->
+            {
+                CourseActivity.start(getActivity());
+                return true;
+            });
 
         findPreference("community").
             setOnPreferenceClickListener(preference ->
@@ -734,10 +734,18 @@ public class SettingFragment extends PreferenceFragment {
 
 
     private void releasePython3(Preference preference) {
+        QPySDK qpysdk = new QPySDK(this.getActivity(), this.getActivity());
         Observable.create((Observable.OnSubscribe<Boolean>) subscriber -> {
             try {
                 releaseQPycRes(NStorage.getSP(App.getContext(),QPyConstants.KEY_PY3_RES));
-                extractQPyCore(false);
+                //extractQPyCore(false);
+
+                qpysdk.extractRes("private31", getActivity().getFilesDir(), true);
+                qpysdk.extractRes("private32", getActivity().getFilesDir(), true);
+                qpysdk.extractRes("private33", getActivity().getFilesDir(),true);
+                File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
+
+                qpysdk.extractRes("public", new File(externalStorage + "/lib"));
 
                 subscriber.onNext(true);
                 subscriber.onCompleted();

@@ -323,7 +323,16 @@ public class HomeMainActivity extends BaseActivity {
             @Override
             public void onGrant() {
                 //这里只执行一次做为初始化
-                initQpySDK();
+
+                if (!NAction.isQPyInterpreterSet(HomeMainActivity.this)) {
+                    new AlertDialog.Builder(HomeMainActivity.this, R.style.MyDialog)
+                            .setTitle(R.string.notice)
+                            .setMessage(R.string.py2_or_3)
+                            .setPositiveButton(R.string.use_py3, (dialog1, which) -> initQpySDK3())
+                            .setNegativeButton(R.string.use_py2, (dialog1, which) -> initQpySDK())
+                            .create()
+                            .show();
+                }
             }
 
             @Override
@@ -336,16 +345,29 @@ public class HomeMainActivity extends BaseActivity {
     /**
      * 在工作线程中作初始化
      */
+    private void initQpySDK3() {
+        Log.d(TAG, "initQpySDK3");
+        NAction.setQPyInterpreter(HomeMainActivity.this, "3.x");
+        initQPy(true);
+        initIcon();
+    }
     private void initQpySDK() {
+        Log.d(TAG, "initQpySDK");
+        initQPy(false);
+        NAction.setQPyInterpreter(HomeMainActivity.this, "2.x");
+        initIcon();
+    }
+
+    private void initQPy(boolean py3) {
         new Thread(() -> {
             QPySDK qpysdk = new QPySDK(HomeMainActivity.this, HomeMainActivity.this);
             //这里会在切换qpy3的时候再次释放相关资源
-            qpysdk.extractRes("private1", HomeMainActivity.this.getFilesDir());
-            qpysdk.extractRes("private2", HomeMainActivity.this.getFilesDir());
-            qpysdk.extractRes("private3", HomeMainActivity.this.getFilesDir());
+            qpysdk.extractRes(py3?"private31":"private1", HomeMainActivity.this.getFilesDir());
+            qpysdk.extractRes(py3?"private32":"private2", HomeMainActivity.this.getFilesDir());
+            qpysdk.extractRes(py3?"private33":"private3", HomeMainActivity.this.getFilesDir());
             File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
             FileHelper.createDirIfNExists(externalStorage + "/cache");
-            qpysdk.extractRes("public", new File(externalStorage + "/lib"));
+            qpysdk.extractRes(py3?"public3":"public", new File(externalStorage + "/lib"));
             extractRes();
         }).start();
     }

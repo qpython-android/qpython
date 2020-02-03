@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <!-- -->
     <!-- Titles -->
     <string name="title_editor">%1$s</string>

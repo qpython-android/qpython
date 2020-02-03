@@ -25,7 +25,6 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
 
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -67,16 +66,6 @@
         <activity
             android:name=".main.activity.SignInActivity"
             android:launchMode="singleTask"/>
-
-        <activity
-            android:name="org.renpy.android.PythonActivity"
-            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|uiMode"
-            android:launchMode="singleTask"
-            android:process=":python"
-            android:screenOrientation="user"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateAlwaysHidden">
-        </activity>
 
         <activity
             android:name="org.qpython.qpylib.MPyApi"
@@ -205,8 +194,6 @@
 
         <activity
             android:name=".main.activity.AboutActivity"/>
-
-        <activity android:name=".texteditor.OAboutActivity"/>
 
         <activity
             android:name=".main.activity.AppListActivity"
@@ -354,9 +341,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".main.activity.CourseCrowdfundingActivity"/>
         <activity android:name=".main.activity.CourseIndexFundingActivity"/>
-        <activity android:name=".main.activity.CourseFreeActivity"/>
         <activity android:name=".main.activity.FundingPurchaseActivity"/>
         <activity
             android:name=".main.activity.NotebookActivity"

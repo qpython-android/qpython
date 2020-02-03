@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
 
-    <string name="app_name">QPython</string>
+    <string name="app_name">QPython 3P</string>
     <string name="terminal">コンソール</string>
     <string name="recent">最近</string>
     <string name="snippet">スニペット</string>

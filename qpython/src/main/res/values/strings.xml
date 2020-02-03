@@ -547,6 +547,9 @@
 
     <string name="file_new">File</string>
     <string name="install_py3">Install Python 3</string>
+    <string name="py2_or_3">Do you want to use Python 3 or Python 2 by default?\nYou can change it in setting later.</string>
+    <string name="use_py2">Use Python 2</string>
+    <string name="use_py3">Use Python 3</string>
     <string name="py2_now">Using Python 2 now</string>
     <string name="py3_now">Using Python 3 now</string>
     <string name="install_py3_first">To switch to Python 3, please download it\'s resource</string>
