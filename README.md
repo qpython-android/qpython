@@ -12,7 +12,7 @@ QPython already has millions of users worldwide and it is also an open source pr
 For different usage scenarios, QPython has two branches, namely QPython Ox and 3x.
 
 QPython Ox is mainly aimed at programming learners, and it provides more friendly features for beginners.
-QPython 3x is mainly for experienced Python users, and it provides some in-depth technical features.
+QPython 3x is mainly for experienced Python users, and it provides some advanced technical features.
 
 ## Quick start
 
