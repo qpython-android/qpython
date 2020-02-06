@@ -1,12 +1,9 @@
 <resources tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
-
-
     <string name="terminal">Терминал</string>
     <string name="library">Библиотека</string>
     <string name="recent">Недавние</string>
     <string name="script">Скрипт</string>
     <string name="project">Проект</string>
-
 
     <string name="setting">Настройки</string>
     <string name="editor">Редактор</string>
@@ -15,7 +12,6 @@
     <string name="more">Больше</string>
     <string name="sl4a_server">SL4A Сервер</string>
     <string name="ftp_server">FTP сервер</string>
-
 
     <!---->
     <string name="application_terminal">Терминал</string>

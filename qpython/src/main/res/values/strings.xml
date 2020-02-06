@@ -1,25 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
-    <string name="aipylibs_version" translatable="false">20171016.1205</string>
-    <string name="notebook3_version" translatable="false">20180805.1205</string>
+    <string name="notebook3_version" translatable="false">20200206.1205</string>
     <string name="notebook2_version" translatable="false">20180805.1205</string>
-    <string name="aipylibs_file_name" translatable="false">aipylibs.mp3</string>
     <string name="notebook3libs_file_name" translatable="false">notebook3.mp3</string>
     <string name="notebook2libs_file_name" translatable="false">notebook2.mp3</string>
 
-    <string name="private1_version" translatable="false">1347438900.05</string>
-    <string name="private2_version" translatable="false">1347438994.05</string>
-    <string name="private3_version" translatable="false">1347438700.05</string>
+    <string name="private1_version" translatable="false">1347438995.05</string>
+    <string name="private2_version" translatable="false">1347438995.05</string>
+    <string name="private3_version" translatable="false">1347438995.05</string>
 
-    <string name="private21_version" translatable="false">1347438900.05</string>
-    <string name="private22_version" translatable="false">1347438800.05</string>
-    <string name="private23_version" translatable="false">1347438700.05</string>
-
-    <string name="private31_version" translatable="false">1347438761.05</string>
-    <string name="private32_version" translatable="false">1347438781.05</string>
-    <string name="private33_version" translatable="false">1347438761.05</string>
+    <string name="private31_version" translatable="false">1347438791.05</string>
+    <string name="private32_version" translatable="false">1347438791.05</string>
+    <string name="private33_version" translatable="false">1347438791.05</string>
 
     <string name="public_version" translatable="false">12000</string>
-    <string name="public3_version" translatable="false">1347438600.05</string>
+    <string name="public3_version" translatable="false">1347438610.05</string>
+
     <string name="privacy_html" translatable="false">https://www.qpython.com/privacy.html</string>
     <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
     <string name="lower_project" translatable="false">projects</string>
