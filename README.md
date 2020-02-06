@@ -7,6 +7,8 @@ Welcome to the QPython project!
 
 QPython is the Python engine for android. It contains some amazing features such as Python interpreter, runtime environment, editor and QPYI and integrated SL4A. It makes it easy for you to use Python on Android. And it's FREE.
 
+Compared with other Python apps, QPython mainly solves how to use Python to drive your Android device work. Good SL4A support is our main goal, such as android's camera, sensor, sms media APIs etc.
+
 QPython already has millions of users worldwide and it is also an open source project.
 
 For different usage scenarios, QPython has two branches, namely QPython Ox and 3x.
