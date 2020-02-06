@@ -383,17 +383,17 @@ public class TedFragment extends Fragment implements Constants, TextWatcher, Ind
             case QPyConstants.CONSOLE_PROJECT:
                 s = readFile(path + "QPy_ConsoleApp");
                 break;
-            case QPyConstants.KIVY_PROJECT:
-                s = readFile(path + "QPy_KivyApp");
-                break;
+//            case QPyConstants.KIVY_PROJECT:
+//                s = readFile(path + "QPy_KivyApp");
+//                break;
             case QPyConstants.PYGAME_PROJECT:
                 s = readFile(path + "QPy_PygameApp");
                 break;
-            case QPyConstants.QUIET_PROJECT:
-                s = readFile(path + "QPy_QuietApp");
+            case QPyConstants.QSL4A_PROJECT:
+                s = readFile(path + "QPy_SL4AApp");
                 break;
             default:
-                s = readFile(path + "QPy_WebApp");
+                s = readFile(path + "QPy_ConsoleApp");
         }
         binding.editor.getText().insert(0, s);
     }

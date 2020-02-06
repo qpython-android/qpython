@@ -386,7 +386,7 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
         }
 
         // init snipples
-        String[] filesList = {"Apache_License", "The_MIT_License", "QPy_WebApp", "QPy_QuietApp", "QPy_PygameApp", "QPy_KivyApp", "QPy_ConsoleApp"};
+        String[] filesList = {"Apache_License", "The_MIT_License", "QPy_WebApp", "QPy_ConsoleApp", "QPy_SL4AApp", "QPy_PygameApp"};
         for (int i=0;i<filesList.length;i++) {
             String fn = filesList[i];
             File f = new File(path + "/" + fn);
@@ -492,18 +492,18 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
                             newProject(QPyConstants.CONSOLE_PROJECT);
                         }
                     }));
-                    itemBeanList.add(new PopupItemBean(getString(R.string.quiet_app_project), v -> {
-                        if (mDirty) {
-                            promptSaveDirty(((dialog, which) -> newProject(QPyConstants.QUIET_PROJECT)));
-                        } else {
-                            newProject(QPyConstants.QUIET_PROJECT);
-                        }
-                    }));
                     itemBeanList.add(new PopupItemBean(getString(R.string.webapp_project), v -> {
                         if (mDirty) {
                             promptSaveDirty(((dialog, which) -> newProject(QPyConstants.WEB_PROJECT)));
                         } else {
                             newProject(QPyConstants.WEB_PROJECT);
+                        }
+                    }));
+                    itemBeanList.add(new PopupItemBean(getString(R.string.qsl4a_app_project), v -> {
+                        if (mDirty) {
+                            promptSaveDirty(((dialog, which) -> newProject(QPyConstants.QSL4A_PROJECT)));
+                        } else {
+                            newProject(QPyConstants.QSL4A_PROJECT);
                         }
                     }));
 
@@ -912,9 +912,8 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
                 .show();
     }
 
-
     /**
-     * @param type WEB_PROJECT/CONSOLE_PROJECT/KIVY_PROJECT
+     * @param type WEB_PROJECT/CONSOLE_PROJECT/QSL4A_PROJECT
      */
     protected void newProject(final String type) {
         NStorage.setSP(getApplicationContext(), "qedit.last_filename", "");

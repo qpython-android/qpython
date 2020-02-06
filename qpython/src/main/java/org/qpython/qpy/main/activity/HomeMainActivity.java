@@ -367,6 +367,7 @@ public class HomeMainActivity extends BaseActivity {
             qpysdk.extractRes(py3?"private33":"private3", HomeMainActivity.this.getFilesDir());
             File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
             FileHelper.createDirIfNExists(externalStorage + "/cache");
+            FileHelper.createDirIfNExists(externalStorage + "/log");
             qpysdk.extractRes(py3?"public3":"public", new File(externalStorage + "/lib"));
             extractRes();
         }).start();

@@ -6,7 +6,10 @@ There is another Sample project: https://github.com/qpython-android/qpy-calcount
 """
 import qpy
 import androidhelper
-import urllib.request as ur
+try:
+    import urllib.request as ur
+except:
+    import urllib as ur
 from qsl4ahelper.fullscreenwrapper2 import *
 
 droid = androidhelper.Android()

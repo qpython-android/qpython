@@ -11,6 +11,7 @@ public interface QPyConstants extends BASE_CONF {
     final String KIVY_PROJECT    = "kivy";
     final String PYGAME_PROJECT    = "pygame";
     final String QUIET_PROJECT    = "quiet";
+    final String QSL4A_PROJECT    = "qsl4a";
 
     String BASE_PATH         = "qpython";
     String AD_URL            = "https://apu2.quseit.com/ad/";

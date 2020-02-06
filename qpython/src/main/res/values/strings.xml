@@ -352,7 +352,7 @@
     <string name="console_app_project">ConsoleApp</string>
     <string name="kivy_app_project">KivyApp</string>
     <string name="pygame_app_project">PygameApp</string>
-    <string name="quiet_app_project">QuietScript</string>
+    <string name="qsl4a_app_project">QSL4AApp</string>
 
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
@@ -547,7 +547,7 @@
 
     <string name="file_new">File</string>
     <string name="install_py3">Install Python 3</string>
-    <string name="py2_or_3">Do you want to use Python 3 or Python 2 by default?\nYou can change it in setting later.</string>
+    <string name="py2_or_3">Do you want to use Python 3 or 2 by default ?</string>
     <string name="use_py2">Use Python 2</string>
     <string name="use_py3">Use Python 3</string>
     <string name="py2_now">Using Python 2 now</string>
@@ -557,9 +557,9 @@
 
     <string name="choose_py3_inter"><![CDATA[You have downloaded it, you can switch to Python 3 to use it\'s interpreter]]></string>
     <string name="choose_py2compatible_inter"><![CDATA[You have downloaded it, you can switch to Python 2 Compatible to use it\'s interpreter]]></string>
-    <string name="install_notebook_first">To Start Notebook Service, please download it\'s resource</string>
+    <string name="install_notebook_first">To Start Notebook Service, please install first</string>
 
-    <string name="choose_notebook_inter"><![CDATA[You have downloaded it, you can Start Notebook Service now]]></string>
+    <string name="choose_notebook_inter"><![CDATA[You can Start Notebook Service now]]></string>
 
     <string name="notebook_first">First run, it will extract the notebook resource</string>
 
@@ -583,7 +583,7 @@
     <string name="notebook">QPyNotebook</string>
     <string name="notebook_for_py">QPyNotebook for Python {0}</string>
 
-    <string name="install_notebook">Download Notebook Resource</string>
+    <string name="install_notebook">Install QPyNotebook</string>
     <string name="notebook_service">Notebook Service</string>
     <string name="notebook_service_not_ready">Notebook Service is not ready, please retry</string>
     <string name="notebook_service_restart">Do you want to reload this notebook or restart the service?</string>
@@ -615,7 +615,7 @@
     <string name="install_py3_hint">Confirm to download Python 3 Resource?</string>
     <string name="install_py2compatible_hint">Confirm to download Python 2 Compatible Resource?</string>
 
-    <string name="install_notebook_hint">Confirm to download QPyNotebook Resources</string>
+    <string name="install_notebook_hint">Install QPyNotebook</string>
 
     <string name="open_app_market">Install with App</string>
     <string name="download_it">Download it</string>
@@ -673,8 +673,9 @@
     <string name="start">Start</string>
     <string name="buy_course">Buy Course</string>
     <string name="rmb">%s RMB</string>
-    <string name="notebook_installed">You can browse the ipynb file from explorer</string>
-    <string name="notebook_not_install">QPyNotebook is not installed</string>
+    <string name="notebook_installed">You can browse the ipynb file from explorer</string>    <string name="notebook_not_started">QPyNotebook is not started</string>
+
+    <string name="notebook_py3_support">QPyNotebook only supports Python 3</string>
     <string name="notebook_enable" translatable="false">notebook_enable</string>
     <string name="start_learn">Start to learn</string>
     <string name="entertainment">Entertainment</string>

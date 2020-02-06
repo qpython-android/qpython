@@ -147,9 +147,9 @@ public class MyCourseFragment extends Fragment {
                 "                \"downloads\": \"10,000+\",\n" +
                 "                \"level\": 1,\n" +
                 "                \"rdate\": \"2017-06-15\",\n" +
-                "                \"link\": \"http://edu.qpython.org/qpython-quick-start/index.html\",\n" +
+                "                \"link\": \"https://edu.qpython.org/qpython-quick-start/index.html\",\n" +
                 "                \"type\": \"free\",\n" +
-                "                \"logo\": \"http://edu.qpython.org/static/course-qpython-quick-start.png\",\n" +
+                "                \"logo\": \"https://edu.qpython.org/static/course-qpython-quick-start.png\",\n" +
                 "                \"smodule\": \"qpython-quick-start\"\n" +
                 "            },\n" +
                 "            \"list\": [\n" +
@@ -169,9 +169,9 @@ public class MyCourseFragment extends Fragment {
                 "                \"downloads\": \"10,000+\",\n" +
                 "                \"level\": 1,\n" +
                 "                \"rdate\": \"2017-06-15\",\n" +
-                "                \"link\": \"http://edu.qpython.org/qpython-quick-start/index.html\",\n" +
+                "                \"link\": \"https://edu.qpython.org/qpython-quick-start/index.html\",\n" +
                 "                \"type\": \"free\",\n" +
-                "                \"logo\": \"http://edu.qpython.org/static/course-qpython-quick-start.png\",\n" +
+                "                \"logo\": \"https://edu.qpython.org/static/course-qpython-quick-start.png\",\n" +
                 "                \"smodule\": \"qpython-quick-start\"\n" +
                 "            },\n" +
                 "            \"list\": [\n" +

@@ -44,7 +44,7 @@
         android:key="@string/key_py_inter"
         android:title="@string/py_inter">
 
-        <PreferenceCategory
+        <!--PreferenceCategory
             android:key="py_inter_update"
             android:title="@string/py_resources">
 
@@ -57,7 +57,7 @@
                 android:key="@string/key_update_qpy2compatible"
                 android:title="@string/update_py2compatible"/>
 
-        </PreferenceCategory>
+        </PreferenceCategory-->
 
         <PreferenceCategory
             android:key="py_inter_update"
@@ -69,15 +69,13 @@
 
             <Preference
                 android:key="@string/key_py2"
-                android:summary="@string/switch_py2_libs"
                 android:title="@string/switch_py2"/>
 
 
-
-            <Preference
+            <!--Preference
                 android:key="@string/key_py2compatible"
                 android:summary="@string/switch_py2_libs"
-                android:title="@string/switch_py2compatible"/>
+                android:title="@string/switch_py2compatible"/-->
 
         </PreferenceCategory>
     </PreferenceScreen>
@@ -88,17 +86,17 @@
         android:summary="@string/aipy_install"
         android:title="@string/install_aipy"/-->
     <PreferenceScreen
-        android:summary="@string/notebook_not_install"
+        android:summary="@string/notebook_not_started"
         android:key="@string/key_notebook_page"
         android:title="@string/notebook">
-        <PreferenceCategory
+        <!--PreferenceCategory
             android:key="notebook_update"
             android:title="@string/notebook_res">
             <Preference
                 android:key="@string/key_notebook"
                 android:title="@string/install_notebook"/>
 
-        </PreferenceCategory>
+        </PreferenceCategory-->
 
         <PreferenceCategory
             android:key="notebook_update"

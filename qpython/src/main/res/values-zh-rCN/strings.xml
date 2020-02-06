@@ -409,7 +409,7 @@
     <string name="aipy_install">安装AIPY</string>
     <string name="aipy_installed">AIPY已安装</string>
     <string name="install_aipy">启用AIPY</string>
-    <string name="install_notebook">安装 或 更新QPyNotebook资源</string>
+    <string name="install_notebook">安装 QPyNotebook</string>
     <string name="support_us">支持我们</string>
     <string name="start">开始</string>
     <string name="buy_course">购买课程</string>

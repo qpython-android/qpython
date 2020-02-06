@@ -326,7 +326,7 @@ public class NotebookUtil {
         return NAction.isQPy3(context)?QPyConstants.KEY_NOTEBOOK_RES: QPyConstants.KEY_NOTEBOOK2_RES;
     }
     public static String getNBLink(Context context) {
-        String nb_link = NAction.isQPy3(context)?"http://dl.qpy.io/notebook3.json":"http://dl.qpy.io/notebook2.json";
+        String nb_link = NAction.isQPy3(context)?"https://dl.qpy.io/notebook3.json":"https://dl.qpy.io/notebook2.json";
         return nb_link+"?"+NAction.getUserUrl(context);
     }
 

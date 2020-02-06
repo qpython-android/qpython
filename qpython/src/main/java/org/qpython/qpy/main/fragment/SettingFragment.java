@@ -74,8 +74,8 @@ public class SettingFragment extends PreferenceFragment {
     private CheckBoxPreference sl4a, running_state, root, display_pwd, notebook_run;
 
     private PreferenceScreen py_inter,notebook_page;
-    private Preference py3,py2,py2compatible,notebook_res;
-    private Preference update_qpy3,update_qpy2compatible;
+    private Preference py3,py2; //notebook_res, py2compatible
+    //private Preference update_qpy3,update_qpy2compatible;
 
     private SwitchPreference log, app;
     private BroadcastReceiver ftpServerReceiver = new BroadcastReceiver() {
@@ -149,16 +149,22 @@ public class SettingFragment extends PreferenceFragment {
         py_inter = (PreferenceScreen) findPreference(getString(R.string.key_py_inter));
         notebook_page = (PreferenceScreen) findPreference(getString(R.string.key_notebook_page));
         notebook_page.setTitle(MessageFormat.format(getString(R.string.notebook_for_py), NAction.getPyVer(getActivity())));
-        notebook_page.setSummary(NotebookUtil.isNotebookLibInstall(getActivity())?R.string.notebook_installed : R.string.notebook_not_install);
+        if (NAction.isQPy3(getActivity())) {
+            notebook_page.setSummary(NotebookUtil.isNotebookLibInstall(getActivity()) ? R.string.notebook_installed : R.string.notebook_not_started);
 
-        notebook_res = (Preference) findPreference(getString(R.string.key_notebook));
-        notebook_res.setSummary((NotebookUtil.isNotebookLibInstall(getActivity())||NotebookUtil.isNotebookInstall(getActivity()))?R.string.choose_notebook_inter:R.string.install_notebook_first);
+        } else {
+            notebook_page.setSummary( R.string.notebook_py3_support);
+
+        }
+
+        //notebook_res = (Preference) findPreference(getString(R.string.key_notebook));
+        //notebook_res.setSummary((NotebookUtil.isNotebookLibInstall(getActivity())||NotebookUtil.isNotebookInstall(getActivity()))?R.string.choose_notebook_inter:R.string.install_notebook_first);
         notebook_run = (CheckBoxPreference) findPreference(getString(R.string.key_notebook_run));
 
-        update_qpy3 = (Preference)findPreference(getString(R.string.key_update_qpy3));
-        update_qpy2compatible = (Preference)findPreference(getString(R.string.key_update_qpy2compatible));
+        //update_qpy3 = (Preference)findPreference(getString(R.string.key_update_qpy3));
+        //update_qpy2compatible = (Preference)findPreference(getString(R.string.key_update_qpy2compatible));
         py2 = (Preference) findPreference(getString(R.string.key_py2));
-        py2compatible = (Preference) findPreference(getString(R.string.key_py2compatible));
+        //py2compatible = (Preference) findPreference(getString(R.string.key_py2compatible));
         py3 = (Preference) findPreference(getString(R.string.key_py3));
 
 
@@ -248,93 +254,100 @@ public class SettingFragment extends PreferenceFragment {
             return false;
         });
 
-        notebook_res.setOnPreferenceClickListener(preference -> {
-            Log.d(TAG, "notebook_res.setOnPreferenceClickListener");
+//        notebook_res.setOnPreferenceClickListener(preference -> {
+//            Log.d(TAG, "notebook_res.setOnPreferenceClickListener");
+//
+//            installNotebook();
+//            return false;
+//
+//        });
 
-            installNotebook();
-            return false;
+//        if (isQPycRelease(false)) {
+//            update_qpy3.setSummary(getString(R.string.choose_py3_inter));
+//        } else {
+//            update_qpy3.setSummary(getString(R.string.install_py3_first));
+//
+//        }
+//        if (isQPycRelease(true)) {
+//            update_qpy2compatible.setSummary(getString(R.string.choose_py2compatible_inter));
+//        } else {
+//            update_qpy2compatible.setSummary(getString(R.string.install_py2compatible_first));
+//        }
 
-        });
+//        update_qpy2compatible.setOnPreferenceClickListener(preference -> {
+//
+//            new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+//                    .setTitle(R.string.notice)
+//                    .setMessage(R.string.install_py2compatible_hint)
+//                    .setPositiveButton(R.string.download_it, (dialog1, which)->getQPYC(true))
+//                    .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
+//                    .create()
+//                    .show();
+//
+//
+//
+//            return false;
+//        });
 
+//        update_qpy3.setOnPreferenceClickListener(preference -> {
+//            Log.d(TAG, "update_qpy3.setOnPreferenceClickListener");
+//            new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+//                    .setTitle(R.string.notice)
+//                    .setMessage(R.string.install_py3_hint)
+//                    .setPositiveButton(R.string.download_it, (dialog1, which)->getQPYC(false))
+//                    .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
+//                    .create()
+//                    .show();
+//
+//            return false;
+//
+//        });
+        if (!NAction.isQPy3(getActivity())) {
+            notebook_run.setSummary(getString(R.string.notebook_py3_support));
+            notebook_run.setEnabled(false);
 
-        if (isQPycRelease(false)) {
-            update_qpy3.setSummary(getString(R.string.choose_py3_inter));
         } else {
-            update_qpy3.setSummary(getString(R.string.install_py3_first));
+            notebook_run.setChecked(NotebookUtil.isNBSrvSet(getActivity()));
 
-        }
-        if (isQPycRelease(true)) {
-            update_qpy2compatible.setSummary(getString(R.string.choose_py2compatible_inter));
-        } else {
-            update_qpy2compatible.setSummary(getString(R.string.install_py2compatible_first));
-        }
+            notebook_run.setOnPreferenceChangeListener((preference, newValue) -> {
 
-        update_qpy2compatible.setOnPreferenceClickListener(preference -> {
+                if (NotebookUtil.isNotebookInstall(getActivity()) && !NotebookUtil.isNotebookLibInstall(getActivity())) {
 
-            new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                    .setTitle(R.string.notice)
-                    .setMessage(R.string.install_py2compatible_hint)
-                    .setPositiveButton(R.string.download_it, (dialog1, which)->getQPYC(true))
-                    .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
-                    .create()
-                    .show();
+                    releaseNotebook(preference);
+                    /*new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+                            .setTitle(R.string.notice)
+                            .setMessage(R.string.notebook_first)
+                            .setPositiveButton(R.string.ok, (dialog1, which) -> )
+                            .create()
+                            .show();*/
 
 
+                } else if (NotebookUtil.isNotebookLibInstall(getActivity())){
 
-            return false;
-        });
+                    if ((boolean)newValue) {
+                        NotebookUtil.startNotebookService2(getActivity());
 
-        update_qpy3.setOnPreferenceClickListener(preference -> {
-            Log.d(TAG, "update_qpy3.setOnPreferenceClickListener");
-            new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                    .setTitle(R.string.notice)
-                    .setMessage(R.string.install_py3_hint)
-                    .setPositiveButton(R.string.download_it, (dialog1, which)->getQPYC(false))
-                    .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
-                    .create()
-                    .show();
-
-            return false;
-
-        });
-
-        notebook_run.setChecked(NotebookUtil.isNBSrvSet(getActivity()));
-
-        notebook_run.setOnPreferenceChangeListener((preference, newValue) -> {
-
-            if (NotebookUtil.isNotebookInstall(getActivity()) && !NotebookUtil.isNotebookLibInstall(getActivity())) {
-
-                releaseNotebook(preference);
-                /*new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                        .setTitle(R.string.notice)
-                        .setMessage(R.string.notebook_first)
-                        .setPositiveButton(R.string.ok, (dialog1, which) -> )
-                        .create()
-                        .show();*/
+                    } else {
+                        NotebookUtil.killNBSrv(getActivity());
+                    }
+                    notebook_page.setSummary(NotebookUtil.isNotebookLibInstall(getActivity())?R.string.notebook_installed : R.string.notebook_not_started);
 
 
-            } else if (NotebookUtil.isNotebookLibInstall(getActivity())){
-
-                if ((boolean)newValue) {
-                    NotebookUtil.startNotebookService2(getActivity());
                 } else {
-                    NotebookUtil.killNBSrv(getActivity());
+
+                    new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+                            .setTitle(R.string.notice)
+                            .setMessage(R.string.install_notebook_first)
+                            .setPositiveButton(R.string.ok, (dialog1, which) -> dialog1.dismiss())
+                            .create()
+                            .show();
+                    notebook_run.setChecked(false);
+                    return false;
                 }
 
-            } else {
-
-                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                        .setTitle(R.string.notice)
-                        .setMessage(R.string.install_notebook_first)
-                        .setPositiveButton(R.string.ok, (dialog1, which) -> dialog1.dismiss())
-                        .create()
-                        .show();
-                notebook_run.setChecked(false);
-                return false;
-            }
-
-            return true;
-        });
+                return true;
+            });
+        }
 
         py2.setOnPreferenceClickListener(preference -> {
             Log.d(TAG, "py2.setOnPreferenceClickListener");
@@ -344,25 +357,25 @@ public class SettingFragment extends PreferenceFragment {
             return false;
         });
 
-        py2compatible.setOnPreferenceClickListener(preference -> {
-            Log.d(TAG, "py2.setOnPreferenceClickListener");
-            NotebookUtil.killNBSrv(getActivity());
-
-            if (!isQPycRelease(true)) {
-                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                        .setTitle(R.string.notice)
-                        .setMessage(R.string.install_py2compatible_first)
-                        .setPositiveButton(R.string.ok, (dialog1, which) ->  dialog1.dismiss())
-                        .create()
-                        .show();
-
-            } else {
-                NotebookUtil.killNBSrv(getActivity());
-
-                releasePython2Compatable(preference);
-            }
-            return false;
-        });
+//        py2compatible.setOnPreferenceClickListener(preference -> {
+//            Log.d(TAG, "py2.setOnPreferenceClickListener");
+//            NotebookUtil.killNBSrv(getActivity());
+//
+//            if (!isQPycRelease(true)) {
+//                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+//                        .setTitle(R.string.notice)
+//                        .setMessage(R.string.install_py2compatible_first)
+//                        .setPositiveButton(R.string.ok, (dialog1, which) ->  dialog1.dismiss())
+//                        .create()
+//                        .show();
+//
+//            } else {
+//                NotebookUtil.killNBSrv(getActivity());
+//
+//                releasePython2Compatable(preference);
+//            }
+//            return false;
+//        });
 
         py3.setOnPreferenceClickListener(preference -> {
 //            if (!isQPycRelease(false)) {
@@ -605,21 +618,27 @@ public class SettingFragment extends PreferenceFragment {
             @Override
             public void onNext(Boolean aBoolean) {
                 Log.d(TAG, "onNext");
-                
+
                 NotebookUtil.startNotebookService2(getActivity());
+                notebook_page.setSummary(NotebookUtil.isNotebookLibInstall(getActivity())?R.string.notebook_installed : R.string.notebook_not_started);
+
 
             }
         });
     }
 
     private void installNotebook() {
-        new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-            .setTitle(R.string.notice)
-            .setMessage(R.string.install_notebook_hint)
-            .setPositiveButton(R.string.download_it, (dialog1, which)->getNotebook())
-            .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
-            .create()
-            .show();
+        new Thread(() -> {
+            QPySDK qpySDK = new QPySDK(App.getContext(), getActivity());
+            qpySDK.extractRes("notebook" + (NAction.isQPy3(getActivity()) ? "3" : "2"), new File(NotebookUtil.RELEASE_PATH));
+        }).run();
+//        new AlertDialog.Builder(getActivity(), R.style.MyDialog)
+//            .setTitle(R.string.notice)
+//            .setMessage(R.string.install_notebook_hint)
+//            .setPositiveButton(R.string.download_it, (dialog1, which)->getNotebook())
+//            .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
+//            .create()
+//            .show();
     }
 
 
@@ -652,7 +671,7 @@ public class SettingFragment extends PreferenceFragment {
     private void releasePython2Standard(Preference preference) {
         Observable.create((Observable.OnSubscribe<Boolean>) subscriber -> {
             try {
-                removeQPyc2Core();
+                //removeQPyc2Core();
                 QPySDK qpysdk = new QPySDK(getActivity(), getActivity());
                 qpysdk.extractRes("private1", getActivity().getFilesDir(), true);
                 qpysdk.extractRes("private2", getActivity().getFilesDir(), true);
@@ -695,7 +714,7 @@ public class SettingFragment extends PreferenceFragment {
         Observable.create((Observable.OnSubscribe<Boolean>) subscriber -> {
             try {
 
-                removeQPyc2Core();
+                //removeQPyc2Core();
 
                 extractQPyCore(true);
 
@@ -1012,18 +1031,18 @@ public class SettingFragment extends PreferenceFragment {
                                     } catch (Exception e) {
 
                                     }
-                                    try {
-                                        if (ispy2compatible) {
-                                            update_qpy2compatible.setSummary(getString(R.string.choose_py2compatible_inter));
-
-                                        } else {
-                                            update_qpy3.setSummary(getString(R.string.choose_py3_inter));
-                                        }
-
-                                        Toast.makeText(App.getContext(), R.string.file_downloaded, Toast.LENGTH_SHORT).show();
-                                    } catch (Exception e) {
-
-                                    }
+//                                    try {
+//                                        if (ispy2compatible) {
+//                                            update_qpy2compatible.setSummary(getString(R.string.choose_py2compatible_inter));
+//
+//                                        } else {
+//                                            update_qpy3.setSummary(getString(R.string.choose_py3_inter));
+//                                        }
+//
+//                                        Toast.makeText(App.getContext(), R.string.file_downloaded, Toast.LENGTH_SHORT).show();
+//                                    } catch (Exception e) {
+//
+//                                    }
 
                                 }
 
