@@ -276,7 +276,7 @@ public class QPySDK {
             Log.d(TAG, "NO EXTRACT");
 
         }
-        if (resource.startsWith("private")) {
+        if (resource.startsWith("private") || resource.startsWith("notebook")) {
             chmodX();
         }
     }
@@ -338,12 +338,9 @@ public class QPySDK {
             }
         }
 
-        if (resource.startsWith("private"))
-
-        {
+        if (resource.startsWith("private") || resource.startsWith("notebook")) {
             chmodX();
         }
-
     }
 
     private void chmodX () {

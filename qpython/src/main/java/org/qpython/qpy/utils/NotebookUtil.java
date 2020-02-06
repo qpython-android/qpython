@@ -63,7 +63,8 @@ public class NotebookUtil {
      */
     public static boolean isNotebookInstall(Context context) {
         if (NAction.isQPy3(context)) {
-            return new File(RELEASE_PATH, context.getString(R.string.notebook3libs_file_name)).exists();
+            return true;
+            //return new File(RELEASE_PATH, context.getString(R.string.notebook3libs_file_name)).exists();
 
         } else {
             return new File(RELEASE_PATH, context.getString(R.string.notebook2libs_file_name)).exists();
