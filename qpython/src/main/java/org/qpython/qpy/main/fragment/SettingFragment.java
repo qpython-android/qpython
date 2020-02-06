@@ -311,18 +311,7 @@ public class SettingFragment extends PreferenceFragment {
 
             notebook_run.setOnPreferenceChangeListener((preference, newValue) -> {
 
-                if (NotebookUtil.isNotebookInstall(getActivity()) && !NotebookUtil.isNotebookLibInstall(getActivity())) {
-
-                    releaseNotebook(preference);
-                    /*new AlertDialog.Builder(getActivity(), R.style.MyDialog)
-                            .setTitle(R.string.notice)
-                            .setMessage(R.string.notebook_first)
-                            .setPositiveButton(R.string.ok, (dialog1, which) -> )
-                            .create()
-                            .show();*/
-
-
-                } else if (NotebookUtil.isNotebookLibInstall(getActivity())){
+                if (NotebookUtil.isNotebookLibInstall(getActivity())){
 
                     if ((boolean)newValue) {
                         NotebookUtil.startNotebookService2(getActivity());
@@ -338,7 +327,7 @@ public class SettingFragment extends PreferenceFragment {
                     new AlertDialog.Builder(getActivity(), R.style.MyDialog)
                             .setTitle(R.string.notice)
                             .setMessage(R.string.install_notebook_first)
-                            .setPositiveButton(R.string.ok, (dialog1, which) -> dialog1.dismiss())
+                            .setPositiveButton(R.string.ok, (dialog1, which) -> releaseNotebook(preference))
                             .create()
                             .show();
                     notebook_run.setChecked(false);

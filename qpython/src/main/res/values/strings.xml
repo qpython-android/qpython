@@ -33,9 +33,6 @@
     <string name="arvr" translatable="false">AR/VR</string>
     <string name="action_from_python_three" translatable="false">from_python_three</string>
     <string name="key_saver" translatable="false">saver</string>
-    <string name="aipy_app_id" translatable="false">org.aipy.app</string>
-    <string name="notebook_app_id" translatable="false">org.qpython.notebook</string>
-    <string name="python3_app_id" translatable="false">org.qpython.qpy36</string>
     <string name="lib_cache_folder_name" translatable="false">.lib_cache</string>
     <string name="aipy" translatable="false">AIPy</string>
     <string name="slash_project_node" translatable="false">/projects</string>

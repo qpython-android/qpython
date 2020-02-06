@@ -209,7 +209,7 @@ public class QPySDK {
         if ((int) (Double.parseDouble(data_version) - Double.parseDouble(disk_version)) > 0 || disk_version.equals("0") || forceExtrac) {
             target.mkdirs();
             if (!new FileExtract().extractTar(file, target.getAbsolutePath())) {
-                Toast.makeText(this.context, "Could not extract " + fileName + " data.", Toast.LENGTH_SHORT).show();
+                Log.d(TAG,"Could not extract " + fileName + " data.");
             }
         }
 

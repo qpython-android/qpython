@@ -3,6 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">127.0.0.1</domain>
         <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">apu2.quseit.com</domain>
         <domain includeSubdomains="true">qpy.io</domain>
         <domain includeSubdomains="true">dl.qpy.io</domain>
         <domain includeSubdomains="true">gist.qpy.io</domain>
@@ -10,5 +11,8 @@
         <domain includeSubdomains="true">gist.qpython.org</domain>
         <domain includeSubdomains="true">edu.qpython.org</domain>
         <domain includeSubdomains="true">www.qpython.org</domain>
+        <domain includeSubdomains="true">qpypi.qpython.org</domain>
+        <domain includeSubdomains="true">qpypi3.qpython.org</domain>
+
     </domain-config>
 </network-security-config>

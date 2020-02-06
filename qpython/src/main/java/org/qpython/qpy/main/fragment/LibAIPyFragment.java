@@ -75,10 +75,10 @@ public class LibAIPyFragment extends RefreshFragment {
         binding.swipeList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.swipeList.setSwipeMenuCreator(getTypeMenu());
 
-        if (isAIPyInstall()) {
-            View description = getActivity().getLayoutInflater().inflate(R.layout.header_lib_description, binding.swipeList, false);
-            binding.swipeList.addHeaderView(description);
-        }
+//        if (isAIPyInstall()) {
+//            View description = getActivity().getLayoutInflater().inflate(R.layout.header_lib_description, binding.swipeList, false);
+//            binding.swipeList.addHeaderView(description);
+//        }
 
         if (adapter != null) {
             adapter.setClick(position -> binding.swipeList.smoothOpenRightMenu(position));
@@ -88,15 +88,6 @@ public class LibAIPyFragment extends RefreshFragment {
         }
     }
 
-    private boolean isAIPyInstall() {
-        PackageManager pm = getActivity().getPackageManager();
-        try {
-            pm.getPackageInfo(getString(R.string.aipy_app_id), PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
 
     @Override
     public void refresh(boolean forceRefresh) {

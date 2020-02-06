@@ -121,6 +121,7 @@ public class NotebookActivity extends BaseActivity implements View.OnClickListen
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public void enableNotebookFromSetting() {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.dialog_alert)
@@ -250,50 +251,6 @@ public class NotebookActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-    }
-
-
-    private boolean checkNotebook() {
-        boolean isInstall, isRelease, isExtra;
-        isInstall = isJupyterInstall();
-        isRelease = NotebookUtil.isNotebookInstall(this);
-        isExtra = NotebookUtil.isNotebookLibInstall(this);
-
-
-        if (!isInstall && !isExtra) {
-            mBinding.errorTv.setText(Html.fromHtml(getResources().getString(R.string.jupyter_not_install)));
-            mBinding.errorTv.setOnClickListener(v -> linkToStore());
-            mBinding.errorTv.setVisibility(View.VISIBLE);
-            return false;
-        }
-
-        if (!isRelease && !isExtra) {
-            mBinding.errorTv.setText(R.string.jupyter_not_release);
-            mBinding.errorTv.setVisibility(View.VISIBLE);
-            return false;
-        }
-
-        if (!isExtra) {
-            if (!NotebookUtil.extraData(this)) {
-                mBinding.errorTv.setText(R.string.install_package_fail);
-                mBinding.errorTv.setVisibility(View.VISIBLE);
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * 通过包名检查jupyter是否安装
-     */
-    private boolean isJupyterInstall() {
-        PackageManager pm = getPackageManager();
-        try {
-            pm.getPackageInfo(getString(R.string.notebook_app_id), PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
     }
 
     public static final  String URL          = "url";

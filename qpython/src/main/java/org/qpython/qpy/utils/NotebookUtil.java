@@ -80,7 +80,6 @@ public class NotebookUtil {
             return common & new File(context.getFilesDir().getAbsoluteFile()+"/bin/jupyter").exists();
         } else {
             return common & new File(context.getFilesDir().getAbsoluteFile()+"/bin/jupyter2").exists();
-
         }
     }
 
