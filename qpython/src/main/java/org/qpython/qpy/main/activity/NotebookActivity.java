@@ -106,12 +106,6 @@ public class NotebookActivity extends BaseActivity implements View.OnClickListen
             initNotebookRes();
             initWebView();
             initListener();
-        } else if (NotebookUtil.isNotebookInstall(this)) {
-            NotebookUtil.extraData(this);
-            initNotebookRes();
-            initWebView();
-            initListener();
-
         } else {
             enableNotebookFromSetting();
         }
@@ -216,25 +210,27 @@ public class NotebookActivity extends BaseActivity implements View.OnClickListen
             lastNotebook = mSharedPreferences.getString("last_notebook", null);
             if (lastNotebook == null) {
                 String fileName = "Welcome.ipynb";
-//                if (Locale.getDefault().getLanguage().equals("zh")) {
-//                    fileName = "Welcome(cn).ipynb";
-//                }
                 File file = new File(NotebookUtil.NOTEBOOK_DIR + "notebooks", fileName);
                 if (file.exists()) {
                     lastNotebook = file.getAbsolutePath();
                 } else {
                     lastNotebook = NotebookUtil.createNotebook(this, NotebookUtil.Untitled);
                 }
+            } else  {
+                Log.d(TAG, "lastNotebook:"+lastNotebook);
             }
         } else {
             if (filePath.contains(NotebookUtil.NOTEBOOK_DIR)) {
                 lastNotebook = filePath;
             } else {
+
                 Toast.makeText(this, "inalid file", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
-        mBinding.toolbar.setTitle(getFileName(lastNotebook));
+        if (lastNotebook!=null) {
+            mBinding.toolbar.setTitle(getFileName(lastNotebook));
+        }
 //        if (checkNotebook()) {
 //            createServer();
 //        }
@@ -258,6 +254,7 @@ public class NotebookActivity extends BaseActivity implements View.OnClickListen
     protected static final String TAG        = "NotebookActivity";
 
     protected final BroadcastReceiver webviewActivityReceiver = new BroadcastReceiver() {
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void onReceive(Context context, Intent intent) {
             String act = intent.getExtras().getString(ACT);

@@ -371,7 +371,12 @@ public class HomeMainActivity extends BaseActivity {
             File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
             FileHelper.createDirIfNExists(externalStorage + "/cache");
             FileHelper.createDirIfNExists(externalStorage + "/log");
+            FileHelper.createDirIfNExists(externalStorage + "/notebooks");
+
             qpysdk.extractRes(py3?"public3":"public", new File(externalStorage + "/lib"));
+
+            qpysdk.extractRes("ipynb", new File(externalStorage + "/notebooks"));
+
             extractRes();
         }).start();
     }
@@ -409,7 +414,12 @@ public class HomeMainActivity extends BaseActivity {
                         Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects3/", false);
 
                     } else if (sFileName.equals("scripts3.zip")) {
+                        Utils.createDirectoryOnExternalStorage("qpython/scripts3/");
                         Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts3/", false);
+
+                    } if (sFileName.equals("ipynb.zip")) {
+                        Utils.createDirectoryOnExternalStorage("qpython/notebooks/");
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/notebooks/", false);
                     }
 
                 } catch (Exception e) {

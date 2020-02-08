@@ -51,26 +51,12 @@ public class NotebookUtil {
     public static final String Untitled = "Untitled";
 
     public static boolean isNotebookEnable(Context context) {
-        boolean isNI = isNotebookInstall(context);
         boolean isNLI = isNotebookLibInstall(context);
-        Log.d("NotebookUtil", "isNotebookEnable:" + isNI + "-" + isNLI);
-        return isNI && isNLI;
+        Log.d("NotebookUtil", "isNotebookEnable:" + "-" + isNLI);
+        return isNLI;
     }
 
 
-    /**
-     * 检查notebook app是否安装
-     */
-    public static boolean isNotebookInstall(Context context) {
-        if (NAction.isQPy3(context)) {
-            return true;
-            //return new File(RELEASE_PATH, context.getString(R.string.notebook3libs_file_name)).exists();
-
-        } else {
-            return new File(RELEASE_PATH, context.getString(R.string.notebook2libs_file_name)).exists();
-
-        }
-    }
 
     /**
      * 检查notebook库是否安装
@@ -88,16 +74,6 @@ public class NotebookUtil {
      * 释放相关资源
      */
     public static boolean extraData(Context context) {
-        QPySDK qPySDK = new QPySDK(context, (Activity) context);
-
-        //将文件解压到本地files目录
-        if (NAction.isQPy3(context)) {
-            qPySDK.extractRes(new File(RELEASE_PATH, context.getString(R.string.notebook3libs_file_name)), context.getFilesDir(), false);
-        } else {
-
-            qPySDK.extractRes(new File(RELEASE_PATH, context.getString(R.string.notebook2libs_file_name)), context.getFilesDir(), false);
-        }
-
         //如果解压成功则lib目录下回出现libzmq.so文件
         if (new File(context.getFilesDir().getAbsolutePath() + "/lib", "notebook.zip").exists()) {
             //对bin目录下的文件修改执行权限

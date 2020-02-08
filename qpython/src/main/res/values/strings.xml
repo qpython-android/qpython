@@ -1,21 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
-    <string name="notebook3_version" translatable="false">20200206.1205</string>
-    <string name="notebook2_version" translatable="false">20180805.1205</string>
-    <string name="notebook3libs_file_name" translatable="false">notebook3.mp3</string>
-    <string name="notebook2libs_file_name" translatable="false">notebook2.mp3</string>
-
     <string name="private1_version" translatable="false">1347438995.05</string>
     <string name="private2_version" translatable="false">1347438995.05</string>
     <string name="private3_version" translatable="false">1347438995.05</string>
-
     <string name="private31_version" translatable="false">1347438791.05</string>
     <string name="private32_version" translatable="false">1347438791.05</string>
     <string name="private33_version" translatable="false">1347438791.05</string>
-
-    <string name="public_version" translatable="false">12000</string>
+    <string name="public_version" translatable="false">12500</string>
     <string name="public3_version" translatable="false">1347438610.05</string>
+    <string name="notebook3_version" translatable="false">20200206.1205</string>
+    <string name="ipynb_version" translatable="false">20200207.1205</string>
 
-    <string name="privacy_html" translatable="false">https://www.qpython.com/privacy.html</string>
+    <string name="privacy_html" translatable="false">https://www.qpython.org/privacy.html</string>
     <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
     <string name="lower_project" translatable="false">projects</string>
     <string name="lib_manager" translatable="false">QPYPI</string>
@@ -549,9 +544,9 @@
 
     <string name="choose_py3_inter"><![CDATA[You have downloaded it, you can switch to Python 3 to use it\'s interpreter]]></string>
     <string name="choose_py2compatible_inter"><![CDATA[You have downloaded it, you can switch to Python 2 Compatible to use it\'s interpreter]]></string>
-    <string name="install_notebook_first">To Start Notebook Service, please install first</string>
+    <string name="install_notebook_first">To Start QPyNotebook Service, please install first</string>
 
-    <string name="choose_notebook_inter"><![CDATA[You can Start Notebook Service now]]></string>
+    <string name="choose_notebook_inter"><![CDATA[You can Start QPyNotebook Service now]]></string>
 
     <string name="notebook_first">First run, it will extract the notebook resource</string>
 
@@ -576,15 +571,15 @@
     <string name="notebook_for_py">QPyNotebook for Python {0}</string>
 
     <string name="install_notebook">Install QPyNotebook</string>
-    <string name="notebook_service">Notebook Service</string>
-    <string name="notebook_service_not_ready">Notebook Service is not ready, please retry</string>
+    <string name="notebook_service">QPyNotebook Service</string>
+    <string name="notebook_service_not_ready">QPyNotebook Service is not ready, please retry</string>
     <string name="notebook_service_restart">Do you want to reload this notebook or restart the service?</string>
     <string name="notebook_restart">Restart</string>
     <string name="notebook_reload">Reload</string>
 
     <string name="notebook_open">Do you want to open it with QPyNotebook?</string>
 
-    <string name="notebook_explorer">Start Notebook Service</string>
+    <string name="notebook_explorer">Start QPyNotebook Service</string>
     <string name="notebook_explorer_bg_start">It will run when QPython starts</string>
 
     <string name="enter_history">History</string>
@@ -665,7 +660,8 @@
     <string name="start">Start</string>
     <string name="buy_course">Buy Course</string>
     <string name="rmb">%s RMB</string>
-    <string name="notebook_installed">You can browse the ipynb file from explorer</string>    <string name="notebook_not_started">QPyNotebook is not started</string>
+    <string name="notebook_installed">After starting QPyNotebook Service, you can browse the ipynb file from explorer</string>
+    <string name="notebook_not_started">QPyNotebook is not started</string>
 
     <string name="notebook_py3_support">QPyNotebook only supports Python 3</string>
     <string name="notebook_enable" translatable="false">notebook_enable</string>

@@ -3,7 +3,7 @@ function gotoApp() {
 	total = total+1
 	if (total>=10) {
 		//setTimeout('milib.closeWait()',100);
-	    $('#mainEle').html('<div id="loading">Fail to start, please retry.</div>');
+	    $('#mainEle').html('<div id="loading">Fail to start QPyWebapp, please check manually.</div>');
 	    milib.onNext("timeout");
 
 	} else {

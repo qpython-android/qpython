@@ -15,7 +15,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 300
-        versionName "3.0.0"
+        versionName "3.0.0-beta1"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
@@ -60,7 +60,7 @@ android {
                 variant.outputs.each { output ->
                     def outputFile = output.outputFile
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        def fileName = "Qpython_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        def fileName = "qpython_os_${releaseTime()}_${variant.productFlavors[0].name}.apk"
                         output.outputFileName = fileName
                     }
                 }

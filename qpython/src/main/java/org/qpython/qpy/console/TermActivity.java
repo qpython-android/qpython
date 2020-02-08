@@ -275,7 +275,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
         mSettings.readPrefs(sharedPreferences);
     }
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint({"WrongConstant", "InvalidWakeLockTag"})
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

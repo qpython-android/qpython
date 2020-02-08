@@ -402,8 +402,7 @@
     <string name="support_explanation">您的赞赏是我们持续写出好教材的驱动力</string>
     <string name="rmb">¥ %s </string>
     <string name="thank">致谢</string>
-    <string name="notebook_installed">现在可以打开后缀为.ipynb的文件了</string>
-    <string name="notebook_not_install">qpynotebook未安装</string>
+    <string name="notebook_installed">启动QPyNotebook服务后，你可以从文件中打开后缀为.ipynb的文件了</string>
     <string name="jupyter_not_release">请先安装并运行Jupyter</string>
     <string name="jupyter_not_support">Jupyter暂时未支持Python 3</string>
     <string name="aipy_install">安装AIPY</string>
