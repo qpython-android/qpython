@@ -277,33 +277,33 @@ public class HomeMainActivity extends BaseActivity {
         }
     }
 
-    private void initCourseListener() {
-        App.getService().getCourseAd().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new MySubscriber<CourseAdModel>() {
-                    @Override
-                    public void onNext(CourseAdModel o) {
-                        super.onNext(o);
-                        if ("0".equals(o.getQpy().getCourse_open())) {
-                            // open web
-                            binding.llCourse.setOnClickListener(v ->
-                                    QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
-                        } else {
-                            // open with native
-                            binding.llCourse.setOnClickListener(v -> {
-                                CourseActivity.start(HomeMainActivity.this);
-                                sendEvent(getString(R.string.event_course));
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        binding.llCourse.setOnClickListener(v ->
-                                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
-                    }
-                });
-    }
+//    private void initCourseListener() {
+//        App.getService().getCourseAd().subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new MySubscriber<CourseAdModel>() {
+//                    @Override
+//                    public void onNext(CourseAdModel o) {
+//                        super.onNext(o);
+//                        if ("0".equals(o.getQpy().getCourse_open())) {
+//                            // open web
+//                            binding.llCourse.setOnClickListener(v ->
+//                                    QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+//                        } else {
+//                            // open with native
+//                            binding.llCourse.setOnClickListener(v -> {
+//                                CourseActivity.start(HomeMainActivity.this);
+//                                sendEvent(getString(R.string.event_course));
+//                            });
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        binding.llCourse.setOnClickListener(v ->
+//                                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+//                    }
+//                });
+//    }
 
     @Override
     protected void onPause() {
@@ -397,12 +397,19 @@ public class HomeMainActivity extends BaseActivity {
                     content = getResources().openRawResource(t[i].getInt(a));
                     content.reset();
 
-                    if (sFileName.equals("samplewebapp.zip")) {
-                        Utils.createDirectoryOnExternalStorage("qpython/projects/webappsample");
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/webappsample/", true);
+                    if (sFileName.equals("projects2.zip")) {
+                        Utils.createDirectoryOnExternalStorage("qpython/projects/");
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/", false);
 
-                    } else if (sFileName.equals("scripts.zip")) {
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts/", true);
+                    } else if (sFileName.equals("scripts2.zip")) {
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts/", false);
+
+                    } else if (sFileName.equals("projects3.zip")) {
+                        Utils.createDirectoryOnExternalStorage("qpython/projects3/");
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects3/", false);
+
+                    } else if (sFileName.equals("scripts3.zip")) {
+                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts3/", false);
                     }
 
                 } catch (Exception e) {

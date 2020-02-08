@@ -960,7 +960,7 @@ public class SettingFragment extends PreferenceFragment {
         }
         return isRelease;
     }
-    
+
     private void removeQPyc2Core() {
         Log.d(TAG, "removeQPyc2Core");
         String files = getActivity().getFilesDir().getAbsolutePath();
