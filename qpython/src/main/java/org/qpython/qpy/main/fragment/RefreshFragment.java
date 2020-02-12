@@ -160,20 +160,14 @@ public abstract class RefreshFragment extends Fragment {
 
             Utils.startWebActivityWithUrl(getActivity(), item.getTitle(), item.getSrc());
 
-//            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getSrc()));
-//            startActivity(browserIntent);
         }
     }
 
     private void downloadLib(BaseLibModel item) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String QPyPi = sharedPreferences.getString(getString(R.string.key_qpypi), CONF.QPYPI_URL);
         String DIR = getContext().getApplicationContext().getFilesDir().getAbsolutePath();
         String[] args = {DIR+"/bin/qpypi.py", "install", item.getSmodule()};
 
-//        String[] args = {getContext().getApplicationContext().getFilesDir() + ("/bin/pip"+(
-//                NAction.isQPy3(getContext())?"3":"")),"install", "-i", item
-//                .getLink(), "--extra-index-url", QPyPi,  "--trusted-host", "qpypi"+(NAction.isQPy3(getContext())?"3":"")+".qpython.org","-U",  item.getSmodule()};
         execPyInConsole(args);
     }
 

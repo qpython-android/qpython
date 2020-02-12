@@ -367,6 +367,11 @@ public class PythonSDLActivity extends SDLActivity {
 
     };
 
+    // HACK BY RIVER
+    static {
+        //System.load("/data/data/org.qpython.qpy/files/lib/libpython2.7.so.1.0");
+    }
+
     // Code to support devicePurchase. /////////////////////////////////////////
 
     @Override

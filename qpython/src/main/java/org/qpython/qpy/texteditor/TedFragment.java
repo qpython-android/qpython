@@ -119,6 +119,7 @@ public class TedFragment extends Fragment implements Constants, TextWatcher, Ind
         //此处view未进行初始化不应该对view进行操作
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onResume() {
         super.onResume();
@@ -126,7 +127,7 @@ public class TedFragment extends Fragment implements Constants, TextWatcher, Ind
             binding.editor.updateFromSettings("");
 
             if (Settings.SHOW_GIST) {
-                binding.share.setVisibility(View.VISIBLE);
+                //binding.share.setVisibility(View.VISIBLE);
 
             } else {
                 binding.share.setVisibility(View.GONE);

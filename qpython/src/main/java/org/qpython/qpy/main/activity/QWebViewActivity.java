@@ -32,6 +32,7 @@ import java.net.URL;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.quseit.base.QBaseApp;
+import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
 import org.apache.http.Header;
@@ -94,10 +95,8 @@ public class QWebViewActivity extends BaseActivity {
                 }
                 case "pipinstall": {
                     String src = intent.getExtras().getString(QWebViewActivity.SRC);
-                    String[] args = {getApplicationContext().getFilesDir() + "/bin/pip", "install", url, "-i", src, getApplicationContext().getFilesDir().toString()};
+                    String[] args = {getApplicationContext().getFilesDir() + "/bin/pip"+ (NAction.isQPy3(getApplicationContext())?"3":""), "install", url, "-i", src, getApplicationContext().getFilesDir().toString()};
                     ScriptExec.getInstance().execPyInConsole((Activity) context, args);
-                    //Toast.makeText(getApplicationContext(), url, Toast.LENGTH_SHORT).show();
-
                     break;
                 }
                 case "close":
