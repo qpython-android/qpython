@@ -47,7 +47,7 @@ public class MPyApi extends BaseActivity {
         }
     };
     private boolean           live       = false;
-    private String            logF       = null;
+    private String            logF       = QPyConstants.ABSOLUTE_LOG;
     private Handler           handler    = new Handler() {
         @Override
         public void handleMessage(Message msg) {
