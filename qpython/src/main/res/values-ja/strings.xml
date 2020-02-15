@@ -1,6 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
 
-    <string name="app_name">QPython OS</string>
     <string name="terminal">コンソール</string>
     <string name="recent">最近</string>
     <string name="snippet">スニペット</string>
@@ -183,8 +182,6 @@
     <string name="about">QPythonについて</string>
     <string name="file_not_exists">ファイルが見つかりません</string>
     <string name="enable_root">rootモードを有効にする</string>
-    <!--<string name="my_name">作者：彭春瑜</string>-->
-    <!--<string name="qq_group">QQ群：87272821</string>-->
     <string name="send">送信</string>
     <string name="no_camera">有効なカメラが見つかりませんでした。カメラへのアクセス権限を確認してください。</string>
     <string name="no_storage">ストレージの読み取り権限がありません。</string>
@@ -208,8 +205,6 @@
     <string name="downloading">ライブラリ</string>
     <string name="location">ロケーション</string>
 
-
-    <!--  -->
 
     <!-- Titles -->
     <string name="title_untitled">名称未設定</string>
