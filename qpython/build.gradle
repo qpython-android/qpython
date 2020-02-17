@@ -109,6 +109,10 @@ android {
 //            resValue "string", "app_name", "QpythonL"
             applicationId "com.hipipal.qpyplus"
         }
+        oh {
+//            resValue "string", "app_name", "QpythonL"
+            applicationId "com.hipipal.qpyplus"
+        }
 
     }
 
@@ -195,6 +199,15 @@ dependencies {
     opApi('com.umeng.analytics:analytics:6.1.2') {
         exclude group: 'com.android.support:support-v4'
     }
+
+    ohApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+        exclude group: 'com.android.support:support-v4'
+    }
+    //    友盟统计
+    ohApi('com.umeng.analytics:analytics:6.1.2') {
+        exclude group: 'com.android.support:support-v4'
+    }
+
 
     api 'com.youth.banner:banner:1.4.10'
 }
