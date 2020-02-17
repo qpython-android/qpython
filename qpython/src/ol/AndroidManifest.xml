@@ -63,6 +63,7 @@
     <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name="org.qpython.qpy.main.app.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -71,6 +72,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
@@ -79,24 +81,19 @@
         <service android:name=".main.service.QPyService"/>
         <service android:name="org.qpython.qsl4a.QPyScriptService"/>
         <service android:name=".main.service.FTPServerService"/>
-        <service
-            android:name=".main.service.MyFirebaseMessagingService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".main.service.MyFirebaseInstanceIDService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
-
         <activity
             android:name=".main.activity.SignInActivity"
             android:launchMode="singleTask"/>
+        <activity
+            android:name="org.renpy.android.PythonSDLActivity"
+            android:hardwareAccelerated="true"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|uiMode|orientation"
+            android:launchMode="singleTask"
+            android:process=":python"
+            android:screenOrientation="user"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
 
         <activity
             android:name="org.qpython.qpylib.MPyApi"
@@ -126,7 +123,6 @@
                 android:resource="@xml/shortcuts"/>
         </activity>
 
-
         <activity
             android:name="org.qpython.qpy.main.activity.QWebViewActivity"
             android:label="@string/browser">
@@ -148,7 +144,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
                 <data android:mimeType="text/plain"/>
                 <data android:mimeType="image/*"/>
             </intent-filter>
@@ -180,7 +175,7 @@
                 <!--<action android:name="android.intent.action.SEND"/>-->
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:mimeType="text/*"/>
                 <data android:scheme="file"/>
             </intent-filter>
@@ -188,7 +183,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="content"/>
                 <data android:host="*"/>
                 <data android:mimeType="*/*"/>
@@ -306,8 +301,6 @@
             android:name="org.qpython.qpy.console.WindowList"
             android:label="@string/window_list"
             android:theme="@style/ConsoleTheme"/>
-
-
         <activity
             android:name="org.qpython.qpy.console.shortcuts.AddShortcut"
             android:configChanges="orientation|keyboard|keyboardHidden"
@@ -346,10 +339,8 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name="org.qpython.qpy.plugin.activity.PluginManagerActivity"/>
         <activity android:name="org.qpython.qpy.plugin.activity.LocalPluginInstallActivity"/>
-
 
         <!--zxing-->
         <activity android:name="org.qpython.qpy.main.activity.QrCodeActivity"/>
@@ -388,6 +379,20 @@
             android:name=".main.activity.NotebookListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
 
+        <service
+            android:name=".main.service.MyFirebaseMessagingService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".main.service.MyFirebaseInstanceIDService"
+            tools:ignore="ExportedService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
     <meta-data

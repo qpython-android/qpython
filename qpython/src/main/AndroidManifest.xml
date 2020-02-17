@@ -110,7 +110,6 @@
                 android:resource="@xml/shortcuts"/>
         </activity>
 
-
         <activity
             android:name="org.qpython.qpy.main.activity.QWebViewActivity"
             android:label="@string/browser">
@@ -132,7 +131,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
                 <data android:mimeType="text/plain"/>
                 <data android:mimeType="image/*"/>
             </intent-filter>
@@ -290,8 +288,6 @@
             android:name="org.qpython.qpy.console.WindowList"
             android:label="@string/window_list"
             android:theme="@style/ConsoleTheme"/>
-
-
         <activity
             android:name="org.qpython.qpy.console.shortcuts.AddShortcut"
             android:configChanges="orientation|keyboard|keyboardHidden"
@@ -330,10 +326,8 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name="org.qpython.qpy.plugin.activity.PluginManagerActivity"/>
         <activity android:name="org.qpython.qpy.plugin.activity.LocalPluginInstallActivity"/>
-
 
         <!--zxing-->
         <activity android:name="org.qpython.qpy.main.activity.QrCodeActivity"/>
@@ -372,30 +366,7 @@
             android:name=".main.activity.NotebookListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
 
-        <service
-            android:name=".main.service.MyFirebaseMessagingService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".main.service.MyFirebaseInstanceIDService"
-            tools:ignore="ExportedService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
-
-        <receiver android:name="org.qpython.qpy.main.receiver.BootBroadcastReceiver">
-            <intent-filter>
-                <!--注册开机广播地址-->
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="org.qpython.qpysl4a.KeepAlive"/>
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </receiver>
+        <receiver android:name="org.qpython.qpy.main.receiver.BootBroadcastReceiver" />
     </application>
 
     <meta-data

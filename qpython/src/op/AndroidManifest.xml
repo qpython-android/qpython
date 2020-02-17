@@ -7,32 +7,39 @@
         android:name="android.hardware.touchscreen"
         android:required="false"/>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CAMERA"/>
-
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
-
-
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS"/>
-    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS"/>
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
-    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
-
-   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="net.dinglisch.android.tasker.PERMISSION_RUN_TASKS" />
     <!-- privacy sensitive permissions -->
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
@@ -40,92 +47,103 @@
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
 
-    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
-    <uses-permission android:name="android.permission.READ_MEDIA_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_MEDIA_STORAGE"/>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
 
-    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="false"/>
 
     <application
-    android:networkSecurityConfig="@xml/network_security_config"
-    android:name="org.qpython.qpy.main.app.App"
-    android:allowBackup="true"
-    android:hardwareAccelerated="true"
-    android:icon="@drawable/ic_launcher"
-    android:label="@string/app_name"
-    android:largeHeap="true"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
-    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:name="org.qpython.qpy.main.app.App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
-    <meta-data
-        android:name="com.google.firebase.messaging.default_notification_icon"
-        android:resource="@drawable/img_home_logo"/>
-
-    <service android:name=".main.service.QPyService"/>
-    <service android:name="org.qpython.qsl4a.QPyScriptService"/>
-    <service android:name=".main.service.FTPServerService"/>
-
-    <activity
-        android:name=".main.activity.SignInActivity"
-        android:launchMode="singleTask"/>
-
-    <activity
-        android:name="org.qpython.qpylib.MPyApi"
-        android:exported="true"
-        android:theme="@style/Theme.AppCompat"/>
-
-    <service
-        android:name="org.qpython.qpylib.MPyService"
-        android:exported="true"
-        tools:ignore="ExportedService"/>
-
-    <activity
-        android:name=".main.activity.SplashActivity"
-        android:theme="@style/FullscreenTheme"
-        >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
-    </activity>
-
-    <activity
-        android:name="org.qpython.qpy.main.activity.HomeMainActivity"
-        android:launchMode="singleTask">
         <meta-data
-            android:name="android.app.shortcuts"
-            android:resource="@xml/shortcuts"/>
-    </activity>
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/img_home_logo"/>
 
+        <service android:name=".main.service.QPyService"/>
+        <service android:name="org.qpython.qsl4a.QPyScriptService"/>
+        <service android:name=".main.service.FTPServerService"/>
+        <activity
+            android:name=".main.activity.SignInActivity"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name="org.renpy.android.PythonSDLActivity"
+            android:hardwareAccelerated="true"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|uiMode|orientation"
+            android:launchMode="singleTask"
+            android:process=":python"
+            android:screenOrientation="user"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
 
-    <activity
-        android:name="org.qpython.qpy.main.activity.QWebViewActivity"
-        android:label="@string/browser">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW"/>
+        <activity
+            android:name="org.qpython.qpylib.MPyApi"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat"/>
 
-            <category android:name="android.intent.category.DEFAULT"/>
-            <category android:name="android.intent.category.BROWSABLE"/>
+        <service
+            android:name="org.qpython.qpylib.MPyService"
+            android:exported="true"
+            tools:ignore="ExportedService"/>
 
-            <data android:mimeType="text/plain"/>
-            <data android:mimeType="image/*"/>
-            <data
-                android:host="course"
-                android:path="/"
-                android:scheme="qpython"/>
-        </intent-filter>
+        <activity
+            android:name=".main.activity.SplashActivity"
+            android:theme="@style/FullscreenTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
-        <!-- Used to handle Chrome then menu then share.-->
+        <activity
+            android:name="org.qpython.qpy.main.activity.HomeMainActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
+        </activity>
+
+        <activity
+            android:name="org.qpython.qpy.main.activity.QWebViewActivity"
+            android:label="@string/browser">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+                <data
+                    android:host="course"
+                    android:path="/"
+                    android:scheme="qpython"/>
+            </intent-filter>
+
+            <!-- Used to handle Chrome then menu then share.-->
             <intent-filter>
                 <action android:name="android.intent.action.SEND"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
                 <data android:mimeType="text/plain"/>
                 <data android:mimeType="image/*"/>
             </intent-filter>
@@ -157,7 +175,7 @@
                 <!--<action android:name="android.intent.action.SEND"/>-->
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:mimeType="text/*"/>
                 <data android:scheme="file"/>
             </intent-filter>
@@ -165,7 +183,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-
+                <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="content"/>
                 <data android:host="*"/>
                 <data android:mimeType="*/*"/>
@@ -202,7 +220,6 @@
 
         <activity
             android:name=".main.activity.AboutActivity"/>
-
 
         <activity
             android:name=".main.activity.AppListActivity"
@@ -280,13 +297,10 @@
             android:name="org.qpython.qpy.console.TermPreferences"
             android:label="@string/preferences"
             android:theme="@style/ConsoleTheme"/>
-
         <activity
             android:name="org.qpython.qpy.console.WindowList"
             android:label="@string/window_list"
             android:theme="@style/ConsoleTheme"/>
-
-
         <activity
             android:name="org.qpython.qpy.console.shortcuts.AddShortcut"
             android:configChanges="orientation|keyboard|keyboardHidden"
@@ -325,10 +339,8 @@
             </intent-filter>
         </activity>
 
-
         <activity android:name="org.qpython.qpy.plugin.activity.PluginManagerActivity"/>
         <activity android:name="org.qpython.qpy.plugin.activity.LocalPluginInstallActivity"/>
-
 
         <!--zxing-->
         <activity android:name="org.qpython.qpy.main.activity.QrCodeActivity"/>
@@ -351,28 +363,7 @@
             </intent-filter>
         </service>
 
-        <!--友盟-->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="5a24fdea8f4a9d34b00000b5"/>
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="QPython"/>
-
-        <!--微信-->
-        <activity
-            android:name="com.hipipal.qpyplus.wxapi.WXEntryActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity
-            android:name="com.hipipal.qpyplus.wxapi.WXPayEntryActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <!--<activity android:name=".main.activity.CourseCrowdfundingActivity"/>-->
         <activity android:name=".main.activity.CourseIndexFundingActivity"/>
-        <!--<activity android:name=".main.activity.CourseFreeActivity"/>-->
         <activity android:name=".main.activity.FundingPurchaseActivity"/>
         <activity
             android:name=".main.activity.NotebookActivity"
@@ -387,20 +378,26 @@
         <activity
             android:name=".main.activity.NotebookListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <!--leancloud-->
-        <service
-            android:name="com.avos.avoscloud.PushService"
+
+        <!--友盟-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a24fdea8f4a9d34b00000b5"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="QPython"/>
+
+        <!--微信-->
+        <!--activity
+            android:name="com.hipipal.qpyplus.wxapi.WXEntryActivity"
             android:exported="true"
-            tools:ignore="ExportedService"/>
-        <receiver android:name=".main.receiver.LeancloudReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-                <action android:name="com.avos.UPDATE_STATUS"/>
-                <action android:name="com.qpython.action"/>
-            </intent-filter>
-        </receiver>
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name="com.hipipal.qpyplus.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/-->
 
     </application>
 
