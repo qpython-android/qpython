@@ -21,6 +21,7 @@ captures
 old.git
 qpython/qpython.key
 qpython/cn/release/output.json
+qpython/od/release/*
 qpython/cn
 qpython/google
 qpython/os
