@@ -176,6 +176,12 @@ dependencies {
     api rootProject.ext.libSupportCardView
     api rootProject.ext.libSupportPreference
 
+    odApi rootProject.ext.firebaseCore
+    odApi rootProject.ext.firebaseMsg
+    odApi rootProject.ext.firebaseAuth
+    odApi rootProject.ext.firebaseDatabase
+    odApi rootProject.ext.googlePlayServiceAuth
+
     osApi rootProject.ext.firebaseCore
     osApi rootProject.ext.firebaseMsg
     osApi rootProject.ext.firebaseAuth
