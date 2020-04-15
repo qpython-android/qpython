@@ -104,7 +104,10 @@ android {
 //            resValue "string", "app_name", "Qpython"
             applicationId "org.qpython.qpy"
         }
-
+        od {
+//            resValue "string", "app_name", "Qpython"
+            applicationId "org.qpython.qpy"
+        }
         op {
 //            resValue "string", "app_name", "QpythonL"
             applicationId "com.hipipal.qpyplus"
