@@ -720,6 +720,7 @@
     <string name="project_main_error"> Project\'s main.py does not exit</string>
 
     <string name="key_root" translatable="false">root</string>
+    <string name="key_alive" translatable="false">keep alive</string>
     <string name="key_sl4a" translatable="false">sl4a</string>
     <string name="key_qpypi" translatable="false">qpypi</string>
     <string name="key_update_qpy3" translatable="false">update_py3</string>
@@ -734,5 +735,9 @@
 
 
     <string name="editor_override">Do you want to override?</string>
+    <string name="enable_keep_alive">Enable Keep Alive</string>
+    <string name="disable_keep_alive">Disable</string>
+    <string name="keep_alive_mode">Keep Alive Mode</string>
+    <string name="keep_alive_tips">Application restart is required to take effect.</string>
 
 </resources>

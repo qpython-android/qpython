@@ -430,4 +430,7 @@ w    <string name="confirm">Подтвердить</string>
     <string name="me">Я</string>
     <string name="grant_storage_hint">Необходимо получить разрешение для доступа к хранилищу.</string>
     <string name="lost_google_hint">Не могу подключиться к серверу Google. Пожалуйста, проверьте ваше соединение.</string>
+    <string name="enable_keep_alive">Enable Keep Alive</string>
+    <string name="disable_keep_alive">Disable</string>
+    <string name="keep_alive_tips">Application restart is required to take effect.</string>
 </resources>

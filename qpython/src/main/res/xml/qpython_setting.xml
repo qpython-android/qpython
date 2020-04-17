@@ -110,6 +110,12 @@
     </PreferenceScreen>
 
     <CheckBoxPreference
+        android:key="@string/key_alive"
+        android:summaryOn="@string/enable_keep_alive"
+        android:summaryOff="@string/disable_keep_alive"
+        android:title="@string/keep_alive_mode"/>
+
+    <CheckBoxPreference
         android:key="@string/key_root"
         android:summaryOn="@string/enable_root"
         android:summaryOff="@string/disable_root"

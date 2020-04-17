@@ -59,6 +59,7 @@ public class HomeMainActivity extends BaseActivity {
     private static final int LOGIN_REQUEST_CODE = 136;
 
     private ActivityMainBinding binding;
+    private SharedPreferences preferences;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, HomeMainActivity.class);
@@ -74,6 +75,7 @@ public class HomeMainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //App.setActivity(this);
         startMain();
@@ -215,6 +217,10 @@ public class HomeMainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Bus.getDefault().unregister(this);
+        boolean isKeepAlive = preferences.getBoolean(getString(R.string.key_alive), false);
+        if (!isKeepAlive){
+            return;
+        }
         Cactus.getInstance().unregister(this);
     }
 
@@ -250,6 +256,7 @@ public class HomeMainActivity extends BaseActivity {
                     Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(starter);
                     break;
+                default:break;
             }
         }
     }
@@ -276,6 +283,7 @@ public class HomeMainActivity extends BaseActivity {
                     Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(starter);
                     break;
+                default:break;
             }
             sharedPreferences.edit().clear().apply();
         } catch (JSONException e) {

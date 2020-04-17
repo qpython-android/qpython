@@ -71,7 +71,7 @@ public class SettingFragment extends PreferenceFragment {
     private SharedPreferences settings;
     private Resources         resources;
     private Preference        mPassWordPref, username_pref, portnum_pref, chroot_pref, lastlog;
-    private CheckBoxPreference sl4a, running_state, root, display_pwd, notebook_run;
+    private CheckBoxPreference sl4a, running_state, root, display_pwd, notebook_run,keepAliveBox;
 
     private PreferenceScreen py_inter,notebook_page;
     private Preference py3,py2; //notebook_res, py2compatible
@@ -169,6 +169,7 @@ public class SettingFragment extends PreferenceFragment {
 
 
         root = (CheckBoxPreference) findPreference(resources.getString(R.string.key_root));
+        keepAliveBox = (CheckBoxPreference) findPreference(resources.getString(R.string.key_alive));
         sl4a = (CheckBoxPreference) findPreference(resources.getString(R.string.key_sl4a));
         app = (SwitchPreference) findPreference(getString(R.string.key_hide_push));
         log = (SwitchPreference) findPreference(resources.getString(R.string.key_hide_noti));
@@ -184,6 +185,11 @@ public class SettingFragment extends PreferenceFragment {
         isRoot = settings.getBoolean(getString(R.string.key_root), false);
         root.setChecked(isRoot);
         root.setSummary(isRoot ? R.string.enable_root : R.string.disable_root);
+
+        boolean isKeepAlive;
+        isKeepAlive = settings.getBoolean(getString(R.string.key_alive), false);
+        keepAliveBox.setChecked(isKeepAlive);
+        keepAliveBox.setSummary(isKeepAlive ? R.string.enable_keep_alive : R.string.disable_keep_alive);
 
         isRunning = isMyServiceRunning(QPyScriptService.class);
         sl4a.setChecked(isRunning);
@@ -211,6 +217,7 @@ public class SettingFragment extends PreferenceFragment {
 
         SharedPreferences.Editor editor = settings.edit();
         editor.putBoolean(getString(R.string.key_root), root.isChecked());
+        editor.putBoolean(getString(R.string.key_alive), keepAliveBox.isChecked());
         //editor.putString(getString(R.string.key_qpypi), qpypi.getSummary().toString());
         editor.putString(getString(R.string.key_username), username_pref.getSummary().toString());
         editor.putString(getString(R.string.key_ftp_pwd), settings.getString(mPassWordPref.getKey(), "ftp"));
@@ -303,6 +310,14 @@ public class SettingFragment extends PreferenceFragment {
                 NStorage.setSP(getActivity(), "app.root", "0");
                 return true;
             }
+        });
+
+        keepAliveBox.setOnPreferenceChangeListener((preference, newValue) ->
+        {
+            boolean isCheck = (boolean) newValue;
+            settings.edit().putBoolean(getString(R.string.key_alive), isCheck).apply();
+            Toast.makeText(getActivity(), R.string.keep_alive_tips, Toast.LENGTH_SHORT).show();
+            return true;
         });
 
         sl4a.setOnPreferenceChangeListener((preference, newValue) ->

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.quseit.common.CrashHandler;
 import com.quseit.common.updater.downloader.DefaultDownloader;
 import com.squareup.leakcanary.LeakCanary;
 
+import org.qpython.qpy.R;
 import org.qpython.qpy.main.server.Service;
 import org.qpython.qpy.main.server.gist.Api;
 import org.qpython.qpy.main.server.gist.TokenManager;
@@ -226,8 +228,19 @@ public class App extends QSL4APP {
     }
 
     private void initCactus() {
+        boolean isKeepAlive = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_alive), false);
+        LogUtil.e("isKeepAlive:" + isKeepAlive);
+        if (!isKeepAlive){
+            LogUtil.e("doWork0000000");
+            if (!isRunService( "org.qpython.qsl4a.QPyScriptService")) {
+                startPyService();
+            }
+            return;
+        }
         Cactus.getInstance()
                 .isDebug(true)
+                .setTitle("QPython")
+                .setContent("QPython service is alive")
                 .hideNotificationAfterO(false)
                 .addCallback(new CactusCallback() {
                     @Override
