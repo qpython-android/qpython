@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gyf.cactus.Cactus;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
 
@@ -103,7 +104,7 @@ public class HomeMainActivity extends BaseActivity {
 
     private void startMain() {
         initListener();
-        startPyService();
+//        startPyService();
         Bus.getDefault().register(this);
         init();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -214,6 +215,7 @@ public class HomeMainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Bus.getDefault().unregister(this);
+        Cactus.getInstance().unregister(this);
     }
 
     private void handlePython3(Intent intent) {
@@ -314,11 +316,11 @@ public class HomeMainActivity extends BaseActivity {
         super.onPause();
     }
 
-    private void startPyService() {
-        Log.d(TAG, "startPyService");
-        Intent intent = new Intent(this, QPyScriptService.class);
-        startService(intent);
-    }
+//    private void startPyService() {
+//        Log.d(TAG, "startPyService");
+//        Intent intent = new Intent(this, QPyScriptService.class);
+//        startService(intent);
+//    }
 
     private void openQpySDK() {
         Log.d("HomeMainActivity", "openQpySDK");
@@ -474,4 +476,5 @@ public class HomeMainActivity extends BaseActivity {
     private void sendEvent(String evenName) {
 
     }
+
 }
