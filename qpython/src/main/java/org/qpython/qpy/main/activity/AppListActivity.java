@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.quseit.util.FileHelper;
@@ -116,6 +119,8 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
         appsView.setAdapter(adapter);
 
         ((TextView) findViewById(R.id.tv_folder_name)).setText(R.string.qpy_app);
+        findViewById(R.id.iv_back).setOnClickListener(view -> AppListActivity.this.finish());
+
         getScriptList();
     }
 

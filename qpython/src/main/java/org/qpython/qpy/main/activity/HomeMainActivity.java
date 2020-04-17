@@ -88,6 +88,8 @@ public class HomeMainActivity extends BaseActivity {
             case "2.x":
                 binding.icon.setImageResource(R.drawable.img_home_logo);
                 break;
+            default:
+                break;
         }
     }
 
@@ -146,6 +148,8 @@ public class HomeMainActivity extends BaseActivity {
                     .setTitle(R.string.choose_action)
                     .setItems(chars, (dialog, which) -> {
                         switch (which) {
+                            default:
+                                break;
                             case 0: // Create Shortcut
                                 TermActivity.startActivity(HomeMainActivity.this);
                                 break;
@@ -227,7 +231,7 @@ public class HomeMainActivity extends BaseActivity {
     }
 
     private void handleNotification(Bundle bundle) {
-        if (bundle == null) return;
+        if (bundle == null) {return;}
         if (!bundle.getBoolean("force") && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_hide_push), true)) {
             return;
         }
