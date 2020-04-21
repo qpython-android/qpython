@@ -486,7 +486,7 @@
     <string name="switch_py3_hint">現在Python2を使用中です。Python3に切り替えますか?</string>
     <string name="goto_setting">設定に移動</string>
     <string name="net_lagging">ネットワークにラグが発生しています。しばらくお待ちください。</string>
-    <string name="enable_keep_alive">Enable Keep Alive</string>
+    <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
     <string name="disable_keep_alive">Disable</string>
-    <string name="keep_alive_tips">Application restart is required to take effect.</string>
+    <string name="keep_alive_tips">QPython will restart to apply changes.</string>
 </resources>

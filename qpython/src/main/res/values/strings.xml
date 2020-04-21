@@ -735,9 +735,9 @@
 
 
     <string name="editor_override">Do you want to override?</string>
-    <string name="enable_keep_alive">Enable Keep Alive</string>
+    <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_mode">Keep Alive Mode</string>
-    <string name="keep_alive_tips">Application restart is required to take effect.</string>
+    <string name="keep_alive_tips">QPython will restart to apply changes.</string>
 
 </resources>

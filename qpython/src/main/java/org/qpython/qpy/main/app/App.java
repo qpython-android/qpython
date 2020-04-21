@@ -241,6 +241,8 @@ public class App extends QSL4APP {
                 .isDebug(true)
                 .setTitle("QPython")
                 .setContent("QPython service is alive")
+                .setLargeIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .hideNotificationAfterO(false)
                 .addCallback(new CactusCallback() {
                     @Override
