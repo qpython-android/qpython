@@ -44,7 +44,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class App extends QSL4APP {
+public class App extends QSL4APP implements CactusCallback{
 
     private static final String TAG = "APP";
     private static Context sContext;
@@ -244,20 +244,7 @@ public class App extends QSL4APP {
                 .setLargeIcon(R.drawable.ic_launcher)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .hideNotificationAfterO(false)
-                .addCallback(new CactusCallback() {
-                    @Override
-                    public void doWork(int i) {
-                        LogUtil.e("doWork1111111");
-                        if (!isRunService( "org.qpython.qsl4a.QPyScriptService")) {
-                            startPyService();
-                        }
-                    }
-
-                    @Override
-                    public void onStop() {
-
-                    }
-                })
+                .addCallback(this)
                 .register(this);
     }
 
@@ -271,12 +258,23 @@ public class App extends QSL4APP {
         }
     }
 
-//    @Override
-//    public void doWork(int i) {
-//        if (!isRunService(this, "org.qpython.qsl4a.QPyScriptService")) {
-//            startPyService();
-//        }
-//    }
+    /**
+     * 保活的回调接口
+     * @param i
+     */
+    @Override
+    public void doWork(int i) {
+        LogUtil.e("doWork1111111");
+        if (!isRunService( "org.qpython.qsl4a.QPyScriptService")) {
+            startPyService();
+        }
+    }
+
+    /**
+     * 保活的回调接口
+     */
+    @Override
+    public void onStop() {}
 
     private void startPyService() {
         LogUtil.e("doWork22222");
@@ -284,11 +282,6 @@ public class App extends QSL4APP {
         Intent intent = new Intent(this, QPyScriptService.class);
         startService(intent);
     }
-
-//    @Override
-//    public void onStop() {
-//
-//    }
 
     /**
      * 判断服务是否在运行
