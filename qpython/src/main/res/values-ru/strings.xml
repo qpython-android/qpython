@@ -433,4 +433,5 @@ w    <string name="confirm">Подтвердить</string>
     <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
+    <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
 </resources>

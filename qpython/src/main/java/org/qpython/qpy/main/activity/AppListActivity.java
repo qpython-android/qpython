@@ -1,6 +1,7 @@
 package org.qpython.qpy.main.activity;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.app.PendingIntent;
@@ -9,11 +10,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -38,6 +41,7 @@ import org.qpython.qpy.main.adapter.AppListAdapter;
 import org.qpython.qpy.main.event.AppsLoader;
 import org.qpython.qpy.main.model.AppModel;
 import org.qpython.qpy.main.model.QPyScriptModel;
+import org.qpython.qpy.utils.ShortcutUtil;
 import org.qpython.qpysdk.QPyConstants;
 import org.qpython.qpysdk.utils.Utils;
 import org.qpython.qsl4a.qsl4a.LogUtil;
@@ -145,6 +149,7 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
 //                    return;
 //                }
                 createShortcutOnThis();
+//                test();
             }
 
             @Override
@@ -191,6 +196,10 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
 //        }
 //    }
 
+    private void test(){
+        judgeShortcutNameV2("org.qpython.qpy");
+    }
+
     private void createShortcutOnThis(){
         if (mBean == null){
             return;
@@ -217,9 +226,17 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
                         mShortcutManager.createShortcutResultIntent(pinShortcutInfo);
                 PendingIntent successCallback = PendingIntent.getBroadcast(this, 0,
                         pinnedShortcutCallbackIntent, 0);
-
+                LogUtil.e("createShortcut: " + "111111111111");
                 mShortcutManager.requestPinShortcut(pinShortcutInfo,
                         successCallback.getIntentSender());
+                LogUtil.e("createShortcut: " + mBean.getLabel());
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        judgeShortcutNameV2("org.qpython.qpy");
+//                        judgeShortcutName(mBean.getLabel());
+                    }
+                },200);
             }
         } else {
             //Adding shortcut for MainActivity
@@ -234,6 +251,24 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
             getApplicationContext().sendBroadcast(addIntent);
             Toast.makeText(this, getString(R.string.shortcut_create_suc, mBean.getLabel()), Toast.LENGTH_SHORT).show();
         }
+    }
+
+//    private void judgeShortcutName(String name) {
+//        int shortcutNum = 0;
+//        for (String packageName : ShortcutUtil.getAllTheLauncher(getApplicationContext())) {
+//            LogUtil.e("packageName111111: " + packageName);
+//            if (name.equals(packageName)) {
+//                shortcutNum ++;
+//            }
+//        }
+//        LogUtil.e("packageName222222: " + shortcutNum);
+//    }
+
+    private void judgeShortcutNameV2(String name) {
+        if (!ShortcutUtil.getShortcutInfo(getApplicationContext()).isEmpty()){
+            return;
+        }
+        Toast.makeText(this, getString(R.string.shortcut_create_fail), Toast.LENGTH_SHORT).show();
     }
 
 

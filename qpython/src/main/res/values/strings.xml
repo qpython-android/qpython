@@ -739,5 +739,6 @@
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_mode">Keep Alive Mode</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
+    <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
 
 </resources>
