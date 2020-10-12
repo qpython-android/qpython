@@ -28,6 +28,8 @@ import org.qpython.qpy.main.model.LocalAppModel;
 import org.qpython.qpy.main.model.QPyScriptModel;
 import org.qpython.qpy.texteditor.EditorActivity;
 import org.qpython.qpy.texteditor.ui.view.EnterDialog;
+import org.qpython.qsl4a.qsl4a.LogUtil;
+
 import android.support.v7.app.AlertDialog;
 
 
@@ -114,6 +116,8 @@ public class AppListAdapter extends RecyclerView.Adapter<MyViewHolder<ItemAppLis
                                 case 2:
                                     openToEdit(position);
                                     dialog.dismiss();
+                                default:
+                                    break;
 
                             }
                         }).setNegativeButton("CLOSE", new DialogInterface.OnClickListener() {
@@ -146,6 +150,8 @@ public class AppListAdapter extends RecyclerView.Adapter<MyViewHolder<ItemAppLis
 
         void runProject(QPyScriptModel item);
 
+        void createShortcut(QPyScriptModel item);
+
         void exit();
     }
 
@@ -156,43 +162,46 @@ public class AppListAdapter extends RecyclerView.Adapter<MyViewHolder<ItemAppLis
         }
         // Create shortcut
         QPyScriptModel qPyScriptModel = (QPyScriptModel) dataList.get(position);
-        Intent intent = new Intent();
-        intent.setClass(context, AppListActivity.class);
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.putExtra("type", "script");
-        intent.putExtra("path", qPyScriptModel.getPath());
-        intent.putExtra("isProj", qPyScriptModel.isProj());
-
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            ShortcutManager mShortcutManager = context.getSystemService(ShortcutManager.class);
-            if (mShortcutManager.isRequestPinShortcutSupported()) {
-                ShortcutInfo pinShortcutInfo =
-                        new ShortcutInfo.Builder(context, dataList.get(position).getLabel())
-                                .setShortLabel(dataList.get(position).getLabel())
-                                .setLongLabel(dataList.get(position).getLabel())
-                                .setIcon(Icon.createWithResource(context, dataList.get(position).getIconRes()))
-                                .setIntent(intent)
-                                .build();
-                Intent pinnedShortcutCallbackIntent =
-                        mShortcutManager.createShortcutResultIntent(pinShortcutInfo);
-                PendingIntent successCallback = PendingIntent.getBroadcast(context, 0,
-                        pinnedShortcutCallbackIntent, 0);
-                mShortcutManager.requestPinShortcut(pinShortcutInfo,
-                        successCallback.getIntentSender());
-            }
-        } else {
-            //Adding shortcut for MainActivity
-            //on Home screen
-            Intent addIntent = new Intent();
-            addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
-            addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, dataList.get(position).getLabel());
-            addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
-                    Intent.ShortcutIconResource.fromContext(context.getApplicationContext(),
-                            dataList.get(position).getIconRes()));
-            addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
-            context.getApplicationContext().sendBroadcast(addIntent);
-            Toast.makeText(context, context.getString(R.string.shortcut_create_suc, dataList.get(position).getLabel()), Toast.LENGTH_SHORT).show();
-        }
+//        Intent intent = new Intent();
+//        intent.setClass(context, AppListActivity.class);
+//        intent.setAction(Intent.ACTION_VIEW);
+//        intent.putExtra("type", "script");
+//        intent.putExtra("path", qPyScriptModel.getPath());
+//        intent.putExtra("isProj", qPyScriptModel.isProj());
+//
+//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            ShortcutManager mShortcutManager = context.getSystemService(ShortcutManager.class);
+//            if (mShortcutManager.isRequestPinShortcutSupported()) {
+//                ShortcutInfo pinShortcutInfo =
+//                        new ShortcutInfo.Builder(context, dataList.get(position).getLabel())
+//                                .setShortLabel(dataList.get(position).getLabel())
+//                                .setLongLabel(dataList.get(position).getLabel())
+//                                .setIcon(Icon.createWithResource(context, dataList.get(position).getIconRes()))
+//                                .setIntent(intent)
+//                                .build();
+//                Intent pinnedShortcutCallbackIntent =
+//                        mShortcutManager.createShortcutResultIntent(pinShortcutInfo);
+//                PendingIntent successCallback = PendingIntent.getBroadcast(context, 0,
+//                        pinnedShortcutCallbackIntent, 0);
+//
+//                boolean aaa = mShortcutManager.requestPinShortcut(pinShortcutInfo,
+//                        successCallback.getIntentSender());
+//                LogUtil.e("11111111111" + aaa);
+//            }
+//        } else {
+//            //Adding shortcut for MainActivity
+//            //on Home screen
+//            Intent addIntent = new Intent();
+//            addIntent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, intent);
+//            addIntent.putExtra(Intent.EXTRA_SHORTCUT_NAME, dataList.get(position).getLabel());
+//            addIntent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
+//                    Intent.ShortcutIconResource.fromContext(context.getApplicationContext(),
+//                            dataList.get(position).getIconRes()));
+//            addIntent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+//            context.getApplicationContext().sendBroadcast(addIntent);
+//            Toast.makeText(context, context.getString(R.string.shortcut_create_suc, dataList.get(position).getLabel()), Toast.LENGTH_SHORT).show();
+//        }
+        callback.createShortcut(qPyScriptModel);
         return true;
     }
 

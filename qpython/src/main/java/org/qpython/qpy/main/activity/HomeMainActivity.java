@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gyf.cactus.Cactus;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
 
@@ -58,6 +59,7 @@ public class HomeMainActivity extends BaseActivity {
     private static final int LOGIN_REQUEST_CODE = 136;
 
     private ActivityMainBinding binding;
+    private SharedPreferences preferences;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, HomeMainActivity.class);
@@ -73,6 +75,7 @@ public class HomeMainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //App.setActivity(this);
         startMain();
@@ -88,6 +91,8 @@ public class HomeMainActivity extends BaseActivity {
             case "2.x":
                 binding.icon.setImageResource(R.drawable.img_home_logo);
                 break;
+            default:
+                break;
         }
     }
 
@@ -101,7 +106,7 @@ public class HomeMainActivity extends BaseActivity {
 
     private void startMain() {
         initListener();
-        startPyService();
+//        startPyService();
         Bus.getDefault().register(this);
         init();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
@@ -146,6 +151,8 @@ public class HomeMainActivity extends BaseActivity {
                     .setTitle(R.string.choose_action)
                     .setItems(chars, (dialog, which) -> {
                         switch (which) {
+                            default:
+                                break;
                             case 0: // Create Shortcut
                                 TermActivity.startActivity(HomeMainActivity.this);
                                 break;
@@ -210,6 +217,11 @@ public class HomeMainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Bus.getDefault().unregister(this);
+        boolean isKeepAlive = preferences.getBoolean(getString(R.string.key_alive), false);
+        if (!isKeepAlive){
+            return;
+        }
+        Cactus.getInstance().unregister(this);
     }
 
     private void handlePython3(Intent intent) {
@@ -227,7 +239,7 @@ public class HomeMainActivity extends BaseActivity {
     }
 
     private void handleNotification(Bundle bundle) {
-        if (bundle == null) return;
+        if (bundle == null) {return;}
         if (!bundle.getBoolean("force") && !PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.key_hide_push), true)) {
             return;
         }
@@ -244,6 +256,7 @@ public class HomeMainActivity extends BaseActivity {
                     Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(starter);
                     break;
+                default:break;
             }
         }
     }
@@ -270,6 +283,7 @@ public class HomeMainActivity extends BaseActivity {
                     Intent starter = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                     startActivity(starter);
                     break;
+                default:break;
             }
             sharedPreferences.edit().clear().apply();
         } catch (JSONException e) {
@@ -310,11 +324,11 @@ public class HomeMainActivity extends BaseActivity {
         super.onPause();
     }
 
-    private void startPyService() {
-        Log.d(TAG, "startPyService");
-        Intent intent = new Intent(this, QPyScriptService.class);
-        startService(intent);
-    }
+//    private void startPyService() {
+//        Log.d(TAG, "startPyService");
+//        Intent intent = new Intent(this, QPyScriptService.class);
+//        startService(intent);
+//    }
 
     private void openQpySDK() {
         Log.d("HomeMainActivity", "openQpySDK");
@@ -470,4 +484,5 @@ public class HomeMainActivity extends BaseActivity {
     private void sendEvent(String evenName) {
 
     }
+
 }
