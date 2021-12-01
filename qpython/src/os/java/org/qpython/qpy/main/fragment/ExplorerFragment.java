@@ -54,24 +54,24 @@ import java.util.Map;
 import static com.quseit.util.FolderUtils.sortTypeByName;
 
 public class ExplorerFragment extends Fragment {
-    private static final int REQUEST_SAVE_AS   = 107;
+    private static final int REQUEST_SAVE_AS = 107;
     private static final int REQUEST_HOME_PAGE = 109;
-    private static final int REQUEST_RECENT    = 111;
-    private static final int LOGIN_REQUEST     = 2741;
+    private static final int REQUEST_RECENT = 111;
+    private static final int LOGIN_REQUEST = 2741;
 
     private static final String TYPE = "type";
 
     private int WIDTH = (int) ImageUtil.dp2px(60);
 
     private FragmentExplorerBinding binding;
-    private List<FolderBean>        folderList;
-    private FolderAdapter           adapter;
+    private List<FolderBean> folderList;
+    private FolderAdapter adapter;
     private Map<String, Boolean> cloudedMap = new HashMap<>();
 
     private boolean openable = true; // 是否可打开文件
     private boolean uploadable;
 
-    private int    type;
+    private int type;
     private String curPath;
 
     public static ExplorerFragment newInstance(int type) {
@@ -164,7 +164,7 @@ public class ExplorerFragment extends Fragment {
                 //采用Environment来获取sdcard路径
                 String parentPath = new File(curPath).getParent();
 
-                if (parentPath.length()>=Environment.getExternalStorageDirectory().getAbsolutePath().length()) {
+                if (parentPath.length() >= context.getExternalFilesDir(null).getAbsolutePath().length()) {
                     openDir(parentPath);
                 }
             } catch (Exception e) {
@@ -221,6 +221,7 @@ public class ExplorerFragment extends Fragment {
     private void gotoSetting() {
         SettingActivity.startActivity(getActivity());
     }
+
     private void openFile(File file, String ext) {
         List<String> textExts = Arrays.asList(getContext().getResources().getStringArray(R.array.text_ext));
         if (textExts.contains(ext)) {
@@ -231,7 +232,7 @@ public class ExplorerFragment extends Fragment {
                 NotebookActivity.start(getActivity(), file.getAbsolutePath(), false);
             } else {
 
-                new AlertDialog.Builder(getActivity(),R.style.MyDialog)
+                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
                         .setTitle(R.string.dialog_alert)
                         .setMessage(getString(R.string.ennable_notebook_first))
                         .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
@@ -437,9 +438,9 @@ public class ExplorerFragment extends Fragment {
     }
 
     public void backToPrev() {
-        Log.d("ExplorerFragment", "backToPrev:"+curPath);
-        String qpyDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/qpython";
-        if (curPath == null || qpyDir.equals(curPath) || Environment.getExternalStorageDirectory().getAbsolutePath().equals(curPath)) {
+        Log.d("ExplorerFragment", "backToPrev:" + curPath);
+        String qpyDir = context.getExternalFilesDir(null).getAbsolutePath() + "/qpython";
+        if (curPath == null || qpyDir.equals(curPath) || context.getExternalFilesDir(null).getAbsolutePath().equals(curPath)) {
             getActivity().finish();
         } else {
             String parentPath = new File(curPath).getParent();

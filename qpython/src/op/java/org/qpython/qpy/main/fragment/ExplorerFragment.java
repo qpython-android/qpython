@@ -157,7 +157,7 @@ public class ExplorerFragment extends Fragment {
         binding.prevFolder.setOnClickListener(v -> {
             String parentPath = new File(curPath).getParent();
 
-            if (parentPath.length()>=Environment.getExternalStorageDirectory().getAbsolutePath().length()) {
+            if (parentPath.length()>=FileUtils.getQyPath(App.getContext()).length()) {
                 openDir(parentPath);
             }
         });
@@ -384,9 +384,9 @@ public class ExplorerFragment extends Fragment {
 
     public void backToPrev() {
 
-        String qpyDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/qpython";
+        String qpyDir = FileUtils.getQyPath(App.getContext())+"/qpython";
 
-        if (curPath == null || qpyDir.equals(curPath) || Environment.getExternalStorageDirectory().getAbsolutePath().equals(curPath)) {
+        if (curPath == null || qpyDir.equals(curPath) || FileUtils.getQyPath(App.getContext()).equals(curPath)) {
             getActivity().finish();
         } else {
             String parentPath = new File(curPath).getParent();

@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.quseit.util.FileUtils;
 import com.quseit.util.ImageDownLoader;
 
 import org.qpython.qpy.R;
@@ -62,7 +63,7 @@ public class UserActivity extends AppCompatActivity {
                     getPreferences(MODE_PRIVATE).edit().putBoolean(CONSTANT.IS_UPLOAD_INIT, false)
                             .putString(CONSTANT.CLOUDED_MAP, "")
                             .apply();
-                    File cloud_cache = new File(CONF.CLOUD_MAP_CACHE_PATH);
+                    File cloud_cache = new File(FileUtils.getCloudMapCachePath(getApplicationContext()));
                     if (cloud_cache.exists()) {
                         cloud_cache.delete();
                     }

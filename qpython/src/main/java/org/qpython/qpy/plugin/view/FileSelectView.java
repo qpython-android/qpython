@@ -8,7 +8,10 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.R;
+import org.qpython.qpy.main.app.App;
 
 
 import java.io.File;
@@ -24,7 +27,7 @@ public class FileSelectView extends ListView implements AdapterView.OnItemClickL
     public final static String TAG = "FileSelectView";
     public static final String ON_ERROR_MSG = "No rights to access!";
 
-    private static final String sRoot = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private static final String sRoot = FileUtils.getQyPath(App.getContext());
     public static final String PARENT_DIR = "..";
     public static final String FOLDER = ".";
     public static final String EMPTY = "";

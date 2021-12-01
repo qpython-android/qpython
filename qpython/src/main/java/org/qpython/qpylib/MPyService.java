@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
@@ -79,7 +80,7 @@ public class MPyService extends Service {
                             } else {
                                 runMode = 1;
                             }
-                            String script = QPyConstants.ABSOLUTE_PATH + "/cache/last.py";
+                            String script = FileUtils.getAbsolutePath(App.getContext()) + "/cache/last.py";
                             FileHelper.putFileContents(this, script, pycode);
                             ScriptExec.getInstance().playScript(MPyService.this, script, null, false);
                         }

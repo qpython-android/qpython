@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.quseit.base.QBaseApp;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NStorage;
 import com.quseit.util.NUtil;
@@ -41,12 +42,12 @@ import okhttp3.Response;
 public class NotebookUtil {
 
     private static final String TAG = "NotebookUtil";
-    public static final String RELEASE_PATH = QPyConstants.ABSOLUTE_PATH + "/.notebook";
+    public static final String RELEASE_PATH = FileUtils.getAbsolutePath(App.getContext()) + "/.notebook";
     public static final String NB_SERVER = "http://127.0.0.1:13000";
     public static final String KILL_SERVER = NB_SERVER + "/__exit";
     public static final String NOTEBOOK_SERVER = NB_SERVER + "/notebooks/";
 
-    public static final String NOTEBOOK_DIR = QPyConstants.ABSOLUTE_PATH+"/";
+    public static final String NOTEBOOK_DIR = FileUtils.getAbsolutePath(App.getContext())+"/";
     public static final String ext = ".ipynb";
     public static final String Untitled = "Untitled";
 
@@ -226,7 +227,7 @@ public class NotebookUtil {
 
     private static String getTempFilePath(String url) {
         //LogUtil.d("NotebookUtil", "getTempFilePath:"+url);
-        File dir = new File(QPyConstants.ABSOLUTE_PATH, "notebooks");
+        File dir = new File(FileUtils.getAbsolutePath(App.getContext()), "notebooks");
         if (!dir.exists()) {
             dir.mkdirs();
         }

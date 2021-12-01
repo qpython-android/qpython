@@ -17,6 +17,7 @@ import com.gyf.cactus.Cactus;
 import com.gyf.cactus.callback.CactusCallback;
 import com.quseit.common.CrashHandler;
 import com.quseit.common.updater.downloader.DefaultDownloader;
+import com.quseit.util.FileUtils;
 import com.squareup.leakcanary.LeakCanary;
 
 import org.qpython.qpy.R;
@@ -188,7 +189,7 @@ public class App extends QSL4APP implements CactusCallback{
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         mService = new Service();
 
-        String basePath = QPyConstants.ABSOLUTE_PATH;
+        String basePath = FileUtils.getAbsolutePath(getApplicationContext());
         sProjectPath = String.format("%s/%s", basePath, "projects");
         sScriptPath = String.format("%s/%s", basePath, "scripts");
 

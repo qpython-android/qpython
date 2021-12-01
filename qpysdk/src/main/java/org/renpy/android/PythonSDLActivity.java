@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
@@ -69,6 +70,7 @@ public class PythonSDLActivity extends SDLActivity {
     ResourceManager resourceManager;
 
 
+    @Override
     protected String[] getLibraries() {
         return new String[] {
             "png16",
@@ -243,11 +245,7 @@ public class PythonSDLActivity extends SDLActivity {
 
         final Activity thisActivity = this;
 
-        runOnUiThread(new Runnable () {
-            public void run() {
-                Toast.makeText(thisActivity, msg, Toast.LENGTH_LONG).show();
-            }
-        });
+        runOnUiThread(() -> Toast.makeText(thisActivity, msg, Toast.LENGTH_LONG).show());
 
         // Wait to show the error.
         synchronized (this) {
@@ -276,7 +274,7 @@ public class PythonSDLActivity extends SDLActivity {
             nativeSetEnv("ANDROID_ARGUMENT", path.getAbsolutePath());
 
         } else {
-            nativeSetEnv("ANDROID_ARGUMENT", QPyConstants.ABSOLUTE_PATH);
+            nativeSetEnv("ANDROID_ARGUMENT", FileUtils.getAbsolutePath(getApplicationContext()));
 
         }
 
@@ -299,7 +297,7 @@ public class PythonSDLActivity extends SDLActivity {
 
         resourceManager = new ResourceManager(this);
 
-        File oldExternalStorage = new File(Environment.getExternalStorageDirectory(), getPackageName());
+        File oldExternalStorage = new File(FileUtils.getPath(getApplicationContext()), getPackageName());
         File externalStorage = getExternalFilesDir(null);
         File path;
 
@@ -323,7 +321,7 @@ public class PythonSDLActivity extends SDLActivity {
             path = getFilesDir();
         }
 
-        nativeSetEnv("ANDROID_LOG", QPyConstants.ABSOLUTE_LOG);
+        nativeSetEnv("ANDROID_LOG",FileUtils.getAbsoluteLogPath(getApplicationContext()));
 
         File filesDir = getFilesDir();
         //unpackData("private", getFilesDir());
@@ -331,7 +329,7 @@ public class PythonSDLActivity extends SDLActivity {
 
         nativeSetEnv("ANDROID_ARGUMENT", path.getAbsolutePath());
         nativeSetEnv("ANDROID_PRIVATE", getFilesDir().getAbsolutePath());
-        nativeSetEnv("ANDROID_PUBLIC", QPyConstants.ABSOLUTE_PATH);
+        nativeSetEnv("ANDROID_PUBLIC", FileUtils.getAbsolutePath(getApplicationContext()));
         nativeSetEnv("ANDROID_OLD_PUBLIC", oldExternalStorage.getAbsolutePath());
 
         nativeSetEnv("LD_LIBRARY_PATH", ".:"+filesDir+"/lib/"+":"+filesDir+"/:"+filesDir.getParentFile()+"/lib/");
@@ -403,6 +401,7 @@ public class PythonSDLActivity extends SDLActivity {
         super.onDestroy();
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
     }
@@ -433,18 +432,18 @@ public class PythonSDLActivity extends SDLActivity {
 
     public PowerManager.WakeLock wakeLock = null;
 
-    public void setWakeLock(boolean active) {
-        if (wakeLock == null) {
-            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-            wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "Screen On");
-            wakeLock.setReferenceCounted(false);
-        }
-
-        if (active) {
-            wakeLock.acquire();
-        } else {
-            wakeLock.release();
-        }
-    }
+//    public void setWakeLock(boolean active) {
+//        if (wakeLock == null) {
+//            PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+//            wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "Screen On");
+//            wakeLock.setReferenceCounted(false);
+//        }
+//
+//        if (active) {
+//            wakeLock.acquire();
+//        } else {
+//            wakeLock.release();
+//        }
+//    }
 
 }

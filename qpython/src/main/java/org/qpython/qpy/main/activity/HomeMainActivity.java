@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.gyf.cactus.Cactus;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
 
@@ -382,7 +383,7 @@ public class HomeMainActivity extends BaseActivity {
             if (py3) {
                 qpysdk.extractRes("notebook3", HomeMainActivity.this.getFilesDir());
             }
-            File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
+            File externalStorage = new File(FileUtils.getPath(App.getContext()), "qpython");
             FileHelper.createDirIfNExists(externalStorage + "/cache");
             FileHelper.createDirIfNExists(externalStorage + "/log");
             FileHelper.createDirIfNExists(externalStorage + "/notebooks");
@@ -400,7 +401,7 @@ public class HomeMainActivity extends BaseActivity {
      * 初始化内置python项目
      */
     public void extractRes() {
-        File externalStorage = new File(QPyConstants.ABSOLUTE_PATH);
+        File externalStorage = new File(FileUtils.getAbsolutePath(getApplicationContext()));
         if (checkExpired("public", new File(externalStorage + "/lib").getAbsolutePath(), "programs"+NAction.getPyVer(this))) {
             String name, sFileName;
             InputStream content;
@@ -417,23 +418,23 @@ public class HomeMainActivity extends BaseActivity {
                     content.reset();
 
                     if (sFileName.equals("projects2.zip")) {
-                        Utils.createDirectoryOnExternalStorage("qpython/projects/");
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects/", false);
+                        Utils.createDirectoryOnExternalStorage(App.getContext(),"qpython/projects/");
+                        Utils.unzip(content, FileUtils.getQyPath(App.getContext()) + "/qpython/projects/", false);
 
                     } else if (sFileName.equals("scripts2.zip")) {
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts/", false);
+                        Utils.unzip(content, FileUtils.getQyPath(App.getContext()) + "/qpython/scripts/", false);
 
                     } else if (sFileName.equals("projects3.zip")) {
-                        Utils.createDirectoryOnExternalStorage("qpython/projects3/");
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/projects3/", false);
+                        Utils.createDirectoryOnExternalStorage(App.getContext(),"qpython/projects3/");
+                        Utils.unzip(content, FileUtils.getQyPath(App.getContext()) + "/qpython/projects3/", false);
 
                     } else if (sFileName.equals("scripts3.zip")) {
-                        Utils.createDirectoryOnExternalStorage("qpython/scripts3/");
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/scripts3/", false);
+                        Utils.createDirectoryOnExternalStorage(App.getContext(),"qpython/scripts3/");
+                        Utils.unzip(content, FileUtils.getQyPath(App.getContext()) + "/qpython/scripts3/", false);
 
                     } if (sFileName.equals("ipynb.zip")) {
-                        Utils.createDirectoryOnExternalStorage("qpython/notebooks/");
-                        Utils.unzip(content, Environment.getExternalStorageDirectory().getAbsolutePath() + "/qpython/notebooks/", false);
+                        Utils.createDirectoryOnExternalStorage(App.getContext(),"qpython/notebooks/");
+                        Utils.unzip(content, FileUtils.getQyPath(App.getContext()) + "/qpython/notebooks/", false);
                     }
 
                 } catch (Exception e) {

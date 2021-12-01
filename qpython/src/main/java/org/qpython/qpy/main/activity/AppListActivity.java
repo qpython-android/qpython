@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.FolderUtils;
 import com.quseit.util.NAction;
 
@@ -196,6 +198,7 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
 //        }
 //    }
 
+    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     private void test(){
         judgeShortcutNameV2("org.qpython.qpy");
     }
@@ -230,12 +233,9 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
                 mShortcutManager.requestPinShortcut(pinShortcutInfo,
                         successCallback.getIntentSender());
                 LogUtil.e("createShortcut: " + mBean.getLabel());
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        judgeShortcutNameV2("org.qpython.qpy");
+                new Handler().postDelayed(() -> {
+                    judgeShortcutNameV2("org.qpython.qpy");
 //                        judgeShortcutName(mBean.getLabel());
-                    }
                 },200);
             }
         } else {
@@ -264,6 +264,7 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
 //        LogUtil.e("packageName222222: " + shortcutNum);
 //    }
 
+    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     private void judgeShortcutNameV2(String name) {
         if (!ShortcutUtil.getShortcutInfo(getApplicationContext()).isEmpty()){
             return;
@@ -275,7 +276,7 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
     private void getScriptList() {
         try {
             String projectPath = NAction.isQPy3(this.getApplicationContext())? QPyConstants.DFROM_PRJ3:QPyConstants.DFROM_PRJ2;
-            File[] projectFiles = FileHelper.getABSPath(QPyConstants.ABSOLUTE_PATH + "/" + projectPath).listFiles();
+            File[] projectFiles = FileHelper.getABSPath(FileUtils.getAbsolutePath(getApplicationContext()) + "/" + projectPath).listFiles();
             if (projectFiles != null) {
                 Arrays.sort(projectFiles, FolderUtils.sortByName);
                 dataList.clear();
@@ -287,7 +288,7 @@ public class AppListActivity extends BaseActivity implements LoaderManager.Loade
             }
             String scriptPath = NAction.isQPy3(this.getApplicationContext())?QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2;
 
-            File[] files = FileHelper.getFilesByType(FileHelper.getABSPath(QPyConstants.ABSOLUTE_PATH + "/" + scriptPath));
+            File[] files = FileHelper.getFilesByType(FileHelper.getABSPath(FileUtils.getAbsolutePath(getApplicationContext()) + "/" + scriptPath));
             if (files!=null && files.length > 0) {
                 Arrays.sort(files, FolderUtils.sortByName);
                 for (File file : files) {

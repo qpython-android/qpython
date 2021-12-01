@@ -138,7 +138,7 @@ public class BaseActivity extends AppCompatActivity {
 
         String lastError = "";
         String code = NAction.getCode(getApplicationContext());
-        File log = new File(Environment.getExternalStorageDirectory() + "/" + code + "_last_err.log");
+        File log = new File(FileUtils.getPath(App.getContext()) + "/" + code + "_last_err.log");
         if (log.exists()) {
             lastError = com.quseit.util.FileHelper.getFileContents(log.getAbsolutePath());
         }

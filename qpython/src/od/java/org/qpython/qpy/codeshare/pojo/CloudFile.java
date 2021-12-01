@@ -1,7 +1,10 @@
 package org.qpython.qpy.codeshare.pojo;
 
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.codeshare.CONSTANT;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpysdk.QPyConstants;
 
 import java.io.Serializable;
@@ -92,6 +95,6 @@ public class CloudFile implements Serializable {
     }
 
     public String getAbsolutePath() {
-        return QPyConstants.ABSOLUTE_PATH + getPath();
+        return FileUtils.getAbsolutePath(App.getContext()) + getPath();
     }
 }

@@ -72,15 +72,14 @@ public interface Constants {
      */
      int MENU_ID_QUIT        = 666;
 
-    /**
-     * File of the external storage data
-     */
-     File   STORAGE          = Environment
-            .getExternalStorageDirectory();
-    /**
-     * Path to the external storage data
-     */
-     String STORAGE_PATH     = STORAGE.getAbsolutePath();
+//    /**
+//     * File of the external storage data
+//     */
+//     File   STORAGE          = Environment.getExternalStorageDirectory();
+//    /**
+//     * Path to the external storage data
+//     */
+//     String STORAGE_PATH     = STORAGE.getAbsolutePath();
     /**
      * name of the backup file
      */

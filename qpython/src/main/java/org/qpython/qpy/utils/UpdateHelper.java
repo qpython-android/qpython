@@ -24,6 +24,7 @@ import com.quseit.common.db.CacheLog;
 import com.quseit.common.db.UserLog;
 import com.quseit.util.DateTimeHelper;
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 import com.quseit.util.VeDate;
@@ -169,7 +170,7 @@ public class UpdateHelper {
                     checkConfUpdate(context.getApplicationContext());
 
                     // 清空图片目录的缓存
-                    String cacheDir = Environment.getExternalStorageDirectory() + "/" + root + "/" + BASE_CONF.DCACHE + "/";
+                    String cacheDir = FileUtils.getPath(context.getApplicationContext()) + "/" + root + "/" + BASE_CONF.DCACHE + "/";
                     FileHelper.clearDir(cacheDir, 0, false);
 
                 }

@@ -96,10 +96,11 @@ ext {
     buildToolsVersion = '29.0.2'
 
     // firebase related https://firebase.google.com/docs/android/setup
-    firebaseCore = "com.google.firebase:firebase-core:16.0.6"
-    firebaseMsg = "com.google.firebase:firebase-messaging:17.3.4"
+    firebaseCore = "com.google.firebase:firebase-core:16.0.7"
+    firebaseMsg = "com.google.firebase:firebase-messaging:18.0.0"
+    firebaseIid = "com.google.firebase:firebase-iid:17.0.4"
     firebaseAuth = "com.google.firebase:firebase-auth:16.1.0"
-    firebaseDatabase = "com.google.firebase:firebase-database:16.0.5"
+    firebaseDatabase = "com.google.firebase:firebase-database:16.0.6"
 
     // https://developers.google.com/android/guides/setup
     googlePlayServiceAuth = "com.google.android.gms:play-services-auth:16.0.1"

@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.text.TextUtils;
 
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
@@ -138,7 +139,7 @@ public class BaseActivity extends AppCompatActivity {
 
         String lastError = "";
         String code = NAction.getCode(getApplicationContext());
-        File log = new File(Environment.getExternalStorageDirectory() + "/" + code + "_last_err.log");
+        File log = new File(FileUtils.getPath(getApplicationContext()) + "/" + code + "_last_err.log");
         if (log.exists()) {
             lastError = com.quseit.util.FileHelper.getFileContents(log.getAbsolutePath());
         }

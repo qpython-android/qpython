@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.qpython.qpy.R;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.texteditor.androidlib.common.UIUtils;
 import org.qpython.qpy.texteditor.androidlib.data.FileUtils;
 
@@ -100,7 +101,7 @@ public class FileListAdapter extends ArrayAdapter<File> {
 //            } else {
             if (FileUtils.isSymLink(file)) {
                 File target = FileUtils.getSymLinkTarget(file);
-                if (target.equals(FileUtils.STORAGE)) {
+                if (target.equals(com.quseit.util.FileUtils.getPath(App.getContext()))) {
                     icon = R.drawable.prev;
                 } else if (target.isDirectory()) {
                     icon = R.drawable.ic_editor_folder_little;

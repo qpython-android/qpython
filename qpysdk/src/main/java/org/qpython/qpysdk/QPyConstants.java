@@ -3,6 +3,7 @@ package org.qpython.qpysdk;
 import android.os.Environment;
 
 import com.quseit.config.BASE_CONF;
+import com.quseit.util.FileUtils;
 
 public interface QPyConstants extends BASE_CONF {
 
@@ -33,9 +34,10 @@ public interface QPyConstants extends BASE_CONF {
     final String KEY_NOTEBOOK2_RES = "setting.notebook2resource.path";
 
 
-    String ABSOLUTE_PATH = Environment.getExternalStorageDirectory().getPath() + "/" + BASE_PATH;
-    String PY_CACHE_PATH = ABSOLUTE_PATH+"/"+PY_CACHE;
-    String ABSOLUTE_LOG = ABSOLUTE_PATH + "/log/last.log";
+//    String ABSOLUTE_PATH = Environment.getExternalStorageDirectory().getPath() + "/" + BASE_PATH;
+//    String ABSOLUTE_PATH = FileUtils.getPath().getPath() + "/" + BASE_PATH;
+//    String PY_CACHE_PATH = ABSOLUTE_PATH+"/"+PY_CACHE;
+//    String ABSOLUTE_LOG = ABSOLUTE_PATH + "/log/last.log";
 
     String PYTHON_2 = "2.x";
 

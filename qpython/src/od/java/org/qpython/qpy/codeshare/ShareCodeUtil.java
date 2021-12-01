@@ -3,17 +3,19 @@ package org.qpython.qpy.codeshare;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.common.reflect.TypeToken;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.reflect.TypeToken;
 import com.quseit.util.ACache;
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NetStateUtil;
 
 import org.json.JSONObject;
@@ -23,7 +25,6 @@ import org.qpython.qpy.codeshare.pojo.CloudFile;
 import org.qpython.qpy.codeshare.pojo.Gist;
 import org.qpython.qpy.codeshare.pojo.GistBase;
 import org.qpython.qpy.main.app.App;
-import org.qpython.qpy.main.app.CONF;
 import org.qpython.qpy.texteditor.common.TextFileUtils;
 import org.qpython.qpysdk.utils.DateTimeHelper;
 
@@ -219,31 +220,36 @@ public class ShareCodeUtil {
     public void getBaseScriptGistList(Action1<List<GistBase>> callback) {
         reference.child(BASE).child(SCRIPT).addListenerForSingleValueEvent(new SimpleValueEventListener() {
             @Override
-            public void onDataGet(HashMap value) {
-                List<GistBase> dataList = new ArrayList<>();
-                for (Object key : value.keySet()) {
-                    GistBase gistBase = App.getGson().fromJson(new JSONObject((Map) value.get(key)).toString(), GistBase.class);
-                    gistBase.setId((String) key);
-                    dataList.add(gistBase);
-                }
-                Observable.just(dataList)
-                        .subscribe(callback);
+            public void onDataGet(HashMap<String, Object> value) {
+                handleKey(value,callback);
             }
         });
+    }
+
+    private void handleKey(HashMap value,Action1<List<GistBase>> callback){
+        List<GistBase> dataList = new ArrayList<>();
+        for (Object key : value.keySet()) {
+            GistBase gistBase = App.getGson().fromJson(new JSONObject((Map) value.get(key)).toString(), GistBase.class);
+            gistBase.setId((String) key);
+            dataList.add(gistBase);
+        }
+        Observable.just(dataList)
+                .subscribe(callback);
     }
 
     public void getBaseProjectGistList(Action1<List<GistBase>> callback) {
         reference.child(BASE).child(PROJECT).addListenerForSingleValueEvent(new SimpleValueEventListener() {
             @Override
-            public void onDataGet(HashMap value) {
-                List<GistBase> dataList = new ArrayList<>();
-                for (Object key : value.keySet()) {
-                    GistBase gistBase = App.getGson().fromJson(new JSONObject((Map) value.get(key)).toString(), GistBase.class);
-                    gistBase.setId((String) key);
-                    dataList.add(gistBase);
-                }
-                Observable.just(dataList)
-                        .subscribe(callback);
+            public void onDataGet(HashMap<String, Object> value) {
+//                List<GistBase> dataList = new ArrayList<>();
+//                for (Object key : value.keySet()) {
+//                    GistBase gistBase = App.getGson().fromJson(new JSONObject((Map) value.get(key)).toString(), GistBase.class);
+//                    gistBase.setId((String) key);
+//                    dataList.add(gistBase);
+//                }
+//                Observable.just(dataList)
+//                        .subscribe(callback);
+                handleKey(value,callback);
             }
         });
     }
@@ -526,7 +532,7 @@ public class ShareCodeUtil {
         if (CLEAR) {
             return;
         }
-        String content = FileHelper.getFileContents(CONF.CLOUD_MAP_CACHE_PATH);
+        String content = FileHelper.getFileContents(FileUtils.getCloudMapCachePath(context.getApplicationContext()));
         List<CloudFile> cloudFiles = content == null ? null : App.getGson().fromJson(content, new TypeToken<List<CloudFile>>() {
         }.getType());
         if (cloudFiles != null && !forceRefresh) {

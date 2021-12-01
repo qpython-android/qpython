@@ -26,7 +26,9 @@ import org.qpython.qpy.codeshare.ShareCodeUtil;
 import org.qpython.qpy.codeshare.pojo.CloudFile;
 import org.qpython.qpy.databinding.FragmentRefreshRvBinding;
 import org.qpython.qpy.main.adapter.CloudScriptAdapter;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.texteditor.TedLocalActivity;
+import org.qpython.qpy.utils.FileUtils;
 import org.qpython.qpysdk.QPyConstants;
 
 import java.io.File;
@@ -165,13 +167,14 @@ public class MyProjectFragment extends Fragment {
         binding.swipeList.setSwipeMenuItemClickListener(menuBridge -> {
             menuBridge.closeMenu();
             switch (menuBridge.getPosition()) {
+                default:break;
                 case 0:
                     // download
                     CloudFile cloudFile = scriptList.get(menuBridge.getAdapterPosition());
                     cloudFile.setUploading(true);
                     adapter.notifyItemChanged(menuBridge.getAdapterPosition());
                     String path;
-                    path = QPyConstants.ABSOLUTE_PATH + cloudFile.getPath();
+                    path = FileUtils.getAbsolutePath(App.getContext()) + cloudFile.getPath();
                     File file = new File(path);
                     if (file.exists()) {
                         new AlertDialog.Builder(getContext(), R.style.MyDialog)

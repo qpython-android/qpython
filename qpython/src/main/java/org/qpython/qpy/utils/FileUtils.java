@@ -15,6 +15,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class FileUtils {
+
+    public static String getAbsolutePath(Context context){
+        return context.getExternalFilesDir(null).getPath() + "/qpython";
+    }
+
     public static boolean copyToFile(InputStream inputStream, File destFile) {
         try {
             if (destFile.exists()) {

@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.R;
 import org.qpython.qpy.codeshare.pojo.CloudFile;
 import org.qpython.qpy.databinding.ItemFolderBinding;
@@ -50,7 +52,7 @@ public class CloudScriptAdapter extends RecyclerView.Adapter<MyViewHolder<ItemFo
         } else {
             binding.uploading.setVisibility(View.GONE);
         }
-        if (new File(QPyConstants.ABSOLUTE_PATH + cloudFile.getPath()).exists()) {
+        if (new File(FileUtils.getAbsolutePath(binding.uploaded.getContext().getApplicationContext()) + cloudFile.getPath()).exists()) {
             binding.uploaded.setImageResource(R.drawable.ic_check_circle);
             binding.uploaded.setVisibility(View.VISIBLE);
         } else {

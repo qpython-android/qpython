@@ -185,22 +185,31 @@ dependencies {
     api rootProject.ext.libSupportPreference
 
     odApi rootProject.ext.firebaseCore
-    odApi rootProject.ext.firebaseMsg
+    implementation ("com.google.firebase:firebase-messaging:17.3.4"){
+        exclude group: 'com.google.firebase', module: 'firebase-iid'
+    }
+    odApi rootProject.ext.firebaseIid
     odApi rootProject.ext.firebaseAuth
     odApi rootProject.ext.firebaseDatabase
     odApi rootProject.ext.googlePlayServiceAuth
 
-    osApi rootProject.ext.firebaseCore
-    osApi rootProject.ext.firebaseMsg
-    osApi rootProject.ext.firebaseAuth
-    osApi rootProject.ext.firebaseDatabase
-    osApi rootProject.ext.googlePlayServiceAuth
+//    osApi rootProject.ext.firebaseCore
+//    osApi rootProject.ext.firebaseMsg
+//    osApi rootProject.ext.firebaseAuth
+//    osApi rootProject.ext.firebaseDatabase
+//    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+//    osApi rootProject.ext.firebaseAnalytics
+//    osApi rootProject.ext.firebaseMsg
+//    osApi rootProject.ext.googlePlayServiceAuth
 
-    olApi rootProject.ext.firebaseCore
-    olApi rootProject.ext.firebaseMsg
-    olApi rootProject.ext.firebaseAuth
-    olApi rootProject.ext.firebaseDatabase
-    olApi rootProject.ext.googlePlayServiceAuth
+//    olApi rootProject.ext.firebaseCore
+//    olApi rootProject.ext.firebaseMsg
+//    olApi rootProject.ext.firebaseAuth
+//    olApi rootProject.ext.firebaseDatabase
+//    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+//    olApi rootProject.ext.firebaseAnalytics
+//    olApi rootProject.ext.firebaseMsg
+//    olApi rootProject.ext.googlePlayServiceAuth
 
     api rootProject.ext.retrofit
     api rootProject.ext.retrofitCoverterGson

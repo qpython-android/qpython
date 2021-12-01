@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.quseit.common.updater.downloader.Downloader;
 import com.quseit.util.ACache;
+import com.quseit.util.FileUtils;
 import com.quseit.util.ImageUtil;
 import com.quseit.util.NAction;
 import com.quseit.util.NetStateUtil;
@@ -49,14 +50,14 @@ import java.util.List;
  */
 
 public class LibProjectFragment extends RefreshFragment {
-    private static final int    SCRIPT_CONSOLE_CODE = 1237;
-    private static  String SCRIPT_DIR;       //   = QPyConstants.ABSOLUTE_PATH + "/" + QPyConstants.DFROM_QPY2 + "/";
-    private static  String PROJECT_DIR;      //  = QPyConstants.ABSOLUTE_PATH + "/" + QPyConstants.DFROM_PRJ2 + "/";
+    private static final int SCRIPT_CONSOLE_CODE = 1237;
+    private static String SCRIPT_DIR;       //   = QPyConstants.ABSOLUTE_PATH + "/" + QPyConstants.DFROM_QPY2 + "/";
+    private static String PROJECT_DIR;      //  = QPyConstants.ABSOLUTE_PATH + "/" + QPyConstants.DFROM_PRJ2 + "/";
 
-    private List<LibModel>           dataList;
+    private List<LibModel> dataList;
     private LibListAdapter<LibModel> adapter;
     private FragmentRefreshRvBinding binding;
-    private TextView                 header;
+    private TextView header;
 
     private int WIDTH = (int) ImageUtil.dp2px(60);
 
@@ -77,8 +78,8 @@ public class LibProjectFragment extends RefreshFragment {
         super.onViewCreated(view, savedInstanceState);
         binding = DataBindingUtil.bind(view);
 
-        SCRIPT_DIR = QPyConstants.ABSOLUTE_PATH + "/" + (NAction.isQPy3(getActivity())?QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2) +"/";
-        PROJECT_DIR = QPyConstants.ABSOLUTE_PATH + "/" + (NAction.isQPy3(getActivity())?QPyConstants.DFROM_PRJ3:QPyConstants.DFROM_PRJ2) +"/";
+        SCRIPT_DIR = FileUtils.getAbsolutePath(App.getContext()) + "/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_QPY3 : QPyConstants.DFROM_QPY2) + "/";
+        PROJECT_DIR = FileUtils.getAbsolutePath(App.getContext()) + "/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_PRJ3 : QPyConstants.DFROM_PRJ2) + "/";
 
         initDataList();
         initView();
@@ -161,6 +162,7 @@ public class LibProjectFragment extends RefreshFragment {
             startActivity(intent);
         }
     }
+
     private SwipeMenuCreator getMenu() {
         SwipeMenuItem detail = new SwipeMenuItem(getContext())
                 .setBackgroundColor(Color.parseColor("#FF4A4A4A"))
@@ -201,33 +203,32 @@ public class LibProjectFragment extends RefreshFragment {
     }
 
 
-
     private void installTool(LibModel item) {
         String downloadDir = null;
         if (item.getCat().equals("script")) {
-            downloadDir = "qpython/"+(NAction.isQPy3(getActivity())?QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2);
+            downloadDir = "qpython/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_QPY3 : QPyConstants.DFROM_QPY2);
         } else if (item.getCat().equals("user")) {
-            downloadDir = "qpython/"+(NAction.isQPy3(getActivity())?QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2);
+            downloadDir = "qpython/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_QPY3 : QPyConstants.DFROM_QPY2);
         }
 
         // Download
-        App.getDownloader().download(item.getTitle(),  item.getLink(), Environment.getExternalStorageDirectory()+"/"+downloadDir+"/"+item.getSmodule(),
-        new Downloader.Callback() {
-            @Override
-            public void pending(String name) {
+        App.getDownloader().download(item.getTitle(), item.getLink(), FileUtils.getPath(App.getContext()) + "/" + downloadDir + "/" + item.getSmodule(),
+                new Downloader.Callback() {
+                    @Override
+                    public void pending(String name) {
 
-            }
+                    }
 
-            @Override
-            public void complete(String name, File installer) {
-                refresh(true);
-            }
+                    @Override
+                    public void complete(String name, File installer) {
+                        refresh(true);
+                    }
 
-            @Override
-            public void error(String err) {
+                    @Override
+                    public void error(String err) {
 
-            }
-        });
+                    }
+                });
     }
 
     private void initListener() {

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.ImageUtil;
 import com.quseit.util.NAction;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -20,6 +21,7 @@ import com.yanzhenjie.recyclerview.swipe.SwipeMenuItem;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.databinding.FragmentRefreshRvBinding;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.texteditor.TedLocalActivity;
 import org.qpython.qpy.texteditor.ui.adapter.FolderAdapter;
 import org.qpython.qpy.texteditor.ui.adapter.bean.FolderBean;
@@ -43,11 +45,11 @@ public class FileFragment extends Fragment {
     public static final  String PROJECT3 = "projects3";
     public static final  String SCRIPT3  = "scripts3";
 
-    private static final String PROJECT_PATH = QPyConstants.ABSOLUTE_PATH + "/" + PROJECT;
-    private static final String SCRIPT_PATH  = QPyConstants.ABSOLUTE_PATH + "/" + SCRIPT;
+    private static final String PROJECT_PATH = FileUtils.getAbsolutePath(App.getContext()) + "/" + PROJECT;
+    private static final String SCRIPT_PATH  = FileUtils.getAbsolutePath(App.getContext()) + "/" + SCRIPT;
 
-    private static final String PROJECT_PATH3 = QPyConstants.ABSOLUTE_PATH + "/" + PROJECT3;
-    private static final String SCRIPT_PATH3  = QPyConstants.ABSOLUTE_PATH + "/" + SCRIPT3;
+    private static final String PROJECT_PATH3 = FileUtils.getAbsolutePath(App.getContext()) + "/" + PROJECT3;
+    private static final String SCRIPT_PATH3  = FileUtils.getAbsolutePath(App.getContext()) + "/" + SCRIPT3;
 
     private FolderAdapter    adapter;
     private List<FolderBean> dataList;

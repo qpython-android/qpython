@@ -23,10 +23,12 @@ import com.quseit.base.QBaseApp;
 import org.qpython.qpy.console.ScriptExec;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
 import org.qpython.qpy.main.activity.BaseActivity;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpysdk.QPyConstants;
 
 import java.io.File;
@@ -47,7 +49,7 @@ public class MPyApi extends BaseActivity {
         }
     };
     private boolean           live       = false;
-    private String            logF       = QPyConstants.ABSOLUTE_LOG;
+    private String            logF       = FileUtils.getAbsoluteLogPath(App.getContext());
     private Handler           handler    = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -139,7 +141,7 @@ public class MPyApi extends BaseActivity {
                             } else {
                                 runMode = 1;
                             }
-                            String script = QPyConstants.ABSOLUTE_PATH + "/cache/last.py";
+                            String script = FileUtils.getAbsolutePath(App.getContext()) + "/cache/last.py";
                             FileHelper.putFileContents(this, script, pycode);
                             ScriptExec.getInstance().playScript(this,script, null, false);
                         }
@@ -226,7 +228,7 @@ public class MPyApi extends BaseActivity {
 
                 } else {
                     try {
-                        String root = QBaseApp.getInstance().getOrCreateRoot(QPyConstants.DFROM_RUN);
+                        String root = QBaseApp.getInstance().getOrCreateRoot(App.getContext(),QPyConstants.DFROM_RUN);
                         File f = new File(root, ".last_tmp.py");
                         param = f.getAbsolutePath().toString();
                     } catch (Exception e) {
@@ -242,7 +244,7 @@ public class MPyApi extends BaseActivity {
             rBundle.putString("result", result);
             rBundle.putString("param", param);
             rBundle.putString("flag", flag);
-            rBundle.putString("log", QPyConstants.ABSOLUTE_LOG);
+            rBundle.putString("log", FileUtils.getAbsoluteLogPath(App.getContext()));
 
             rIntent.putExtras(rBundle);
 

@@ -31,6 +31,7 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.quseit.base.QBaseApp;
 import com.quseit.common.updater.downloader.Downloader;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NStorage;
 
@@ -211,7 +212,7 @@ public class SettingFragment extends PreferenceFragment {
         portnum_pref.setSummary(settings.getString(resources.getString(R.string.key_port_num),
                 resources.getString(org.swiftp.R.string.portnumber_default)));
         chroot_pref.setSummary(settings.getString(resources.getString(R.string.key_root_dir),
-                Environment.getExternalStorageDirectory().getPath()));
+                FileUtils.getPath(App.getContext()).getPath()));
 
         py_inter.setSummary(NAction.isQPy3(getActivity()) ? R.string.py3_now : R.string.py2_now);
         //setNotebookCheckbox();
@@ -257,7 +258,7 @@ public class SettingFragment extends PreferenceFragment {
     private void initListener() {
 
         lastlog.setOnPreferenceClickListener(preference -> {
-            Utils.checkRunTimeLog(getActivity(), getString(R.string.last_log), QPyConstants.ABSOLUTE_LOG);
+            Utils.checkRunTimeLog(getActivity(), getString(R.string.last_log), FileUtils.getAbsoluteLogPath(App.getContext()));
 
             return false;
         });
@@ -580,7 +581,7 @@ public class SettingFragment extends PreferenceFragment {
 
 
     private void releaseQPycRes(String path) {
-        final String extarget = QPyConstants.PY_CACHE_PATH;
+        final String extarget = FileUtils.getPyCachePath(App.getContext());
 
         if (path != null && !path.equals("")) {
             File res = new File(path);
@@ -688,7 +689,7 @@ public class SettingFragment extends PreferenceFragment {
                 qpysdk.extractRes("private33", getActivity().getFilesDir(), true);
                 qpysdk.extractRes("notebook3", getActivity().getFilesDir(), true);
 
-                File externalStorage = new File(Environment.getExternalStorageDirectory(), "qpython");
+                File externalStorage = new File(FileUtils.getPath(App.getContext()), "qpython");
 
                 qpysdk.extractRes("publi3c", new File(externalStorage + "/lib"));
 
@@ -903,7 +904,7 @@ public class SettingFragment extends PreferenceFragment {
                             final String vercode = result.getString("vercode");
                             final String title = result.getString("title");
                             final String vername = result.getString("vername");
-                            final String path = QPyConstants.PY_CACHE_PATH + "/" + target;
+                            final String path = FileUtils.getPyCachePath(App.getContext()) + "/" + target;
 
                             NStorage.setSP(App.getContext(), QPyConstants.KEY_PY3_RES, path);
 
@@ -989,7 +990,7 @@ public class SettingFragment extends PreferenceFragment {
         boolean isRelease = true;
         String[] py3Mp3File = getActivity().getResources().getStringArray(ispy2compatible ? R.array.qpy2compatible_zip : R.array.qpy3_zip);
         for (String s : py3Mp3File) {
-            isRelease = isRelease && new File(QPyConstants.PY_CACHE_PATH + "/" + s).exists();
+            isRelease = isRelease && new File(FileUtils.getPyCachePath(App.getContext()) + "/" + s).exists();
         }
         return isRelease;
     }
@@ -1008,14 +1009,14 @@ public class SettingFragment extends PreferenceFragment {
      */
     private void extractQPyCore(Boolean ispy2Compatible) {
         QPySDK qpySDK = new QPySDK(getActivity(), getActivity());
-        File libFolder = new File(QPyConstants.ABSOLUTE_PATH, QPyConstants.PY_CACHE);
+        File libFolder = new File(FileUtils.getAbsolutePath(App.getContext()), QPyConstants.PY_CACHE);
         String[] pyMp3File = getActivity().getResources().getStringArray(ispy2Compatible ? R.array.qpy2compatible_zip : R.array.qpy3_zip);
 
         for (String s : pyMp3File) {
 
             File unzipFile = new File(libFolder, s);
             if (s.contains("public")) {
-                File externalStorage = new File(QPyConstants.ABSOLUTE_PATH);
+                File externalStorage = new File(FileUtils.getAbsolutePath(App.getContext()));
 
                 qpySDK.extractRes(unzipFile, new File(externalStorage + "/lib"), false);
 

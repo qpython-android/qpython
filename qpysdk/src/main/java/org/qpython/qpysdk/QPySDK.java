@@ -94,10 +94,10 @@ public class QPySDK {
         mArguments.add(script);
         String[] argumentsArray = mArguments.toArray(new String[mArguments.size()]);
 
-        final File mLog = new File(String.format("%s", QPyConstants.ABSOLUTE_LOG));
+        final File mLog = new File(String.format("%s", com.quseit.util.FileUtils.getAbsoluteLogPath(context.getApplicationContext())));
         File logDir = mLog.getParentFile();
 
-        mFd = Exec.createSubprocess(binaryPath, argumentsArray, getEnvironmentArray(f.getParentFile() + ""), Environment.getExternalStorageDirectory() + "/", pid);
+        mFd = Exec.createSubprocess(binaryPath, argumentsArray, getEnvironmentArray(f.getParentFile() + ""), com.quseit.util.FileUtils.getPath(context.getApplicationContext()) + "/", pid);
         final AtomicInteger mPid = new AtomicInteger(PID_INIT_VALUE);
 
         mPid.set(pid[0]);
@@ -106,34 +106,32 @@ public class QPySDK {
         long mStartTime = System.currentTimeMillis();
 
 
-        new Thread(new Runnable() {
-            public void run() {
-                int returnValue = Exec.waitFor(mPid.get());
-                //long mEndTime = System.currentTimeMillis();
-                int pid = mPid.getAndSet(PID_INIT_VALUE);
-                Log.d("", "out:" + mFd.out.toString());
+        new Thread(() -> {
+            int returnValue = Exec.waitFor(mPid.get());
+            //long mEndTime = System.currentTimeMillis();
+            int pid1 = mPid.getAndSet(PID_INIT_VALUE);
+            Log.d("", "out:" + mFd.out.toString());
 
-                Message msg = new Message();
-                msg.what = returnValue;
-                msg.obj = mArguments.get(0);
+            Message msg = new Message();
+            msg.what = returnValue;
+            msg.obj = mArguments.get(0);
 
-                Log.d(TAG, "Process " + pid + " exited with result code " + returnValue + ".");
+            Log.d(TAG, "Process " + pid1 + " exited with result code " + returnValue + ".");
 
-                try {
-                    mIn.close();
-                } catch (IOException e) {
-                    Log.e(TAG, e.getMessage());
-                }
-
-                try {
-                    mOut.close();
-                } catch (IOException e) {
-                    Log.e(TAG, e.getMessage());
-                }
-
-                //context.updateNotify(msg);
-
+            try {
+                mIn.close();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
             }
+
+            try {
+                mOut.close();
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+
+            //context.updateNotify(msg);
+
         }).start();
     }
 
@@ -149,7 +147,7 @@ public class QPySDK {
         environmentVariables.add("PYTHONHOME=" + filesDir);
         environmentVariables.add("ANDROID_PRIVATE=" + filesDir);
 
-        File externalStorage = new File(Environment.getExternalStorageDirectory(), "org.qpython.qpy");
+        File externalStorage = new File(com.quseit.util.FileUtils.getPath(context.getApplicationContext()), "org.qpython.qpy");
 
         environmentVariables.add("PYTHONPATH=" + externalStorage + "/lib/python2.7/site-packages/:"
                 + filesDir + "/lib/python2.7/site-packages/:"

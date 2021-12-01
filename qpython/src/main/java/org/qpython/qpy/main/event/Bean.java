@@ -16,11 +16,13 @@ import org.qpython.qpy.main.activity.NotebookActivity;
 import org.qpython.qpy.main.activity.PurchaseActivity;
 import org.qpython.qpy.main.activity.QWebViewActivity;
 import org.qpython.qpy.main.activity.SettingActivity;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.main.app.CONF;
 import org.qpython.qpy.main.utils.Utils;
 import org.qpython.qpy.texteditor.EditorActivity;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 
 import org.qpython.qpy.utils.NotebookUtil;
 import org.qpython.qpysdk.QPyConstants;
@@ -160,7 +162,7 @@ public class Bean {
     public String returnTmpScript(String xcode, String flag, String param) {
         try {
             //
-            File root = new File(QPyConstants.ABSOLUTE_PATH + "/cache");
+            File root = new File(FileUtils.getLibDownloadTempPath(App.getContext()));
             if (root != null) {
                 FileHelper.clearDir(root.toString(), 0, false);
             }
@@ -182,7 +184,7 @@ public class Bean {
                 }
 
             } else {
-                py = QPyConstants.ABSOLUTE_PATH + "/cache/main.py";
+                py = FileUtils.getAbsolutePath(App.getContext()) + "/cache/main.py";
                 if (xcode.contains("#{HEADER}")) {
                     code = xcode.replace("#{HEADER}", "PARAM = '" + param + "'");
 
@@ -239,13 +241,13 @@ public class Bean {
 
         File libFile;
         if (cat.equals("script")) {
-            libFile = new File(Environment.getExternalStorageDirectory(), "qpython/" + ubase + "/" + smodule);
+            libFile = new File(FileUtils.getPath(App.getContext()), "qpython/" + ubase + "/" + smodule);
 
         } else if (cat.equals("user")) {
-            libFile = new File(Environment.getExternalStorageDirectory(), "qpython/" + pbase + "/" + smodule);
+            libFile = new File(FileUtils.getPath(App.getContext()), "qpython/" + pbase + "/" + smodule);
 
         } else if (cat.equals("component")) {
-            libFile = new File(Environment.getExternalStorageDirectory(), "qpython/lib/" + smodule);
+            libFile = new File(FileUtils.getPath(App.getContext()), "qpython/lib/" + smodule);
 
         } else {
             libFile = new File(context.getFilesDir(), "/lib/" + sbase + "/site-packages/" + smodule);
