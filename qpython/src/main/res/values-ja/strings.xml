@@ -490,4 +490,6 @@
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
     <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
+    <string name="privacy_agreement">服务协议</string>
+    <string name="service_agreement">隐私政策</string>
 </resources>

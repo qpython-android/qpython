@@ -1,16 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:background="#103606"
         android:layout_height="match_parent">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:layout_centerInParent="true"
+            android:layout_gravity="center"
             android:src="@drawable/img_home_logo"/>
-    </RelativeLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_agree_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@drawable/top_white_r10"
+            android:layout_gravity="bottom"
+            android:paddingBottom="6dp">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/img_home_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="Welcome To Python"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/iv_icon"
+                app:layout_constraintTop_toBottomOf="@+id/iv_icon" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="#333333"
+                app:layout_constraintStart_toStartOf="@+id/iv_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_agree_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="15dp"
+                android:textColor="#333333"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/iv_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_positive"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/agree_confirm_btn"
+                android:gravity="center"
+                android:text="同意并继续"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_agree_content" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_negative"
+                android:layout_width="0dp"
+                android:textSize="12dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="退出并关闭 Python"
+                android:textColor="#999999"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_positive" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
 </layout>       

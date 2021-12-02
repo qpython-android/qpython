@@ -118,6 +118,18 @@ public class App extends QSL4APP implements CactusCallback{
         return user;
     }
 
+    public static boolean getAgreementStatus(){
+        return  mPreferences.getBoolean("user_agree_status",false);
+    }
+
+    public static void setAgreementStatus(boolean status){
+        SharedPreferences.Editor editor = mPreferences.edit();
+        editor.putBoolean("user_agree_status",status);
+        if (!editor.commit()) {
+            editor.apply();
+        }
+    }
+
     public static DefaultDownloader getDownloader() {
         return downloader;
     }
