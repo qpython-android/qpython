@@ -457,4 +457,15 @@
     <string name="privacy_agreement">服务协议</string>
     <string name="service_agreement">隐私政策</string>
 
+    <string name="user_agreement_text">1.为了让您使用手机的硬件特性进行编程，QPython可能会使用您申请摄像头权限、麦克风权限、读写存储等权限；\n\n
+            2.为了让您使用手机的地理位置用于编程，QPython可能会向您申请位置权限；\n\n
+        3.为了让您使用手机的账号信息用于编程，QPython可能会向您申请系统设备权限收集设备信息、日志信息；\n\n
+        4.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n\n
+        5.如果不是你主动在系统设置->Apps->QPython权限中管理上述权限，QPython不会自动使用它们。\n\n</string>
+
+    <string name="user_agreement_bottom_split1">您可以阅读完整版</string>
+    <string name="user_agreement_bottom_split2">《服务协议》</string>
+    <string name="user_agreement_bottom_split3">和</string>
+    <string name="user_agreement_bottom_split4">《隐私政策》</string>
+
 </resources>

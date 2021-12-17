@@ -63,7 +63,6 @@ public class MyProjectFragment extends Fragment {
         adapter = new CloudScriptAdapter(scriptList);
         ShareCodeUtil.getInstance().clearAll();
         initView();
-        initListener();
         retry(true);
     }
 
@@ -94,19 +93,6 @@ public class MyProjectFragment extends Fragment {
         }
         startProgressBar();
         isLoading = true;
-        ShareCodeUtil.getInstance().getUploadedScripts(forceRefresh, getActivity(), cloudFiles -> {
-            isLoading = false;
-            if (cloudFiles == null || cloudFiles.size() == 0) {
-                showEmpty();
-                return;
-            }
-//            ((TedLocalActivity) getActivity()).updateCloudFiles(cloudFiles);
-            scriptList.clear();
-            scriptList.addAll(cloudFiles);
-            adapter.notifyDataSetChanged();
-            binding.progressBar.setVisibility(View.GONE);
-            binding.netError.setVisibility(View.GONE);
-        });
     }
 
     public void notifyDataSetChange() {
@@ -157,100 +143,5 @@ public class MyProjectFragment extends Fragment {
         };
         binding.swipeList.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.swipeList.setSwipeMenuCreator(swipeMenuCreator);
-    }
-
-    @SuppressLint("StringFormatMatches")
-    private void initListener() {
-        binding.netError.setOnClickListener(v -> retry(true));
-        binding.swipeList.setSwipeMenuItemClickListener(menuBridge -> {
-            menuBridge.closeMenu();
-            switch (menuBridge.getPosition()) {
-                case 0:
-                    // download
-                    CloudFile cloudFile = scriptList.get(menuBridge.getAdapterPosition());
-                    cloudFile.setUploading(true);
-                    adapter.notifyItemChanged(menuBridge.getAdapterPosition());
-                    String path;
-                    path = QPyConstants.ABSOLUTE_PATH + cloudFile.getPath();
-                    File file = new File(path);
-                    if (file.exists()) {
-                        new AlertDialog.Builder(getContext(), R.style.MyDialog)
-                                .setTitle(R.string.override_hint)
-                                .setMessage(Html.fromHtml(getString(R.string.conflict_hint,
-                                        cloudFile.getUploadTime(),
-                                        DateTimeHelper.AGO_FULL_DATE_FORMATTER.format(new Date(file.lastModified())))))
-                                .setNegativeButton(R.string.no, (dialog, which) ->{
-                                    cloudFile.setUploading(false);
-                                    adapter.notifyItemChanged(menuBridge.getAdapterPosition());
-                                })
-                                .setPositiveButton(R.string.yes,
-                                        (dialog, which) ->
-                                                getRemoteContentNWrite(cloudFile, path, menuBridge.getAdapterPosition()))
-                                .create()
-                                .show();
-                    } else {
-                        getRemoteContentNWrite(cloudFile, path, menuBridge.getAdapterPosition());
-                    }
-                    break;
-                case 1:
-                    // delete
-                    scriptList.get(menuBridge.getAdapterPosition()).setUploading(true);
-                    adapter.notifyItemChanged(menuBridge.getAdapterPosition());
-                    ShareCodeUtil.getInstance().deleteUploadScript(scriptList.get(menuBridge.getAdapterPosition()), (databaseError, databaseReference) -> {
-//                        if (databaseError == null && getContext() != null) {
-//                            Toast.makeText(getContext(), R.string.delete_remote_suc, Toast.LENGTH_SHORT).show();
-//                            adapter.notifyItemRemoved(menuBridge.getAdapterPosition());
-//                            ((TedLocalActivity) getActivity()).deleteCloudFile(scriptList.get(menuBridge.getAdapterPosition()).getAbsolutePath());
-//                            scriptList.remove(menuBridge.getAdapterPosition());
-//                            if (scriptList.size() == 0) {
-//                                binding.netError.setText(R.string.cloud_empty_hint);
-//                                binding.netError.setVisibility(View.VISIBLE);
-//                            } else {
-//                                binding.netError.setVisibility(View.INVISIBLE);
-//                            }
-//                        } else {
-//                            Toast.makeText(getContext(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-                    });
-                    break;
-            }
-        });
-        adapter.setCallback((position) -> binding.swipeList.smoothOpenRightMenu(position));
-        binding.swipeList.setAdapter(adapter);
-    }
-
-    private void getRemoteContentNWrite(CloudFile cloudFile, String path, int position) {
-        String key = cloudFile.getKey();
-        if (cloudFile.getProjectName() != null && !cloudFile.getKey().contains("projects3")) {
-            key = key.replace(cloudFile.getProjectName() + CONSTANT.SLASH_REPLACE, cloudFile.getProjectName() + "/" + CONSTANT.SLASH_REPLACE);
-        }
-        ShareCodeUtil.getInstance().getFileContent(key, content -> {
-            writeFile(path, content, position);
-            scriptList.get(position).setUploading(false);
-            adapter.notifyItemChanged(position);
-        });
-    }
-
-    private void writeFile(String path, String content, int adapterPosition) {
-        try {
-            FileWriter writer = new FileWriter(new File(path), false);
-            writer.write(content);
-            writer.close();
-            Toast.makeText(getContext(), R.string.file_downloaded, Toast.LENGTH_SHORT).show();
-            adapter.notifyItemChanged(adapterPosition);
-        } catch (IOException e) {
-            e.printStackTrace();
-            Toast.makeText(getContext(), R.string.override_fail_hint, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void needRefresh(boolean isNewUpload) {
-        if (binding == null) {
-            // not init yet
-            return;
-        }
-        if (isNewUpload) {
-            retry(true);
-        }
     }
 }

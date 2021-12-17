@@ -44,7 +44,7 @@ allprojects {
 
         mavenCentral()
         maven { url "https://jitpack.io" }
-        maven { url 'https://dl.bintray.com/azeesoft/maven' }
+//        maven { url 'https://dl.bintray.com/azeesoft/maven' }
         //maven { url "http://mvn.leancloud.cn/nexus/content/repositories/public" }
     }
 }
@@ -91,9 +91,9 @@ ext {
     libOkHttp3Log = "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
 
     minSdkVersion = 14
-    targetSdkVersion = 29
-    compileSdkVersion = 29
-    buildToolsVersion = '29.0.2'
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.2'
 
     // firebase related https://firebase.google.com/docs/android/setup
     firebaseCore = "com.google.firebase:firebase-core:16.0.7"

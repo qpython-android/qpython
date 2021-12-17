@@ -21,12 +21,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.text.TextUtils;
 
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.console.ShellTermSession;
 import org.qpython.qpy.console.util.TermSettings;
+import org.qpython.qpy.main.app.App;
 import org.renpy.android.ResourceManager;
 
 import java.io.File;

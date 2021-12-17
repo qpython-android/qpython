@@ -528,99 +528,6 @@ public class ShareCodeUtil {
         return true;
     }
 
-    public void getUploadedScripts(boolean forceRefresh, Activity context, Action1<List<CloudFile>> callback) {
-        if (CLEAR) {
-            return;
-        }
-        String content = FileHelper.getFileContents(FileUtils.getCloudMapCachePath(context.getApplicationContext()));
-        List<CloudFile> cloudFiles = content == null ? null : App.getGson().fromJson(content, new TypeToken<List<CloudFile>>() {
-        }.getType());
-        if (cloudFiles != null && !forceRefresh) {
-            Observable.just(cloudFiles)
-                    .subscribe(callback);
-        } else {
-            email = App.getUser()!=null?App.getUser().getEmail().replace(".","_"):"";
-            if (email.equals("")) {
-                Toast.makeText(context, "Waiting the firebase to initializ...",Toast.LENGTH_SHORT).show();
-
-            } else {
-                reference.child(CLOUD).child(email).child(INDEX).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        HashMap<String, Object> value = (HashMap<String, Object>) dataSnapshot.getValue();
-                        if (value == null) {
-                            resetUsage(0);
-                            Observable.just(new ArrayList<CloudFile>())
-                                    .subscribe(callback);
-                            return;
-                        }
-                        List<CloudFile> cloudFiles = new ArrayList<>();
-                        for (String node : value.keySet()) {
-                            switch (node) {
-                                case SCRIPT:
-                                    HashMap<String, Object> script;
-                                    script = (HashMap<String, Object>) value.get(SCRIPT);
-                                    for (String o : script.keySet()) {
-                                        CloudFile cloudFile = new CloudFile();
-                                        cloudFile.setName(o);
-                                        cloudFile.setKey(SCRIPT + "/" + o);
-                                        cloudFile.setPath(SCRIPTS_PATH);
-                                        cloudFile.setUploadTime((String) script.get(o));
-                                        cloudFiles.add(cloudFile);
-                                    }
-                                    break;
-                                case PROJECT:
-                                    HashMap<String, Object> project = (HashMap<String, Object>) value.get(PROJECT);
-                                    for (String s : project.keySet()) {
-                                        CloudFile cloudFile = new CloudFile();
-                                        cloudFile.setKey(PROJECT + "/" + s);
-                                        String[] nodes = s.split(SLASH_REPLACE);
-                                        cloudFile.setName(nodes[nodes.length - 1]);
-                                        cloudFile.setProjectName(nodes[0]);
-                                        cloudFile.setPath(s.replace(nodes[0], ""));
-                                        cloudFile.setUploadTime((String) project.get(s));
-                                        cloudFiles.add(cloudFile);
-                                    }
-                                    break;
-                                default:
-                                    HashMap<String, Object> other = (HashMap<String, Object>) value.get(OTHER);
-                                    for (String s : other.keySet()) {
-                                        CloudFile cloudFile = new CloudFile();
-                                        cloudFile.setPath(s);
-                                        cloudFile.setKey(OTHER + "/" + s);
-                                        String[] nodes = s.split(SLASH_REPLACE);
-                                        boolean index = false;
-                                        for (String node1 : nodes) {
-                                            if (index) {
-                                                cloudFile.setProjectName(node1);
-                                                break;
-                                            } else if (node1.equals("projects3")) {
-                                                index = true;
-                                            }
-                                        }
-                                        cloudFile.setName(nodes[nodes.length - 1]);
-                                        cloudFile.setUploadTime((String) other.get(s));
-                                        cloudFiles.add(cloudFile);
-                                    }
-                                    break;
-                            }
-                        }
-                        resetUsage(cloudFiles.size());
-                        Observable.just(cloudFiles)
-                                .subscribe(callback);
-                        ACache.get(context).put(CLOUD_FILE, App.getGson().toJson(cloudFiles));
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        }
-    }
-
     public void getFileContent(String path, Action1<String> callback) {
         reference.child(CLOUD)
                 .child(email)
@@ -643,19 +550,6 @@ public class ShareCodeUtil {
 
                     }
                 });
-    }
-
-    public void deleteUploadScript(CloudFile cloudFile, DatabaseReference.CompletionListener listener) {
-        reference.child(CLOUD)
-                .child(email)
-                .child(cloudFile.getKey())
-                .removeValue(listener);
-        reference.child(CLOUD)
-                .child(email)
-                .child(INDEX)
-                .child(cloudFile.getKey())
-                .removeValue();
-        changeUsage(-1);
     }
 
     public void initUsage(Action1<Integer> callback) {

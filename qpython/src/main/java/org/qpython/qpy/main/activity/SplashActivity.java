@@ -48,10 +48,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void setAgreeContent() {
-        String one = "您可以阅读完整版";
-        String two = "《服务协议》";
-        String three = "和";
-        String four = "《隐私政策》";
+        String one = getString(R.string.user_agreement_bottom_split1);
+        String two = getString(R.string.user_agreement_bottom_split2);
+        String three = getString(R.string.user_agreement_bottom_split3);
+        String four = getString(R.string.user_agreement_bottom_split4);
 
         String content = one + two + three + four;
         SpannableString str = new SpannableString(content);
@@ -67,13 +67,13 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void setContent() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("1.为了给您提供发布服务，我们可能会向您申请摄像头权限、麦克风权限、收集存储权限；\n");
-        buffer.append("2.为了向您推荐您附近的村庄，我们会向您申请位置权限；\n");
-        buffer.append("3.为了账号安全，我们会向您申请系统设备权限收集设备信息、日志信息；\n");
-        buffer.append("4.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n");
-        buffer.append("5.您还可以访问、更正、删除您的个人信息，我们为您提供了注销、投诉等多种不同方式。");
-        binding.tvContent.setText(buffer.toString());
+//        StringBuffer buffer = new StringBuffer();
+//        buffer.append("1.为了给您提供发布服务，我们可能会向您申请摄像头权限、麦克风权限、收集存储权限；\n");
+//        buffer.append("2.为了向您推荐您附近的村庄，我们会向您申请位置权限；\n");
+//        buffer.append("3.为了账号安全，我们会向您申请系统设备权限收集设备信息、日志信息；\n");
+//        buffer.append("4.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n");
+//        buffer.append("5.您还可以访问、更正、删除您的个人信息，我们为您提供了注销、投诉等多种不同方式。");
+        binding.tvContent.setText(R.string.user_agreement_text);
     }
 
     private void judgeAgreementStatus() {

@@ -58,6 +58,18 @@
     <string name="internal_space"><![CDATA[Permissions & Storage]]></string>
     <string name="ftp_server">FTP Server</string>
 
+    <string name="user_agreement_text">1. In order to allow you to use the hardware features of your mobile phone for programming, QPython may apply for camera permission, microphone permission, read-write storage and other permissions;\n\n
+        2. In order to allow you to use the geographical location of your mobile phone for programming, QPython may apply to you for location permission;\n\n
+        3. In order to allow you to use the account information of your mobile phone for programming, QPython may apply for system device permission to collect device information and log information;\n\n
+        4. We will strive to adopt various security technologies to protect your personal information. Without your consent, we will not obtain, share or provide your information from a third party;\n\n
+        5. If you do not actively manage the above permissions in system settings - > Apps - > qpython permissions, QPython will not automatically use them.\n\n
+    </string>
+
+    <string name="user_agreement_bottom_split1">You can read the full </string>
+    <string name="user_agreement_bottom_split2">&#60;&#60;service agreement&#62;&#62; </string>
+    <string name="user_agreement_bottom_split3">and </string>
+    <string name="user_agreement_bottom_split4">&#60;&#60;privacy policy&#62;&#62;</string>
+
     <!---->
     <string name="application_terminal">Terminal</string>
     <string name="preferences">Preference</string>

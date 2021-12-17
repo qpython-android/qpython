@@ -34,7 +34,7 @@ public interface QPyConstants extends BASE_CONF {
     final String KEY_NOTEBOOK2_RES = "setting.notebook2resource.path";
 
 
-//    String ABSOLUTE_PATH = Environment.getExternalStorageDirectory().getPath() + "/" + BASE_PATH;
+    String ABSOLUTE_PATH = Environment.getExternalStorageDirectory().getPath() + "/" + BASE_PATH;
 //    String ABSOLUTE_PATH = FileUtils.getPath().getPath() + "/" + BASE_PATH;
 //    String PY_CACHE_PATH = ABSOLUTE_PATH+"/"+PY_CACHE;
 //    String ABSOLUTE_LOG = ABSOLUTE_PATH + "/log/last.log";
