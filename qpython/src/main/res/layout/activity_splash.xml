@@ -25,10 +25,11 @@
 
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="15dp"
+                android:visibility="invisible"
                 android:src="@drawable/img_home_logo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -82,7 +83,7 @@
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/agree_confirm_btn"
                 android:gravity="center"
-                android:text="同意并继续"
+                android:text="@string/ok"
                 android:textColor="#ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +98,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginRight="15dp"
                 android:gravity="center"
-                android:text="退出并关闭 Python"
+                android:text="@string/cancel"
                 android:textColor="#999999"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
