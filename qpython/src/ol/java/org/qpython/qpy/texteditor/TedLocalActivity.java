@@ -163,7 +163,7 @@ public class TedLocalActivity extends AppCompatActivity {
                             .show(myProjectFragment)
                             .commit();
                 }
-                myProjectFragment.needRefresh(isNewUpload);
+//                myProjectFragment.needRefresh(isNewUpload);
                 isNewUpload = false;
                 if (!myProjectFragment.isLoading) {
                     myProjectFragment.notifyDataSetChange();
