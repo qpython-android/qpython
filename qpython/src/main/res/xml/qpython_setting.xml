@@ -9,10 +9,10 @@
         <!--android:key="install_py3"-->
         <!--android:title="@string/install_py3"/>-->
 
-    <Preference
-        android:key="course"
-        android:title="@string/course"
-        android:summary="@string/learn_course"/>
+<!--    <Preference-->
+<!--        android:key="course"-->
+<!--        android:title="@string/course"-->
+<!--        android:summary="@string/learn_course"/>-->
 
 
     <Preference

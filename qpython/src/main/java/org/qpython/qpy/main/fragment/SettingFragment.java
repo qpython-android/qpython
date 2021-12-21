@@ -369,12 +369,12 @@ public class SettingFragment extends PreferenceFragment {
                     return true;
                 });
 
-        findPreference("course").
-                setOnPreferenceClickListener(preference ->
-                {
-                    CourseActivity.start(getActivity());
-                    return true;
-                });
+//        findPreference("course").
+//                setOnPreferenceClickListener(preference ->
+//                {
+//                    CourseActivity.start(getActivity());
+//                    return true;
+//                });
 
         findPreference("community").
                 setOnPreferenceClickListener(preference ->
