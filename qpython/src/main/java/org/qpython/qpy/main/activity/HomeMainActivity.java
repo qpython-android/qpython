@@ -342,20 +342,17 @@ public class HomeMainActivity extends BaseActivity {
             @Override
             public void onGrant() {
                 //这里只执行一次做为初始化
-
                 if (!NAction.isQPyInterpreterSet(HomeMainActivity.this)) {
                     new AlertDialog.Builder(HomeMainActivity.this, R.style.MyDialog)
                             .setTitle(R.string.notice)
                             .setMessage(R.string.py2_or_3)
                             .setPositiveButton(R.string.use_py3, (dialog1, which)
                                     -> {
-                                initQpySDK3();
-                                clickListener.onClick(null);
+                                initQpySDK3(clickListener);
                             })
                             .setNegativeButton(R.string.use_py2, (dialog1, which)
                                     -> {
-                                initQpySDK();
-                                clickListener.onClick(null);
+                                initQpySDK(clickListener);
                             })
                             .create()
                             .show();
@@ -374,20 +371,20 @@ public class HomeMainActivity extends BaseActivity {
     /**
      * 在工作线程中作初始化
      */
-    private void initQpySDK3() {
+    private void initQpySDK3(View.OnClickListener clickListener) {
         Log.d(TAG, "initQpySDK3");
         NAction.setQPyInterpreter(HomeMainActivity.this, "3.x");
-        initQPy(true);
+        initQPy(true, clickListener);
         initIcon();
     }
-    private void initQpySDK() {
+    private void initQpySDK(View.OnClickListener clickListener) {
         Log.d(TAG, "initQpySDK");
-        initQPy(false);
+        initQPy(false, clickListener);
         NAction.setQPyInterpreter(HomeMainActivity.this, "2.x");
         initIcon();
     }
 
-    private void initQPy(boolean py3) {
+    private void initQPy(boolean py3, View.OnClickListener clickListener) {
         new Thread(() -> {
             QPySDK qpysdk = new QPySDK(HomeMainActivity.this, HomeMainActivity.this);
             //这里会在切换qpy3的时候再次释放相关资源
@@ -407,6 +404,7 @@ public class HomeMainActivity extends BaseActivity {
             qpysdk.extractRes("ipynb", new File(externalStorage + "/notebooks"));
 
             extractRes();
+            clickListener.onClick(null);
         }).start();
     }
 
