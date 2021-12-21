@@ -142,8 +142,10 @@ public class HomeMainActivity extends BaseActivity {
         });
 
         binding.llTerminal.setOnClickListener(v -> {
-            TermActivity.startActivity(HomeMainActivity.this);
-            sendEvent(getString(R.string.event_term));
+            openQpySDK(view -> {
+                TermActivity.startActivity(HomeMainActivity.this);
+                sendEvent(getString(R.string.event_term));
+            });
         });
 
         binding.llTerminal.setOnLongClickListener(v -> {
@@ -198,9 +200,11 @@ public class HomeMainActivity extends BaseActivity {
             sendEvent(getString(R.string.event_file));
         });
         binding.llQpyApp.setOnClickListener(v -> {
-                AppListActivity.start(this, AppListActivity.TYPE_SCRIPT);
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            sendEvent(getString(R.string.event_top));
+            openQpySDK(view -> {
+                AppListActivity.start(HomeMainActivity.this, AppListActivity.TYPE_SCRIPT);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                sendEvent(getString(R.string.event_top));
+            });
         });
 
         binding.llCourse.setOnClickListener(v -> {
@@ -331,7 +335,7 @@ public class HomeMainActivity extends BaseActivity {
 //        startService(intent);
 //    }
 
-    private void openQpySDK() {
+    private void openQpySDK(View.OnClickListener clickListener) {
         Log.d("HomeMainActivity", "openQpySDK");
         String[] permssions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         checkPermissionDo(permssions, new BaseActivity.PermissionAction() {
@@ -343,10 +347,20 @@ public class HomeMainActivity extends BaseActivity {
                     new AlertDialog.Builder(HomeMainActivity.this, R.style.MyDialog)
                             .setTitle(R.string.notice)
                             .setMessage(R.string.py2_or_3)
-                            .setPositiveButton(R.string.use_py3, (dialog1, which) -> initQpySDK3())
-                            .setNegativeButton(R.string.use_py2, (dialog1, which) -> initQpySDK())
+                            .setPositiveButton(R.string.use_py3, (dialog1, which)
+                                    -> {
+                                initQpySDK3();
+                                clickListener.onClick(null);
+                            })
+                            .setNegativeButton(R.string.use_py2, (dialog1, which)
+                                    -> {
+                                initQpySDK();
+                                clickListener.onClick(null);
+                            })
                             .create()
                             .show();
+                } else {
+                    clickListener.onClick(null);
                 }
             }
 
@@ -446,7 +460,8 @@ public class HomeMainActivity extends BaseActivity {
     }
 
     private void init() {
-        openQpySDK();
+        //点击时再申请权限，加载资源方法
+//        openQpySDK(null);
     }
 
     @Override

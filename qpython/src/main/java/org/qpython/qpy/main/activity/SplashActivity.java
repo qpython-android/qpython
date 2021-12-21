@@ -11,6 +11,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 
@@ -74,6 +75,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 //        buffer.append("4.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n");
 //        buffer.append("5.您还可以访问、更正、删除您的个人信息，我们为您提供了注销、投诉等多种不同方式。");
         binding.tvContent.setText(R.string.user_agreement_text);
+        binding.tvContent.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     private void judgeAgreementStatus() {

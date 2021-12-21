@@ -404,6 +404,7 @@
     <string name="run_bg_title">Run on background</string>
     <string name="scan">Scan</string>
     <string name="read_script_from_qrcode">Read code from QRCode</string>
+    <string name="welcome_qpython">Welcome to Use QPython</string>
 
     <string name="course">QPython Courses</string>
     <string name="lost_connect">Lose Connect</string>

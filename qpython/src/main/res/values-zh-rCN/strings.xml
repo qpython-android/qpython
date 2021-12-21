@@ -467,5 +467,6 @@
     <string name="user_agreement_bottom_split2">《服务协议》</string>
     <string name="user_agreement_bottom_split3">和</string>
     <string name="user_agreement_bottom_split4">《隐私政策》</string>
+    <string name="welcome_qpython">欢迎使用QPython</string>
 
 </resources>

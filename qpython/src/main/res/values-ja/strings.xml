@@ -430,6 +430,7 @@
     <string name="new_file">新規ファイル</string>
     <string name="tools">ツール</string>
     <string name="aipy_not_install"><![CDATA[<font color="#4BAC07">依存しているパッケージ</font>をインストールしてからAIPYをインストールしてください。]]></string>
+    <string name="welcome_qpython">Welcome to Use QPython</string>
 
     <!--color string-->
 
