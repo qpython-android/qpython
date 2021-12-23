@@ -10,7 +10,6 @@
     <string name="notebook3_version" translatable="false">20200206.1205</string>
     <string name="ipynb_version" translatable="false">20200207.1205</string>
 
-    <string name="privacy_html" translatable="false">https://www.qpython.org/privacy.html</string>
     <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
     <string name="lower_project" translatable="false">projects</string>
     <string name="lib_manager" translatable="false">QPYPI</string>
@@ -64,6 +63,9 @@
         4. We will strive to adopt various security technologies to protect your personal information. Without your consent, we will not obtain, share or provide your information from a third party;\n\n
         5. If you do not actively manage the above permissions in system settings - > Apps - > qpython permissions, QPython will not automatically use them.\n\n
     </string>
+
+    <string name="url_user_agreement">https://www.qpython.org/agreement.html</string>
+    <string name="url_user_private">https://www.qpython.org/privacy.html</string>
 
     <string name="user_agreement_bottom_split1">You can read the full </string>
     <string name="user_agreement_bottom_split2">&#60;&#60;service agreement&#62;&#62; </string>
@@ -753,7 +755,7 @@
     <string name="keep_alive_mode">Keep Alive Mode</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
     <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
-    <string name="privacy_agreement">隐私政策</string>
-    <string name="service_agreement">服务协议</string>
+    <string name="privacy_agreement">Privacy Policy</string>
+    <string name="service_agreement">Service Agreement</string>
 
 </resources>

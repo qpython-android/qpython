@@ -45,7 +45,7 @@ public class SignInActivity extends AppCompatActivity implements LoginView{
     }
 
     private void initListener() {
-        binding.textView3.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_html)))));
+        binding.textView3.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_user_private)))));
         binding.button2.setOnClickListener(v -> signIn());
         binding.button3.setOnClickListener(v -> finish());
     }

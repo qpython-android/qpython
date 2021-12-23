@@ -454,8 +454,8 @@
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
     <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
-    <string name="privacy_agreement">服务协议</string>
-    <string name="service_agreement">隐私政策</string>
+    <string name="privacy_agreement">隐私政策</string>
+    <string name="service_agreement">服务协议</string>
 
     <string name="user_agreement_text">北京优趣天下信息技术有限公司（以下称“QPYTHON”或“我们”）尊重并保护所有使用QPYTHON服务用户的隐私权，在您使用我们提供的服务时，我们可能会收集和使用您的相关信息，我们希望通过本《隐私政策》向您说明，我们如何收集、存储、保护及使用您的个人信息，以及清楚地向您介绍我们对您个人信息的处理方式。本《隐私政策》与您使用QPYTHON的服务相关，因此我们建议您完整地阅读，以帮助您更好地保护您的隐私。\n\n
 如您对本《隐私政策》有任何疑问，您可以通过我方平台公布的联系方式与我们联系。如果您不同意本隐私政策任何内容，您应立即停止使用我们的服务。当您使用我们提供的任一服务时，即表示您已同意我们按照本《隐私政策》来合法使用和保护您的个人信息。\n\n
@@ -474,7 +474,8 @@
 6.如果不是你主动在系统设置->Apps->QPython权限中管理上述权限，QPython不会自动使用它们。\n\n
 
     </string>
-
+    <string name="url_user_agreement">https://www.qpython.org/agreement-cn.html</string>
+    <string name="url_user_private">https://www.qpython.org/privacy-cn.html</string>
 
 
 

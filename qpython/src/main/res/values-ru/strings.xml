@@ -434,7 +434,5 @@ w    <string name="confirm">Подтвердить</string>
     <string name="disable_keep_alive">Disable</string>
     <string name="keep_alive_tips">QPython will restart to apply changes.</string>
     <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
-    <string name="privacy_agreement">服务协议</string>
-    <string name="service_agreement">隐私政策</string>
     <string name="welcome_qpython">Welcome to Use QPython</string>
 </resources>

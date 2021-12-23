@@ -125,10 +125,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void goPrivacyAgreement() {
-        QWebViewActivity.start(this, getString(R.string.privacy_agreement), "https://www.qpython.org/privacy-cn.html");
+        QWebViewActivity.start(this, getString(R.string.privacy_agreement), getString(R.string.url_user_private));
     }
 
     private void goServiceAgreement() {
-        QWebViewActivity.start(this, getString(R.string.service_agreement), "https://www.qpython.org/agreement-cn.html");
+        QWebViewActivity.start(this, getString(R.string.service_agreement), getString(R.string.url_user_agreement));
     }
 }
