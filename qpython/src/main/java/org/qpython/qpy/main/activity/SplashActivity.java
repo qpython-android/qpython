@@ -62,9 +62,10 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         binding.tvAgreeContent.setText(str);
 
         //不设置 没有点击事件
-        binding.tvAgreeContent.setMovementMethod(LinkMovementMethod.getInstance());
+//        binding.tvAgreeContent.setMovementMethod(LinkMovementMethod.getInstance());
         //设置点击后的颜色为透明
         binding.tvAgreeContent.setHighlightColor(Color.TRANSPARENT);
+
     }
 
     private void setContent() {

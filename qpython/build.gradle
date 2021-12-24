@@ -14,8 +14,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 307
-        versionName "3.1.2"
+        versionCode 308
+        versionName "3.1.3"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
@@ -184,14 +184,14 @@ dependencies {
     api rootProject.ext.libSupportCardView
     api rootProject.ext.libSupportPreference
 
-    odApi rootProject.ext.firebaseCore
-    implementation ("com.google.firebase:firebase-messaging:17.3.4"){
-        exclude group: 'com.google.firebase', module: 'firebase-iid'
-    }
-    odApi rootProject.ext.firebaseIid
-    odApi rootProject.ext.firebaseAuth
-    odApi rootProject.ext.firebaseDatabase
-    odApi rootProject.ext.googlePlayServiceAuth
+//    odApi rootProject.ext.firebaseCore
+//    implementation ("com.google.firebase:firebase-messaging:17.3.4"){
+//        exclude group: 'com.google.firebase', module: 'firebase-iid'
+//    }
+//    odApi rootProject.ext.firebaseIid
+//    odApi rootProject.ext.firebaseAuth
+//    odApi rootProject.ext.firebaseDatabase
+//    odApi rootProject.ext.googlePlayServiceAuth
 
 //    osApi rootProject.ext.firebaseCore
 //    osApi rootProject.ext.firebaseMsg
@@ -218,24 +218,24 @@ dependencies {
     api 'com.android.support.constraint:constraint-layout:1.1.3'
 
     //    微信
-    opApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
-        exclude group: 'com.android.support:support-v4'
-    }
-    //    友盟统计
-    opApi('com.umeng.analytics:analytics:6.1.2') {
-        exclude group: 'com.android.support:support-v4'
-    }
-
-    ohApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
-        exclude group: 'com.android.support:support-v4'
-    }
-    //    友盟统计
-    ohApi('com.umeng.analytics:analytics:6.1.2') {
-        exclude group: 'com.android.support:support-v4'
-    }
+//    opApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//    //    友盟统计
+//    opApi('com.umeng.analytics:analytics:6.1.2') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//
+//    ohApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//    //    友盟统计
+//    ohApi('com.umeng.analytics:analytics:6.1.2') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
 
 
     api 'com.youth.banner:banner:1.4.10'
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

@@ -114,12 +114,13 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="ok">确定</string>
+    <string name="agree">同意</string>
+    <string name="agree_no">不同意</string>
     <string name="close">关闭</string>
     <string name="no_change">没有任何改变</string>
     <string name="feedback">意见反馈</string>
     <string name="about">关于</string>
     <string name="file_not_exists">文件不存在</string>
-    m
     <string name="enable_root">启用Root权限</string>
     <string name="send">发送</string>
     <string name="no_camera">没有发现可用的摄像头，请查看是否开启摄像头权限</string>
@@ -458,7 +459,6 @@
     <string name="service_agreement">服务协议</string>
 
     <string name="user_agreement_text">北京优趣天下信息技术有限公司（以下称“QPYTHON”或“我们”）尊重并保护所有使用QPYTHON服务用户的隐私权，在您使用我们提供的服务时，我们可能会收集和使用您的相关信息，我们希望通过本《隐私政策》向您说明，我们如何收集、存储、保护及使用您的个人信息，以及清楚地向您介绍我们对您个人信息的处理方式。本《隐私政策》与您使用QPYTHON的服务相关，因此我们建议您完整地阅读，以帮助您更好地保护您的隐私。\n\n
-如您对本《隐私政策》有任何疑问，您可以通过我方平台公布的联系方式与我们联系。如果您不同意本隐私政策任何内容，您应立即停止使用我们的服务。当您使用我们提供的任一服务时，即表示您已同意我们按照本《隐私政策》来合法使用和保护您的个人信息。\n\n
 信息收集和使用\n\n
 我们提供服务时，可能会收集、储存和使用下列与您有关的信息，收集信息是为了向您提供更好、更优、更个性化的服务，我们收集信息的方式如下：\n\n
 1.在您使用QPython时，为保障您正常使用我们的服务，我们会收集您的设备型号、操作系统、唯一设备标识符、登陆IP地址、软件版本号、接入网络的方式和类型、操作日志等日志信息。这类信息是针对网络安全管理的基础信息，供一旦发生网络安全问题时追溯所用;\n

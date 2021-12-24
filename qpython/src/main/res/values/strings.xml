@@ -232,6 +232,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
+    <string name="agree">Ok</string>
+    <string name="agree_no">Cancel</string>
     <string name="close">close</string>
     <string name="no_change">No change</string>
     <string name="feedback">Feedback</string>

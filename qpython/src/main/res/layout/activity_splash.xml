@@ -47,19 +47,23 @@
                 app:layout_constraintStart_toStartOf="@+id/iv_icon"
                 app:layout_constraintTop_toBottomOf="@+id/iv_icon" />
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/tv_content"
+            <ScrollView
+                android:id="@+id/srv_content"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"
-                android:maxHeight="300dp"
-                android:textSize="14sp"
+                android:layout_height="300dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="15dp"
+                android:scrollbars="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:textColor="#333333"
                 app:layout_constraintStart_toStartOf="@+id/iv_icon"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" >
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#333333"/>
+            </ScrollView>
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_agree_content"
@@ -71,7 +75,7 @@
                 android:textColor="#333333"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/iv_icon"
-                app:layout_constraintTop_toBottomOf="@+id/tv_content" />
+                app:layout_constraintTop_toBottomOf="@+id/srv_content" />
 
 
             <android.support.v7.widget.AppCompatTextView
@@ -85,7 +89,7 @@
                 android:layout_marginLeft="15dp"
                 android:background="@drawable/agree_confirm_btn"
                 android:gravity="center"
-                android:text="@string/ok"
+                android:text="@string/agree"
                 android:textColor="#ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +104,7 @@
                 android:layout_marginTop="6dp"
                 android:layout_marginRight="15dp"
                 android:gravity="center"
-                android:text="@string/cancel"
+                android:text="@string/agree_no"
                 android:textColor="#999999"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
