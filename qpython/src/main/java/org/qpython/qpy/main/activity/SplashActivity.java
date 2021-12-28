@@ -3,6 +3,7 @@ package org.qpython.qpy.main.activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -62,7 +63,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         binding.tvAgreeContent.setText(str);
 
         //不设置 没有点击事件
-//        binding.tvAgreeContent.setMovementMethod(LinkMovementMethod.getInstance());
+        binding.tvAgreeContent.setMovementMethod(LinkMovementMethod.getInstance());
         //设置点击后的颜色为透明
         binding.tvAgreeContent.setHighlightColor(Color.TRANSPARENT);
 
@@ -76,7 +77,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
 //        buffer.append("4.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n");
 //        buffer.append("5.您还可以访问、更正、删除您的个人信息，我们为您提供了注销、投诉等多种不同方式。");
         binding.tvContent.setText(R.string.user_agreement_text);
-        binding.tvContent.setMovementMethod(ScrollingMovementMethod.getInstance());
+//        binding.tvContent.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     private void judgeAgreementStatus() {
@@ -108,6 +109,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         int id = v.getId();
         if (id == R.id.tv_positive){
             App.setAgreementStatus(true);
+            App.initLibs(App.appInstance);
             jumpToMain();
             return;
         }
@@ -126,10 +128,14 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void goPrivacyAgreement() {
-        QWebViewActivity.start(this, getString(R.string.privacy_agreement), getString(R.string.url_user_private));
+//        QWebViewActivity.start(this, getString(R.string.privacy_agreement), getString(R.string.url_user_private));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_user_private)));
+        startActivity(browserIntent);
     }
 
     private void goServiceAgreement() {
-        QWebViewActivity.start(this, getString(R.string.service_agreement), getString(R.string.url_user_agreement));
+//        QWebViewActivity.start(this, getString(R.string.service_agreement), getString(R.string.url_user_agreement));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_user_agreement)));
+        startActivity(browserIntent);
     }
 }

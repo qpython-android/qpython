@@ -47,6 +47,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App extends QSL4APP implements CactusCallback{
 
+    public static App appInstance;
     private static final String TAG = "APP";
     private static Context sContext;
     private static String sScriptPath;
@@ -174,17 +175,15 @@ public class App extends QSL4APP implements CactusCallback{
         MultiDex.install(this);
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
+    public static void initLibs(App app) {
+        if (LeakCanary.isInAnalyzerProcess(app)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.
             return;
         }
-        LeakCanary.install(this);
+        LeakCanary.install(app);
 
-        sContext = getApplicationContext();
+        sContext = app.getApplicationContext();
         downloader = new DefaultDownloader(sContext);
         // init retrofit relate
         gson = new Gson();
@@ -201,17 +200,16 @@ public class App extends QSL4APP implements CactusCallback{
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create());
         mService = new Service();
 
-        String basePath = FileUtils.getAbsolutePath(getApplicationContext());
+        String basePath = FileUtils.getAbsolutePath(app.getApplicationContext());
         sProjectPath = String.format("%s/%s", basePath, "projects");
         sScriptPath = String.format("%s/%s", basePath, "scripts");
 
-        initLayoutDir();
-        mPreferences = this.getSharedPreferences("user", 0);
-        CrashHandler.getInstance().init(this);
-        AppInit.init(this);
+        app.initLayoutDir();
+        CrashHandler.getInstance().init(app);
+        AppInit.init(app);
 
         Map<String, String> header = new HashMap<>();
-        TokenManager.init(this);
+        TokenManager.init(app);
         header.put("Content-Type", "application/json");
 //        if (!TextUtils.isEmpty(TokenManager.getToken())) {
 //            header.put("HTTP_TOKEN", TokenManager.getToken());
@@ -231,13 +229,23 @@ public class App extends QSL4APP implements CactusCallback{
 //        }
 
         // restart Notebook
-        if (NotebookUtil.isNBSrvSet(this)) {
+        if (NotebookUtil.isNBSrvSet(app)) {
 
-            NotebookUtil.killNBSrv(this);
-            NotebookUtil.startNotebookService2(this);
+            NotebookUtil.killNBSrv(app);
+            NotebookUtil.startNotebookService2(app);
         }
 
-        initCactus();
+        app.initCactus();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        appInstance = this;
+        mPreferences = getSharedPreferences("user", 0);
+        if (App.getAgreementStatus()) {
+            initLibs(this);
+        }
     }
 
     private void initCactus() {
