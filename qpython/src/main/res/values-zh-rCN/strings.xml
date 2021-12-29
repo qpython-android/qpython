@@ -458,28 +458,27 @@
     <string name="privacy_agreement">隐私政策</string>
     <string name="service_agreement">服务协议</string>
 
-    <string name="user_agreement_text">北京优趣天下信息技术有限公司（以下称“QPYTHON”或“我们”）尊重并保护所有使用QPYTHON服务用户的隐私权，在您使用我们提供的服务时，我们可能会收集和使用您的相关信息，我们希望通过本《隐私政策》向您说明，我们如何收集、存储、保护及使用您的个人信息，以及清楚地向您介绍我们对您个人信息的处理方式。本《隐私政策》与您使用QPYTHON的服务相关，因此我们建议您完整地阅读，以帮助您更好地保护您的隐私。\n\n
-信息收集和使用\n\n
-我们提供服务时，可能会收集、储存和使用下列与您有关的信息，收集信息是为了向您提供更好、更优、更个性化的服务，我们收集信息的方式如下：\n\n
-1.在您使用QPython时，为保障您正常使用我们的服务，我们会收集您的设备型号、操作系统、唯一设备标识符、登陆IP地址、软件版本号、接入网络的方式和类型、操作日志等日志信息。这类信息是针对网络安全管理的基础信息，供一旦发生网络安全问题时追溯所用;\n
-2.在涉及国家安全与利益、社会公共利益、与犯罪侦查有关的相关活动、您或他人生命财产安全但在特殊情况下无法获得您的及时授权、能够从其他合法公开的渠道、法律法规规定的其他情形下，QPython可能在不经过您的同意或授权的前提下，向相关部门提供您的个人信息。\n\n
-权限\n\n
-要使用Android的某些功能进行编程，QPython/QPython需要以下权限：摄像头、麦克风、存储、账号、蓝牙、GPS和其他等，但QPYTHON不会保存这些信息。\n
-如果您不需要这些特性，可以从系统设置中禁用它们。\n\n
-1.为了能使用扫描二维码的便捷功能和让您使用手机的拍照特性进行编程，QPython可能会使用您申请摄像头权限；\n
-2.为了让您能用手机的麦克风、存储进行编程，QPython可能会使用您申请麦克风权限、读写存储等权限；\n
-3.为了让您使用手机的地理位置用于编程，QPython可能会向您申请位置权限；\n
-4.为了让您使用手机的账号信息用于编程，QPython可能会向您申请系统设备权限收集设备信息、日志信息；\n
-5.我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n
-6.如果不是你主动在系统设置->Apps->QPython权限中管理上述权限，QPython不会自动使用它们。\n\n
+    <string name="user_agreement_text">
+
+        北京优趣天下信息技术有限公司（以下称“QPYTHON”或“我们”）尊重并保护所有使用QPYTHON服务用户的隐私权，在您使用我们提供的服务时，我们可能会收集和使用您的相关信息，我们希望通过本《隐私政策》向您说明，我们如何收集、存储、保护及使用您的个人信息，以及清楚地向您介绍我们对您个人信息的处理方式。本《隐私政策》与您使用QPYTHON的服务相关，因此我们建议您完整地阅读，以帮助您更好地保护您的隐私。\n\n
+
+        权限说明:\n
+要使用Android的某些功能进行编程，QPython/QPython需要以下权限：摄像头、麦克风、存储、账号、蓝牙、GPS和其他等，如果您不需要这些特性，可以从系统设置中禁用它们。\n\n
+
+为了能使用扫描二维码的便捷功能和让您使用手机的拍照特性进行编程，QPython可能会使用您申请摄像头权限；\n
+为了让您能用手机的麦克风、存储进行编程，QPython可能会使用您申请麦克风权限、读写存储等权限；\n
+为了让您使用手机的地理位置用于编程，QPython可能会向您申请位置权限；\n
+为了让您使用手机的账号信息用于编程，QPython可能会向您申请系统设备权限收集设备信息、日志信息；\n
+我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n
+如果不是你主动在系统设置->Apps->QPython权限中管理上述权限，QPython不会自动使用它们\n\n
 
     </string>
     <string name="url_user_agreement">https://www.qpython.org/agreement-cn.html</string>
     <string name="url_user_private">https://www.qpython.org/privacy-cn.html</string>
 
 
-
-    <string name="user_agreement_bottom_split1">您可以阅读完整版</string>
+    <string name="user_aggreement_toast">请阅读并接受《服务协议》和《隐私政策》</string>
+    <string name="user_agreement_bottom_split1">已阅读并接受</string>
     <string name="user_agreement_bottom_split2">《服务协议》</string>
     <string name="user_agreement_bottom_split3">和</string>
     <string name="user_agreement_bottom_split4">《隐私政策》</string>

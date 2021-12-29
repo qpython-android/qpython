@@ -65,17 +65,26 @@
                     android:textColor="#333333"/>
             </ScrollView>
 
+            <CheckBox
+                android:id="@+id/cbx_agree_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:theme="@style/MyCheckBox"
+                app:layout_constraintStart_toStartOf="@+id/iv_icon"
+                app:layout_constraintTop_toBottomOf="@+id/srv_content"/>
+
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_agree_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:layout_marginTop="12dp"
                 android:layout_marginRight="15dp"
                 android:textColor="#333333"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/iv_icon"
-                app:layout_constraintTop_toBottomOf="@+id/srv_content" />
+                app:layout_constraintStart_toEndOf="@+id/cbx_agree_content"
+                app:layout_constraintTop_toTopOf="@+id/cbx_agree_content"
+                app:layout_constraintBottom_toBottomOf="@+id/cbx_agree_content"/>
 
 
             <android.support.v7.widget.AppCompatTextView

@@ -64,6 +64,7 @@
         5. If you do not actively manage the above permissions in system settings - > Apps - > qpython permissions, QPython will not automatically use them.\n\n
     </string>
 
+    <string name="user_aggreement_toast">Please read and accept the "Service Agreement" and "Privacy Policy"</string>
     <string name="url_user_agreement">https://www.qpython.org/agreement.html</string>
     <string name="url_user_private">https://www.qpython.org/privacy.html</string>
 

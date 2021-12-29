@@ -176,6 +176,7 @@ public class App extends QSL4APP implements CactusCallback{
     }
 
     public static void initLibs(App app) {
+        app.initConfiguration();
         if (LeakCanary.isInAnalyzerProcess(app)) {
             // This process is dedicated to LeakCanary for heap analysis.
             // You should not init your app in this process.

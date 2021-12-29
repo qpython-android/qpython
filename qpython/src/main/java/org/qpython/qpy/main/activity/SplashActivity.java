@@ -15,6 +15,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.databinding.ActivitySplashBinding;
@@ -107,13 +108,16 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.tv_positive){
-            App.setAgreementStatus(true);
-            App.initLibs(App.appInstance);
-            jumpToMain();
-            return;
-        }
-        if (id == R.id.tv_negative){
+        if (id == R.id.tv_positive) {
+            if(binding.cbxAgreeContent.isChecked()) {
+                App.setAgreementStatus(true);
+                App.initLibs(App.appInstance);
+                jumpToMain();
+            } else {
+                Toast.makeText(this, R.string.user_aggreement_toast,
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else if (id == R.id.tv_negative){
             finish();
         }
     }

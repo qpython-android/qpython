@@ -13,6 +13,7 @@
     <color name="ripple_normal">#CACCCB</color>
     <color name="text_dark">#333333</color>
 
+    <color name="switch_btn_colors">#87AADC</color>
 
     <color name="ripple_material_light">#40000000</color>
 
