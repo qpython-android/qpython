@@ -12,8 +12,8 @@
 
     <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
     <string name="lower_project" translatable="false">projects</string>
-    <string name="lib_manager" translatable="false">QPYPI</string>
-    <string name="qpypi_up" translatable="false">QPYPI</string>
+    <string name="lib_manager">QPYPI</string>
+    <string name="qpypi_up">QPYPI</string>
     <!-- ColorValue.java -->
     <string name="colorvalue_letter_alpha" translatable="false">α</string>
     <string name="colorvalue_letter_red" translatable="false">R</string>

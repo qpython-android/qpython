@@ -260,6 +260,8 @@
     <string name="log_title">运行日誌</string>
 
     <string name="scan">二维码</string>
+    <string name="lib_manager">扩展</string>
+    <string name="qpypi_up">扩展</string>
     <string name="read_script_from_qrcode">从二维码中读取代码</string>
 
     <string name="screen_preferences">屏幕</string>
