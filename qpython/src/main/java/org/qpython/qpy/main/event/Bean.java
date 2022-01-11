@@ -21,9 +21,11 @@ import org.qpython.qpy.main.app.CONF;
 import org.qpython.qpy.main.utils.Utils;
 import org.qpython.qpy.texteditor.EditorActivity;
 
+import com.quseit.common.updater.downloader.DefaultDownloader;
 import com.quseit.util.FileHelper;
 import com.quseit.util.FileUtils;
 
+import org.qpython.qpy.utils.DownloadUtil;
 import org.qpython.qpy.utils.NotebookUtil;
 import org.qpython.qpysdk.QPyConstants;
 
@@ -217,6 +219,12 @@ public class Bean {
         String py = returnTmpScript(content, "qedit", null);
         Uri uri = Uri.fromFile(new File(py));
         EditorActivity.start(context, uri);
+    }
+
+    @JavascriptInterface
+    public void download(String url, String mimeType) {
+        DownloadUtil.startDownloader(App.getContext(), url, System.nanoTime() + "", mimeType,
+                "download", "download");
     }
 
     @JavascriptInterface

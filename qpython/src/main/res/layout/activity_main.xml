@@ -150,21 +150,24 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/ll_gist"
+                    android:id="@+id/ll_course"
                     style="@style/row_ll">
 
-                    <!--ImageView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_home_gist"/>
+                        android:src="@drawable/ic_home_course"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:lines="1"
+                        android:ellipsize="end"
                         android:layout_marginTop="@dimen/icon_margin_top"
-                        android:text="@string/gist"
-                        android:textColor="#FFF"/-->
+                        android:text="@string/course"
+                        android:textColor="#FFF"/>
                 </LinearLayout>
+
 
                 <!--<LinearLayout-->
                 <!--android:id="@+id/ll_local_app"-->
@@ -211,21 +214,20 @@
                         android:textColor="#FFF"/>
                 </LinearLayout>
 
-
                 <LinearLayout
-                    android:id="@+id/ll_course"
+                    android:id="@+id/ll_gist"
                     style="@style/row_ll">
 
                     <!--ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_home_course"/>
+                        android:src="@drawable/ic_home_gist"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/icon_margin_top"
-                        android:text="@string/course"
+                        android:text="@string/gist"
                         android:textColor="#FFF"/-->
                 </LinearLayout>
 

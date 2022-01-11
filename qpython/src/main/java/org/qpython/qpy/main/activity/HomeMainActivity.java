@@ -53,7 +53,7 @@ import static org.qpython.qpysdk.QPyConstants.PYTHON_2;
 
 public class HomeMainActivity extends BaseActivity {
     private static final String URL_COMMUNITY = "https://www.qpython.org/community.html";
-    private static final String URL_COURSE    = "https://edu.qpython.org/?from=qpy2";
+    private static final String URL_COURSE    = "https://edu.qpython.org/course.html";
     private static final String USER_NAME     = "username";
     private static final String TAG = "HomeMainActivity";
 
@@ -207,14 +207,15 @@ public class HomeMainActivity extends BaseActivity {
             });
         });
 
-        binding.llCourse.setOnClickListener(v -> {
-            CourseActivity.start(HomeMainActivity.this);
-            sendEvent(getString(R.string.event_course));
-        });
-/*        binding.llCourse.setOnClickListener(v ->
-                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), URL_COURSE));
+//        binding.llCourse.setOnClickListener(v -> {
+//            CourseActivity.start(HomeMainActivity.this);
+//            sendEvent(getString(R.string.event_course));
+//        });
+        String courseUrl = getString(R.string.url_course);
+        binding.llCourse.setOnClickListener(v ->
+                QWebViewActivity.start(HomeMainActivity.this, getString(R.string.course), courseUrl));
 
-        initCourseListener();*/
+//        initCourseListener();
     }
 
 

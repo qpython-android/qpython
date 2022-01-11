@@ -67,6 +67,7 @@
     <string name="user_aggreement_toast">Please read and accept the "Service Agreement" and "Privacy Policy"</string>
     <string name="url_user_agreement">https://www.qpython.org/agreement.html</string>
     <string name="url_user_private">https://www.qpython.org/privacy.html</string>
+    <string name="url_course">https://edu.qpython.org/courses.html</string>
 
     <string name="user_agreement_bottom_split1">You can read the full </string>
     <string name="user_agreement_bottom_split2">&#60;&#60;service agreement&#62;&#62; </string>
@@ -411,7 +412,7 @@
     <string name="read_script_from_qrcode">Read code from QRCode</string>
     <string name="welcome_qpython">Welcome to Use QPython</string>
 
-    <string name="course">QPython Courses</string>
+    <string name="course">Courses</string>
     <string name="lost_connect">Lose Connect</string>
     <string name="featured_courses">Courses</string>
     <string name="programs">Programs</string>

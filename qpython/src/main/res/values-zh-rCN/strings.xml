@@ -477,6 +477,7 @@
     </string>
     <string name="url_user_agreement">https://www.qpython.org/agreement-cn.html</string>
     <string name="url_user_private">https://www.qpython.org/privacy-cn.html</string>
+    <string name="url_course">https://edu.qpython.org/courses-cn.html</string>
 
 
     <string name="user_aggreement_toast">请阅读并接受《服务协议》和《隐私政策》</string>
