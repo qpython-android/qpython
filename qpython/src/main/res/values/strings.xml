@@ -264,6 +264,7 @@
     <string name="reset_warning">Reset storage will lost all setting and downloaded libs, are you sure you want to reset?</string>
     <string name="downloading">Library</string>
     <string name="location">Location</string>
+    <string name="start_download">Start download</string>
 
 
     <!--  -->

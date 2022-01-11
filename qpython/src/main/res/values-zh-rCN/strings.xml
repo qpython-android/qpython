@@ -141,6 +141,7 @@
     <string name="warning">警告</string>
     <string name="reset_warning">将重置所有设置并删除已下载的库,确定重置吗?</string>
     <string name="downloading">库文件</string>
+    <string name="start_download">开始下载</string>
     <string name="save">保存</string>
     <string name="save_as">另存为</string>
     <string name="open">打开</string>

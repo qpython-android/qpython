@@ -5,6 +5,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.widget.Toast;
+
+import org.qpython.qpy.R;
 
 import java.io.File;
 
@@ -47,6 +50,7 @@ public class DownloadUtil {
             Uri fileUri = Uri.parse("file://" + downloadFilePath);
             request.setDestinationUri(fileUri);
             long downloadId = downloadManager.enqueue(request);
+            Toast.makeText(context, R.string.start_download, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         }
