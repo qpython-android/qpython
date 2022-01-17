@@ -20,6 +20,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.gyf.cactus.Cactus;
+import com.huawei.hms.aaid.HmsInstanceId;
+import com.huawei.hms.common.ApiException;
 import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
@@ -113,6 +115,29 @@ public class HomeMainActivity extends BaseActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             UpdateHelper.checkConfUpdate(this, QPyConstants.BASE_PATH);
         }
+
+        initPushToken();
+    }
+
+    private void initPushToken() {
+        // 创建一个新线程
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    // 从agconnect-services.json文件中读取APP_ID
+                    String appId = "100120703";
+
+                    // 输入token标识"HCM"
+                    String tokenScope = "HCM";
+                    String token = HmsInstanceId.getInstance(HomeMainActivity.this).getToken(appId, tokenScope);
+                    Log.i(TAG, "get token: " + token);
+
+                } catch (ApiException e) {
+                    Log.e(TAG, "get token failed, " + e);
+                }
+            }
+        }.start();
     }
 
     @Override

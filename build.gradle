@@ -8,15 +8,19 @@ def butterknifeVersion = '9.0.0' //eqals to line 26
 
 buildscript {
     repositories {
-        jcenter()
-        google()
-        mavenCentral()
+        maven {url 'https://maven.aliyun.com/repository/jcenter'}
+        maven {url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://maven.google.com" }
+        google()
+        mavenCentral()
+        // 配置HMS Core SDK的Maven仓地址。
+        maven {url 'https://developer.huawei.com/repo/'}
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.android.tools.build:gradle:3.5.4'
 
         // A gradle plugin for getting java lambda support in java 6, 7 and android
         // https://github.com/evant/gradle-retrolambda
@@ -34,18 +38,25 @@ buildscript {
         classpath "io.realm:realm-gradle-plugin:3.5.0"
 
         classpath 'com.google.gms:google-services:4.0.2'
+
+        // 添加agcp插件配置。
+        classpath 'com.huawei.agconnect:agcp:1.6.0.300'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
-        google()
-
-        mavenCentral()
+        maven {url 'https://maven.aliyun.com/repository/jcenter'}
+        maven {url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "https://jitpack.io" }
 //        maven { url 'https://dl.bintray.com/azeesoft/maven' }
         //maven { url "http://mvn.leancloud.cn/nexus/content/repositories/public" }
+        google()
+
+        mavenCentral()
+        // 配置HMS Core SDK的Maven仓地址。
+        maven {url 'https://developer.huawei.com/repo/'}
     }
 }
 
@@ -90,7 +101,7 @@ ext {
     libSupportDesign = "com.android.support:design:${supportVersion}"
     libOkHttp3Log = "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
 
-    minSdkVersion = 14
+    minSdkVersion = 17
     targetSdkVersion = 28
     compileSdkVersion = 28
     buildToolsVersion = '28.0.2'
@@ -115,4 +126,6 @@ ext {
 
     libButterknife = "com.jakewharton:butterknife:${butterknifeVersion}"
     libButterknifeCompiler ="com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+
+    huaweiPush = "com.huawei.hms:push:6.1.0.300"
 }

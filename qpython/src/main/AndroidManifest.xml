@@ -389,4 +389,9 @@
         android:name="com.sec.android.support.multiwindow"
         android:value="true"/>
 
+    <!--华为通知（start）-->
+    <meta-data
+        android:name="push_kit_auto_init_enabled"
+        android:value="true"/>
+    <!--华为通知(end)-->
 </manifest>

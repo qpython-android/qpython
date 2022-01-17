@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'realm-android'
+apply plugin: 'com.huawei.agconnect'
 
 //获取系统时间
 def releaseTime() {
@@ -68,11 +69,11 @@ android {
         }
 
         debug {
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             debuggable true
             minifyEnabled false
             jniDebuggable true
-            signingConfig signingConfigs.debug
+//            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -236,6 +237,7 @@ dependencies {
 
 
     api 'com.youth.banner:banner:1.4.10'
+    implementation rootProject.ext.huaweiPush
 }
 
 //apply plugin: 'com.google.gms.google-services'
