@@ -249,7 +249,7 @@ public class App extends QSL4APP implements CactusCallback{
      * 初始化推送
      */
     private static void initPush(Context context) {
-        // 设置自动初始化
+        // 华为通道设置自动初始化
         HmsMessaging.getInstance(context).setAutoInitEnabled(true);
     }
 

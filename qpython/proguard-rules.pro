@@ -243,3 +243,11 @@ public static final int *;
     public static **[] values();
     public static ** valueOf(java.lang.String);
 }
+
+#华为通知
+-ignorewarnings
+-keepattributes InnerClasses
+-keepattributes Signature
+-keep class com.huawei.hianalytics.**{*;}
+-keep class com.huawei.updatesdk.**{*;}
+-keep class com.huawei.hms.**{*;}
