@@ -383,15 +383,22 @@
             android:configChanges="keyboardHidden|orientation|screenSize"/>
 
         <receiver android:name="org.qpython.qpy.main.receiver.BootBroadcastReceiver" />
+
+
+
+        <!--华为通知（start）-->
+        <service
+            android:name=".service.HmsMessageService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="false"/>
+
+
+        <!--华为通知(end)-->
     </application>
 
-    <meta-data
-        android:name="com.sec.android.support.multiwindow"
-        android:value="true"/>
-
-    <!--华为通知（start）-->
-    <meta-data
-        android:name="push_kit_auto_init_enabled"
-        android:value="true"/>
-    <!--华为通知(end)-->
 </manifest>

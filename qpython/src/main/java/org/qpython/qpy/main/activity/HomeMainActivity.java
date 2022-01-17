@@ -84,6 +84,24 @@ public class HomeMainActivity extends BaseActivity {
         startMain();
         handlePython3(getIntent());
         handleNotification(savedInstanceState);
+        getIntentData(getIntent());
+    }
+
+
+
+    private void getIntentData(Intent intent) {
+        if (null != intent) {
+            // 获取data里的值
+            Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+                for (String key : bundle.keySet()) {
+                    String content = bundle.getString(key);
+                    Log.i(TAG, "receive data from push, key = " + key + ", content = " + content);
+                }
+            }
+        } else {
+            Log.i(TAG, "intent is null");
+        }
     }
 
     private void initIcon() {
@@ -115,29 +133,6 @@ public class HomeMainActivity extends BaseActivity {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             UpdateHelper.checkConfUpdate(this, QPyConstants.BASE_PATH);
         }
-
-        initPushToken();
-    }
-
-    private void initPushToken() {
-        // 创建一个新线程
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    // 从agconnect-services.json文件中读取APP_ID
-                    String appId = "100120703";
-
-                    // 输入token标识"HCM"
-                    String tokenScope = "HCM";
-                    String token = HmsInstanceId.getInstance(HomeMainActivity.this).getToken(appId, tokenScope);
-                    Log.i(TAG, "get token: " + token);
-
-                } catch (ApiException e) {
-                    Log.e(TAG, "get token failed, " + e);
-                }
-            }
-        }.start();
     }
 
     @Override
@@ -152,6 +147,7 @@ public class HomeMainActivity extends BaseActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         handlePython3(intent);
+        getIntentData(intent);
     }
 
     private void initListener() {

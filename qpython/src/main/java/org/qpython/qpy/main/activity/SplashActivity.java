@@ -26,7 +26,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SplashActivity extends AppCompatActivity implements View.OnClickListener, MyCheckTextView.ClickListener {
-
+    private final static String TAG = "SplashActivity";
     ActivitySplashBinding binding;
 
 
@@ -101,6 +101,14 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private void jumpToMain(){
         Intent intent = new Intent(SplashActivity.this, HomeMainActivity.class);
         intent.setAction(getIntent().getAction());
+
+        if(getIntent() != null) {
+            Bundle bundle = getIntent().getExtras();
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+        }
+
         startActivity(intent);
         finish();
     }

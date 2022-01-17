@@ -15,12 +15,16 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.gyf.cactus.Cactus;
 import com.gyf.cactus.callback.CactusCallback;
+import com.huawei.hms.aaid.HmsInstanceId;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.push.HmsMessaging;
 import com.quseit.common.CrashHandler;
 import com.quseit.common.updater.downloader.DefaultDownloader;
 import com.quseit.util.FileUtils;
 import com.squareup.leakcanary.LeakCanary;
 
 import org.qpython.qpy.R;
+import org.qpython.qpy.main.activity.HomeMainActivity;
 import org.qpython.qpy.main.server.Service;
 import org.qpython.qpy.main.server.gist.Api;
 import org.qpython.qpy.main.server.gist.TokenManager;
@@ -237,6 +241,16 @@ public class App extends QSL4APP implements CactusCallback{
         }
 
         app.initCactus();
+
+        initPush(app);
+    }
+
+    /**
+     * 初始化推送
+     */
+    private static void initPush(Context context) {
+        // 设置自动初始化
+        HmsMessaging.getInstance(context).setAutoInitEnabled(true);
     }
 
     @Override
