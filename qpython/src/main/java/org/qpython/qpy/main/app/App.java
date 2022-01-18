@@ -30,6 +30,7 @@ import org.qpython.qpy.main.server.gist.Api;
 import org.qpython.qpy.main.server.gist.TokenManager;
 import org.qpython.qpy.main.server.gist.response.GistBean;
 import org.qpython.qpy.main.server.http.Retrofitor;
+import org.qpython.qpy.utils.BrandUtil;
 import org.qpython.qpy.utils.NotebookUtil;
 import org.qpython.qpysdk.QPyConstants;
 import org.qpython.qsl4a.QPyScriptService;
@@ -249,8 +250,11 @@ public class App extends QSL4APP implements CactusCallback{
      * 初始化推送
      */
     private static void initPush(Context context) {
-        // 华为通道设置自动初始化
-        HmsMessaging.getInstance(context).setAutoInitEnabled(true);
+        if(BrandUtil.isBrandHuawei()) {
+            // 华为通道设置自动初始化
+            HmsMessaging.getInstance(context).setAutoInitEnabled(true);
+            Log.d(TAG, "Init Push:Huawei");
+        }
     }
 
     @Override
