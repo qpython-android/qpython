@@ -10,7 +10,6 @@ import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -21,8 +20,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.gyf.cactus.Cactus;
-import com.huawei.hms.aaid.HmsInstanceId;
-import com.huawei.hms.common.ApiException;
 import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
@@ -35,32 +32,28 @@ import org.qpython.qpy.console.TermActivity;
 import org.qpython.qpy.databinding.ActivityMainBinding;
 import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.main.app.CONF;
-import org.qpython.qpy.main.server.MySubscriber;
-import org.qpython.qpy.main.server.model.CourseAdModel;
 import org.qpython.qpy.main.utils.Bus;
 import org.qpython.qpy.texteditor.EditorActivity;
 import org.qpython.qpy.texteditor.TedLocalActivity;
+import org.qpython.qpy.utils.JumpToUtils;
 import org.qpython.qpy.utils.UpdateHelper;
 import org.qpython.qpysdk.QPyConstants;
 import org.qpython.qpysdk.QPySDK;
 import org.qpython.qpysdk.utils.FileHelper;
-import org.qpython.qsl4a.QPyScriptService;
 
 import java.io.File;
 import java.io.InputStream;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
 import static org.qpython.qpysdk.QPyConstants.PYTHON_2;
 
+/***
+ * Qpython主页
+ */
 public class HomeMainActivity extends BaseActivity {
-    private static final String URL_COMMUNITY = "https://www.qpython.org/community.html";
-    private static final String URL_COURSE    = "https://edu.qpython.org/course.html";
     private static final String USER_NAME     = "username";
-    private static final String TAG = "HomeMainActivity";
+    private static final String TAG           = "HomeMainActivity";
 
     private static final int LOGIN_REQUEST_CODE = 136;
 
@@ -99,8 +92,8 @@ public class HomeMainActivity extends BaseActivity {
             // 获取data里的值
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
-                String action = bundle.getString("action");
-                String value = bundle.getString("value");
+                String action = bundle.getString(JumpToUtils.EXTRA_ACTION);
+                String value = bundle.getString(JumpToUtils.EXTRA_VALUE);
                 if(!TextUtils.isEmpty(action) &&
                         !TextUtils.isEmpty(value)) {
                     delayNotifyJumpTo(action, value);
@@ -118,10 +111,7 @@ public class HomeMainActivity extends BaseActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                if("jump_web_page".equals(action)) {
-                    QWebViewActivity.start(HomeMainActivity.this,
-                            getString(R.string.text_noti), value);
-                }
+                JumpToUtils.jumpTo(HomeMainActivity.this, action, value);
             }
         }, 1000);
     }

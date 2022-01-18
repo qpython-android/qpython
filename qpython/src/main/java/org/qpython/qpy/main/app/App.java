@@ -15,6 +15,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.gyf.cactus.Cactus;
 import com.gyf.cactus.callback.CactusCallback;
+import com.huawei.hmf.tasks.OnCompleteListener;
+import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.common.ApiException;
 import com.huawei.hms.push.HmsMessaging;
@@ -31,6 +33,7 @@ import org.qpython.qpy.main.server.gist.TokenManager;
 import org.qpython.qpy.main.server.gist.response.GistBean;
 import org.qpython.qpy.main.server.http.Retrofitor;
 import org.qpython.qpy.utils.BrandUtil;
+import org.qpython.qpy.utils.JumpToUtils;
 import org.qpython.qpy.utils.NotebookUtil;
 import org.qpython.qpysdk.QPyConstants;
 import org.qpython.qsl4a.QPyScriptService;
@@ -254,6 +257,24 @@ public class App extends QSL4APP implements CactusCallback{
             // 华为通道设置自动初始化
             HmsMessaging.getInstance(context).setAutoInitEnabled(true);
             Log.d(TAG, "Init Push:Huawei");
+
+            try {
+                // 主题订阅
+                HmsMessaging.getInstance(context).subscribe(JumpToUtils.EXTRA_TOPIC)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(Task<Void> task) {
+                                // 获取主题订阅的结果
+                                if (task.isSuccessful()) {
+                                    Log.i(TAG, "subscribe topic successfully");
+                                } else {
+                                    Log.e(TAG, "subscribe topic failed, return value is " + task.getException().getMessage());
+                                }
+                            }
+                        });
+            } catch (Exception e) {
+                Log.e(TAG, "subscribe failed, catch exception : " + e.getMessage());
+            }
         }
     }
 
