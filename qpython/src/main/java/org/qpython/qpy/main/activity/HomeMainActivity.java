@@ -15,6 +15,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -47,6 +48,8 @@ import org.qpython.qsl4a.QPyScriptService;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -87,21 +90,40 @@ public class HomeMainActivity extends BaseActivity {
         getIntentData(getIntent());
     }
 
-
-
+    /**
+     * 获取Intent数据，用于通知跳转
+     * @param intent
+     */
     private void getIntentData(Intent intent) {
         if (null != intent) {
             // 获取data里的值
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
-                for (String key : bundle.keySet()) {
-                    String content = bundle.getString(key);
-                    Log.i(TAG, "receive data from push, key = " + key + ", content = " + content);
+                String action = bundle.getString("action");
+                String value = bundle.getString("value");
+                if(!TextUtils.isEmpty(action) &&
+                        !TextUtils.isEmpty(value)) {
+                    delayNotifyJumpTo(action, value);
                 }
             }
-        } else {
-            Log.i(TAG, "intent is null");
         }
+    }
+
+    /**
+     * 延迟跳转页面
+     * @param action
+     * @param value
+     */
+    private void delayNotifyJumpTo(String action, String value) {
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if("jump_web_page".equals(action)) {
+                    QWebViewActivity.start(HomeMainActivity.this,
+                            getString(R.string.text_noti), value);
+                }
+            }
+        }, 1000);
     }
 
     private void initIcon() {

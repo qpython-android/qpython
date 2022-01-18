@@ -487,6 +487,7 @@
     <string name="lout">Do you want to sign out?</string>
     <string name="log_noti">Log Notification</string>
     <string name="app_noti">App Notifications</string>
+    <string name="text_noti">Notification</string>
     <string name="override_hint">Override local file?</string>
     <string name="file_downloaded">File downloaded</string>
     <string name="login_error">Login error</string>

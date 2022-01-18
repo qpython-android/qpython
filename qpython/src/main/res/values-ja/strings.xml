@@ -412,6 +412,7 @@
     <string name="lout">ログアウトしますか?</string>
     <string name="log_noti">ログ通知</string>
     <string name="app_noti">アプリの通知</string>
+    <string name="text_noti">Notification</string>
     <string name="override_hint">ローカルのファイルを上書きしますか?</string>
     <string name="file_downloaded">ファイルがダウンロードされました。</string>
     <string name="login_error">ログイン中にエラーが発生しました。</string>

@@ -333,6 +333,7 @@
     <string name="file_downloaded">文件已下载</string>
     <string name="override_hint">覆写本地文件?</string>
     <string name="app_noti">应用消息推送</string>
+    <string name="text_noti">消息推送</string>
     <string name="log_noti">Log消息推送</string>
     <string name="lout">退出吗?</string>
     <string name="delete_suc">删除文件成功</string>
