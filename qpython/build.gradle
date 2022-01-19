@@ -155,6 +155,7 @@ dependencies {
     api project(':qpysdk')
 
     api files('libs/markdown4j.jar')
+    implementation files('libs/MiPush_SDK_Client_4_9_1.jar')
     //api files('libs/android-async-http-1.4.8.aar')
     //api 'com.loopj.android:android-async-http:1.4.8'
 

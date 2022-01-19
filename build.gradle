@@ -84,6 +84,11 @@ subprojects {
 }
 
 ext {
+    minSdkVersion = 17
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.2'
+
     libOkHttp3 = "com.squareup.okhttp3:okhttp:${okhttpVersion}"
 
     libRxJava = "io.reactivex:rxandroid:${rxVersion}"
@@ -100,11 +105,6 @@ ext {
     libSupportAnnotation = "com.android.support:support-annotations:${supportVersion}"
     libSupportDesign = "com.android.support:design:${supportVersion}"
     libOkHttp3Log = "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}"
-
-    minSdkVersion = 17
-    targetSdkVersion = 28
-    compileSdkVersion = 28
-    buildToolsVersion = '28.0.2'
 
     // firebase related https://firebase.google.com/docs/android/setup
     firebaseCore = "com.google.firebase:firebase-core:16.0.7"

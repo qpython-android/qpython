@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Process;
 import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,9 @@ import com.quseit.common.CrashHandler;
 import com.quseit.common.updater.downloader.DefaultDownloader;
 import com.quseit.util.FileUtils;
 import com.squareup.leakcanary.LeakCanary;
+import com.xiaomi.channel.commonutils.logger.LoggerInterface;
+import com.xiaomi.mipush.sdk.Logger;
+import com.xiaomi.mipush.sdk.MiPushClient;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.main.activity.HomeMainActivity;
@@ -275,7 +279,50 @@ public class App extends QSL4APP implements CactusCallback{
             } catch (Exception e) {
                 Log.e(TAG, "subscribe failed, catch exception : " + e.getMessage());
             }
+        } else if(BrandUtil.isBrandXiaoMi()) {
+            //初始化push推送服务
+            if(shouldInit(context)) {
+                String appid = "2882303761517632253";
+                String appkey = "5761763248253";
+                MiPushClient.registerPush(context, appid, appkey);
+            }
+            //打开Log
+            LoggerInterface newLogger = new LoggerInterface() {
+
+                @Override
+                public void setTag(String tag) {
+                    // ignore
+                }
+
+                @Override
+                public void log(String content, Throwable t) {
+                    Log.d(TAG, content, t);
+                }
+
+                @Override
+                public void log(String content) {
+                    Log.d(TAG, content);
+                }
+            };
+            Logger.setLogger(context, newLogger);
         }
+    }
+
+    /**
+     * 小米通知，判断是否需要初始化
+     * @return
+     */
+    private static boolean shouldInit(Context context) {
+        ActivityManager am = ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE));
+        List<ActivityManager.RunningAppProcessInfo> processInfos = am.getRunningAppProcesses();
+        String mainProcessName = context.getApplicationInfo().processName;
+        int myPid = Process.myPid();
+        for (ActivityManager.RunningAppProcessInfo info : processInfos) {
+            if (info.pid == myPid && mainProcessName.equals(info.processName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
