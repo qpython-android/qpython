@@ -60,7 +60,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class App extends QSL4APP implements CactusCallback{
 
     public static App appInstance;
-    private static final String TAG = "APP";
+    private static final String TAG = "MyApplication";
     private static Context sContext;
     private static String sScriptPath;
     private static String sProjectPath;
