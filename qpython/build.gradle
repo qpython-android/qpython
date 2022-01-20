@@ -239,6 +239,7 @@ dependencies {
 
     api 'com.youth.banner:banner:1.4.10'
     implementation rootProject.ext.huaweiPush
+    implementation 'com.huawei.hms:hianalytics:6.3.2.300'
 }
 
 //apply plugin: 'com.google.gms.google-services'
