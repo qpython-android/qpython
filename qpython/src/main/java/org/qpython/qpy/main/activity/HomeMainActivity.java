@@ -23,6 +23,8 @@ import com.gyf.cactus.Cactus;
 import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.Utils;
+import com.xiaomi.mipush.sdk.MiPushMessage;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONException;
@@ -35,6 +37,7 @@ import org.qpython.qpy.main.app.CONF;
 import org.qpython.qpy.main.utils.Bus;
 import org.qpython.qpy.texteditor.EditorActivity;
 import org.qpython.qpy.texteditor.TedLocalActivity;
+import org.qpython.qpy.utils.BrandUtil;
 import org.qpython.qpy.utils.JumpToUtils;
 import org.qpython.qpy.utils.UpdateHelper;
 import org.qpython.qpysdk.QPyConstants;
@@ -43,6 +46,7 @@ import org.qpython.qpysdk.utils.FileHelper;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -92,8 +96,22 @@ public class HomeMainActivity extends BaseActivity {
             // 获取data里的值
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
-                String action = bundle.getString(JumpToUtils.EXTRA_ACTION);
-                String value = bundle.getString(JumpToUtils.EXTRA_VALUE);
+                String action = null;
+                String value = null;
+                if(BrandUtil.isBrandHuawei()) {
+                    //华为通知
+                    action = bundle.getString(JumpToUtils.EXTRA_ACTION);
+                    value = bundle.getString(JumpToUtils.EXTRA_VALUE);
+                } else if(BrandUtil.isBrandXiaoMi()) {
+                    if (bundle.getSerializable(PushMessageHelper.KEY_MESSAGE) != null) {
+                        //小米通知
+                        MiPushMessage message = (MiPushMessage) bundle.getSerializable(PushMessageHelper.KEY_MESSAGE);
+                        Map<String, String> extra = message.getExtra();
+                        action = extra.get(JumpToUtils.EXTRA_ACTION);
+                        value = extra.get(JumpToUtils.EXTRA_VALUE);
+                    }
+                }
+
                 if(!TextUtils.isEmpty(action) &&
                         !TextUtils.isEmpty(value)) {
                     delayNotifyJumpTo(action, value);

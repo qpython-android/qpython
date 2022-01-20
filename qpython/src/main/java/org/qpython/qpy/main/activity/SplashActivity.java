@@ -9,15 +9,22 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Toast;
+
+import com.quseit.util.Log;
+import com.xiaomi.mipush.sdk.MiPushMessage;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.databinding.ActivitySplashBinding;
 import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.main.widget.MyCheckTextView;
+import org.qpython.qpy.utils.JumpToUtils;
 
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
