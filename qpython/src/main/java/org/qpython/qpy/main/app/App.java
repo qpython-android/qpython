@@ -16,6 +16,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.gyf.cactus.Cactus;
 import com.gyf.cactus.callback.CactusCallback;
+import com.huawei.agconnect.common.network.AccessNetworkManager;
 import com.huawei.hmf.tasks.OnCompleteListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.aaid.HmsInstanceId;
@@ -30,6 +31,7 @@ import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;
 
 import org.qpython.qpy.R;
+import org.qpython.qpy.codeshare.CONSTANT;
 import org.qpython.qpy.main.activity.HomeMainActivity;
 import org.qpython.qpy.main.server.Service;
 import org.qpython.qpy.main.server.gist.Api;
@@ -59,8 +61,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App extends QSL4APP implements CactusCallback{
 
-    public static App appInstance;
     private static final String TAG = "MyApplication";
+    public static App appInstance;
     private static Context sContext;
     private static String sScriptPath;
     private static String sProjectPath;
@@ -251,6 +253,15 @@ public class App extends QSL4APP implements CactusCallback{
         app.initCactus();
 
         initPush(app);
+        initAnalytics(app);
+    }
+
+    /**
+     * 初始化分析服务
+     * @param context
+     */
+    private static void initAnalytics(Context context) {
+        AccessNetworkManager.getInstance().setAccessNetwork(true);
     }
 
     /**
@@ -280,15 +291,12 @@ public class App extends QSL4APP implements CactusCallback{
                 Log.e(TAG, "subscribe failed, catch exception : " + e.getMessage());
             }
         } else if(BrandUtil.isBrandXiaoMi()) {
-            //初始化push推送服务
+            //初始化小米push推送服务
             if(shouldInit(context)) {
-                String appid = "2882303761517632253";
-                String appkey = "5761763248253";
-                MiPushClient.registerPush(context, appid, appkey);
+                MiPushClient.registerPush(context, CONSTANT.MI_PUSH_APP_ID, CONSTANT.MI_PUSH_APP_KEY);
             }
             //打开Log
             LoggerInterface newLogger = new LoggerInterface() {
-
                 @Override
                 public void setTag(String tag) {
                     // ignore

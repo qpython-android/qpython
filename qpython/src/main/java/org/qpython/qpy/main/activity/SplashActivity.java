@@ -14,6 +14,8 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Toast;
 
+import com.huawei.hms.analytics.HiAnalytics;
+import com.huawei.hms.analytics.HiAnalyticsInstance;
 import com.quseit.util.Log;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
@@ -22,6 +24,7 @@ import org.qpython.qpy.R;
 import org.qpython.qpy.databinding.ActivitySplashBinding;
 import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.main.widget.MyCheckTextView;
+import org.qpython.qpy.utils.BrandUtil;
 import org.qpython.qpy.utils.JumpToUtils;
 
 import java.util.Map;
@@ -87,6 +90,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
     private void judgeAgreementStatus() {
         if (App.getAgreementStatus()){
             delayJumpToMain();
+            initHuaweiAnalytics();
         }else{
             binding.clAgreeLayout.setVisibility(View.VISIBLE);
         }
@@ -116,6 +120,15 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
         finish();
     }
 
+    /**
+     * 初始化华为分析
+     */
+    private void initHuaweiAnalytics() {
+        if(BrandUtil.isBrandHuawei()) {
+            HiAnalyticsInstance instance = HiAnalytics.getInstance(this);
+        }
+    }
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -123,6 +136,7 @@ public class SplashActivity extends AppCompatActivity implements View.OnClickLis
             if(binding.cbxAgreeContent.isChecked()) {
                 App.setAgreementStatus(true);
                 App.initLibs(App.appInstance);
+                initHuaweiAnalytics();
                 jumpToMain();
             } else {
                 Toast.makeText(this, R.string.user_aggreement_toast,
