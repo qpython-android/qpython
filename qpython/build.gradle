@@ -15,8 +15,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 311
-        versionName "3.1.6"
+        versionCode 312
+        versionName "3.1.7"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
@@ -155,6 +155,7 @@ dependencies {
     api project(':qpysdk')
 
     api files('libs/markdown4j.jar')
+    //https://dev.mi.com/console/doc/detail?pId=41
     implementation files('libs/MiPush_SDK_Client_4_9_1.jar')
     //api files('libs/android-async-http-1.4.8.aar')
     //api 'com.loopj.android:android-async-http:1.4.8'
@@ -239,7 +240,7 @@ dependencies {
 
     api 'com.youth.banner:banner:1.4.10'
     implementation rootProject.ext.huaweiPush
-    implementation 'com.huawei.hms:hianalytics:6.3.2.300'
+    implementation rootProject.ext.huaweiAnlytics
 }
 
 //apply plugin: 'com.google.gms.google-services'

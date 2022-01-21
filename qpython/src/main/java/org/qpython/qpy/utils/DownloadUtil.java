@@ -22,7 +22,7 @@ import java.io.File;
  */
 public class DownloadUtil {
     public static void startDownloader(Context context, String url, String fileName, String mimeType,
-                                               String notificationTitle, String descriptInfo) {
+                                               String title, String description) {
         if (TextUtils.isEmpty(url)) {
             return;
         }
@@ -32,8 +32,16 @@ public class DownloadUtil {
             DownloadManager.Request request = new DownloadManager.Request(uri);
             // 在通知栏中显示
             request.setVisibleInDownloadsUi(true);
-            request.setTitle(notificationTitle);
-            request.setDescription(descriptInfo);
+            if(!TextUtils.isEmpty(title)) {
+                request.setTitle(title);
+            } else {
+                request.setTitle("download");
+            }
+            if(!TextUtils.isEmpty(description)) {
+                request.setDescription(description);
+            } else {
+                request.setTitle("download");
+            }
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             request.setMimeType(mimeType);
 

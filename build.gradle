@@ -127,5 +127,7 @@ ext {
     libButterknife = "com.jakewharton:butterknife:${butterknifeVersion}"
     libButterknifeCompiler ="com.jakewharton:butterknife-compiler:${butterknifeVersion}"
 
+    //https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-app-quickstart-0000001071490422
     huaweiPush = "com.huawei.hms:push:6.1.0.300"
+    huaweiAnlytics = "com.huawei.hms:hianalytics:6.3.2.300"
 }

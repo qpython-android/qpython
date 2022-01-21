@@ -257,8 +257,8 @@
     <string name="reset_toast_notification">当前状态将被重置</string>
     <string name="run_bg_title">在后台运行</string>
     <string name="run_dirty_hint">保存当前修改吗？</string>
-    <string name="runtime_log">运行日誌 : %s</string>
-    <string name="log_title">运行日誌</string>
+    <string name="runtime_log">运行日志 : %s</string>
+    <string name="log_title">运行日志</string>
 
     <string name="scan">二维码</string>
     <string name="lib_manager">扩展</string>

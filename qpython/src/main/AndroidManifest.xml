@@ -6,6 +6,7 @@
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false"/>
+    <uses-sdk tools:overrideLibrary="com.huawei.agconnect.credential,com.huawei.agconnect.core,com.huawei.agconnect.https,com.huawei.agconnect.datastore"/>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -401,6 +402,10 @@
         <meta-data
             android:name="push_kit_auto_init_enabled"
             android:value="false"/>
+
+        <meta-data
+            android:name="com.huawei.agconnect.AccessNetwork"
+            android:value="false" /><!--华为分析，默认关闭网络连接-->
         <!--华为通知(end)-->
 
         <!--小米通知权限 start-->

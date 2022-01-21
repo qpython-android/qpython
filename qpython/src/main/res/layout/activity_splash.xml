@@ -5,7 +5,7 @@
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:background="#103606"
+        android:background="@color/color_103606"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.AppCompatImageView
@@ -42,7 +42,7 @@
                 android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="@string/welcome_qpython"
-                android:textColor="#333333"
+                android:textColor="@color/text_dark"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/iv_icon"
                 app:layout_constraintTop_toBottomOf="@+id/iv_icon" />
@@ -62,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:textColor="#333333"/>
+                    android:textColor="@color/text_dark"/>
             </ScrollView>
 
             <CheckBox
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:layout_marginRight="15dp"
-                android:textColor="#333333"
+                android:textColor="@color/text_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cbx_agree_content"
                 app:layout_constraintTop_toTopOf="@+id/cbx_agree_content"
@@ -99,7 +99,7 @@
                 android:background="@drawable/agree_confirm_btn"
                 android:gravity="center"
                 android:text="@string/agree"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_agree_content" />
@@ -114,7 +114,7 @@
                 android:layout_marginRight="15dp"
                 android:gravity="center"
                 android:text="@string/agree_no"
-                android:textColor="#999999"
+                android:textColor="@color/color_999999"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_positive" />

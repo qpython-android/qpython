@@ -222,10 +222,17 @@ public class Bean {
     }
 
     @JavascriptInterface
+    public void download(String url, String mimeType, String title, String description) {
+        DownloadUtil.startDownloader(App.getContext(), url, System.nanoTime() + "", mimeType,
+                title, description);
+    }
+
+    @JavascriptInterface
     public void download(String url, String mimeType) {
         DownloadUtil.startDownloader(App.getContext(), url, System.nanoTime() + "", mimeType,
                 "download", "download");
     }
+
 
     @JavascriptInterface
     public String qpyChecklibinstall(String cat, String smodule) {
