@@ -766,8 +766,9 @@ public class TerminalEmulator {
                 }
                 break;
 
-            case 8: // BS
-                setCursorCol(Math.max(0, mCursorCol - 1));
+            case 8: // BS 退格
+                //乘着船 修改：修正了不能跨行消除的bug
+                doBackspace();
                 break;
 
             case 9: // HT
@@ -865,6 +866,30 @@ public class TerminalEmulator {
                 }
                 break;
         }
+    }
+
+    private void doBackspace(){ //退格 by 乘着船
+        char[] line; //目标字符串行
+        int i; //计数变量
+        int width=0; //单字符宽度
+        int tWidth=0; //累计字符宽度
+        if (mCursorCol<=0) { //跨行退格
+            line = mScreen.getScriptLine(mCursorRow-1);//目标行：上一行
+            //定位光标到：上一行最后一个字符
+            setCursorRowCol(mCursorRow-1,line.length-1);
+        } else { //本行退格
+            line = mScreen.getScriptLine(mCursorRow);//目标行：本行
+        }
+        for (i=0;i<line.length;i++){ //计算累计字符宽度
+            width=UnicodeTranscript.charWidth(line,i);//获取单字符宽度
+            tWidth+=width;
+            //计算最终单个字符宽度：当累计字符宽度>=光标当前位置
+            if(tWidth>=mCursorCol){
+                width-=tWidth-mCursorCol;//修正末尾误差
+                break;
+            }
+        }
+        setCursorCol(mCursorCol-width);//定位当前行光标列位置
     }
 
     private boolean handleUTF8Sequence(byte b) {
@@ -1862,7 +1887,12 @@ public class TerminalEmulator {
         int width = UnicodeTranscript.charWidth(c);
 
         if (autoWrap) {
-            if (mCursorCol == mColumns - 1 && (mAboutToAutoWrap || width == 2)) {
+            /*乘着船 修改：
+            修正中文换行末尾缺字符的bug，
+            剩一个字符时，或者上次操作剩两个以下字符时(mAboutToAutoWrap变量)，
+            立即换行，避免下个字符是中文，导致超出范围显示不全
+            */
+            if ((mCursorCol >= mColumns - 1) || mAboutToAutoWrap) {
                 mScreen.setLineWrap(mCursorRow);
                 mCursorCol = 0;
                 mJustWrapped = true;
@@ -1895,7 +1925,9 @@ public class TerminalEmulator {
         }
 
         if (autoWrap) {
-            mAboutToAutoWrap = (mCursorCol == mColumns - 1);
+            //乘着船 修改：修正中文换行末尾缺字符的bug，
+            //剩两个或一个字符时，即可换行，避免下个字符是中文，导致超出范围显示不全
+            mAboutToAutoWrap = (mCursorCol >= mColumns - 2);
 
             //Force line-wrap flag to trigger even for lines being typed
             if (mAboutToAutoWrap)
