@@ -212,7 +212,7 @@ public class ScriptExec {
             env[14] = "PYTHONSTARTUP="+filesDir+"/lib/python2.7/site-packages/qpy.py";
         }
 
-        env[6] = "PYTHONOPTIMIZE=2";
+        env[6] = "PYTHONOPTIMIZE=1";//修复__doc__为None的问题
 
         File td = new File(externalStorage+"/cache");
         if (!td.exists()) {
