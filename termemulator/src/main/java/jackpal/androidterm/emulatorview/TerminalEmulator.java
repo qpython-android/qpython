@@ -16,17 +16,15 @@
 
 package jackpal.androidterm.emulatorview;
 
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CodingErrorAction;
-import java.util.LinkedList;
 import java.util.Locale;
-import java.util.Stack;
-
-import android.util.Log;
 
 /**
  * Renders text into a screen. Contains all the terminal-specific knowledge and
@@ -67,6 +65,7 @@ public class TerminalEmulator {
     private TranscriptScreen mMainBuffer;
     private TranscriptScreen mAltBuffer;
     private TranscriptScreen mScreen;
+    private byte backSpaceType;//退格模式
 
     /**
      * The terminal session this emulator is bound to.
@@ -675,11 +674,16 @@ public class TerminalEmulator {
 
         //Log.d(EmulatorDebug.LOG_TAG, "In: '" + EmulatorDebug.bytesToString(buffer, base, length) + "'");
 
-
-        if (EmulatorDebug.bytesToString(buffer, base, length).endsWith(">>> ")) {
+        //乘着船 修改：不同终端不同退格模式
+        String s = EmulatorDebug.bytesToString(buffer, base, length);
+        if (s.contains("\\x08\\x08  \\x08\\x08"))
+            backSpaceType = 1;//传统退格模式
+        else
+            backSpaceType = 0;//自动化退格模式
+        if (s.endsWith(">>> ")) {
             sb = new StringBuffer();
         } else if (sb != null) {
-            sb.append(EmulatorDebug.bytesToString(buffer, base, length)
+            sb.append(s
                     .replace("\\x0d", "")
                     .replace("\\x0a", "")
                     .replace("\\x08", ""));
@@ -869,6 +873,11 @@ public class TerminalEmulator {
     }
 
     private void doBackspace(){ //退格 by 乘着船
+        if (backSpaceType == 1){ //传统退格模式
+            setCursorCol(Math.max(mCursorCol-1,0));
+            return;
+        }
+        //自动化退格模式
         char[] line; //目标字符串行
         int i; //计数变量
         int width=0; //单字符宽度
