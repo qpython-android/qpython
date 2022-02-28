@@ -261,7 +261,8 @@ public class App extends QSL4APP implements CactusCallback{
      * @param context
      */
     private static void initAnalytics(Context context) {
-        AccessNetworkManager.getInstance().setAccessNetwork(true);
+        // todo 暂时注释起来，不启动华为分析服务，因与下载器冲突导致问题
+//        AccessNetworkManager.getInstance().setAccessNetwork(true);
     }
 
     /**

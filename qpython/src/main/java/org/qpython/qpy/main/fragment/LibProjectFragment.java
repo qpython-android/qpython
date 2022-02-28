@@ -78,7 +78,7 @@ public class LibProjectFragment extends RefreshFragment {
         super.onViewCreated(view, savedInstanceState);
         binding = DataBindingUtil.bind(view);
 
-        SCRIPT_DIR = FileUtils.getAbsolutePath(App.getContext()) + "/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_QPY3 : QPyConstants.DFROM_QPY2) + "/";
+        SCRIPT_DIR = FileUtils.getPath(App.getContext()) + "/qpython/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_QPY3 : QPyConstants.DFROM_QPY2) + "/";
         PROJECT_DIR = FileUtils.getAbsolutePath(App.getContext()) + "/" + (NAction.isQPy3(getActivity()) ? QPyConstants.DFROM_PRJ3 : QPyConstants.DFROM_PRJ2) + "/";
 
         initDataList();
