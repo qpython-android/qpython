@@ -87,13 +87,13 @@ ext {
     minSdkVersion = 18
     targetSdkVersion = 28
     compileSdkVersion = 28
-    buildToolsVersion = '28.0.2'
+    buildToolsVersion = '28.0.2'//30.0.2正常
 
     libOkHttp3 = "com.squareup.okhttp3:okhttp:${okhttpVersion}"
 
     libRxJava = "io.reactivex:rxandroid:${rxVersion}"
     libRxAndroid = "io.reactivex:rxjava:${rxVersion}"
-    libFileDownloaderLib = 'com.liulishuo.filedownloader:library:0.3.5'
+    libFileDownloaderLib = 'com.liulishuo.filedownloader:library:1.7.4'
 
     libSupportV4 = "com.android.support:support-v4:${supportVersion}"
     libSupportV4Design = 'com.android.support:design:${supportVersion}'
