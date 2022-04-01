@@ -42,6 +42,7 @@ import org.qpython.qpy.texteditor.widget.crouton.Crouton;
 import org.qpython.qpy.texteditor.widget.crouton.Style;
 import org.qpython.qpy.utils.FileUtils;
 import org.qpython.qpy.utils.NotebookUtil;
+import org.qpython.qpysdk.QPyConstants;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -161,8 +162,9 @@ public class ExplorerFragment extends Fragment {
             try {
                 //采用Environment来获取sdcard路径
                 String parentPath = new File(curPath).getParent();
+                String rootPath = QPyConstants.ABSOLUTE_PATH;
 
-                if (parentPath.length() >= getContext().getExternalFilesDir(null).getAbsolutePath().length()) {
+                if (parentPath.length() >= rootPath.length()) {
                     openDir(parentPath);
                 }
             } catch (Exception e) {
