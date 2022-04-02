@@ -114,12 +114,13 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="ok">确定</string>
+    <string name="agree">同意</string>
+    <string name="agree_no">不同意</string>
     <string name="close">关闭</string>
     <string name="no_change">没有任何改变</string>
     <string name="feedback">意见反馈</string>
     <string name="about">关于</string>
     <string name="file_not_exists">文件不存在</string>
-    m
     <string name="enable_root">启用Root权限</string>
     <string name="send">发送</string>
     <string name="no_camera">没有发现可用的摄像头，请查看是否开启摄像头权限</string>
@@ -140,6 +141,7 @@
     <string name="warning">警告</string>
     <string name="reset_warning">将重置所有设置并删除已下载的库,确定重置吗?</string>
     <string name="downloading">库文件</string>
+    <string name="start_download">开始下载</string>
     <string name="save">保存</string>
     <string name="save_as">另存为</string>
     <string name="open">打开</string>
@@ -255,10 +257,12 @@
     <string name="reset_toast_notification">当前状态将被重置</string>
     <string name="run_bg_title">在后台运行</string>
     <string name="run_dirty_hint">保存当前修改吗？</string>
-    <string name="runtime_log">运行日誌 : %s</string>
-    <string name="log_title">运行日誌</string>
+    <string name="runtime_log">运行日志 : %s</string>
+    <string name="log_title">运行日志</string>
 
     <string name="scan">二维码</string>
+    <string name="lib_manager">扩展</string>
+    <string name="qpypi_up">扩展</string>
     <string name="read_script_from_qrcode">从二维码中读取代码</string>
 
     <string name="screen_preferences">屏幕</string>
@@ -329,6 +333,7 @@
     <string name="file_downloaded">文件已下载</string>
     <string name="override_hint">覆写本地文件?</string>
     <string name="app_noti">应用消息推送</string>
+    <string name="text_noti">消息通知</string>
     <string name="log_noti">Log消息推送</string>
     <string name="lout">退出吗?</string>
     <string name="delete_suc">删除文件成功</string>
@@ -450,5 +455,38 @@
     <string name="run">运行</string>
     <string name="install_kivy_first">请先从QPYPI中安装kivy库</string>
     <string name="get_help">获得帮助</string>
+    <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
+    <string name="disable_keep_alive">Disable</string>
+    <string name="keep_alive_tips">QPython will restart to apply changes.</string>
+    <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
+    <string name="privacy_agreement">隐私政策</string>
+    <string name="service_agreement">服务协议</string>
+
+    <string name="user_agreement_text">
+
+        北京优趣天下信息技术有限公司（以下称“QPYTHON”或“我们”）尊重并保护所有使用QPYTHON服务用户的隐私权，在您使用我们提供的服务时，我们可能会收集和使用您的相关信息，我们希望通过本《隐私政策》向您说明，我们如何收集、存储、保护及使用您的个人信息，以及清楚地向您介绍我们对您个人信息的处理方式。本《隐私政策》与您使用QPYTHON的服务相关，因此我们建议您完整地阅读，以帮助您更好地保护您的隐私。\n\n
+
+        权限说明:\n
+要使用Android的某些功能进行编程，QPython/QPython需要以下权限：摄像头、麦克风、存储、账号、蓝牙、GPS和其他等，如果您不需要这些特性，可以从系统设置中禁用它们。\n\n
+
+为了能使用扫描二维码的便捷功能和让您使用手机的拍照特性进行编程，QPython可能会使用您申请摄像头权限；\n
+为了让您能用手机的麦克风、存储进行编程，QPython可能会使用您申请麦克风权限、读写存储等权限；\n
+为了让您使用手机的地理位置用于编程，QPython可能会向您申请位置权限；\n
+为了让您使用手机的账号信息用于编程，QPython可能会向您申请系统设备权限收集设备信息、日志信息；\n
+我们会努力采取各种安全技术保护您的个人信息。未经您同意，我们不会从第三方获取、共享或对外提供您的信息；\n
+如果不是你主动在系统设置->Apps->QPython权限中管理上述权限，QPython不会自动使用它们\n\n
+
+    </string>
+    <string name="url_user_agreement">https://www.qpython.org/agreement-cn.html</string>
+    <string name="url_user_private">https://www.qpython.org/privacy-cn.html</string>
+    <string name="url_course">https://edu.qpython.org/courses-cn.html</string>
+
+
+    <string name="user_aggreement_toast">请阅读并接受《服务协议》和《隐私政策》</string>
+    <string name="user_agreement_bottom_split1">已阅读并接受</string>
+    <string name="user_agreement_bottom_split2">《服务协议》</string>
+    <string name="user_agreement_bottom_split3">和</string>
+    <string name="user_agreement_bottom_split4">《隐私政策》</string>
+    <string name="welcome_qpython">欢迎使用QPython</string>
 
 </resources>

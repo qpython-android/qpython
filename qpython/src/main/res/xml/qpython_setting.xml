@@ -9,10 +9,10 @@
         <!--android:key="install_py3"-->
         <!--android:title="@string/install_py3"/>-->
 
-    <Preference
-        android:key="course"
-        android:title="@string/course"
-        android:summary="@string/learn_course"/>
+<!--    <Preference-->
+<!--        android:key="course"-->
+<!--        android:title="@string/course"-->
+<!--        android:summary="@string/learn_course"/>-->
 
 
     <Preference
@@ -108,6 +108,12 @@
                 android:title="@string/notebook_explorer"/>
         </PreferenceCategory>
     </PreferenceScreen>
+
+    <CheckBoxPreference
+        android:key="@string/key_alive"
+        android:summaryOn="@string/enable_keep_alive"
+        android:summaryOff="@string/disable_keep_alive"
+        android:title="@string/keep_alive_mode"/>
 
     <CheckBoxPreference
         android:key="@string/key_root"

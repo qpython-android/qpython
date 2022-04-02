@@ -10,11 +10,10 @@
     <string name="notebook3_version" translatable="false">20200206.1205</string>
     <string name="ipynb_version" translatable="false">20200207.1205</string>
 
-    <string name="privacy_html" translatable="false">https://www.qpython.org/privacy.html</string>
     <string name="thanks_link" translatable="false">https://www.qpython.org/contributors.html</string>
     <string name="lower_project" translatable="false">projects</string>
-    <string name="lib_manager" translatable="false">QPYPI</string>
-    <string name="qpypi_up" translatable="false">QPYPI</string>
+    <string name="lib_manager">QPYPI</string>
+    <string name="qpypi_up">QPYPI</string>
     <!-- ColorValue.java -->
     <string name="colorvalue_letter_alpha" translatable="false">α</string>
     <string name="colorvalue_letter_red" translatable="false">R</string>
@@ -57,6 +56,23 @@
     <string name="sl4a_server">SL4A Server</string>
     <string name="internal_space"><![CDATA[Permissions & Storage]]></string>
     <string name="ftp_server">FTP Server</string>
+
+    <string name="user_agreement_text">1. In order to allow you to use the hardware features of your mobile phone for programming, QPython may apply for camera permission, microphone permission, read-write storage and other permissions;\n\n
+        2. In order to allow you to use the geographical location of your mobile phone for programming, QPython may apply to you for location permission;\n\n
+        3. In order to allow you to use the account information of your mobile phone for programming, QPython may apply for system device permission to collect device information and log information;\n\n
+        4. We will strive to adopt various security technologies to protect your personal information. Without your consent, we will not obtain, share or provide your information from a third party;\n\n
+        5. If you do not actively manage the above permissions in system settings - > Apps - > qpython permissions, QPython will not automatically use them.\n\n
+    </string>
+
+    <string name="user_aggreement_toast">Please read and accept the "Service Agreement" and "Privacy Policy"</string>
+    <string name="url_user_agreement">https://www.qpython.org/agreement.html</string>
+    <string name="url_user_private">https://www.qpython.org/privacy.html</string>
+    <string name="url_course">https://edu.qpython.org/courses.html</string>
+
+    <string name="user_agreement_bottom_split1">You can read the full </string>
+    <string name="user_agreement_bottom_split2">&#60;&#60;service agreement&#62;&#62; </string>
+    <string name="user_agreement_bottom_split3">and </string>
+    <string name="user_agreement_bottom_split4">&#60;&#60;privacy policy&#62;&#62;</string>
 
     <!---->
     <string name="application_terminal">Terminal</string>
@@ -218,6 +234,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
+    <string name="agree">Ok</string>
+    <string name="agree_no">Cancel</string>
     <string name="close">close</string>
     <string name="no_change">No change</string>
     <string name="feedback">Feedback</string>
@@ -246,6 +264,7 @@
     <string name="reset_warning">Reset storage will lost all setting and downloaded libs, are you sure you want to reset?</string>
     <string name="downloading">Library</string>
     <string name="location">Location</string>
+    <string name="start_download">Start download</string>
 
 
     <!--  -->
@@ -392,8 +411,9 @@
     <string name="run_bg_title">Run on background</string>
     <string name="scan">Scan</string>
     <string name="read_script_from_qrcode">Read code from QRCode</string>
+    <string name="welcome_qpython">Welcome to Use QPython</string>
 
-    <string name="course">QPython Courses</string>
+    <string name="course">Courses</string>
     <string name="lost_connect">Lose Connect</string>
     <string name="featured_courses">Courses</string>
     <string name="programs">Programs</string>
@@ -467,6 +487,7 @@
     <string name="lout">Do you want to sign out?</string>
     <string name="log_noti">Log Notification</string>
     <string name="app_noti">App Notifications</string>
+    <string name="text_noti">Notification</string>
     <string name="override_hint">Override local file?</string>
     <string name="file_downloaded">File downloaded</string>
     <string name="login_error">Login error</string>
@@ -720,6 +741,7 @@
     <string name="project_main_error"> Project\'s main.py does not exit</string>
 
     <string name="key_root" translatable="false">root</string>
+    <string name="key_alive" translatable="false">keep alive</string>
     <string name="key_sl4a" translatable="false">sl4a</string>
     <string name="key_qpypi" translatable="false">qpypi</string>
     <string name="key_update_qpy3" translatable="false">update_py3</string>
@@ -734,5 +756,12 @@
 
 
     <string name="editor_override">Do you want to override?</string>
+    <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
+    <string name="disable_keep_alive">Disable</string>
+    <string name="keep_alive_mode">Keep Alive Mode</string>
+    <string name="keep_alive_tips">QPython will restart to apply changes.</string>
+    <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
+    <string name="privacy_agreement">Privacy Policy</string>
+    <string name="service_agreement">Service Agreement</string>
 
 </resources>

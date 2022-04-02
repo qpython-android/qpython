@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.R;
 
 import org.qpython.qpy.console.RemoteInterface;
@@ -26,6 +28,7 @@ import org.qpython.qpy.console.TermDebug;
 import org.qpython.qpy.console.compont.AlertDialogCompat;
 import org.qpython.qpy.console.compont.PRNGFixes;
 import org.qpython.qpy.console.util.ShortcutEncryption;
+import org.qpython.qpy.main.app.App;
 
 import java.io.File;
 import java.security.GeneralSecurityException;
@@ -82,7 +85,7 @@ public class AddShortcut extends android.app.Activity {
         btn_path.setOnClickListener(p1 -> {
                     String lastPath = SP.getString("lastPath", null);
                     File get = (lastPath == null)
-                            ? Environment.getExternalStorageDirectory()
+                            ? FileUtils.getPath(App.getContext())
                             : new File(lastPath).getParentFile();
                     Intent pickerIntent = new Intent();
                     if (SP.getBoolean("useInternalScriptFinder", false)) {

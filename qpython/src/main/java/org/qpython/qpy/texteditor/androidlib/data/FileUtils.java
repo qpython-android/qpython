@@ -18,14 +18,13 @@ import android.webkit.MimeTypeMap;
 @SuppressLint("DefaultLocale")
 public class FileUtils {
 	/** File of the external storage data */
-	public static final File STORAGE = Environment
-			.getExternalStorageDirectory();
-	/** Path to the external storage data */
-	public static final String STORAGE_PATH = STORAGE.getAbsolutePath();
-
-	/** default android Download folder */
-	public static final String DOWNLOAD_FOLDER = (STORAGE.getAbsolutePath()
-			+ File.separator + "Download");
+//	public static final File STORAGE = Environment.getExternalStorageDirectory();
+//	/** Path to the external storage data */
+//	public static final String STORAGE_PATH = STORAGE.getAbsolutePath();
+//
+//	/** default android Download folder */
+//	public static final String DOWNLOAD_FOLDER = (STORAGE.getAbsolutePath()
+//			+ File.separator + "Download");
 
 	/**
 	 * Copy all files in the given asset folder to the destination folder (must

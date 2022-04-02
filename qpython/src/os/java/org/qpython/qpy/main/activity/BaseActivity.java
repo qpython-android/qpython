@@ -21,12 +21,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.text.TextUtils;
 
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
 import org.qpython.qpy.R;
 import org.qpython.qpy.console.ShellTermSession;
 import org.qpython.qpy.console.util.TermSettings;
+import org.qpython.qpy.main.app.App;
 import org.renpy.android.ResourceManager;
 
 import java.io.File;
@@ -138,7 +140,7 @@ public class BaseActivity extends AppCompatActivity {
 
         String lastError = "";
         String code = NAction.getCode(getApplicationContext());
-        File log = new File(Environment.getExternalStorageDirectory() + "/" + code + "_last_err.log");
+        File log = new File(FileUtils.getPath(App.getContext()) + "/" + code + "_last_err.log");
         if (log.exists()) {
             lastError = com.quseit.util.FileHelper.getFileContents(log.getAbsolutePath());
         }

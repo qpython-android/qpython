@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'realm-android'
+apply plugin: 'com.huawei.agconnect'
 
 //获取系统时间
 def releaseTime() {
@@ -14,8 +15,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 304
-        versionName "3.0.0"
+        versionCode 313
+        versionName "3.1.8"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
@@ -68,7 +69,12 @@ android {
         }
 
         debug {
-            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+            jniDebuggable true
+//            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
     }
@@ -149,6 +155,8 @@ dependencies {
     api project(':qpysdk')
 
     api files('libs/markdown4j.jar')
+    //https://dev.mi.com/console/doc/detail?pId=41
+    implementation files('libs/MiPush_SDK_Client_4_9_1.jar')
     //api files('libs/android-async-http-1.4.8.aar')
     //api 'com.loopj.android:android-async-http:1.4.8'
 
@@ -162,6 +170,9 @@ dependencies {
     api 'org.litepal.android:core:1.3.1'
     api 'me.dm7.barcodescanner:zxing:1.9'
     api 'com.android.support:multidex:1.0.1'
+    implementation ('com.gyf.cactus:cactus-support:1.1.3-beta09'){
+        exclude group: 'com.google.guava'
+    }
 
     api rootProject.ext.libOkHttp3
     api rootProject.ext.libOkHttp3Log
@@ -176,43 +187,60 @@ dependencies {
     api rootProject.ext.libSupportCardView
     api rootProject.ext.libSupportPreference
 
-    osApi rootProject.ext.firebaseCore
-    osApi rootProject.ext.firebaseMsg
-    osApi rootProject.ext.firebaseAuth
-    osApi rootProject.ext.firebaseDatabase
-    osApi rootProject.ext.googlePlayServiceAuth
+//    odApi rootProject.ext.firebaseCore
+//    implementation ("com.google.firebase:firebase-messaging:17.3.4"){
+//        exclude group: 'com.google.firebase', module: 'firebase-iid'
+//    }
+//    odApi rootProject.ext.firebaseIid
+//    odApi rootProject.ext.firebaseAuth
+//    odApi rootProject.ext.firebaseDatabase
+//    odApi rootProject.ext.googlePlayServiceAuth
 
-    olApi rootProject.ext.firebaseCore
-    olApi rootProject.ext.firebaseMsg
-    olApi rootProject.ext.firebaseAuth
-    olApi rootProject.ext.firebaseDatabase
-    olApi rootProject.ext.googlePlayServiceAuth
+//    osApi rootProject.ext.firebaseCore
+//    osApi rootProject.ext.firebaseMsg
+//    osApi rootProject.ext.firebaseAuth
+//    osApi rootProject.ext.firebaseDatabase
+//    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+//    osApi rootProject.ext.firebaseAnalytics
+//    osApi rootProject.ext.firebaseMsg
+//    osApi rootProject.ext.googlePlayServiceAuth
+
+//    olApi rootProject.ext.firebaseCore
+//    olApi rootProject.ext.firebaseMsg
+//    olApi rootProject.ext.firebaseAuth
+//    olApi rootProject.ext.firebaseDatabase
+//    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+//    olApi rootProject.ext.firebaseAnalytics
+//    olApi rootProject.ext.firebaseMsg
+//    olApi rootProject.ext.googlePlayServiceAuth
 
     api rootProject.ext.retrofit
     api rootProject.ext.retrofitCoverterGson
     api rootProject.ext.retrofitAdapterRxjava
 
-    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'com.android.support.constraint:constraint-layout:1.1.3'
 
     //    微信
-    opApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
-        exclude group: 'com.android.support:support-v4'
-    }
-    //    友盟统计
-    opApi('com.umeng.analytics:analytics:6.1.2') {
-        exclude group: 'com.android.support:support-v4'
-    }
-
-    ohApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
-        exclude group: 'com.android.support:support-v4'
-    }
-    //    友盟统计
-    ohApi('com.umeng.analytics:analytics:6.1.2') {
-        exclude group: 'com.android.support:support-v4'
-    }
+//    opApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//    //    友盟统计
+//    opApi('com.umeng.analytics:analytics:6.1.2') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//
+//    ohApi('com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
+//    //    友盟统计
+//    ohApi('com.umeng.analytics:analytics:6.1.2') {
+//        exclude group: 'com.android.support:support-v4'
+//    }
 
 
     api 'com.youth.banner:banner:1.4.10'
+    implementation rootProject.ext.huaweiPush
+    implementation rootProject.ext.huaweiAnlytics
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'

@@ -202,7 +202,7 @@
                     android:id="@+id/ll_course"
                     style="@style/row_ll">
 
-                    <!--ImageView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_home_course"/>
@@ -212,7 +212,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/icon_margin_top"
                         android:text="@string/course"
-                        android:textColor="#FFF"/-->
+                        android:textColor="#FFF"/>
                 </LinearLayout>
 
                 <LinearLayout

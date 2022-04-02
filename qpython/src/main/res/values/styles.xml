@@ -47,6 +47,12 @@
     </style>
 
 
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/theme_gray</item>
+        <item name="colorControlActivated">@color/switch_btn_colors</item>
+    </style>
+
+
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_up</item>
         <item name="android:windowExitAnimation">@anim/slide_down</item>

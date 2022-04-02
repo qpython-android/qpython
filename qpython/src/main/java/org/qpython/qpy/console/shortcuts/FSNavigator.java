@@ -19,7 +19,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.R;
+import org.qpython.qpy.main.app.App;
 
 
 import java.io.File;
@@ -57,7 +60,7 @@ public class FSNavigator extends android.app.Activity {
         getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         Intent intent = getIntent();
-        extSdCardFile = Environment.getExternalStorageDirectory();
+        extSdCardFile = FileUtils.getPath(App.getContext());
         extSdCard = getCanonicalPath(extSdCardFile);
         Uri uri = intent.getData();
         String path = uri == null ? null : uri.getPath();

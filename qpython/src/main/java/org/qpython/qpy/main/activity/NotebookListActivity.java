@@ -9,9 +9,12 @@ import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 
+import com.quseit.util.FileUtils;
+
 import org.qpython.qpy.R;
 import org.qpython.qpy.databinding.ActivityNotebooklistBinding;
 import org.qpython.qpy.main.adapter.NotebookAdapter;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpysdk.QPyConstants;
 
 import java.io.File;
@@ -29,7 +32,7 @@ public class NotebookListActivity extends BaseActivity {
     private ActivityNotebooklistBinding mBinding;
     private NotebookAdapter mNotebookAdapter;
     private File mRootFile;
-    private static final String sdcard = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private static final String sdcard = FileUtils.getQyPath(App.getContext());
 
     public static void start(Context context){
         Intent intent = new Intent(context,NotebookListActivity.class);
@@ -47,7 +50,7 @@ public class NotebookListActivity extends BaseActivity {
     }
 
     private void initRootDir() {
-        mRootFile = new File(QPyConstants.ABSOLUTE_PATH+"/notebooks");
+        mRootFile = new File(FileUtils.getAbsolutePath(getApplicationContext()) +"/notebooks");
         if (!mRootFile.exists()) {
             mRootFile.mkdirs();
         }

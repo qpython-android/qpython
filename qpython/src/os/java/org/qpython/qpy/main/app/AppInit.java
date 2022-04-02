@@ -3,9 +3,6 @@ package org.qpython.qpy.main.app;
 import android.content.Context;
 import android.util.Log;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.quseit.config.BASE_CONF;
 
 import org.qpython.qpy.codeshare.ShareCodeUtil;
 
@@ -21,17 +18,6 @@ public class AppInit {
 
     public static void init(Context context){
 
-        FirebaseApp.initializeApp(context);
-        if (BASE_CONF.DEBUG) {
-            try {
-                FirebaseInstanceId xx = FirebaseInstanceId.getInstance();
-                if (xx != null) {
-                    Log.e("Firebase", xx.getToken());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         ShareCodeUtil.getInstance();
     }
 }

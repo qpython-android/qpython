@@ -32,6 +32,7 @@ import java.net.URL;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.quseit.base.QBaseApp;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
@@ -224,16 +225,17 @@ public class QWebViewActivity extends BaseActivity {
                 if (launchScript.contains("/scripts")) {
                     String proj = new File(launchScript).getName();
 
-                    resultIntent.putExtra(LogActivity.LOG_PATH, QPyConstants.ABSOLUTE_LOG);
+                    resultIntent.putExtra(LogActivity.LOG_PATH, FileUtils.getAbsoluteLogPath(App.getContext()));
                     resultIntent.putExtra(LogActivity.LOG_TITLE, proj);
                 } else {
                     String proj = new File(launchScript).getParentFile().getName();
-                    resultIntent.putExtra(LogActivity.LOG_PATH, QPyConstants.ABSOLUTE_LOG);
+                    resultIntent.putExtra(LogActivity.LOG_PATH, FileUtils.getAbsoluteLogPath(App.getContext()));
                     resultIntent.putExtra(LogActivity.LOG_TITLE, proj);
                 }
 
                 startActivity(resultIntent);
                 break;
+            default:break;
         }
         return true;
     }
@@ -295,7 +297,7 @@ public class QWebViewActivity extends BaseActivity {
     }
 
     private void writeWebLog(String data) {
-        FileHelper.writeToFile(QPyConstants.ABSOLUTE_LOG,data+"\n", true);
+        FileHelper.writeToFile(FileUtils.getAbsoluteLogPath(App.getContext()),data+"\n", true);
     }
 
     //

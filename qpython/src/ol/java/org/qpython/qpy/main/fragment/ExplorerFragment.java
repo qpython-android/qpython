@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
 import com.quseit.util.FileHelper;
 import com.quseit.util.ImageUtil;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;
@@ -43,6 +42,7 @@ import org.qpython.qpy.texteditor.widget.crouton.Crouton;
 import org.qpython.qpy.texteditor.widget.crouton.Style;
 import org.qpython.qpy.utils.FileUtils;
 import org.qpython.qpy.utils.NotebookUtil;
+import org.qpython.qpysdk.QPyConstants;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -54,24 +54,24 @@ import java.util.Map;
 import static com.quseit.util.FolderUtils.sortTypeByName;
 
 public class ExplorerFragment extends Fragment {
-    private static final int REQUEST_SAVE_AS   = 107;
+    private static final int REQUEST_SAVE_AS = 107;
     private static final int REQUEST_HOME_PAGE = 109;
-    private static final int REQUEST_RECENT    = 111;
-    private static final int LOGIN_REQUEST     = 2741;
+    private static final int REQUEST_RECENT = 111;
+    private static final int LOGIN_REQUEST = 2741;
 
     private static final String TYPE = "type";
 
     private int WIDTH = (int) ImageUtil.dp2px(60);
 
     private FragmentExplorerBinding binding;
-    private List<FolderBean>        folderList;
-    private FolderAdapter           adapter;
+    private List<FolderBean> folderList;
+    private FolderAdapter adapter;
     private Map<String, Boolean> cloudedMap = new HashMap<>();
 
     private boolean openable = true; // 是否可打开文件
     private boolean uploadable;
 
-    private int    type;
+    private int type;
     private String curPath;
 
     public static ExplorerFragment newInstance(int type) {
@@ -97,7 +97,6 @@ public class ExplorerFragment extends Fragment {
         type = getArguments().getInt(TYPE);
         initView();
         initListener();
-        initCloud();
         switch (type) {
             case REQUEST_RECENT:
                 binding.rlPath.setVisibility(View.GONE);
@@ -163,8 +162,9 @@ public class ExplorerFragment extends Fragment {
             try {
                 //采用Environment来获取sdcard路径
                 String parentPath = new File(curPath).getParent();
+                String rootPath = QPyConstants.ABSOLUTE_PATH;
 
-                if (parentPath.length()>=Environment.getExternalStorageDirectory().getAbsolutePath().length()) {
+                if (parentPath.length() >= rootPath.length()) {
                     openDir(parentPath);
                 }
             } catch (Exception e) {
@@ -221,6 +221,7 @@ public class ExplorerFragment extends Fragment {
     private void gotoSetting() {
         SettingActivity.startActivity(getActivity());
     }
+
     private void openFile(File file, String ext) {
         List<String> textExts = Arrays.asList(getContext().getResources().getStringArray(R.array.text_ext));
         if (textExts.contains(ext)) {
@@ -231,7 +232,7 @@ public class ExplorerFragment extends Fragment {
                 NotebookActivity.start(getActivity(), file.getAbsolutePath(), false);
             } else {
 
-                new AlertDialog.Builder(getActivity(),R.style.MyDialog)
+                new AlertDialog.Builder(getActivity(), R.style.MyDialog)
                         .setTitle(R.string.dialog_alert)
                         .setMessage(getString(R.string.ennable_notebook_first))
                         .setNegativeButton(R.string.cancel, (dialog1, which) -> dialog1.dismiss())
@@ -288,42 +289,6 @@ public class ExplorerFragment extends Fragment {
         // upload
         folderList.get(adapterPosition).setUploading(true);
         adapter.notifyItemChanged(adapterPosition);
-        int[] size = {1};
-        DatabaseReference.CompletionListener listener = ((databaseError, databaseReference) -> {
-            if (databaseError == null) {
-//                updateClouded(folderList.get(adapterPosition).getFile());
-//                adapter.setUploadFile(adapterPosition);
-//                ((TedLocalActivity) getActivity()).setNewUpload();
-//                Toast.makeText(getActivity(), R.string.upload_suc, Toast.LENGTH_SHORT).show();
-//                ShareCodeUtil.getInstance().changeUsage(size[0]);
-            } else {
-                Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-            folderList.get(adapterPosition).setUploading(false);
-            adapter.notifyDataSetChanged();
-        });
-        if (folderList.get(adapterPosition).getFile().isDirectory()) {
-            // 如果上传整个projects目录，则将该目录下项目分开上传
-            if (folderList.get(adapterPosition).getName().contains("projects")) {
-                File[] files = folderList.get(adapterPosition).getFile().listFiles();
-                for (int i = 0; i < files.length; i++) {
-                    if (!ShareCodeUtil.getInstance().uploadFolder(files[i].getPath(), i == 0 ? null : listener, size)) {
-                        folderList.get(adapterPosition).setUploading(false);
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-            } else {
-                if (!ShareCodeUtil.getInstance().uploadFolder(folderList.get(adapterPosition).getPath(), listener, size)) {
-                    folderList.get(adapterPosition).setUploading(false);
-                    adapter.notifyDataSetChanged();
-                }
-            }
-        } else {
-            if (!ShareCodeUtil.getInstance().uploadFile(folderList.get(adapterPosition).getPath(), listener)) {
-                folderList.get(adapterPosition).setUploading(false);
-                adapter.notifyDataSetChanged();
-            }
-        }
     }
 
     private void renameFile(int adapterPosition) {
@@ -437,9 +402,9 @@ public class ExplorerFragment extends Fragment {
     }
 
     public void backToPrev() {
-        Log.d("ExplorerFragment", "backToPrev:"+curPath);
-        String qpyDir = Environment.getExternalStorageDirectory().getAbsolutePath()+"/qpython";
-        if (curPath == null || qpyDir.equals(curPath) || Environment.getExternalStorageDirectory().getAbsolutePath().equals(curPath)) {
+        Log.d("ExplorerFragment", "backToPrev:" + curPath);
+        String qpyDir = getContext().getExternalFilesDir(null).getAbsolutePath() + "/qpython";
+        if (curPath == null || qpyDir.equals(curPath) || getContext().getExternalFilesDir(null).getAbsolutePath().equals(curPath)) {
             getActivity().finish();
         } else {
             String parentPath = new File(curPath).getParent();
@@ -467,25 +432,6 @@ public class ExplorerFragment extends Fragment {
         return curPath;
     }
 
-    private void initCloud() {
-        if (App.getUser() == null) {
-            return;
-        }
-        ShareCodeUtil.getInstance().getUploadedScripts(false, getActivity(), cloudFiles -> {
-            if (cloudFiles == null || cloudFiles.size() == 0) {
-                return;
-            }
-            for (CloudFile cloudFile : cloudFiles) {
-                if (cloudFile.getPath().contains("/projects")) {
-                    String projNode = cloudFile.getPath().contains("/projects3/") ? "/projects3/" : "/projects/";
-                    cloudedMap.put(CONF.ABSOLUTE_PATH + projNode + cloudFile.getProjectName(), true);
-                }
-                cloudedMap.put(CONF.ABSOLUTE_PATH + cloudFile.getPath(), true);
-            }
-            adapter.setCloudMap(cloudedMap);
-            adapter.notifyDataSetChanged();
-        });
-    }
 
     public void deleteCloudedMap(String absolutePath) {
         if (cloudedMap.containsKey(absolutePath)) {

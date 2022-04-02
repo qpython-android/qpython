@@ -158,6 +158,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
      * Intercepts keys before the view/terminal gets it.
      */
     private View.OnKeyListener mKeyListener = new View.OnKeyListener() {
+        @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
             return backkeyInterceptor(keyCode, event) || keyboardShortcuts(keyCode, event);
         }
@@ -232,6 +233,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
         }
     };
     private ServiceConnection mTSConnection = new ServiceConnection() {
+        @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             Log.i(TermDebug.LOG_TAG, "Bound to TermService");
             TermService.TSBinder binder = (TermService.TSBinder) service;
@@ -246,6 +248,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
             }
         }
 
+        @Override
         public void onServiceDisconnected(ComponentName arg0) {
             mTermService = null;
         }
@@ -293,7 +296,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
         initView();
         mPrivateAlias = new ComponentName(this, RemoteInterface.PRIVACT_ACTIVITY_ALIAS);
         if (icicle == null)
-            onNewIntent(getIntent());
+        {onNewIntent(getIntent());}
 
 
         Intent broadcast = new Intent(ACTION_PATH_BROADCAST);
@@ -944,6 +947,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
     }
 
     // Called when the list of sessions changes
+    @Override
     public void onUpdate() {
         SessionList sessions = mTermSessions;
         if (sessions == null) {
@@ -1154,7 +1158,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
         PackageManager pm = getPackageManager();
         List<ResolveInfo> handlers = pm.queryIntentActivities(openLink, 0);
         if (handlers.size() > 0)
-            startActivity(openLink);
+        {startActivity(openLink);}
     }
 
     private TermSession createPyTermSession(String[] mArgs) throws IOException {
@@ -1181,7 +1185,7 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
                 } else {
                     StringBuilder cm = new StringBuilder();
                     for (int i = 0; i < mArgs.length; i++) {
-                        if (i == 1 && mArgs[0].contains(mArgs[i])) continue;
+                        if (i == 1 && mArgs[0].contains(mArgs[i])) {continue;}
                         cm.append(" ").append(mArgs[i]).append(" ");
                     }
                     session = createTermSession(this, settings, scmd + " " + cm + " && exit", mArgs[1]);
@@ -1238,14 +1242,14 @@ public class TermActivity extends AppCompatActivity implements UpdateCallback, S
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
             // Let the EmulatorView handle taps if mouse tracking is active
-            if (view.isMouseTrackingActive()) return false;
+            if (view.isMouseTrackingActive()) {return false;}
 
             //Check for link at tap location
             String link = view.getURLat(e.getX(), e.getY());
             if (link != null)
-                execURL(link);
+            {execURL(link);}
             else
-                doUIToggle((int) e.getX(), (int) e.getY(), view.getVisibleWidth(), view.getVisibleHeight());
+            {doUIToggle((int) e.getX(), (int) e.getY(), view.getVisibleWidth(), view.getVisibleHeight());}
             return true;
         }
 

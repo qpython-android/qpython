@@ -17,10 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.quseit.base.QBaseDialog;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NUtil;
 
 import org.qpython.qpy.R;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpysdk.QPyConstants;
 import org.swiftp.Defaults;
 
@@ -80,7 +82,7 @@ public class MFTPSettingActivity extends BaseActivity {
 
         //initWidgetTabItem(4);
 
-        String externalStorage = new File(Environment.getExternalStorageDirectory(), QPyConstants.BASE_PATH).getAbsolutePath();
+        String externalStorage = new File(FileUtils.getPath(App.getContext()), QPyConstants.BASE_PATH).getAbsolutePath();
         String frv = MessageFormat.format(getString(R.string.ftp_root), externalStorage);
         TextView fr = (TextView)findViewById(R.id.ftp_root_value);
         fr.setText(frv);
@@ -125,7 +127,8 @@ public class MFTPSettingActivity extends BaseActivity {
     
     private void startServer() {
         Context context = getApplicationContext();
-        NAction.setFtpRoot(context, Environment.getExternalStorageDirectory()+"/"+ QPyConstants.BASE_PATH);
+        NAction.setFtpRoot(context, FileUtils.getPath(App.getContext())+"/"+ QPyConstants.BASE_PATH);
+
         Intent serverService = new Intent(context, FTPServerService.class);
         if (!org.swiftp.FTPServerService.isRunning()) {
             startService(serverService);

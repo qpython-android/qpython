@@ -20,6 +20,7 @@ import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpysdk.Exec;
 import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
@@ -129,7 +130,7 @@ public class ScriptExec {
 
 
     public String getLastLog() {
-        File logFile = new File(QPyConstants.ABSOLUTE_LOG);
+        File logFile = new File(FileUtils.getAbsoluteLogPath(App.getContext()));
 
         if (!logFile.getAbsoluteFile().getParentFile().exists()) {
             logFile.getAbsoluteFile().getParentFile().mkdirs();
@@ -146,7 +147,7 @@ public class ScriptExec {
         boolean isQPy3 =  NAction.isQPy3(context);
 
         File filesDir = context.getFilesDir();
-        File externalStorage = new File(QPyConstants.ABSOLUTE_PATH);
+        File externalStorage = new File(FileUtils.getAbsolutePath(context));
 
         String[] env = new String[24];
 
@@ -332,7 +333,7 @@ public class ScriptExec {
         if (Utils.isOpenGL2supported(context)) {
             File scriptParent = new File(script).getParentFile();
             String proj, log;
-            log = QPyConstants.ABSOLUTE_LOG;
+            log = FileUtils.getAbsoluteLogPath(App.getContext());
 
             if (scriptParent.getName().startsWith("scripts")) {
                 proj = new File(script).getName();
@@ -413,9 +414,9 @@ public class ScriptExec {
 
         String[] argumentsArray = mArguments.toArray(new String[mArguments.size()]);
 
-        final File mLog = new File(QPyConstants.ABSOLUTE_LOG);
+        final File mLog = new File(FileUtils.getAbsoluteLogPath(App.getContext()));
 
-        mFd = Exec.createSubprocess(binaryPath, argumentsArray, getPyEnv(context, System.getenv("PATH"), System.getenv("TERM"),f.getParentFile() + ""), Environment.getExternalStorageDirectory() + "/", pid);
+        mFd = Exec.createSubprocess(binaryPath, argumentsArray, getPyEnv(context, System.getenv("PATH"), System.getenv("TERM"),f.getParentFile() + ""), FileUtils.getPath(App.getContext()) + "/", pid);
         final AtomicInteger mPid = new AtomicInteger(PID_INIT_VALUE);
 
         mPid.set(pid[0]);

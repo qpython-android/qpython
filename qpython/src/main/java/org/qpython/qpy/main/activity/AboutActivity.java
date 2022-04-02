@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity {
         });
 
         binding.tvPrivacy.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_html)));
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_user_private)));
             startActivity(browserIntent);
         });
 

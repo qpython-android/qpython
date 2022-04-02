@@ -412,6 +412,7 @@
     <string name="lout">ログアウトしますか?</string>
     <string name="log_noti">ログ通知</string>
     <string name="app_noti">アプリの通知</string>
+    <string name="text_noti">Notification</string>
     <string name="override_hint">ローカルのファイルを上書きしますか?</string>
     <string name="file_downloaded">ファイルがダウンロードされました。</string>
     <string name="login_error">ログイン中にエラーが発生しました。</string>
@@ -430,6 +431,7 @@
     <string name="new_file">新規ファイル</string>
     <string name="tools">ツール</string>
     <string name="aipy_not_install"><![CDATA[<font color="#4BAC07">依存しているパッケージ</font>をインストールしてからAIPYをインストールしてください。]]></string>
+    <string name="welcome_qpython">Welcome to Use QPython</string>
 
     <!--color string-->
 
@@ -486,4 +488,8 @@
     <string name="switch_py3_hint">現在Python2を使用中です。Python3に切り替えますか?</string>
     <string name="goto_setting">設定に移動</string>
     <string name="net_lagging">ネットワークにラグが発生しています。しばらくお待ちください。</string>
+    <string name="enable_keep_alive">You can run QPython script even it\'s in background if this mode is enabled.</string>
+    <string name="disable_keep_alive">Disable</string>
+    <string name="keep_alive_tips">QPython will restart to apply changes.</string>
+    <string name="shortcut_create_fail">"Please grant the creat shortcut permission. "</string>
 </resources>

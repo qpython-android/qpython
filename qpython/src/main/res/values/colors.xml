@@ -13,6 +13,7 @@
     <color name="ripple_normal">#CACCCB</color>
     <color name="text_dark">#333333</color>
 
+    <color name="switch_btn_colors">#87AADC</color>
 
     <color name="ripple_material_light">#40000000</color>
 
@@ -29,8 +30,10 @@
     <color name="cwhite3">#fbfbfb</color>
 
     <color name="cgrey6">#e8e8e8</color>
-    \
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="color_498fdd">#498fdd</color>
+    <color name="color_103606">#103606</color>
+    <color name="color_999999">#999999</color>
 </resources>

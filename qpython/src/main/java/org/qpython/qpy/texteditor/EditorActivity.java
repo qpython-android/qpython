@@ -31,6 +31,7 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 
 import com.quseit.util.FileHelper;
+import com.quseit.util.FileUtils;
 import com.quseit.util.NAction;
 import com.quseit.util.NStorage;
 
@@ -43,6 +44,7 @@ import org.qpython.qpy.databinding.DrawerEditorBinding;
 import org.qpython.qpy.main.activity.BaseActivity;
 import org.qpython.qpy.main.activity.GistEditActivity;
 import org.qpython.qpy.main.adapter.EditorFileTreeAdapter;
+import org.qpython.qpy.main.app.App;
 import org.qpython.qpy.texteditor.common.RecentFiles;
 import org.qpython.qpy.texteditor.common.Settings;
 import org.qpython.qpy.texteditor.common.TextFileUtils;
@@ -374,7 +376,7 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
 
             //String code = NAction.getCode(this);
         boolean isQpy3 = NAction.isQPy3(getApplication());
-        String baseDir = QPyConstants.ABSOLUTE_PATH;
+        String baseDir = FileUtils.getAbsolutePath(App.getContext());
         File root = new File(baseDir);
         if (!(root.exists() && root.isDirectory())) {
             root.mkdir();
@@ -889,7 +891,7 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
                 .setTitle(getString(R.string.new_script))
                 .setExt(".py")
                 .setConfirmListener(name -> {
-                    File file = new File(QPyConstants.ABSOLUTE_PATH + "/" + (isQpy3? QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2) + "/" + name);
+                    File file = new File(FileUtils.getAbsolutePath(App.getContext()) + "/" + (isQpy3? QPyConstants.DFROM_QPY3:QPyConstants.DFROM_QPY2) + "/" + name);
                     if (file.exists()) {
                         Crouton.showText(this, R.string.file_exists, Style.ALERT);
 
@@ -924,7 +926,7 @@ public class EditorActivity extends BaseActivity implements ViewTreeObserver.OnG
                 Stack<String> curArtistDir = new Stack<>();
                 final boolean isQpy3 = NAction.isQPy3(getApplicationContext());
 
-                curArtistDir.push(QPyConstants.ABSOLUTE_PATH
+                curArtistDir.push(FileUtils.getAbsolutePath(App.getContext())
                         + "/" + (isQpy3 ? QPyConstants.DFROM_PRJ3 : QPyConstants.DFROM_PRJ2) + "/" + name);
 
                 File fileN = new File(curArtistDir.peek());
