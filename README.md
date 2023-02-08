@@ -77,3 +77,10 @@ IF YOU WANT TO PARTICIPATE THIS PROJECT, PLEASE SEND YOUR EMAIL TO US, WE WILL I
 Or you can join [qpython slack](https://join.slack.com/t/qpython/shared_invite/enQtOTI1MDY1NzM4NjU2LTljZDI3MjI0ZmZmNzIwNzAwMTU2ZDIyNGRjMTJiOTQ4MzgzY2Y3NDU5YzJjNTQ5MmM4Nzk2MGI4YWZmY2VhOTU)
 
 THANK YOU.
+
+## logging
+
+- 230208 ZQ append README for release new version .apk
+    + latest code in gitee: [qpython-android/qpython](https://gitee.com/qpython-android/qpython/tree/master/)
+
+
