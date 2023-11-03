@@ -75,7 +75,7 @@ IF YOU WANT TO PARTICIPATE THIS PROJECT, PLEASE SEND YOUR EMAIL TO US, WE WILL I
 - Twitter: @qpython
 - Facebook: https://www.facebook.com/qpython
 
-Or you can join [qpython slack](https://join.slack.com/t/qpython/shared_invite/enQtOTI1MDY1NzM4NjU2LTljZDI3MjI0ZmZmNzIwNzAwMTU2ZDIyNGRjMTJiOTQ4MzgzY2Y3NDU5YzJjNTQ5MmM4Nzk2MGI4YWZmY2VhOTU)
+Or you can join [qpython slack](https://join.slack.com/t/qpython/shared_invite/zt-bsyw9868-nNJyJP_3IHABVtIk3BK5SA)
 
 THANK YOU.
 
