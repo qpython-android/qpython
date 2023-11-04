@@ -58,23 +58,7 @@ Please tell us your phone's informatioin, android os information, QPython branch
 - [Request to support a package](https://github.com/qpython-android/qpypi/issues)
 
 
-THANK YOU VERY MUCH FOR DONATION!
-
-
-## How to contribute
-WE NEED YOUR HELP AND CONTRIBUTE, WE WILL BE VERY GRATEFUL IF YOU CAN TELL US YOUR IDEA OR SUGGESTION.
-
-IF YOU WANT TO PARTICIPATE THIS PROJECT, PLEASE SEND YOUR EMAIL TO US, WE WILL INVITE YOU INTO QPYTHON SLACK GROUP WHERE WE WILL DISCUSS HOW TO PUSH ON QPYTHON.
-
-- Email: support@qpython.org
-- Twitter: @qpython
-- Facebook: https://www.facebook.com/qpython
-
-Or you can join [Join QPython Slack](https://join.slack.com/t/qpython/shared_invite/zt-bsyw9868-nNJyJP_3IHABVtIk3BK5SA)
 
 THANK YOU.
-
-## Others
-中国开发者: [qpython-android/qpython](https://gitee.com/qpython-android/qpython/tree/master/)
 
 
