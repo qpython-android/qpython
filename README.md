@@ -31,9 +31,9 @@ Get more information from [wiki](https://github.com/qpython-android/qpython/wiki
 
 ## Related 
 
+- Get newest QPython: [QPython 3.2.5 in Google drive](https://drive.google.com/file/d/1guSK2K44teWznXmSyu1RLeD0QzDGpPnM/view?fbclid=IwAR1c0uF4YvBH7PiHiz1k5K3qEWxOkqXULKRYOFJJfXNsiuAJCtMkF-Kfp6M)
 - [QPython 3 features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
 - [QPySL4A APIs](https://github.com/qpython-android/qpysl4a/blob/master/doc/en/APIs.rst) and [test scripts](https://github.com/qpython-android/qpysl4a/issues/1)
-- QPYPI Packages
 
 ## How to ask QPython related questions
 In order to benefit those guys who have the same issue with QPython, we suggest that you should ask the issue which is related with QPython within public techical communities.
