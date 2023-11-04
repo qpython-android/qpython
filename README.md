@@ -46,6 +46,7 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 ### Chinese QPythonista Community
 
 - Wechat Group: Please add wechat: <strong>yhc-startup</string> with comment QPY
+<img src="https://raw.githubusercontent.com/qpython-android/qpython/main/docs/qpyqrcode.png" width="256" /> 
 
 ### Report issues
 
