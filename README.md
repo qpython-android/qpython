@@ -45,7 +45,7 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 
 ### Chinese QPythonista Community
 
-- Wechat Group: Please add wechat: <strong>yhc-startup</string> with comment QPY
+- Wechat Group: Please scan the following qrcode with your wechat
 <img src="https://raw.githubusercontent.com/qpython-android/qpython/main/docs/qpyqrcode.png" width="256" /> 
 
 ### Report issues
@@ -56,10 +56,6 @@ Please tell us your phone's informatioin, android os information, QPython branch
 - [Report an non-app's issue](https://github.com/qpython-android/qpython.org/issues)
 - [Request to support a package](https://github.com/qpython-android/qpypi/issues)
 
-## Donation
-
-- harford (Wechat)
-- 晨晖 (Wechat)
 
 THANK YOU VERY MUCH FOR DONATION!
 
