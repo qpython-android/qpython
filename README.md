@@ -41,7 +41,6 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 
 ### English QPythonista Community
 
-- [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
 - [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
 
 ### Chinese QPythonista Community
