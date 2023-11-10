@@ -31,9 +31,9 @@ Get more information from [wiki](https://github.com/qpython-android/qpython/wiki
 
 ## Related 
 
-- [QPython 3x features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython Ox features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
+- Get newest QPython: [QPython 3.2.5 in Google drive](https://drive.google.com/file/d/1guSK2K44teWznXmSyu1RLeD0QzDGpPnM/view?fbclid=IwAR1c0uF4YvBH7PiHiz1k5K3qEWxOkqXULKRYOFJJfXNsiuAJCtMkF-Kfp6M)
+- [QPython 3 features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_3x_featues.rst), [QPython features](https://github.com/qpython-android/qpython.org/blob/master/qpython-docs/source/en/qpython_ox_featues.rst)
 - [QPySL4A APIs](https://github.com/qpython-android/qpysl4a/blob/master/doc/en/APIs.rst) and [test scripts](https://github.com/qpython-android/qpysl4a/issues/1)
-- QPYPI Packages
 
 ## How to ask QPython related questions
 In order to benefit those guys who have the same issue with QPython, we suggest that you should ask the issue which is related with QPython within public techical communities.
@@ -41,14 +41,13 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 
 ### English QPythonista Community
 
-- [Ask in stackoverflow](https://stackoverflow.com/questions/tagged/qpython)
-- [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
+- For general user: [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
+- For contributor: [Join QPython Slack](https://join.slack.com/t/qpython/shared_invite/zt-bsyw9868-nNJyJP_3IHABVtIk3BK5SA)
 
 ### Chinese QPythonista Community
 
-- [在segmentfault提问 - Chinese](https://segmentfault.com/t/qpython)
-- [在贴吧讨论 - Chinese](https://tieba.baidu.com/f?ie=utf-8&kw=qpython)
-- Wechat Group: Please add yhc-startup
+- Wechat Group: Please scan the following qrcode with your wechat
+<img src="https://raw.githubusercontent.com/qpython-android/qpython/main/docs/qpyqrcode.png" width="256" /> 
 
 ### Report issues
 
@@ -58,30 +57,8 @@ Please tell us your phone's informatioin, android os information, QPython branch
 - [Report an non-app's issue](https://github.com/qpython-android/qpython.org/issues)
 - [Request to support a package](https://github.com/qpython-android/qpypi/issues)
 
-## Donation
 
-- harford (Wechat)
-- 晨晖 (Wechat)
-
-THANK YOU VERY MUCH FOR DONATION!
-
-
-## How to contribute
-WE NEED YOUR HELP AND CONTRIBUTE, WE WILL BE VERY GRATEFUL IF YOU CAN TELL US YOUR IDEA OR SUGGESTION.
-
-IF YOU WANT TO PARTICIPATE THIS PROJECT, PLEASE SEND YOUR EMAIL TO US, WE WILL INVITE YOU INTO QPYTHON SLACK GROUP WHERE WE WILL DISCUSS HOW TO PUSH ON QPYTHON.
-
-- Email: support@qpython.org
-- Twitter: @qpython
-- Facebook: https://www.facebook.com/qpython
-
-Or you can join [qpython slack](https://join.slack.com/t/qpython/shared_invite/enQtOTI1MDY1NzM4NjU2LTljZDI3MjI0ZmZmNzIwNzAwMTU2ZDIyNGRjMTJiOTQ4MzgzY2Y3NDU5YzJjNTQ5MmM4Nzk2MGI4YWZmY2VhOTU)
 
 THANK YOU.
-
-## logging
-
-- 230208 ZQ append README for release new version .apk
-    + latest code in gitee: [qpython-android/qpython](https://gitee.com/qpython-android/qpython/tree/master/)
 
 
