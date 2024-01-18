@@ -43,7 +43,7 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 
 - For general user: [Discuss QPython Programming in QPython Group](https://www.facebook.com/groups/qpython/)
 - For contributor: [Join QPython Slack](https://join.slack.com/t/qpython/shared_invite/zt-bsyw9868-nNJyJP_3IHABVtIk3BK5SA)
-- For all users: [Join QPython Discord](https://discord.gg/58eBWUgF)
+- For all users: [Join QPython Discord](https://discord.gg/hV2chuD)
 
 ### Chinese QPythonista Community
 
