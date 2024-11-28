@@ -47,7 +47,7 @@ In order to benefit those guys who have the same issue with QPython, we suggest 
 
 ### Chinese QPythonista Community
 
-- Wechat Group: Please scan the following qrcode with your wechat
+- Wechat Group: Please scan the following qrcode with your wechat and send adding request with comment "qpy from github"
 <img src="https://raw.githubusercontent.com/qpython-android/qpython/main/docs/wx-contact-river.png" width="256" /> 
 
 ### Report issues
